@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>UD02_CSS_Conceptes_Basics</title>
+<link rel="stylesheet" type="text/css" href="/apunts/markdown/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<pre><code>－－－－－－－－－－－－－－－－－－－－－－－
+ＵＤ０２  －  Ｃｏｎｃｅｐｔｅｓ  Ｂｓｉｃｓ
+－－－－－－－－－－－－－－－－－－－－－－－</code></pre>
+<p><a href="./Planificacio.html">(⇧ Planificacio)</a></p>
+<h1 id="índex">Índex</h1>
+<!-- vim-markdown-toc GitLab -->
+<ul>
+<li><a href="#formularis">Formularis</a></li>
+<li><a href="#fulls-destil-css">Fulls d'estil (CSS)</a>
+<ul>
+<li><a href="#conceptes-bàsics-wip">Conceptes bàsics (WIP)</a></li>
+<li><a href="#regles-at-">Regles &quot;AT&quot; (@)</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#referències">Referències</a></li>
+</ul></li>
+<li><a href="#javascript">Javascript</a>
+<ul>
+<li><a href="#història">Història</a></li>
+<li><a href="#ecmascript">ECMASCRIPT</a></li>
+<li><a href="#referències-1">Referències</a></li>
+</ul></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h1 id="formularis">Formularis</h1>
+<h1 id="fulls-destil-css">Fulls d'estil (CSS)</h1>
+<p>CSS - Cascade Style Sheets</p>
+<p>:pushpin: <strong>Nivells d'estandardització:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Editor's Draft (ED)</li>
+<li>Working Draft (WD)</li>
+<li>Transition – Last Call Working Draft (LCWD)</li>
+<li>Candidate Recommendation (CR)</li>
+<li>Transition – Proposed Recommendations (PR)</li>
+<li>Recommendation (REC)</li>
+</ol>
+<p><strong>Font:</strong> <a href="">https://css-tricks.com/css-standards-process/</a></p>
+<h2 id="conceptes-bàsics-wip">Conceptes bàsics (WIP)</h2>
+<div class="figure">
+<img src="../Figures/NomenclaturaCSS_medium.png" />
+
+</div>
+<ul>
+<li><p><strong>Propietat:</strong> Designa un paràmetre o característica que desitjam ajustar a l'element o elements seleccionats.</p></li>
+<li><p><strong>Valor:</strong> El valor que li volem assignar a una <em>propietat</em>.</p></li>
+<li><p><strong>Declaració:</strong> És el conjunt d'una <em>propietat</em> i el seu <em>valor</em>, separades per dos punts (&quot;:&quot;).</p></li>
+<li><p><strong>Bloc de Declaracions:</strong> És una llista d'una o més <em>declaracions</em>, separades per punt i coma (&quot;;&quot;), i envoltes en claus (&quot;{ ... }&quot;).</p></li>
+<li><p><strong>Selector:</strong> És una expressió que ens permet seleccionar un o varis elements del DOM als que volem aplicar un <em>bloc de declaracions</em>.</p></li>
+<li><strong>Regla:</strong> Es el conjunt format per un <em>selector</em> i un <em>bloc de declaracions</em>.
+<ul>
+<li>També pot tenir varis selectors separats per comes (&quot;,&quot;).</li>
+</ul></li>
+<li><strong>&quot;Multipropietats&quot; (shorthand property):</strong>
+<ul>
+<li>Ex: <code>font</code> = <code>font-style</code> + <code>font-weight</code> + <code>font-size</code> + <code>line-height</code> + <code>font-family</code>.</li>
+<li>Ex: <code>margin</code> = <code>margin-top</code> + <code>margin-right</code> + <code>margin-bottom</code> + <code>margin-left</code>.</li>
+<li>Acostumen guardar coherència:</li>
+<li>Ex: Top - Right - Bottom - Left (&quot;TRouBLe&quot; / Des d'amunt i en sentit de les agulles del rellotge).</li>
+<li>Valors per defecte &quot;simètrics&quot;</li>
+<li>En cas de dubte, consultar documentació.</li>
+<li><strong>Efecte col·lateral:</strong> SEMPRE estableixen totes les propietats (encara que s'ometin).</li>
+</ul></li>
+</ul>
+<h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
+<h2 id="variables">Variables</h2>
+<p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>--home_background_color: cyan;</code></pre>
+<p>Funcionen com una declaració normal i son heretades pels elements descendents amb la única diferència que no tenen cap efecte per si mateixes.</p>
+<p>Per llegir-les fem servir la funció <code>var()</code>.</p>
+<p>**Exemple:</p>
+<pre><code>background-color: var(--home_background_color);</code></pre>
+<h2 id="referències">Referències</h2>
+<h1 id="javascript">Javascript</h1>
+<h2 id="història">Història</h2>
+<h2 id="ecmascript">ECMASCRIPT</h2>
+<h2 id="referències-1">Referències</h2>
+
+</body>
+</html>

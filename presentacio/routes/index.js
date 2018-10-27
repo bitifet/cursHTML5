@@ -5,6 +5,7 @@ const router = express.Router();
 const Fs = require('fs');
 const modelsPath = __dirname + "/../models/";
 
+const serverSocket = require("../lib/serverSocket.js");
 
 // Autoload of Models:
 const models = {};
@@ -15,8 +16,6 @@ Fs.readdirSync(modelsPath)
     return mName;
 });
 
-
-console.log (models);
 
 
 /* GET home page. */
@@ -39,6 +38,19 @@ router.get('/model/:model_id.json', function(req, res, next) {
     } else {
         next();
     };
+
+});
+
+/* GET simple REST-WebSocket gateway */
+router.get('/setslide/:msg', function(req, res, next) {
+
+    serverSocket.broadcast(req.params.msg);
+
+    res
+        .status(200)
+        .set('Content-Type', 'text/plain')
+        .send("Ok")
+    ;
 
 });
 

@@ -16,6 +16,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 * [Formularis](#formularis)
 * [Fulls d'estil (CSS)](#fulls-destil-css)
     * [Conceptes bàsics (WIP)](#conceptes-bàsics-wip)
+    * [Selectors](#selectors)
     * [Regles "AT" (@)](#regles-at-)
     * [Variables](#variables)
     * [Referències](#referències)
@@ -86,6 +87,21 @@ Conceptes bàsics (WIP)
       s'ometin).
 
 
+Selectors
+---------
+
+[Selectors de pseudo-classe - Introducció](/setslide/pseudoclass_selectors_0)
+
+[Selectors de pseudo-classe (1)](/setslide/pseudoclass_selectors_1)
+
+[Selectors de pseudo-classe (2)](/setslide/pseudoclass_selectors_2)
+
+[Selectors de pseudo-classe (3)](/setslide/pseudoclass_selectors_3)
+
+[Selectors de pseudo-classe (4)](/setslide/pseudoclass_selectors_4)
+
+
+
 Regles "AT" (@)
 ---------------
 
@@ -108,15 +124,12 @@ amb la única diferència que no tenen cap efecte per si mateixes.
 
 Per llegir-les fem servir la funció `var()`.
 
-**Exemple:
+**Exemple:**
 
 
 ```
 background-color: var(--home_background_color);
 ```
-
-
-
 
 
 

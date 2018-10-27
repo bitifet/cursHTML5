@@ -15,4 +15,17 @@ pre {
     border: black solid 1px;
     background: #333333;
     color: white;
-};
+}
+
+
+
+.slidesetter {
+    display: inline-block;
+    position: relative;
+    padding: .5em;
+    margin: .2em;
+    background: #ccccff;
+    border: groove;
+    font-size: x-large;
+}
+

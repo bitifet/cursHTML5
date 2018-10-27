@@ -31,6 +31,8 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
             | perl -pe "s#__FIGURES_PATH__#${rel_figures_path}#g" \
             | perl -pe "s/__NAV_LINK__//" \
             | pandoc -f markdown -t html -o -
+        echo '<script src="/javascripts/jquery-3.3.1.min.js"></script>'
+        echo '<script src="/javascripts/remote_controller.js"></script>'
         echo '</body>'
         echo '</html>'
     ) > "${html_path}/${baseName}.html"
@@ -39,6 +41,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
     cat "${f}" \
         | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
         | perl -ne "/__NAV_LINK__/ || print" \
+        | perl -ne "/\\/setslide\\// || print" \
         | pandoc -f markdown -t odt -o  "${odt_path}/${baseName}.odt"
 done;
 echo "";

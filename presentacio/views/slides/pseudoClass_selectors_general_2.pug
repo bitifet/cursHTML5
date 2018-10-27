@@ -1,11 +1,11 @@
 
-.slide
+.slide(data-name="pseudoclass_selectors_2")
   div
     h2 General Pseudo-class Selectors (2)
 
     table
       tr
-        th
+        th.lateral
           code.
             :first-of-type
         td.
@@ -13,26 +13,26 @@
           position among all children, it considers an element’s numerical
           position only among other children with the same tag name.
       tr
-        th
+        th.lateral
           code.
             :last-of-type
         td.
           —Targets the last child element of each type.
       tr
-        th
+        th.lateral
           code.
             :only-of-type
         td.
           —Targets elements that are the only child of their type.
       tr
-        th
+        th.lateral
           code.
             :nth-of-type(an+b)
         td.
           —Targets elements of their type based on their numerical order and the
           specified formula; similar to `:nth-child`.
       tr
-        th
+        th.lateral
           code.
             :nth-last-of-type(an+b)
         td.

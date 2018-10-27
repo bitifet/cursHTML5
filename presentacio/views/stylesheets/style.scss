@@ -57,15 +57,23 @@ a {
 
 
     td, th {
-        padding: .1em;
+        padding: .6em;
         vertical-align: top;
         box-shadow: 4px 4px 5px grey;
     }
     th {
         background: #ccccdd;
+        vertical-align: bottom;
+        &.lateral {
+            min-width: 30%;
+            vertical-align: middle;
+        }
     }
     td {
         background: #eeeeee;
+        &:first-letter, & p:first-letter {
+            font-size: 1.3em;
+        }
     }
 }
 

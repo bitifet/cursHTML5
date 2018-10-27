@@ -29,3 +29,25 @@ pre {
     font-size: x-large;
 }
 
+
+body {
+    margin-bottom: 90px;
+}
+.controlButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr .2fr 1fr 1fr;
+    background: #cccccc;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    margin:0px;
+    margin-left: -.5em;
+
+    .buttom {
+        background: white;
+
+    }
+
+}
+

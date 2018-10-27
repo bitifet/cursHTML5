@@ -25,6 +25,7 @@
             };
             if (isNaN(n)) return;
         };//}}}
+        n = Number(n);
         if (n >= slides.length) n = slides.length - 1;
         if (n < 0) n = 0;
         slides[current].removeClass("current");

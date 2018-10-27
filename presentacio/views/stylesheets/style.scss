@@ -1,7 +1,13 @@
 
+@import '../../node_modules/normalize.css/normalize';
 
 :root {
   box-sizing: border-box;
+
+  font-size: calc(12px + 1vw);
+  font-size: calc(12px + 1vmin);
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 *,
@@ -44,10 +50,16 @@ a {
 
     h1, h2, h3, h4, h5 {
         text-shadow: 2px 2px 5px grey;
+        text-align: center;
     }
+    font-size: 1.2rem;
+    h1 { font-size: 4.5rem !important; }
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2rem; }
+    h4 { font-size: 1.6rem; }
+    h5 { font-size: 1.4rem; }
     
 
-    font-size: xx-large;
 
 
     table {
@@ -74,6 +86,11 @@ a {
         &:first-letter, & p:first-letter {
             font-size: 1.3em;
         }
+    }
+
+    img.big {
+        width: 80vh;
+        width: 80vmin;
     }
 }
 

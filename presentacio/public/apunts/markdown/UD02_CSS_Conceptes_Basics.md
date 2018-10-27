@@ -54,6 +54,7 @@ Fulls d'estil (CSS)
 Conceptes bàsics (WIP)
 ----------------------
 
+[Nomenclatura CSS](/setslide/nomenclatura_css)
 
 ![](__FIGURES_PATH__/NomenclaturaCSS_medium.png)
 

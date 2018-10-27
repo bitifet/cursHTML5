@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .slide.current
+    div
+      h1= app.name
+      p Welcome to #{app.longName}
+  include slides/pseudoClass_selectors
+  include slides/pseudoClass_selectors_general_1
+  include slides/pseudoClass_selectors_general_2
+  include slides/pseudoClass_selectors_general_3
+  include slides/pseudoClass_selectors_general_4
+
+
+  script(src="/javascripts/jquery-3.3.1.min.js")
+  script(src="/javascripts/slide_controller.js")
+
+//- vim: set ft=jade:

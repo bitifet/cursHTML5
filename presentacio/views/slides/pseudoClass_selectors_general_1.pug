@@ -1,0 +1,46 @@
+
+.slide
+  div
+    h2 General Pseudo-class Selectors (1)
+
+    table
+      tr
+        th
+          code.
+            :first-child
+        td.
+          —Targets elements that are the first element within their parent element.
+      tr
+        th
+          code.
+              :last-child
+        td.
+            —Targets elements that are the last element within their parent
+            element.
+      tr
+        th
+          code.
+              :only-child
+        td.
+          —Targets elements that are the only element within their parent element
+          (no siblings).
+      tr
+        th
+          code.
+              :nth-child(an+b)
+        td.
+            —Targets elements based upon their position among their siblings. The
+            formula an+b, where a and b are integers, indicates which elements to
+            target. To know exactly how a formula works, imagine solving it for all
+            integer values of n, beginning with zero. The results of this equation
+            indicate which children are targeted. 
+      tr
+        th
+          code.
+              :nth-last-child(an+b)
+        td.
+            —Similar to `:nth-child()`, but instead of counting forward from the
+            first element, this selector counts backward from the last element. The
+            formula in the parentheses follows the same pattern as in :nth-child().  
+
+//- vim: set ft=jade:

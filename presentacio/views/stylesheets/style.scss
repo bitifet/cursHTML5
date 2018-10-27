@@ -1,8 +1,71 @@
+
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
 }
 
 a {
   color: #00B7FF;
 }
+
+
+.slide {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    background: white;
+    padding: 2em;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &.current {
+        display:block;
+        display: flex;
+    };
+
+    h1, h2, h3, h4, h5 {
+        text-shadow: 2px 2px 5px grey;
+    }
+    
+
+    font-size: xx-large;
+
+
+    table {
+        border-collapse: separate;
+        border-spacing: 15px;
+    }
+
+
+    td, th {
+        padding: .1em;
+        vertical-align: top;
+        box-shadow: 4px 4px 5px grey;
+    }
+    th {
+        background: #ccccdd;
+    }
+    td {
+        background: #eeeeee;
+    }
+}
+

@@ -15,7 +15,7 @@ echo "Exporting markdown..."
 for f in $(find "${markdown_path}" -type f -iname '*.md'); do
     fileName=$(basename "${f}");
     baseName="${fileName%.*}"
-    echo "${baseName}.html"
+    echo "  * ${baseName}.html"
     ( \
         echo '<!DOCTYPE HTML>'
         echo '<html>'
@@ -35,10 +35,11 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '</html>'
     ) > "${html_path}/${baseName}.html"
 
-    echo "${baseName}.odt"
+    echo "  * ${baseName}.odt"
     cat "${f}" \
         | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
         | perl -ne "/__NAV_LINK__/ || print" \
         | pandoc -f markdown -t odt -o  "${odt_path}/${baseName}.odt"
 done;
+echo "";
 

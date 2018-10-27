@@ -1,0 +1,42 @@
+
+.slide
+  div
+    h2 General Pseudo-class Selectors (2)
+
+    table
+      tr
+        th
+          code.
+            :first-of-type
+        td.
+          —Similar in nature to `:first-child`, except instead of considering the
+          position among all children, it considers an element’s numerical
+          position only among other children with the same tag name.
+      tr
+        th
+          code.
+            :last-of-type
+        td.
+          —Targets the last child element of each type.
+      tr
+        th
+          code.
+            :only-of-type
+        td.
+          —Targets elements that are the only child of their type.
+      tr
+        th
+          code.
+            :nth-of-type(an+b)
+        td.
+          —Targets elements of their type based on their numerical order and the
+          specified formula; similar to `:nth-child`.
+      tr
+        th
+          code.
+            :nth-last-of-type(an+b)
+        td.
+          —Targets elements of their type based on a specified formula, counting
+          from the last of those elements backward; similar to `:nth-last-child`.
+
+//- vim: set ft=jade:

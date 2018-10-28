@@ -41,12 +41,14 @@
 <li><a href="#elements-de-la-capçalera">Elements de la Capçalera</a></li>
 <li><a href="#elements-del-cos">Elements del Cos</a></li>
 </ul></li>
-<li><a href="#exercicis">Exercicis</a>
-<ul>
-<li><a href="#exercici-1">Exercici 1:</a></li>
-</ul></li>
 <li><a href="#referències">Referències</a></li>
 </ul></li>
+<li><a href="#formularis">Formularis</a>
+<ul>
+<li><a href="#validació-de-formularis">Validació de Formularis</a></li>
+<li><a href="#referències-1">Referències</a></li>
+</ul></li>
+<li><a href="#exercici-1">Exercici 1:</a></li>
 <li><a href="#entorn-de-treball">Entorn de Treball</a>
 <ul>
 <li><a href="#editor-de-text">Editor de Text</a></li>
@@ -55,64 +57,36 @@
 <li><a href="#prerequisits">Prerequisits</a></li>
 <li><a href="#procediment">Procediment</a></li>
 </ul></li>
-<li><a href="#referències-1">Referències</a></li>
+<li><a href="#referències-2">Referències</a></li>
 </ul></li>
 <li><a href="#preprocessadors">Preprocessadors</a>
 <ul>
 <li><a href="#preprocessadors-html">Preprocessadors HTML</a></li>
 <li><a href="#preprocessadors-css">Preprocessadors CSS</a></li>
 <li><a href="#preprocessadors-javascript">Preprocessadors Javascript</a></li>
-<li><a href="#referències-2">Referències</a></li>
+<li><a href="#referències-3">Referències</a></li>
 </ul></li>
 </ul>
 <!-- vim-markdown-toc -->
 <h1 id="introducció">Introducció</h1>
+<p><a href="/setslide/intro">Introducció</a></p>
 <p>Benvinguts al curs d'HTML5 de l'EBAP.</p>
 <p>Aquest és un curs avançat. Motiu pel qual es pressuposen uns mínims coneixements previs d'HTML, CSS i Javascript.</p>
 <p>En aquesta unitat didàctica repassarem breument els conceptes més importants, sense entrar en detalls, per assegurar que tots tenim, més o menys, els mateixos coneixements bàsics que ens seran clau per a poder seguir la resta del curs.</p>
+<p><a href="/setslide/intro_ask">Si res no s'entén: PREGUNTAR</a></p>
 <p>Si alguna cosa no l'entenem o ens resulta nova, és important preguntar al professor i/o investigar pel nostre compte a fi de poder entendre millor la resta d'unitats didàctiques.</p>
 <h2 id="història">Història</h2>
 <h3 id="abans-de-html5">Abans de HTML5</h3>
-<p><strong>HTML 4.01</strong></p>
+<p><a href="/setslide/abans_html5">Abans d'HTML5</a></p>
 <ul>
-<li>Strict</li>
-</ul>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;
-   &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code></pre>
+<li>No hi havia un estandard clar.
 <ul>
-<li>Transitional</li>
+<li>O millor dit: N'hi havia molts de discrepants.</li>
+</ul></li>
+<li>Imperava la &quot;guerra dels navegadors&quot;.</li>
 </ul>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
-   &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></pre>
-<ul>
-<li>Frameset</li>
-</ul>
-<pre><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;
-   &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></pre>
-<p><strong>XHTML 1.0</strong></p>
-<ul>
-<li>Strict (quick reference)</li>
-</ul>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
-   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></pre>
-<ul>
-<li>Transitional</li>
-</ul>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
-   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code></pre>
-<ul>
-<li>Frameset</li>
-</ul>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot;
-   &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code></pre>
-<p><strong>XHTML 1.1</strong></p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; 
-   &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</code></pre>
-<p><strong>XHTML Basic 1.1</strong></p>
-<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML Basic 1.1//EN&quot;
-    &quot;http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd&quot;&gt;</code></pre>
-<p><strong>Font:</strong> <a href="">https://www.w3.org/QA/2002/04/valid-dtd-list.html</a></p>
 <h2 id="a-partir-dhtml5">A partir d'HTML5</h2>
+<p><a href="/setslide/html5_is_here">En arribat HTML5</a></p>
 <pre><code>&lt;!DOCTYPE HTML&gt;</code></pre>
 <p>Al contrari que les versions anteriors, HTML5 és una especificació oberta que va creixent al llarg del temps.</p>
 <p>Abans els navegadors aplicaven estrictament les normes imposades per l'especificació corresponent al DTD.</p>
@@ -131,12 +105,6 @@
 <li>Fulls d'Estil (StyleSheets)</li>
 <li>Javascript</li>
 <li>DOM</li>
-<li>Frameworks · jQuery · <a href="http://youmightnotneedjquery.com/">You might not need jQuery</a></li>
-<li>Atributs data-*</li>
-<li>Forms
-<ul>
-<li>Form Validation</li>
-</ul></li>
 <li>HTML5 APIs</li>
 </ul>
 <h1 id="llenguatge-de-marques-markup">Llenguatge de Marques (Markup)</h1>
@@ -232,17 +200,6 @@
 <li><code>&lt;aside&gt;&lt;/aside&gt;</code></li>
 <li>etcètera...</li>
 </ul>
-<hr />
-<h2 id="exercicis">Exercicis</h2>
-<h3 id="exercici-1">Exercici 1:</h3>
-<p>Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:</p>
-<ul>
-<li>El vostre nom i llinatges.</li>
-<li>Els vostres coneixements i experiència en HTML i/o altres tecnologies.</li>
-<li>Motiu que vos ha impulsat a fer aquest curs.</li>
-</ul>
-<p>Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sabeu (incloure una fotografia, aplicar estils, etcètera...).</p>
-<hr />
 <h2 id="referències">Referències</h2>
 <ul>
 <li><strong>Elements HTML5:</strong>
@@ -260,6 +217,19 @@
 </ul></li>
 </ul>
 
+<h1 id="formularis">Formularis</h1>
+<h2 id="validació-de-formularis">Validació de Formularis</h2>
+<h2 id="referències-1">Referències</h2>
+<hr />
+<h1 id="exercici-1">Exercici 1:</h1>
+<p>Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:</p>
+<ul>
+<li>El vostre nom i llinatges.</li>
+<li>Els vostres coneixements i experiència en HTML i/o altres tecnologies.</li>
+<li>Motiu que vos ha impulsat a fer aquest curs.</li>
+</ul>
+<p>Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sabeu (incloure una fotografia, aplicar estils, etcètera...).</p>
+<hr />
 <h1 id="entorn-de-treball">Entorn de Treball</h1>
 <p>Per poder seguir aquest curs necessitarem principalment tres coses:</p>
 <ol style="list-style-type: decimal">
@@ -367,7 +337,7 @@
 <li>També, si tenim el nostre mòbil connectat a la xarxa inalàmbrica i coneixem l'adreça IP del nostre ordinador (que podem obtenir amb les comandes <code>ifconfig</code> o <code>ip addr list</code>), hi podrem accedir canviant &quot;localhost&quot; per la nostre IP a l'enllaç anterior.</li>
 </ul>
 <p>Si ara desam el fitxer que hem creat a l'exercici anterior sota el directori &quot;public&quot; i amb el nom &quot;curriculum.html&quot;, veurem que podem accedir a ell sota al url <a href="">http://localhost:3000/curriculum.html</a> (o amb la IP corresponent si volem poder accedir-hi també des del nostre smartphone).</p>
-<h2 id="referències-1">Referències</h2>
+<h2 id="referències-2">Referències</h2>
 <ul>
 <li><p><em>Sublime Text</em>: <a href="">https://www.sublimetext.com/</a>.</p></li>
 <li>Instal·lació Node.JS i NPM:
@@ -422,13 +392,18 @@ block content
 <ul>
 <li>Babel</li>
 </ul>
-<h2 id="referències-2">Referències</h2>
+<h2 id="referències-3">Referències</h2>
 <ul>
 <li>Motors de Plantilles
 <ul>
 <li>Pug (Jade): <a href="">https://pugjs.org</a></li>
 <li>Handlebars: <a href="">https://handlebarsjs.com</a></li>
 </ul></li>
+</ul>
+<hr />
+<hr />
+<ul>
+<li>Frameworks · jQuery · <a href="http://youmightnotneedjquery.com/">You might not need jQuery</a></li>
 </ul>
 <script src="/javascripts/jquery-3.3.1.min.js"></script>
 <script src="/javascripts/remote_controller.js"></script>

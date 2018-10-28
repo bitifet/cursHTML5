@@ -1,0 +1,145 @@
+
+.slide.bigfont(data-name="pseudoclass_selectors_0")
+  div
+    h2 Pseudo-class Selectors
+
+    p.
+      Pseudo-class selectors are used to target elements when they’re in a certain
+      state.
+    p.
+      This state can be due to user interaction or the element’s position in
+      relation to its parent or sibling elements in the document.
+    p.
+      Pseudo-class selectors always begin with a colon (:). These have the same
+      specificity as a class selector (0,1,0).
+
+
+.slide(data-name="pseudoclass_selectors_1")
+  div
+    h2 General Pseudo-class Selectors (I)
+
+    table
+      tr
+        th.lateral
+          code= ':first-child'
+        td.
+          —Targets elements that are the first element within their parent element.
+      tr
+        th.lateral
+          code= ':last-child'
+        td.
+            —Targets elements that are the last element within their parent
+            element.
+      tr
+        th.lateral
+          code= ':only-child'
+        td.
+          —Targets elements that are the only element within their parent element
+          (no siblings).
+      tr
+        th.lateral
+          code= ':nth-child(an+b)'
+        td.
+            —Targets elements based upon their position among their siblings. The
+            formula an+b, where a and b are integers, indicates which elements to
+            target. To know exactly how a formula works, imagine solving it for all
+            integer values of n, beginning with zero. The results of this equation
+            indicate which children are targeted. 
+      tr
+        th.lateral
+          code= ':nth-last-child(an+b)'
+        td.
+            —Similar to `:nth-child()`, but instead of counting forward from the
+            first element, this selector counts backward from the last element. The
+            formula in the parentheses follows the same pattern as in :nth-child().  
+
+
+.slide(data-name="pseudoclass_selectors_2")
+  div
+    h2 General Pseudo-class Selectors (II)
+
+    table
+      tr
+        th.lateral
+          code= ':first-of-type'
+        td.
+          —Similar in nature to `:first-child`, except instead of considering the
+          position among all children, it considers an element’s numerical
+          position only among other children with the same tag name.
+      tr
+        th.lateral
+          code= ':last-of-type'
+        td.
+          —Targets the last child element of each type.
+      tr
+        th.lateral
+          code= ':only-of-type'
+        td.
+          —Targets elements that are the only child of their type.
+      tr
+        th.lateral
+          code= ':nth-of-type(an+b)'
+        td.
+          —Targets elements of their type based on their numerical order and the
+          specified formula; similar to `:nth-child`.
+      tr
+        th.lateral
+          code= ':nth-last-of-type(an+b)'
+        td.
+          —Targets elements of their type based on a specified formula, counting
+          from the last of those elements backward; similar to `:nth-last-child`.
+
+
+.slide(data-name="pseudoclass_selectors_3")
+  div
+    h2 General Pseudo-class Selectors (III)
+
+    table
+      tr
+        th.lateral
+          code= ':not(_selector_)'
+        td.
+          —Targets elements that don’t match the selector within the
+          parentheses. The selector inside the parentheses must be simple: it can
+          only refer to the element itself; you can’t use this selector to exclude
+          ancestors. It also mustn’t contain another negation selector.
+      tr
+        th.lateral
+          code= ':empty'
+        td.
+          —Targets elements that have no children. Beware that this doesn’t
+          target an element that contains whitespace as the whitespace is represented
+          in the DOM as a text node child. At the time of writing, the W3C is
+          considering a ":blank" pseudo-class that behaves similarly but also selects
+          elements that contain only whitespace; ":blank" is not yet supported in any
+          browser.
+
+.slide(data-name="pseudoclass_selectors_4")
+  div
+    h2 General Pseudo-class Selectors (IV)
+
+    table
+      tr
+        th.lateral
+          code= ':focus'
+        td.
+          —Targets elements that have received focus, whether from a mouse
+          click, screen tap, or Tab key navigation.
+      tr
+        th.lateral
+          code= ':hover'
+        td.
+          —Targets elements while the mouse cursor hovers over them.
+      tr
+        th.lateral
+          code= ':root'
+          td.
+              —Targets the root element of the document. In HTML, this is the
+              "<html>" element. But CSS can be applied to other XML or XML-like
+              documents, such as SVG; in which case, this selector works more
+              generically.
+
+
+
+//- vim: set ft=jade:
+

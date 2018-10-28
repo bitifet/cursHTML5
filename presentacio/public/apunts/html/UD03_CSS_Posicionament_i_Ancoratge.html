@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>UD03_CSS_Posicionament_i_Ancoratge</title>
+<link rel="stylesheet" type="text/css" href="/apunts/markdown/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2 id="posicionament-i-ancoratge">Posicionament i ancoratge</h2>
+<ul>
+<li><p>position</p></li>
+<li><p>display</p></li>
+</ul>
+<h2 id="box-model">Box Model</h2>
+<p>Font: <a href="">https://www.w3schools.com/css/css_boxmodel.asp</a></p>
+<h3 id="propietat-box-sizing">Propietat <code>box-sizing</code></h3>
+<p>Estableix què mesuren les propietats <code>height</code>, <code>width</code> i derivades (<code>min-height</code>, <code>max-height</code>, ...).</p>
+<p>Sense comptar <code>initial</code> (que en aquest cas equivaldria a <code>content-box</code> i <code>inherit</code>, la propietat <code>box-sizing</code> pot agafar dos valors:</p>
+<ul>
+<li><p>content-box.</p></li>
+<li><p>border-box.</p></li>
+</ul>
+<p>Així, quan està establerta a <code>content-box</code> (per defecte), <code>height</code>, <code>width</code>, etc... defineixen el tamany del contingut. <strong>Per això, si afegim voreres, marges o, fins i tot <em>padding</em>, l'element ens ocuparà més espaï del que hem especificat</strong>.</p>
+<p>En canvi, si l'establim a <code>border-box</code> aquesta mesura inclourà també el <em>padding</em> i les vores (<em>border</em>), fent molt més senzilla la tasca de sumar els espaïs que ens ocupa cada element a l'hora de maquetar.</p>
+<blockquote>
+<p><strong>⚠ Avís:</strong> Així i tot, encara haurem de tenir en compte els marges, si en tenim.</p>
+</blockquote>
+<h4 id="establir-el-box-sizing-de-forma-global-wip">Establir el box-sizing de forma global (WIP)</h4>
+<p>Si ho preferim, podem establir el <code>box-sizing</code> a <code>border-box</code> de forma global amb una senzilla regla:</p>
+<pre><code>*,
+::before,
+::after {
+  box-sizing: border-box; 
+}</code></pre>
+<blockquote>
+<p>:bomb: Però si estam treballant en un projecte preexistent, podria passar que tinguéssim codi css anterior que, al estar calculat segons el comportament per defecte, deixas de funcionar corrèctament.</p>
+<p>El mateix ens pot passar si fem servir frameworks css externs que hagin estat dissenyats en base a <code>border-sizing: content-box</code>. Si be molts, com <em>Bootstrap</em> ja fan servir <code>border-box</code> i/o fixen explícitament aquesta propietat per al seu css.</p>
+</blockquote>
+<p>En qualsevol cas, el següent exemple ens mostra una forma més refinada de fer-ho:</p>
+<pre><code>:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}</code></pre>
+<p>Establint <code>box-sizing</code> a <code>inherit</code> obrim la possibilitat de canviar aquesta propietat recursivament de forma selectiva a les parts que ens interessi del DOM (per exemple <code>.oldCss {box-sizing: content-box;}</code>) mentre que la regla que hem definit sobre el selector <code>:root</code> ens garanteix que la resta heredarà el valor <code>border-box</code>.</p>
+<h2 id="marges">Marges</h2>
+<h3 id="marges-negatius">Marges negatius</h3>
+<h3 id="marges-colapsats">Marges colapsats</h3>
+<p><strong>Casos en que els marges no colapsen:</strong></p>
+<ul>
+<li><p>Establint la propietat <code>overflow</code> a qualsevol valor distint de <code>visible</code> a un contenidor s'evita que els marges interiors colapsin amb els exteriors.</p></li>
+<li><p>Si hi ha una vorera (border) entre dos marges (per exemple transparent, si la volem fer servir com a truc per evitar el colapsament).</p></li>
+<li>Cap a fora d'un contenidor dels següents contenidors:
+<ul>
+<li>Flotant (&quot;floated&quot;)</li>
+<li>Amb la propietat <code>display</code> a <code>inline-block</code>.</li>
+<li>Amb posicionament absolut (<code>position: absolute</code>) o fix (<code>position: fixed</code>)</li>
+</ul></li>
+<li><p>A dins d'un contenidor flexbox (<code>display: flex</code>) o grid (<code>display: grid</code>).</p></li>
+<li><p>Els elements amb <code>display: table-cell</code>, <code>table-row</code> i la majoria de la resta de tipus de display de taules a excepció de <code>table</code>, <code>table-inline</code> i <code>table-caption</code> no tenen marges, així que no poden colapsar.</p></li>
+</ul>
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/remote_controller.js"></script>
+</body>
+</html>

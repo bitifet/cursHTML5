@@ -19,9 +19,52 @@
 <li><a href="#fulls-destil-css">Fulls d'estil (CSS)</a>
 <ul>
 <li><a href="#conceptes-bàsics-wip">Conceptes bàsics (WIP)</a></li>
-<li><a href="#selectors">Selectors</a></li>
-<li><a href="#regles-at-">Regles &quot;AT&quot; (@)</a></li>
+<li><a href="#regles">Regles</a>
+<ul>
+<li><a href="#valors-especials">Valors Especials:</a></li>
+</ul></li>
+<li><a href="#selectors">Selectors</a>
+<ul>
+<li><a href="#selectors-bàsics">Selectors Bàsics</a></li>
+<li><a href="#combinadors-combinators">Combinadors (Combinators)</a></li>
+<li><a href="#selectors-de-pseudo-classe-pseudo-class-selectors">Selectors de Pseudo-Classe (Pseudo-class Selectors)</a>
+<ul>
+<li><a href="#general-pseudo-class-selectors">General Pseudo-class Selectors</a></li>
+<li><a href="#field-specific-pseudo-class-selectors">Field-specific Pseudo-class Selectors</a></li>
+</ul></li>
+<li><a href="#pseudo-element-selectors">Pseudo-element selectors</a>
+<ul>
+<li><a href="#before-i-after"><code>::before</code> i <code>::after</code></a></li>
+<li><a href="#first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></a></li>
+<li><a href="#selection"><code>::selection</code></a></li>
+</ul></li>
+<li><a href="#attribute-selectors">Attribute Selectors</a>
+<ul>
+<li><a href="#case-insensitive-attribute-selectors-wip">Case-insensitive attribute selectors (WIP)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cascada-wip">Cascada (WIP)</a>
+<ul>
+<li><a href="#origen-wip">Origen (WIP)</a></li>
+<li><a href="#especificitat-wip">Especificitat (WIP)</a></li>
+</ul></li>
+<li><a href="#herència-wip">Herència (WIP)</a></li>
+<li><a href="#aritmètica-css3">Aritmètica CSS3</a>
+<ul>
+<li><a href="#unitats">Unitats</a>
+<ul>
+<li><a href="#longituds-absolutes">Longituds absolutes</a></li>
+<li><a href="#longituds-relatives">Longituds relatives</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#variables">Variables</a></li>
+<li><a href="#càlculs-wip">Càlculs (WIP)</a></li>
+<li><a href="#tècniques-avançades">Tècniques Avançades</a>
+<ul>
+<li><a href="#css-modular">CSS Modular</a></li>
+</ul></li>
+<li><a href="#selectors-1">Selectors</a></li>
+<li><a href="#regles-at-">Regles &quot;AT&quot; (@)</a></li>
 <li><a href="#referències">Referències</a></li>
 </ul></li>
 <li><a href="#javascript">Javascript</a>
@@ -34,6 +77,7 @@
 <!-- vim-markdown-toc -->
 <h1 id="formularis">Formularis</h1>
 <h1 id="fulls-destil-css">Fulls d'estil (CSS)</h1>
+<p><a href="/setslide/css_start">CSS</a></p>
 <p>CSS - Cascade Style Sheets</p>
 <p>:pushpin: <strong>Nivells d'estandardització:</strong></p>
 <ol style="list-style-type: decimal">
@@ -72,13 +116,325 @@
 <li><strong>Efecte col·lateral:</strong> SEMPRE estableixen totes les propietats (encara que s'ometin).</li>
 </ul></li>
 </ul>
+<h2 id="regles">Regles</h2>
+<h3 id="valors-especials">Valors Especials:</h3>
+<ul>
+<li><p><em>Initial</em>: És el valor per defecte de l'atribut a un determinat tipus d'element.</p></li>
+<li><p><em>Auto</em>: Significa que el navegador pot ajustar-lo automàticament en funció de certes premises preestablertes.</p></li>
+</ul>
 <h2 id="selectors">Selectors</h2>
+<h3 id="selectors-bàsics">Selectors Bàsics</h3>
+<ul>
+<li>tagname</li>
+<li>.class</li>
+<li><h1 id="id">id</h1></li>
+<li>*</li>
+</ul>
+<h3 id="combinadors-combinators">Combinadors (Combinators)</h3>
+<ul>
+<li>Compound Selectors <code>(a)(b)</code>.
+<ul>
+<li>Exemple <code>h1.page-header</code></li>
+</ul></li>
+<li><p><code>` — Descendant:</code>(a) (b)<code>. - Exemple</code>header h2`</p></li>
+<li><code>&gt;</code> Child (Direct Descendant): <code>(a)&gt;(b)</code>.
+<ul>
+<li>Exemple <code>li&gt;ul</code></li>
+</ul></li>
+<li><code>+</code> <strong>(Following)</strong> Adjacent Sibling: <code>(a)+(b)</code>.
+<ul>
+<li>Exemple <code>th+tr</code></li>
+</ul></li>
+<li><code>~</code> <strong>(Following)</strong> Sibling: <code>(a)~(b)</code>.
+<ul>
+<li>Exemple <code>tr.today~tr</code></li>
+</ul></li>
+</ul>
+<h3 id="selectors-de-pseudo-classe-pseudo-class-selectors">Selectors de Pseudo-Classe (Pseudo-class Selectors)</h3>
 <p><a href="/setslide/pseudoclass_selectors_0">Selectors de pseudo-classe - Introducció</a></p>
+<p>Els selectors de pseudo-classe ens permeten adreçar elements per alguna característica extrínseca a ells com ara la ubicació en relació a altres elements o determinats estats transitoris com ara si ténen el focus del teclat o si el cursor del ratolí es troba a sobre d'ells.</p>
+<p>La llista completa de selectors de pseudo-classe es pot trobar al MDN sota:</p>
+<ul>
+<li><a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes</a>.</li>
+</ul>
+<h4 id="general-pseudo-class-selectors">General Pseudo-class Selectors</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>:first-child</code></td>
+<td><code>:first-of-type</code></td>
+</tr>
+<tr class="even">
+<td><code>:last-child</code></td>
+<td><code>:last-of-type</code></td>
+</tr>
+<tr class="odd">
+<td><code>:only-child</code></td>
+<td><code>:only-of-type</code></td>
+</tr>
+<tr class="even">
+<td><code>:nth-child(an+b)</code></td>
+<td><code>:nth-of-type(an+b)</code></td>
+</tr>
+<tr class="odd">
+<td><code>:nth-last-child(an+b)</code></td>
+<td><code>:nth-last-of-type(an+b)</code></td>
+</tr>
+<tr class="even">
+<td><code>:not(&lt;selector&gt;)</code></td>
+<td><code>:root</code></td>
+</tr>
+<tr class="odd">
+<td><code>:focus</code></td>
+<td><code>:hover</code></td>
+</tr>
+<tr class="even">
+<td><code>:empty</code></td>
+<td><code>&quot;:blank&quot;</code> (proposta)</td>
+</tr>
+</tbody>
+</table>
 <p><a href="/setslide/pseudoclass_selectors_1">Selectors de pseudo-classe (1)</a></p>
 <p><a href="/setslide/pseudoclass_selectors_2">Selectors de pseudo-classe (2)</a></p>
 <p><a href="/setslide/pseudoclass_selectors_3">Selectors de pseudo-classe (3)</a></p>
 <p><a href="/setslide/pseudoclass_selectors_4">Selectors de pseudo-classe (4)</a></p>
-<h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><code>:root</code> sel·ecciona el tag <code>html</code> en documents HTML.</li>
+<li><code>:empty</code> no pot contenir ni un espaï en blanc o salt de línia.</li>
+<li><code>&quot;:blank&quot;</code> de moment només és una proposta: no suportat per cap navegador a dia d'avui.</li>
+</ul>
+<h4 id="field-specific-pseudo-class-selectors">Field-specific Pseudo-class Selectors</h4>
+<p><a href="/setslide/form_selectors_0">Selectors de pseudo-classe per a Formularis</a></p>
+<p>Alguns selectors de pseudo-classe es refereixen específicament a característiques de camps de formularis (tags <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code> i/o <code>&lt;option&gt;</code>, segons el cas):</p>
+<p><a href="/setslide/form_selectors_1">Selectors de pseudo-classe per a Formularis I</a> <a href="/setslide/form_selectors_2">Selectors de pseudo-classe per a Formularis II</a></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>:enabled</code></td>
+<td><code>:disabled</code></td>
+</tr>
+<tr class="even">
+<td><code>:valid</code></td>
+<td><code>:invalid</code></td>
+</tr>
+<tr class="odd">
+<td><code>:required</code></td>
+<td><code>:optional</code></td>
+</tr>
+<tr class="even">
+<td><code>:checked</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠ Avís:</strong> Alguns d'ells han estat introduïts o redefinits recentment pel que no funcionaran com s'espera en alguns navegadors.</p>
+<p>Haurem de consultar cadascun a <a href="">http://caniuse.com</a> per a saber exactament com estan de suportats als distints navegadors.</p>
+</blockquote>
+<h3 id="pseudo-element-selectors">Pseudo-element selectors</h3>
+<p><a href="/setslide/pselement_selectors">Selectors de pseudo-element</a></p>
+<p>Els pseudo-elements, a diferència de les pseudo-classes, no adrecen elements (tags) realment existents al document, sino que <em>virtualment</em> en creen de nous en un lloc determinat o sobre una part determinada de l'element sel·leccionat.</p>
+<p>Per exemple, <code>p::first-letter</code> ens permetria aplicar un estil distint <strong>únicament</strong> a la primera lletra de cada paràgraf com si aquesta estigués continguda en el seu propi subtag.</p>
+<p>Es distingeixen de les pseudo-classes per anar prefixats per dos caràcters de &quot;dos punts&quot; (<code>::</code>) en comptes d'un sol com els pseudo-elements.</p>
+<blockquote>
+<p><strong>⚠ Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb nomeś ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconèixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
+</blockquote>
+<h4 id="before-i-after"><code>::before</code> i <code>::after</code></h4>
+<p>Creen un pseudo-element que passa a ser el primer o darrer fill, respectivament, de l'element sel·leccionat.</p>
+<ul>
+<li><p>Es poden utilitxar per pre/su-fixar texts o imatges.</p></li>
+<li><p><strong>És obligatori</strong> definir la propietat <code>content</code>, encara que sigui amb un espaï en blanc, ja que <strong>del contrari no apareixeran</strong>.</p></li>
+</ul>
+<h4 id="first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></h4>
+<p>Permeten adreçar, respectivament, la primera lletra o la primera línia de text, d'un element.</p>
+<h4 id="selection"><code>::selection</code></h4>
+<p>Permet adreçar text (i sub-elements) que estiguin sel·leccionats per l'usuari.</p>
+<p>Només permet unes poques propietats. Incloses <code>color</code>, <code>background-color</code>, <code>cursor</code>, and <code>text-decoration</code>.</p>
+<h3 id="attribute-selectors">Attribute Selectors</h3>
+<p>Els selectors d'atribut permeten seleccionar elements en funció dels seus atributs HTML i ténen la mateixa especificitat que els selectors de classe (0,1,0).</p>
+<ul>
+<li><code>[attr]</code>: Existència de l'atribut (l'elements tenen l'atribut especificat, independentment del seu valor).
+<ul>
+<li>Exemple: <code>input[disabled]</code></li>
+</ul></li>
+<li><code>[attr=&quot;value&quot;]</code>: Concordancia de valor.
+<ul>
+<li>Exemple: <code>input[type=&quot;button&quot;]</code></li>
+</ul></li>
+<li><code>[attr^=&quot;value&quot;]</code>: Concordancia inicial (que el valor &quot;comença per...&quot;)
+<ul>
+<li>Exemple: <code>a[href^= &quot;https&quot;]</code></li>
+</ul></li>
+<li><code>[attr$=&quot;value&quot;]</code>: Concordancia final (que el valor &quot;acaba en...&quot;)
+<ul>
+<li>Exemple: <code>a[href$= &quot;.pdf&quot;]</code></li>
+</ul></li>
+<li><code>[attr*=&quot;value&quot;]</code>: Concordancia parcial (l'atribut conté el text especificat).
+<ul>
+<li>Exemple: <code>*[class*=&quot;sprite-&quot;]</code>.</li>
+</ul></li>
+<li><code>[attr~=&quot;value&quot;]</code>: Concordancia d'element en llista (d'elements separats per espaï)
+<ul>
+<li>Exemple: <code>div[class=&quot;menu&quot;]</code> (en aquest cas equivaldria a <code>div.menu</code>, però no esta limitat a l'atribut &quot;class&quot;).</li>
+</ul></li>
+<li><code>[attr|=&quot;value&quot;]</code> Igualtat o concordància de prefix (prefix = fins al primer &quot;-&quot;).
+<ul>
+<li>Exemple: <code>div[lang|=&quot;es&quot;]</code> (concordaria amb <code>lang=&quot;es&quot;</code>, <code>lang=&quot;es-ca&quot;</code>, etc..)</li>
+</ul></li>
+</ul>
+<h4 id="case-insensitive-attribute-selectors-wip">Case-insensitive attribute selectors (WIP)</h4>
+<p>Els selectors d'atribut <em>tradicionalment</em> distingeixen entre majúscules i minúscules, pel que, per exemple, '</p>
+<p>//// TODO /////</p>
+<p>All of the previous attribute selectors are case-sensitive. The selectors level 4 specification introduces a case-insensitive modifier that can be added to any attribute selector. To do this, add an i before the closing bracket. Example: <code>input[value=&quot;search&quot; i]</code>.</p>
+<p>Many browsers don’t yet support this. Those that don’t will ignore it. For this reason, if you use case-insensitive modifiers, be sure to add a fallback to a regular case-sensitive version.</p>
+<h2 id="cascada-wip">Cascada (WIP)</h2>
+<ol style="list-style-type: decimal">
+<li>Origen del Full d'Estil</li>
+<li>Especifitat del Selector</li>
+<li>Ordre al Codi Font</li>
+</ol>
+<h3 id="origen-wip">Origen (WIP)</h3>
+<blockquote>
+<p><strong>⚠ Avís:</strong> (Browser Styles) WIP...</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/normalize.css">normalize.css</a>.</li>
+</ul>
+</blockquote>
+<h3 id="especificitat-wip">Especificitat (WIP)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Selector</th>
+<th>Nº d'IDs</th>
+<th>Nº de Classes</th>
+<th>Nº de Tags</th>
+<th>Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>html body header h1</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>0,0,4</td>
+</tr>
+<tr class="even">
+<td>section header.section-header h1</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>0,1,3</td>
+</tr>
+<tr class="odd">
+<td>.page-header .title</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0,2,0</td>
+</tr>
+<tr class="even">
+<td>#sidebar</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1,0,0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Més:</strong> <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p>
+<h2 id="herència-wip">Herència (WIP)</h2>
+<h2 id="aritmètica-css3">Aritmètica CSS3</h2>
+<h3 id="unitats">Unitats</h3>
+<p><strong>Font:</strong> https://www.w3schools.com/cssref/css_units.asp</p>
+<h4 id="longituds-absolutes">Longituds absolutes</h4>
+<table>
+<caption>pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</caption>
+<thead>
+<tr class="header">
+<th>Unitat</th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cm</td>
+<td>centimeters</td>
+</tr>
+<tr class="even">
+<td>mm</td>
+<td>millimeters</td>
+</tr>
+<tr class="odd">
+<td>in</td>
+<td>inches (1in = 96px = 2.54cm)</td>
+</tr>
+<tr class="even">
+<td>px *</td>
+<td>pixels (1px = 1/96th of 1in)</td>
+</tr>
+<tr class="odd">
+<td>pt</td>
+<td>points (1pt = 1/72 of 1in)</td>
+</tr>
+<tr class="even">
+<td>pc</td>
+<td>picas (1pc = 12 pt)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="longituds-relatives">Longituds relatives</h4>
+<table style="width:35%;">
+<colgroup>
+<col width="16%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unitat</th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>em</td>
+<td>Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
+</tr>
+<tr class="even">
+<td>ex</td>
+<td>Relative to the x-height of the current font (rarely used)</td>
+</tr>
+<tr class="odd">
+<td>ch</td>
+<td>Relative to width of the &quot;0&quot; (zero)</td>
+</tr>
+<tr class="even">
+<td><strong>rem</strong></td>
+<td>Relative to font-size of the root element</td>
+</tr>
+<tr class="odd">
+<td><strong>vw</strong></td>
+<td>Relative to 1% of the width of the viewport*</td>
+</tr>
+<tr class="even">
+<td><strong>vh</strong></td>
+<td>Relative to 1% of the height of the viewport*</td>
+</tr>
+<tr class="odd">
+<td><strong>vmin</strong></td>
+<td>Relative to 1% of viewport's* smaller dimension</td>
+</tr>
+<tr class="even">
+<td><strong>vmax</strong></td>
+<td>Relative to 1% of viewport's* larger dimension</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>Relative to the parent element</td>
+</tr>
+</tbody>
+</table>
 <h2 id="variables">Variables</h2>
 <p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
 <p><strong>Exemple:</strong></p>
@@ -87,10 +443,27 @@
 <p>Per llegir-les fem servir la funció <code>var()</code>.</p>
 <p><strong>Exemple:</strong></p>
 <pre><code>background-color: var(--home_background_color);</code></pre>
+<h2 id="càlculs-wip">Càlculs (WIP)</h2>
+<h2 id="tècniques-avançades">Tècniques Avançades</h2>
+<h3 id="css-modular">CSS Modular</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>Selectors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
 <h2 id="referències">Referències</h2>
 <h1 id="javascript">Javascript</h1>
 <h2 id="història">Història</h2>
 <h2 id="ecmascript">ECMASCRIPT</h2>
+<ul>
+<li>Javascript:
+<ul>
+<li>Modernizr: <a href="">https://modernizr.com/</a>.</li>
+</ul></li>
+</ul>
 <h2 id="referències-1">Referències</h2>
 
 <script src="/javascripts/jquery-3.3.1.min.js"></script>

@@ -44,10 +44,14 @@ body {
     margin:0px;
     margin-left: -.5em;
 
-    .buttom {
-        background: white;
 
-    }
+}
 
+.buttom, .button:link, .button:visited {
+    color: black;
+    background: white;
+    font-size: x-large;
+    font-weight: bold;
+    text-decoration: none;
 }
 

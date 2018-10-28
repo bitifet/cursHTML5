@@ -28,26 +28,38 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
     * [Estructura de l'HTML](#estructura-de-lhtml)
         * [Elements de la Capçalera](#elements-de-la-capçalera)
         * [Elements del Cos](#elements-del-cos)
-    * [Exercicis](#exercicis)
-        * [Exercici 1:](#exercici-1)
     * [Referències](#referències)
+* [Formularis](#formularis)
+    * [Validació de Formularis](#validació-de-formularis)
+    * [Referències](#referències-1)
+* [Javascript](#javascript)
+        * [ECMASCRIPT (ES6+)](#ecmascript-es6)
+            * [Strict Mode](#strict-mode)
+            * [Variables](#variables)
+            * [Scope](#scope)
+            * [Closures](#closures)
+            * [This](#this)
+            * [Class](#class)
+* [Exercici 1:](#exercici-1)
 * [Entorn de Treball](#entorn-de-treball)
     * [Editor de Text](#editor-de-text)
     * [Servidor Web i Motor de Plantilles PUG.](#servidor-web-i-motor-de-plantilles-pug)
         * [Prerequisits](#prerequisits)
         * [Procediment](#procediment)
-    * [Referències](#referències-1)
+    * [Referències](#referències-2)
 * [Preprocessadors](#preprocessadors)
     * [Preprocessadors HTML](#preprocessadors-html)
     * [Preprocessadors CSS](#preprocessadors-css)
     * [Preprocessadors Javascript](#preprocessadors-javascript)
-    * [Referències](#referències-2)
+    * [Referències](#referències-3)
 
 <!-- vim-markdown-toc -->
 
 
 Introducció
 ===========
+
+[Introducció](/setslide/intro)
 
 Benvinguts al curs d'HTML5 de l'EBAP.
 
@@ -59,6 +71,8 @@ sense entrar en detalls, per assegurar que tots tenim, més o menys, els
 mateixos coneixements bàsics que ens seran clau per a poder seguir la resta del
 curs.
 
+[Si res no s'entén: PREGUNTAR](/setslide/intro_ask)
+
 Si alguna cosa no l'entenem o ens resulta nova, és important preguntar al
 professor i/o investigar pel nostre compte a fi de poder entendre millor la
 resta d'unitats didàctiques.
@@ -69,71 +83,20 @@ Història
 
 ### Abans de HTML5
 
-**HTML 4.01**
+[Abans d'HTML5](/setslide/abans_html5)
 
-  * Strict
 
-```
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-```
+  * No hi havia un estandard clar.
+    - O millor dit: N'hi havia molts de discrepants.
 
-  * Transitional
+  * Imperava la "guerra dels navegadors".
 
-```
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-```
-
-  * Frameset
-
-```
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
-   "http://www.w3.org/TR/html4/frameset.dtd">
-```
-
-**XHTML 1.0**
-
-  * Strict (quick reference)
-
-```
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-```
-
-  * Transitional
-
-```
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-```
-
-  * Frameset
-
-```
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-```
-
-**XHTML 1.1**
-
-```
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
-   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-```
-
-**XHTML Basic 1.1**
-
-```
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
-    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
-```
-
-**Font:** [https://www.w3.org/QA/2002/04/valid-dtd-list.html]()
 
 
 A partir d'HTML5
 ----------------
+
+[En arribat HTML5](/setslide/html5_is_here)
 
 ```
 <!DOCTYPE HTML>
@@ -180,13 +143,8 @@ Ecosistema HTML 5
   * Fulls d'Estil (StyleSheets)
   * Javascript
   * DOM
-  * Frameworks
-    · jQuery
-    · [You might not need jQuery](http://youmightnotneedjquery.com/)
-  * Atributs data-*
-  * Forms
-    - Form Validation
   * HTML5 APIs
+
 
 
 Llenguatge de Marques (Markup)
@@ -324,31 +282,6 @@ Nous a HTML5
   * etcètera...
 
 
-
-
-
-
-
------------------------------------------------------------------------------------------
-
-Exercicis
----------
-
-### Exercici 1:
-
-Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:
-
-  - El vostre nom i llinatges.
-  - Els vostres coneixements i experiència en HTML i/o altres tecnologies.
-  - Motiu que vos ha impulsat a fer aquest curs.
-
-Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sabeu
-(incloure una fotografia, aplicar estils, etcètera...).
-
-
------------------------------------------------------------------------------------------
-
-
 Referències
 -----------
 
@@ -362,6 +295,57 @@ Referències
 
 
 \newpage
+
+
+
+Formularis
+==========
+
+Validació de Formularis
+-----------------------
+
+
+Referències
+-----------
+
+
+Javascript
+==========
+
+### ECMASCRIPT (ES6+)
+
+#### Strict Mode
+
+#### Variables
+
+#### Scope
+
+#### Closures
+
+#### This
+
+#### Class
+
+
+
+-----------------------------------------------------------------------------------------
+
+
+Exercici 1:
+===========
+
+Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:
+
+  - El vostre nom i llinatges.
+  - Els vostres coneixements i experiència en HTML i/o altres tecnologies.
+  - Motiu que vos ha impulsat a fer aquest curs.
+
+Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sabeu
+(incloure una fotografia, aplicar estils, etcètera...).
+
+
+-----------------------------------------------------------------------------------------
+
 
 Entorn de Treball
 =================
@@ -645,7 +629,16 @@ Referències
   * Motors de Plantilles
     - Pug (Jade): [https://pugjs.org]()
     - Handlebars: [https://handlebarsjs.com]()
+  * ECMASCRIPT:
+    - Modernizr: [https://modernizr.com/]().
 
 
 
 
+---------------------------------------------------------------
+
+---------------------------------------------------------------
+
+  * Frameworks
+    · jQuery
+    · [You might not need jQuery](http://youmightnotneedjquery.com/)

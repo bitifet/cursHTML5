@@ -16,11 +16,12 @@
         ;
     };
 
-    button("^", "0");
-    button("-", "-");
+    //button("^", "0");
+    button("↞", "_reload"); // Reloading also goes top
+    button("←", "-");
     $ctrl.append($("<span></span>"));
-    button("+", "+");
-    button("$", "100000");
+    button("→", "+");
+    button("↠", "100000");
 
 
 

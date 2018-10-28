@@ -14,6 +14,9 @@
     let current = 0;
 
     function change(n) {
+        if (n == "_reload") {
+            return window.location.reload();
+        };
         if (n == "+") n = current + 1;
         if (n == "-") n = current - 1;
         if (isNaN(n)) { // Find by data-name:{{{

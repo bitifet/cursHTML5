@@ -78,6 +78,7 @@ Referències
 Javascript - APIs HTML5
 =======================
 
+[HTML5 APIs](/setslide/html5_apis)
 
   * HTML Geolocation
   * HTML Drag and Drop

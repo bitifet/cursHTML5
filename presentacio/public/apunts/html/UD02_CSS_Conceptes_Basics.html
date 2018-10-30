@@ -15,9 +15,9 @@
 <h1 id="índex">Índex</h1>
 <!-- vim-markdown-toc GitLab -->
 <ul>
-<li><a href="#fulls-destil-css">Fulls d'estil (CSS)</a>
+<li><a href="#css-conceptes-bàsics">CSS - Conceptes Bàsics</a>
 <ul>
-<li><a href="#conceptes-bàsics">Conceptes bàsics</a></li>
+<li><a href="#nomenclatura">Nomenclatura</a></li>
 <li><a href="#regles">Regles</a>
 <ul>
 <li><a href="#valors-especials">Valors Especials:</a></li>
@@ -48,6 +48,7 @@
 <li><a href="#especificitat-wip">Especificitat (WIP)</a></li>
 </ul></li>
 <li><a href="#herència-wip">Herència (WIP)</a></li>
+<li><a href="#variables">Variables</a></li>
 <li><a href="#aritmètica-css3">Aritmètica CSS3</a>
 <ul>
 <li><a href="#unitats">Unitats</a>
@@ -55,26 +56,18 @@
 <li><a href="#longituds-absolutes">Longituds absolutes</a></li>
 <li><a href="#longituds-relatives">Longituds relatives</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#variables">Variables</a></li>
 <li><a href="#càlculs-wip">Càlculs (WIP)</a></li>
-<li><a href="#tècniques-avançades">Tècniques Avançades</a>
-<ul>
-<li><a href="#css-modular">CSS Modular</a></li>
 </ul></li>
-<li><a href="#selectors-1">Selectors</a></li>
 <li><a href="#regles-at-">Regles &quot;AT&quot; (@)</a></li>
 <li><a href="#referències">Referències</a></li>
 </ul></li>
-<li><a href="#javascript">Javascript</a>
+<li><a href="#javascript-jquery">Javascript - jQuery</a>
 <ul>
-<li><a href="#història">Història</a></li>
-<li><a href="#ecmascript">ECMASCRIPT</a></li>
 <li><a href="#referències-1">Referències</a></li>
 </ul></li>
 </ul>
 <!-- vim-markdown-toc -->
-<h1 id="fulls-destil-css">Fulls d'estil (CSS)</h1>
+<h1 id="css---conceptes-bàsics">CSS - Conceptes Bàsics</h1>
 <p><a href="/setslide/css_start">CSS</a></p>
 <p>CSS - Cascade Style Sheets</p>
 <p>:pushpin: <strong>Nivells d'estandardització:</strong></p>
@@ -87,7 +80,7 @@
 <li>Recommendation (REC)</li>
 </ol>
 <p><strong>Font:</strong> <a href="">https://css-tricks.com/css-standards-process/</a></p>
-<h2 id="conceptes-bàsics">Conceptes bàsics</h2>
+<h2 id="nomenclatura">Nomenclatura</h2>
 <p><a href="/setslide/nomenclatura_css">Nomenclatura CSS</a></p>
 <div class="figure">
 <img src="../Figures/NomenclaturaCSS_medium.png" />
@@ -343,6 +336,14 @@
 </table>
 <p><strong>Més:</strong> <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p>
 <h2 id="herència-wip">Herència (WIP)</h2>
+<h2 id="variables">Variables</h2>
+<p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>--home_background_color: cyan;</code></pre>
+<p>Funcionen com una declaració normal i son heretades pels elements descendents amb la única diferència que no tenen cap efecte per si mateixes.</p>
+<p>Per llegir-les fem servir la funció <code>var()</code>.</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>background-color: var(--home_background_color);</code></pre>
 <h2 id="aritmètica-css3">Aritmètica CSS3</h2>
 <h3 id="unitats">Unitats</h3>
 <p><strong>Font:</strong> https://www.w3schools.com/cssref/css_units.asp</p>
@@ -433,36 +434,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="variables">Variables</h2>
-<p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
-<p><strong>Exemple:</strong></p>
-<pre><code>--home_background_color: cyan;</code></pre>
-<p>Funcionen com una declaració normal i son heretades pels elements descendents amb la única diferència que no tenen cap efecte per si mateixes.</p>
-<p>Per llegir-les fem servir la funció <code>var()</code>.</p>
-<p><strong>Exemple:</strong></p>
-<pre><code>background-color: var(--home_background_color);</code></pre>
-<h2 id="càlculs-wip">Càlculs (WIP)</h2>
+<h3 id="càlculs-wip">Càlculs (WIP)</h3>
 <p>(funció calc())</p>
-<h2 id="tècniques-avançades">Tècniques Avançades</h2>
-<h3 id="css-modular">CSS Modular</h3>
-<table>
-<tbody>
-<tr class="odd">
-<td>Selectors</td>
-</tr>
-</tbody>
-</table>
 <h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
 <h2 id="referències">Referències</h2>
-<h1 id="javascript">Javascript</h1>
-<h2 id="història">Història</h2>
-<h2 id="ecmascript">ECMASCRIPT</h2>
-<ul>
-<li>Javascript:
-<ul>
-<li>Modernizr: <a href="">https://modernizr.com/</a>.</li>
-</ul></li>
-</ul>
+<h1 id="javascript---jquery">Javascript - jQuery</h1>
 <h2 id="referències-1">Referències</h2>
 
 <script src="/javascripts/jquery-3.3.1.min.js"></script>

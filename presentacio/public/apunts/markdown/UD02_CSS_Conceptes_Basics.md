@@ -13,8 +13,8 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
 <!-- vim-markdown-toc GitLab -->
 
-* [Fulls d'estil (CSS)](#fulls-destil-css)
-    * [Conceptes bàsics](#conceptes-bàsics)
+* [CSS - Conceptes Bàsics](#css-conceptes-bàsics)
+    * [Nomenclatura](#nomenclatura)
     * [Regles](#regles)
         * [Valors Especials:](#valors-especials)
     * [Selectors](#selectors)
@@ -33,20 +33,15 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Origen (WIP)](#origen-wip)
         * [Especificitat (WIP)](#especificitat-wip)
     * [Herència (WIP)](#herència-wip)
+    * [Variables](#variables)
     * [Aritmètica CSS3](#aritmètica-css3)
         * [Unitats](#unitats)
             * [Longituds absolutes](#longituds-absolutes)
             * [Longituds relatives](#longituds-relatives)
-    * [Variables](#variables)
-    * [Càlculs (WIP)](#càlculs-wip)
-    * [Tècniques Avançades](#tècniques-avançades)
-        * [CSS Modular](#css-modular)
-    * [Selectors](#selectors-1)
+        * [Càlculs (WIP)](#càlculs-wip)
     * [Regles "AT" (@)](#regles-at-)
     * [Referències](#referències)
-* [Javascript](#javascript)
-    * [Història](#història)
-    * [ECMASCRIPT](#ecmascript)
+* [Javascript - jQuery](#javascript-jquery)
     * [Referències](#referències-1)
 
 <!-- vim-markdown-toc -->
@@ -54,8 +49,8 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
 
 
-Fulls d'estil (CSS)
-===================
+CSS - Conceptes Bàsics
+======================
 
 [CSS](/setslide/css_start)
 
@@ -74,8 +69,8 @@ Fulls d'estil (CSS)
 **Font:** [https://css-tricks.com/css-standards-process/]()
 
 
-Conceptes bàsics
-----------------
+Nomenclatura
+------------
 
 [Nomenclatura CSS](/setslide/nomenclatura_css)
 
@@ -377,6 +372,31 @@ Herència (WIP)
 --------------
 
 
+Variables
+---------
+
+Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la
+propietat comença per dos guions ("--").
+
+**Exemple:**
+
+```
+--home_background_color: cyan;
+```
+
+Funcionen com una declaració normal i son heretades pels elements descendents
+amb la única diferència que no tenen cap efecte per si mateixes.
+
+Per llegir-les fem servir la funció `var()`.
+
+**Exemple:**
+
+
+```
+background-color: var(--home_background_color);
+```
+
+
 Aritmètica CSS3
 ---------------
 
@@ -418,50 +438,13 @@ possibles en el món real independentment del dispositiu de visualització.
 | %         | Relative to the parent element |
 
 
-Variables
----------
-
-Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la
-propietat comença per dos guions ("--").
-
-**Exemple:**
-
-```
---home_background_color: cyan;
-```
-
-Funcionen com una declaració normal i son heretades pels elements descendents
-amb la única diferència que no tenen cap efecte per si mateixes.
-
-Per llegir-les fem servir la funció `var()`.
-
-**Exemple:**
 
 
-```
-background-color: var(--home_background_color);
-```
-
-
-
-Càlculs (WIP)
--------------
+### Càlculs (WIP)
 
 
 (funció calc())
 
-
-
-
-Tècniques Avançades
--------------------
-
-### CSS Modular
-
-
----------
-Selectors
----------
 
 
 
@@ -475,19 +458,8 @@ Referències
 -----------
 
 
-Javascript
-==========
-
-Història
---------
-
-ECMASCRIPT
-----------
-
-
-
-  * Javascript:
-    - Modernizr: [https://modernizr.com/]().
+Javascript - jQuery
+===================
 
 
 

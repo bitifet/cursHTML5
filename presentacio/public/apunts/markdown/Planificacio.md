@@ -11,9 +11,9 @@ UD01 - Introducció a HTML5, CSS i eines de preprocessat
   * Ecosistema HTML5
   * Llenguatge de Marques (Markup)
   * Formularis en HTML5
+  * Javascript - Conceptes Bàsics
   * Entorn de Treball
   * Preprocessadors
-  * Javascript - Conceptes Bàsics
 
 __NAV_LINK__[(⟶  Continguts)](./UD01_Introduccio.html)
 
@@ -27,7 +27,9 @@ UD02 - Conceptes Bàsics
     - Selectors
     - Cascada
     - Herència
-    - Aritmètica i Variables
+    - Variables
+    - Aritmètica
+    - Regles "AT" (@)
   * Javascript - jQuery
 
 __NAV_LINK__[(⟶   Continguts)](./UD02_CSS_Conceptes_Basics.html)
@@ -65,30 +67,28 @@ UD05 - CSS Aspecte i Efectes
 ----------------------------
 
   * CSS - Estètica i animació
-    - Color i Contrast
-    - Espaïat
+    - Color, Contrast i espaiat
     - Tipografia
-    - Fons
+    - Fons (sòlids, grandients, imatges, combinació...)
     - Ombres
-    - Combinació de Colors (Blending Modes)
     - Transicions
     - Transformacions
     - Animacions
+  * Frameworks CSS
+    - Bootstrap
+    - jQuery-UI / jQuery-Mobile
   * Javascript - APIs HTML5
 
 
 __NAV_LINK__[(⟶   Continguts)](./UD05_CSS_Aspecte_i_Efectes.html)
 
 
-UD06 - HTML5 Avançat
---------------------
-
-  * Frameworks CSS i/o Javascript
-    - Bootstrap
-    - jQuery-ui / jQuery-mobile
+UD06 - Projecte Final
+---------------------
 
   * Projecte Final
 
 
+__NAV_LINK__[(⟶   Continguts)](./UD06_Projecte_Final.html)
 
 

@@ -1,24 +1,93 @@
 
-Control d'Aspecte
------------------
+```
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+ＵＤ０５  －  ＣＳＳ  Ａｓｐｅｃｔｅ  ｉ  Ｅｆｅｃｔｅｓ
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+```
 
-### Color
+__NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
-### Contrast
 
-### Espaïat
+Índex
+=====
 
-### Tipografia
+<!-- vim-markdown-toc GitLab -->
 
-### Fons (Backgrounds)
+* [CSS - Estètica i animació](#css-estètica-i-animació)
+    * [Color, Contrast i espaiat](#color-contrast-i-espaiat)
+        * [HSL vs RGB](#hsl-vs-rgb)
+        * [Transparència](#transparència)
+    * [Tipografia](#tipografia)
+    * [Fons](#fons)
+        * [Sòlids, Gradients i Imatges](#sòlids-gradients-i-imatges)
+        * [Combinació (Blending Modes)](#combinació-blending-modes)
+    * [Ombres](#ombres)
+    * [Transicions](#transicions)
+    * [Transformacions](#transformacions)
+    * [Animacions](#animacions)
+    * [Referències](#referències)
+* [Javascript - APIs HTML5](#javascript-apis-html5)
+    * [Referències](#referències-1)
 
-### Ombres (Shadows)
+<!-- vim-markdown-toc -->
 
-### Combinació de color (Blending Modes)
 
-### Transicions
+CSS - Estètica i animació
+=========================
 
-### Transformacions
+Color, Contrast i espaiat
+-------------------------
 
-### Animacions
+### HSL vs RGB
+
+### Transparència
+
+
+Tipografia
+----------
+
+Fons
+----
+
+### Sòlids, Gradients i Imatges
+
+### Combinació (Blending Modes)
+
+
+Ombres
+------
+
+  * Text
+  * Capes
+
+
+Transicions
+-----------
+
+Transformacions
+---------------
+
+Animacions
+----------
+
+
+Referències
+-----------
+
+
+Javascript - APIs HTML5
+=======================
+
+
+  * HTML Geolocation
+  * HTML Drag and Drop
+  * HTML Local Storage
+  * HTML Application Cache
+  * HTML Web Workers
+  * HTML SSE
+  * ...
+
+
+Referències
+-----------
 

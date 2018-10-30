@@ -1,23 +1,65 @@
 
+```
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+ＵＤ０３  －  Ｐｏｓｉｃｉｏｎａｍｅｎｔ  ｉ  Ａｎｃｏｒａｔｇｅ
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+```
+
+__NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
+
+
+Índex
+=====
+
+
+<!-- vim-markdown-toc GitLab -->
+
+* [Posicionament i ancoratge](#posicionament-i-ancoratge)
+    * [Tipus de posicionament](#tipus-de-posicionament)
+    * [Ancoratge dels elements](#ancoratge-dels-elements)
+    * [Model de Capes (stacking context)](#model-de-capes-stacking-context)
+    * [Model de Caixa (Box Model)](#model-de-caixa-box-model)
+        * [Propietat `box-sizing`](#propietat-box-sizing)
+            * [Establir el box-sizing de forma global (WIP)](#establir-el-box-sizing-de-forma-global-wip)
+    * [Marges](#marges)
+        * [Marges negatius](#marges-negatius)
+        * [Marges colapsats](#marges-colapsats)
+    * [Voreres](#voreres)
+* [Javascript - Components CSS](#javascript-components-css)
+    * [CSS Modular](#css-modular)
+    * [Components Javascript/jQuery + CSS](#components-javascriptjquery-css)
+
+<!-- vim-markdown-toc -->
 
 
 
+  * CSS - Posicionament i Ancoratge
+  * Javascript - Components CSS
 
 
 Posicionament i ancoratge
--------------------------
+=========================
 
-  * position
 
-  * display
+Tipus de posicionament
+----------------------
 
-Box Model
----------
+    (Propietat `position`)
 
+
+Ancoratge dels elements
+-----------------------
+
+    (Propietat `display`)
+
+
+Model de Capes (stacking context)
+---------------------------------
+
+Model de Caixa (Box Model)
+--------------------------
 
 Font: [https://www.w3schools.com/css/css_boxmodel.asp]()
-
-
 
 ### Propietat `box-sizing`
 
@@ -96,6 +138,8 @@ valor `border-box`.
 
 
 
+
+
 Marges
 ------
 
@@ -120,8 +164,26 @@ Marges
     - Amb posicionament absolut (`position: absolute`) o fix (`position: fixed`)
 
   * A dins d'un contenidor flexbox (`display: flex`) o grid (`display: grid`).
-  
+
   * Els elements amb `display: table-cell`, `table-row` i la majoria de la
     resta de tipus de display de taules a excepció de `table`, `table-inline` i
     `table-caption` no tenen marges, així que no poden colapsar.
+
+
+
+Voreres
+-------
+
+
+
+
+
+Javascript - Components CSS
+===========================
+
+CSS Modular
+-----------
+
+Components Javascript/jQuery + CSS
+----------------------------------
 

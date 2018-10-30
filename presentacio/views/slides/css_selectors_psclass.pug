@@ -1,144 +1,141 @@
 
 .slide.bigfont(data-name="pseudoclass_selectors_0")
   div
-    h2 Pseudo-class Selectors
+    h3 Selectors de Pseudo-Classe
+    h4 (Pseudo-Class Selectors)
 
     p.
-      Pseudo-class selectors are used to target elements when they’re in a certain
-      state.
+      Els selectors de pseudo-classe s'utilitzen per seleccionar elements en
+      funció de si presenten o no un estat concret.
     p.
-      This state can be due to user interaction or the element’s position in
-      relation to its parent or sibling elements in the document.
+      Aquest estat pot ser en relació a la seva posició en relació al document
+      o d'altres elements o debut a alguna interacció de l'usuari.
     p.
-      Pseudo-class selectors always begin with a colon (:). These have the same
-      specificity as a class selector (0,1,0).
+      Sempre comencen amb dos punts (:) i ténen la mateixa especificitat
+      que els sel·lectors de classe (0,1,0).
 
 
 .slide(data-name="pseudoclass_selectors_1")
   div
-    h2 General Pseudo-class Selectors (I)
+    h2 Selectors de Pseudo-Classe (I)
 
     table
       tr
         th.lateral
           code= ':first-child'
         td.
-          —Targets elements that are the first element within their parent element.
+          — Selecciona els elements que ocupen el primer lloc dins l'element que
+          els conté.
       tr
         th.lateral
           code= ':last-child'
         td.
-            —Targets elements that are the last element within their parent
-            element.
+          — Selecciona els elements que ocupen el darrer lloc dins el seu
+          contenidor.
       tr
         th.lateral
           code= ':only-child'
         td.
-          —Targets elements that are the only element within their parent element
-          (no siblings).
+          — Selecciona els elements que estan sols a dins el seu contenidor.
       tr
         th.lateral
           code= ':nth-child(an+b)'
         td.
-            —Targets elements based upon their position among their siblings. The
-            formula an+b, where a and b are integers, indicates which elements to
-            target. To know exactly how a formula works, imagine solving it for all
-            integer values of n, beginning with zero. The results of this equation
-            indicate which children are targeted. 
+          — Selecciona elements en base a la seva posició respecte dels seus
+          veins o "germans" (siblings) segons la fórmula (an+b) especificada.
+          'a' i 'b' son enters i la 'n' (literal) representa la variable que,
+          substituïda per tots i cadascuns dels nombres enters, començant per
+          0, donaria la posició de tots els elements sel·leccionats per aquest
+          selector.
       tr
         th.lateral
           code= ':nth-last-child(an+b)'
         td.
-            —Similar to `:nth-child()`, but instead of counting forward from the
-            first element, this selector counts backward from the last element. The
-            formula in the parentheses follows the same pattern as in :nth-child().  
+          — Idèntica a ':nth-child()', però comptant cap enrere des del darrer
+          element.
 
 
 .slide(data-name="pseudoclass_selectors_2")
   div
-    h2 General Pseudo-class Selectors (II)
+    h2 Selectors de Pseudo-Classe (II)
 
     table
       tr
         th.lateral
           code= ':first-of-type'
         td.
-          —Similar in nature to `:first-child`, except instead of considering the
-          position among all children, it considers an element’s numerical
-          position only among other children with the same tag name.
+          — Similar a `:first-child` però selecciona tots els elements que son
+          el primer del seu tipus (nom de tag).
       tr
         th.lateral
           code= ':last-of-type'
         td.
-          —Targets the last child element of each type.
+          — A l'enrevés que ':first-of-type': selecciona tots els elements que
+          son el darrer del seu tipus.
       tr
         th.lateral
           code= ':only-of-type'
         td.
-          —Targets elements that are the only child of their type.
+          — Selecciona els elements que son l'únic element del seu tipus dins
+          el seu contenidor.
       tr
         th.lateral
           code= ':nth-of-type(an+b)'
         td.
-          —Targets elements of their type based on their numerical order and the
-          specified formula; similar to `:nth-child`.
+          — Similar a ':nth-child' però, per a cada element, compta les
+          posicions tenint en compte només els elements del mateix tipus.
       tr
         th.lateral
           code= ':nth-last-of-type(an+b)'
         td.
-          —Targets elements of their type based on a specified formula, counting
-          from the last of those elements backward; similar to `:nth-last-child`.
+          — Igual que ':nth-of-type(an+b)', però comptant des del final.
 
 
 .slide(data-name="pseudoclass_selectors_3")
   div
-    h2 General Pseudo-class Selectors (III)
+    h2 Selectors de Pseudo-Classe (III)
 
     table
       tr
         th.lateral
           code= ':not(_selector_)'
         td.
-          —Targets elements that don’t match the selector within the
-          parentheses. The selector inside the parentheses must be simple: it can
-          only refer to the element itself; you can’t use this selector to exclude
-          ancestors. It also mustn’t contain another negation selector.
+          — Selecciona els elements que NO compleixen les condicions del
+          selector especificat entre parèntesis. El qual ha de ser simple
+          (referit només al propi element: no es poden excloure ancestres ni
+          tampoc contenir un altre selector de negació).
       tr
         th.lateral
           code= ':empty'
         td.
-          —Targets elements that have no children. Beware that this doesn’t
-          target an element that contains whitespace as the whitespace is represented
-          in the DOM as a text node child. At the time of writing, the W3C is
-          considering a ":blank" pseudo-class that behaves similarly but also selects
-          elements that contain only whitespace; ":blank" is not yet supported in any
-          browser.
+          — Selecciona els elements que estan COMPLETAMENT buïds. És a dir: que
+          no contenen cap altre element ni text. INCLOSOS espaïs o salts de
+          línia. Existeix la proposta d'un nou selector ':blank' que sí
+          permetés espaïs i salts de línia. Però de moment no el suporta cap
+          navegador.
 
 .slide(data-name="pseudoclass_selectors_4")
   div
-    h2 General Pseudo-class Selectors (IV)
+    h2 Selectors de Pseudo-Classe (IV)
 
     table
       tr
         th.lateral
           code= ':focus'
         td.
-          —Targets elements that have received focus, whether from a mouse
-          click, screen tap, or Tab key navigation.
+          — Selecciona elements que ténen el focus.
       tr
         th.lateral
           code= ':hover'
         td.
-          —Targets elements while the mouse cursor hovers over them.
+          — Selecciona els elements sobre els quals es troba el ratolí.
       tr
         th.lateral
           code= ':root'
           td.
-              —Targets the root element of the document. In HTML, this is the
-              "<html>" element. But CSS can be applied to other XML or XML-like
-              documents, such as SVG; in which case, this selector works more
-              generically.
-
+            — Selecciona l'element arrel del document (el tag "<html>" pel cas
+            de documents HTML. Però css també es pot utilitzar per altres tipus
+            de documents XML-like com ara SVG...).
 
 
 //- vim: set ft=jade:

@@ -7,8 +7,8 @@ source "./etc/build_prefs.sh";
 #   * pandoc: sudo apt-get install pandoc
 
 
-abs_figures_path=$(realpath "$(dirname ${0})/../public/apunts/Figures");
-rel_figures_path='../Figures';
+abs_figures_path=$(realpath "$(dirname ${0})/../public/images/figures");
+rel_figures_path='../../images/figures';
 
 
 echo "Exporting markdown..."
@@ -21,7 +21,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<html>'
         echo '<head>'
         echo "<title>${baseName}</title>"
-        echo '<link rel="stylesheet" type="text/css" href="/apunts/markdown/styles.css" />';
+        echo '<link rel="stylesheet" type="text/css" href="/stylesheets/apunts.css" />';
         echo '<meta charset="utf-8" />'
         echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
         echo '</head>'
@@ -44,5 +44,10 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         | perl -ne "/\\/setslide\\// || print" \
         | pandoc -f markdown -t odt -o  "${odt_path}/${baseName}.odt"
 done;
+echo "";
+
+echo "Compiling stylesheet..."
+sass -s compressed ./views/stylesheets/apunts.scss ./public/stylesheets/apunts.css;
+echo "  * apunts.css"
 echo "";
 

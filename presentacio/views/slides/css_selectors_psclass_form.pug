@@ -11,16 +11,16 @@
           Sel·leccionen específicament característiques de camps de formularis:
         table
           tr
-            td
+            td.code
               code='<input>'
-            td
+            td.code
               code='<textarea>'
-            td
+            td.code
               code='<button>'
           tr
-            td
+            td.code
               code='<select>'
-            td(colspan=2)
+            td.code(colspan=2)
               code='<option>'
               span (segons el cas...)
 
@@ -50,22 +50,22 @@
         th.lateral
           code=':empty'
         td.
-          — Selecciona camps el contingut dels quals és buïd.
+          Selecciona camps el contingut dels quals és buïd.
       tr
         th.lateral
           code=':disabled'
         td.
-          — Selecciona camps deshabilitats.
+          Selecciona camps deshabilitats.
       tr
         th.lateral
           code=':enabled'
         td.
-          — Selecciona camps habilitats (no deshabilitats).
+          Selecciona camps habilitats (no deshabilitats).
       tr
         th.lateral
           code=':checked'
         td.
-          — Selecciona camps de tipus "checkbox" o "radio" que estiguin marcats.
+          Selecciona camps de tipus "checkbox" o "radio" que estiguin marcats.
 
 
 .slide(data-name="form_selectors_2")
@@ -78,25 +78,25 @@
         th.lateral
           code=':invalid'
         td.
-          — Selecciona camps el contingut dels quals no passa les regles de
+          Selecciona camps el contingut dels quals no passa les regles de
           validació o, en el cas de tenir l'attribut de "required", també si
           estan buïds.
       tr
         th.lateral
           code=':valid'
         td.
-          — Selecciona camps el contingut dels quals compleix les regles de
+          Selecciona camps el contingut dels quals compleix les regles de
           validació.
       tr
         th.lateral
           code=':required'
         td.
-          — Selecciona camps requerits (que ténen l'atribut "required"). 
+          Selecciona camps requerits (que ténen l'atribut "required"). 
       tr
         th.lateral
           code=':optional'
         td.
-          — Selecciona camps opcionals.
+          Selecciona camps opcionals.
 
 
 //- vim: set ft=jade:

@@ -1,34 +1,92 @@
 
-.slide(data-name="pselement_selectors")
+
+.slide(data-name="pselement_selectors_0")
   div
     h2 Selectors de Pseudo-Element
+
+    ul
+      li.
+        Seleccionen elements ficticis que es en realitat no existeixen com a
+        tals al document.
+
+      li
+        span.
+          Com les pseudoclasses van prefixats amb el caràcter 'dos punts',
+        b.
+          però en aquest cas doble: (::).
+
+      li
+        b EXEMPLE:
+        code='::first-letter'
+
+    table
+      tr
+        th.lateral='⚠  Avís:'
+        td
+          p
+            span='Originalment van ser especificats amb només un caràcter ":"'
+            span=" igual que les "
+            i="Pseudo-Classes"
+            span.
+               i, per aquest motiu tots els navegadors les accepten així de
+              moment.
+          p
+            span Però nosaltres
+            b=" sempre"
+            span=" escriurem, per exemple, "
+            code="::after"
+            span=" i no "
+            code=":after"
+            span=" donat que en qualsevol moment podrien deixar de fer-ho."
+
+.slide(data-name="pselement_selectors_1")
+  div
+    h2 Selectors de Pseudo-Element (I)
 
     table
       tr
         th.lateral
           code= '::before'
-        td.
-          — Bla bla bla...
-      tr
-        th.lateral
+          p=' i '
           code= '::after'
-        td.
-          — Bla bla bla...
+        td
+          p
+            span.
+              Creen un element "virtual" al principi o final, respectivament,
+            b=" del contingut "
+            span.
+              de l'element al que es refereixen.
+          p
+            span="És "
+            b imprescindible
+            span=" especificar la propietat "
+            code content
+            span=" donat que, en cas contrari, l'element no apareixerà."
+
       tr
         th.lateral
           code= '::first-letter'
-        td.
-          — Bla bla bla...
+        td.first-letter.
+          Selecciona la primera lletra del contingut d'un element,
+          permetent-nos aplicar-li estils específics com si tingués el seu
+          propi element dins el DOM.
       tr
         th.lateral
           code= '::first-line'
-        td.
-          — Bla bla bla...
+        td.first-line
+          span="Semblant a "
+          code="::first-letter"
+          span=", però sobre la primera línia de text sencera "
+          span.
+            (independentment de que aquesta pugui estar o no composada de
+            múltiples sub-elements)
+
       tr
         th.lateral
           code= '::selection'
         td.
-          — Bla bla bla...
+          Selecciona la fracció de text ressaltada (seleccionada) per l'usuari
+          amb el teclat o el ratolí.
 
 
 

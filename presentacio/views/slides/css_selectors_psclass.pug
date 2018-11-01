@@ -24,24 +24,24 @@
         th.lateral
           code= ':first-child'
         td.
-          — Selecciona els elements que ocupen el primer lloc dins l'element que
+          Selecciona els elements que ocupen el primer lloc dins l'element que
           els conté.
       tr
         th.lateral
           code= ':last-child'
         td.
-          — Selecciona els elements que ocupen el darrer lloc dins el seu
+          Selecciona els elements que ocupen el darrer lloc dins el seu
           contenidor.
       tr
         th.lateral
           code= ':only-child'
         td.
-          — Selecciona els elements que estan sols a dins el seu contenidor.
+          Selecciona els elements que estan sols a dins el seu contenidor.
       tr
         th.lateral
           code= ':nth-child(an+b)'
         td.
-          — Selecciona elements en base a la seva posició respecte dels seus
+          Selecciona elements en base a la seva posició respecte dels seus
           veins o "germans" (siblings) segons la fórmula (an+b) especificada.
           'a' i 'b' son enters i la 'n' (literal) representa la variable que,
           substituïda per tots i cadascuns dels nombres enters, començant per
@@ -51,7 +51,7 @@
         th.lateral
           code= ':nth-last-child(an+b)'
         td.
-          — Idèntica a ':nth-child()', però comptant cap enrere des del darrer
+          Idèntica a ':nth-child()', però comptant cap enrere des del darrer
           element.
 
 
@@ -64,31 +64,31 @@
         th.lateral
           code= ':first-of-type'
         td.
-          — Similar a `:first-child` però selecciona tots els elements que son
+          Similar a `:first-child` però selecciona tots els elements que son
           el primer del seu tipus (nom de tag).
       tr
         th.lateral
           code= ':last-of-type'
         td.
-          — A l'enrevés que ':first-of-type': selecciona tots els elements que
+          A l'enrevés que ':first-of-type': selecciona tots els elements que
           son el darrer del seu tipus.
       tr
         th.lateral
           code= ':only-of-type'
         td.
-          — Selecciona els elements que son l'únic element del seu tipus dins
+          Selecciona els elements que son l'únic element del seu tipus dins
           el seu contenidor.
       tr
         th.lateral
           code= ':nth-of-type(an+b)'
         td.
-          — Similar a ':nth-child' però, per a cada element, compta les
+          Similar a ':nth-child' però, per a cada element, compta les
           posicions tenint en compte només els elements del mateix tipus.
       tr
         th.lateral
           code= ':nth-last-of-type(an+b)'
         td.
-          — Igual que ':nth-of-type(an+b)', però comptant des del final.
+          Igual que ':nth-of-type(an+b)', però comptant des del final.
 
 
 .slide(data-name="pseudoclass_selectors_3")
@@ -100,7 +100,7 @@
         th.lateral
           code= ':not(_selector_)'
         td.
-          — Selecciona els elements que NO compleixen les condicions del
+          Selecciona els elements que NO compleixen les condicions del
           selector especificat entre parèntesis. El qual ha de ser simple
           (referit només al propi element: no es poden excloure ancestres ni
           tampoc contenir un altre selector de negació).
@@ -108,7 +108,7 @@
         th.lateral
           code= ':empty'
         td.
-          — Selecciona els elements que estan COMPLETAMENT buïds. És a dir: que
+          Selecciona els elements que estan COMPLETAMENT buïds. És a dir: que
           no contenen cap altre element ni text. INCLOSOS espaïs o salts de
           línia. Existeix la proposta d'un nou selector ':blank' que sí
           permetés espaïs i salts de línia. Però de moment no el suporta cap
@@ -123,17 +123,17 @@
         th.lateral
           code= ':focus'
         td.
-          — Selecciona elements que ténen el focus.
+          Selecciona elements que ténen el focus.
       tr
         th.lateral
           code= ':hover'
         td.
-          — Selecciona els elements sobre els quals es troba el ratolí.
+          Selecciona els elements sobre els quals es troba el ratolí.
       tr
         th.lateral
           code= ':root'
           td.
-            — Selecciona l'element arrel del document (el tag "<html>" pel cas
+            Selecciona l'element arrel del document (el tag "<html>" pel cas
             de documents HTML. Però css també es pot utilitzar per altres tipus
             de documents XML-like com ara SVG...).
 

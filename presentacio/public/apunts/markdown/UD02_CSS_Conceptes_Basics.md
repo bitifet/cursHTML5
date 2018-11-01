@@ -229,7 +229,7 @@ com estan de suportats als distints navegadors.
 ### Pseudo-element selectors
 
 
-[Selectors de pseudo-element](/setslide/pselement_selectors)
+[Selectors de pseudo-element](/setslide/pselement_selectors_0)
 
 
 Els pseudo-elements, a diferència de les pseudo-classes, no adrecen elements
@@ -254,6 +254,7 @@ hem fet servir la versió incorrecta, la rectificarem.
 
 #### `::before` i `::after`
 
+[Selectors de pseudo-element (I)](/setslide/pselement_selectors_1)
 
 Creen un pseudo-element que passa a ser el primer o darrer fill,
 respectivament, de l'element sel·leccionat.

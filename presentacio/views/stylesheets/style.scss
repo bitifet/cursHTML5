@@ -106,8 +106,22 @@ a {
     }
     td {
         background: #eeeeee;
-        &:first-letter, & p:first-letter {
-            font-size: 1.3em;
+        &:not(.code) {
+            &:first-letter, & p:first-letter {
+                font-size: 1.3em;
+                background-color: #555555;
+                color: #eeeeee;
+                padding: 0px .1em;
+                margin-right: .1em;
+            }
+            &.first-letter {
+                &:first-letter, & p:first-letter {
+                    background-color: #ff4444;
+                }
+            }
+            &.first-line::first-line {
+                text-decoration: underline;
+            }
         }
     }
 

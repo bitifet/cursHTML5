@@ -41,7 +41,11 @@ a {
 
     display: none;
 
-    &, &>div.center {
+    align-items: center;
+    justify-content: center;
+
+    & div.center {
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -169,5 +173,12 @@ a {
         color: blue;
     }
 
+    code.code {
+        background: #cccccc;
+        padding: .1em .2em;
+        &.wrong {
+            color: #cc0000;
+        }
+    } 
 }
 

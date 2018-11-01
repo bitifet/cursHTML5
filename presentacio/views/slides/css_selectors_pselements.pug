@@ -4,24 +4,25 @@
   div
     h2 Selectors de Pseudo-Element
 
-    ul
-      li.
-        Seleccionen elements ficticis que es en realitat no existeixen com a
-        tals al document.
+    div.center
+      ul
+        li.
+          Seleccionen elements ficticis que es en realitat no existeixen com a
+          tals al document.
 
-      li
-        span.
-          Com les pseudoclasses van prefixats amb el caràcter 'dos punts',
-        b.
-          però en aquest cas doble: (::).
+        li
+          span.
+            Com les pseudoclasses van prefixats amb el caràcter 'dos punts',
+          b.
+            però en aquest cas doble: (::).
 
-      li
-        b EXEMPLE:
-        code='::first-letter'
+        li
+          b="EXEMPLE: "
+          code.code='::first-letter'
 
     table
       tr
-        th.lateral='⚠  Avís:'
+        th.bigfont.lateral='⚠  Avís:'
         td
           p
             span='Originalment van ser especificats amb només un caràcter ":"'
@@ -34,9 +35,9 @@
             span Però nosaltres
             b=" sempre"
             span=" escriurem, per exemple, "
-            code="::after"
+            code.code="::after"
             span=" i no "
-            code=":after"
+            code.code.wrong=":after"
             span=" donat que en qualsevol moment podrien deixar de fer-ho."
 
 .slide(data-name="pselement_selectors_1")

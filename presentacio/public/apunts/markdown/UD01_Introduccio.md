@@ -33,13 +33,18 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
     * [Validació de Formularis](#validació-de-formularis)
     * [Referències](#referències-1)
 * [Javascript](#javascript)
-        * [ECMASCRIPT (ES6+)](#ecmascript-es6)
-            * [Strict Mode](#strict-mode)
-            * [Variables](#variables)
-            * [Scope](#scope)
-            * [Closures](#closures)
-            * [This](#this)
-            * [Class](#class)
+    * [ECMASCRIPT](#ecmascript)
+        * [Strict Mode](#strict-mode)
+        * [Variables](#variables)
+        * [Àmbit (Scope)](#Àmbit-scope)
+        * [Closures](#closures)
+        * [This](#this)
+        * [Class](#class)
+    * [ES6+](#es6)
+        * [Noves Funcionalitats](#noves-funcionalitats)
+        * [Compatibilitat cap Enrere](#compatibilitat-cap-enrere)
+            * [Manual](#manual)
+            * [Automatitzada](#automatitzada)
 * [Exercici 1:](#exercici-1)
 * [Entorn de Treball](#entorn-de-treball)
     * [Editor de Text](#editor-de-text)
@@ -86,7 +91,7 @@ Història
 [Abans d'HTML5](/setslide/abans_html5)
 
 
-  * No hi havia un estandard clar.
+  * No hi havia un estàndard clar.
     - O millor dit: N'hi havia molts de discrepants.
 
   * Imperava la "guerra dels navegadors".
@@ -262,7 +267,7 @@ Els mes comuns son:
 Llistes:
 
   * `<ul></ul>` / `<ol></ol>` 
-    - `<li></li>` / `<li></li>` 
+    - `<li></li>` 
 
 Taules:
 
@@ -312,20 +317,179 @@ Referències
 Javascript
 ==========
 
-### ECMASCRIPT (ES6+)
+Javascript és un llenguatge de programació **asíncron**.
 
-#### Strict Mode
+Va ésser desenvolupat en una setmana per encàrec de *Netscape* amb la intenció
+de dotar els seus navegadors de certa interactivitat.
 
-#### Variables
+Els programes en Javascript s'executen en un sol fil del processador. El que
+ens permet programar **gairebé** com si no existís concurrència.
 
-#### Scope
+El programari que interpreta el codi Javascript s'anomena "motor" (de l'anglès
+"engine"). El més utilitzat avui en dia és el "V8" de Google.
 
-#### Closures
+El motor, a més d'interpretar el codi Javascript, serveix de pont entre aquest
+i l'entorn en el que s'ha d'executar el nostre programa.
 
-#### This
+Així, en un programa que s'executi en un navegador, el nostre entorn serà el
+DOM, que ens dona accés a poder manipular totes les característiques del
+document i, fins i tot, algunes del propi navegador.
 
-#### Class
+Per programes executats en un intèrpret com ara Node.JS, en canvi, el nostre
+entorn és el sistema operatiu i tots els serveïs que aquest ens ofereix.
 
+Per contra del que molta gent pensa, Javascript és un llenguatge fortament
+orientat a objectes. Fins al punt que fins i tot els seus tipus de dades més
+elementals com les cadenes de text o els valors numèrics, son en realitat
+objectes.
+
+>
+El que no és en realitat és un llenguatge "orientat a classes": No cal una
+*classe* per crear un objecte en Javascript.
+>
+També té herència. Però el que s'hereden son els *prototipus* i no les
+*classes*.
+>
+
+De fet tota la interacció amb el món exterior i fins i tot amb el propi
+llenguatge (com ara les llibreries de funcions matemàtiques, de temps,
+expressions regulars, etc...) es fa a través d'objectes (variables) predefinits
+que el motor ens presenta a mode d'interfície per a interactuar amb ells.
+
+Així, a qualsevol entorn Javascript ens trobarem objectes com:
+
+  * `Math`
+  * `Date`
+  * `RegExp`
+  * `Object`
+  * `String`
+  * `Number`
+  * `Array`
+
+...i d'altres només els trobarem en entorns determinats:
+
+  * Node.JS:
+    - `process`
+    - `fs`
+  * Navegador:
+    - `document`
+    - `window`
+
+...un cas especial és el de l'objecte `console` que ens el trobarem sempre (pel
+que podriem dir que pertany al primer grup), amb els seus arxiconeguts mètodes
+`console.log()` i `console.error()`, però que el cito apart perquè, tot i
+presentar una interfície idèntica en tots els entorns, i realitzar una funció,
+efectivament idèntica. La forma en que es materialitza aquesta interacció pot
+ser radicalment distinta:
+
+  * A qualsevol intèrpret de terminal, com Node.JS: Ens mostrarà el resultat
+    per la pantalla (consola).
+
+  * En un navegador, en canvi: Els missatges romanen ocults a no ser que
+    nosaltres accediguem a la *consola del navegador* (que típicament s'obre
+    amb la tecla F12).
+
+
+ECMASCRIPT
+----------
+
+Javascript es va estendre ràpidament per tots els navegadors de l'època. Si be
+cadascun en feia les seves pròpies variacions i, per això, durant molts d'anys
+va resultar caòtic programar en Javascript i que el nostre codi funcionàs bé a
+tots els navegadors de l'època.
+
+L'associació **ECMA:** (European Computer Manufacturers Association) va voler
+estandarditzar-lo. Però el terme "Javascript" és una marca comercial registrada
+i l'aleshores titular Netscape no va permetre el seu ús. Motiu pel qual, el
+llenguatge va ésser estandarditzat sota el nom de "ECMASCRIPT".
+
+Avui en dia però, sempre que col·loquialment parlem de "Javascript" s'entén que
+en realitat estem parlant d'ECMASCRIPT.
+
+
+### Strict Mode
+
+En els seus origens Javascript era un llenguatge molt lax i, entre d'altres
+coses, no requeria declarar les variables: Si fèiem servir un identificador que
+no apareixia declarat al codi, automàticament es creava com a variable d'àmbit
+global.
+
+Així, codi com el següent:
+
+```javascript
+var Comptador = 10;
+comptador--;
+console.log(comptador);
+```
+
+...retornaria `-1` (quan nosaltres probablement esperaríem un `9`) en comptes
+de donar un error per variable no declarada, que és el que realment hauria de
+fer.
+
+Per poder solucionar això i no rompre la compatibilitat amb codi antic, es va
+introduir el que es coneix com a "mode estricte".
+
+Així, fins i tot els motors de Javascript més moderns funcionen en un mode
+compatible amb aquelles regles fins que nosaltres explícitament activam el mode
+estricte.
+
+Per activar el mode estricte basta amb posar la següent cadena (cometes
+incloses) al principi del nostre codi:
+
+
+```javascript
+"use strict";
+```
+
+Quan els motors de Javascript moderns veuen aquesta cadena entenen que han
+d'aplicar les regles modernes del Javascript (ECMASCRIPT).
+
+A més, com que escriure un valor d'un tipus de dades donat (en aquest cas una
+cadena), encara que no l'assignem a cap variable ni en fem res d'especial és
+vàlid com a codi en qualsevol versió de Javascript. Si no utilitzam
+funcionalitats avançades no disponibles en ells, el nostre codi **també
+funcionaria amb motors antics**. 
+
+
+>
+En resum: **SEMPRE** que ens disposem a escriure codi en Javascript, el primer
+que farem serà posar la cadena `"use strict";` al principi.
+>
+>Això ens ajudarà a fer millor codi i ens evitarà molts de problemes...
+>
+
+
+
+
+### Variables
+
+### Àmbit (Scope)
+
+### Closures
+
+### This
+
+### Class
+
+
+ES6+
+----
+
+### Noves Funcionalitats
+
+
+
+### Compatibilitat cap Enrere
+
+
+#### Manual
+
+
+#### Automatitzada
+
+  * shims
+  * polyfills
+  * transpilers
 
 
 -----------------------------------------------------------------------------------------
@@ -540,6 +704,9 @@ Referències
       [https://nodejs.org/es/download/package-manager/]().
     - Instal·lació manual: [https://nodejs.org/en/download/]().
 
+
+  * Altres:
+    - Motor de JavaScript V8 de Google: [https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)]().
 
 \newpage
 

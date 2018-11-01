@@ -40,19 +40,25 @@
       tr
         th.lateral
           code= ':nth-child(an+b)'
-        td.
-          Selecciona elements en base a la seva posició respecte dels seus
-          veins o "germans" (siblings) segons la fórmula (an+b) especificada.
-          'a' i 'b' son enters i la 'n' (literal) representa la variable que,
-          substituïda per tots i cadascuns dels nombres enters, començant per
-          0, donaria la posició de tots els elements sel·leccionats per aquest
-          selector.
+        td
+          p
+            span.
+              Selecciona elements en base a la seva posició respecte dels seus
+              veins o "germans" (siblings) segons la fórmula (
+            code.code="an+b"
+            span ) especificada.
+          p.
+            Ón 'a' i 'b' son enters i la 'n' (literal) representa la variable
+            que, substituïda per tots i cadascuns dels nombres enters,
+            començant per 0, donaria la posició de tots els elements
+            sel·leccionats per aquest selector.
       tr
         th.lateral
           code= ':nth-last-child(an+b)'
-        td.
-          Idèntica a ':nth-child()', però comptant cap enrere des del darrer
-          element.
+        td
+          span="Idèntica a "
+          code.code=':nth-child()'
+          span , però comptant cap enrere des del darrer element.
 
 
 .slide(data-name="pseudoclass_selectors_2")
@@ -63,15 +69,17 @@
       tr
         th.lateral
           code= ':first-of-type'
-        td.
-          Similar a `:first-child` però selecciona tots els elements que son
-          el primer del seu tipus (nom de tag).
+        td
+          span="Similar a "
+          code.code=':first-child'
+          span=" però selecciona tots els elements que son el primer del seu tipus (nom de tag)."
       tr
         th.lateral
           code= ':last-of-type'
-        td.
-          A l'enrevés que ':first-of-type': selecciona tots els elements que
-          son el darrer del seu tipus.
+        td
+          span="A l'enrevés que "
+          code.code=':first-of-type'
+          span : selecciona tots els elements que son el darrer del seu tipus.
       tr
         th.lateral
           code= ':only-of-type'
@@ -81,14 +89,17 @@
       tr
         th.lateral
           code= ':nth-of-type(an+b)'
-        td.
-          Similar a ':nth-child' però, per a cada element, compta les
-          posicions tenint en compte només els elements del mateix tipus.
+        td
+          span="Similar a "
+          code.code=':nth-child'
+          span="però, per a cada element, compta les posicions tenint en compte només els elements del mateix tipus."
       tr
         th.lateral
           code= ':nth-last-of-type(an+b)'
-        td.
-          Igual que ':nth-of-type(an+b)', però comptant des del final.
+        td
+          span="Igual que "
+          code.code=':nth-of-type(an+b)'
+          span , però comptant des del final.
 
 
 .slide(data-name="pseudoclass_selectors_3")
@@ -107,12 +118,15 @@
       tr
         th.lateral
           code= ':empty'
-        td.
-          Selecciona els elements que estan COMPLETAMENT buïds. És a dir: que
-          no contenen cap altre element ni text. INCLOSOS espaïs o salts de
-          línia. Existeix la proposta d'un nou selector ':blank' que sí
-          permetés espaïs i salts de línia. Però de moment no el suporta cap
-          navegador.
+        td
+          p.
+            Selecciona els elements que estan COMPLETAMENT buïds. És a dir: que
+            no contenen cap altre element ni text. INCLOSOS espaïs o salts de
+            línia.
+          p
+            span="Existeix la proposta d'un nou selector "
+            code.code.wrong=':blank'
+            span=" que sí permetés espaïs i salts de línia. Però de moment no el suporta cap navegador."
 
 .slide(data-name="pseudoclass_selectors_4")
   div
@@ -132,10 +146,12 @@
       tr
         th.lateral
           code= ':root'
-          td.
-            Selecciona l'element arrel del document (el tag "<html>" pel cas
-            de documents HTML. Però css també es pot utilitzar per altres tipus
-            de documents XML-like com ara SVG...).
+          td
+            span="Selecciona l'element arrel del document (el tag '"
+            code.code='<html>'
+            span.
+              ' pel cas de documents HTML. Però css també es pot utilitzar per
+              altres tipus de documents XML-like com ara SVG...).
 
 
 //- vim: set ft=jade:

@@ -10,3 +10,4 @@ js_path="public/javascripts";
 markdown_path="./public/apunts/markdown";
 html_path="./public/apunts/html";
 odt_path="./public/apunts/libreoffice";
+pdf_path="./public/apunts/pdf";

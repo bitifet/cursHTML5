@@ -11,6 +11,21 @@ abs_figures_path=$(realpath "$(dirname ${0})/../public/images/figures");
 rel_figures_path='../../images/figures';
 
 
+function utfIcons() {
+  cat \
+      | perl -pe 's/:warining:/⚠ /g' \
+      | perl -pe 's/:point-right:/☞/g' \
+  ;
+};
+
+
+
+
+echo "Compiling stylesheet..."
+sass -s compressed ./views/stylesheets/apunts.scss ./public/stylesheets/apunts.css;
+echo "  * apunts.css"
+echo "";
+
 echo "Exporting markdown..."
 for f in $(find "${markdown_path}" -type f -iname '*.md'); do
     fileName=$(basename "${f}");
@@ -30,7 +45,9 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         cat "${f}" \
             | perl -pe "s#__FIGURES_PATH__#${rel_figures_path}#g" \
             | perl -pe "s/__NAV_LINK__//" \
-            | pandoc -f markdown -t html -o -
+            | pandoc -f markdown -t html -o - \
+            | utfIcons \
+        ;
         echo '<script src="/javascripts/jquery-3.3.1.min.js"></script>'
         echo '<script src="/javascripts/remote_controller.js"></script>'
         echo '</body>'
@@ -38,16 +55,56 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
     ) > "${html_path}/${baseName}.html"
 
     echo "  * ${baseName}.odt"
-    cat "${f}" \
-        | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
-        | perl -ne "/__NAV_LINK__/ || print" \
-        | perl -ne "/\\/setslide\\// || print" \
-        | pandoc -f markdown -t odt -o  "${odt_path}/${baseName}.odt"
+    ( \
+        cat "${f}" \
+            | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
+            | perl -ne "/__NAV_LINK__/ || print" \
+            | perl -ne "/\\/setslide\\// || print" \
+            | utfIcons \
+        ;
+    ) | pandoc \
+        -f markdown \
+        -c ./public/stylesheets/apunts.css \
+        -t odt \
+        -o "${odt_path}/${baseName}.odt" \
+    ;
+
+    echo "  * ${baseName}.pdf"
+    ( \
+        echo '<!DOCTYPE HTML>'
+        echo '<html>'
+        echo '<head>'
+        echo "<title>${baseName}</title>"
+        echo '<meta charset="utf-8" />'
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        echo '</head>'
+        echo '<body>'
+        echo
+        cat "${f}" \
+            | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
+            | perl -ne "/__NAV_LINK__/ || print" \
+            | perl -ne "/\\/setslide\\// || print" \
+            | utfIcons \
+        ;
+        echo '<script src="/javascripts/jquery-3.3.1.min.js"></script>'
+        echo '<script src="/javascripts/remote_controller.js"></script>'
+        echo '</body>'
+        echo '</html>'
+    ) \
+        | pandoc -f markdown -t html -o - \
+        > "${pdf_path}/${baseName}.html" \
+    ;
+
+    md-to-pdf \
+        --stylesheet ./public/stylesheets/apunts.css \
+        "${pdf_path}/${baseName}.html" \
+        "${pdf_path}/${baseName}.pdf" \
+        2>/dev/null \
+    ;
+
+    rm "${pdf_path}/${baseName}.html";
+
 done;
 echo "";
 
-echo "Compiling stylesheet..."
-sass -s compressed ./views/stylesheets/apunts.scss ./public/stylesheets/apunts.css;
-echo "  * apunts.css"
-echo "";
 

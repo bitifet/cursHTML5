@@ -217,7 +217,7 @@ característiques de camps de formularis (tags `<input>`, `<textarea>`,
 
 
 >
-**⚠  Avís:** Alguns d'ells han estat introduïts o redefinits recentment pel que no
+**:warning:  Avís:** Alguns d'ells han estat introduïts o redefinits recentment pel que no
 funcionaran com s'espera en alguns navegadors.
 >
 Haurem de consultar cadascun a [http://caniuse.com]() per a saber exactament

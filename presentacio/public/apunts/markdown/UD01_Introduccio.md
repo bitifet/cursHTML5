@@ -35,6 +35,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 * [Javascript](#javascript)
     * [ECMASCRIPT](#ecmascript)
         * [Strict Mode](#strict-mode)
+            * [Activació](#activació)
         * [Variables](#variables)
         * [Àmbit (Scope)](#Àmbit-scope)
         * [Closures](#closures)
@@ -161,12 +162,15 @@ Elements (Tags)
 
 ### Anatomia
 
+Amb contingut:
 
 ```html
 <div class="menu">
     (contingut...)
 </div>
 ```
+
+Auto-tancats:
 
 ```html
 <input name="age" type="number" />
@@ -190,9 +194,8 @@ del navegador.
 ```
 
 >
-:point-right: [React](https://reactjs.org/),
-[Polymer](https://www.polymer-project.org/) i [Angular](https://angular.io/)
-son alguns dels frameworks més coneguts que en fan ús.
+:point-right: React, Polymer i Angular son alguns dels frameworks més coneguts
+que en fan ús.
 >
 
 
@@ -297,10 +300,10 @@ Referències
     - Referència competa d'atributs: [https://www.w3schools.com/tags/ref_attributes.asp]().
   * **Altres:**
     - Viewport: [https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag]().
-
-
-\newpage
-
+  * **Frameworks:**
+    - React: [https://reactjs.org/]().
+    - Polymer: [https://www.polymer-project.org/]().
+    - Angular: [https://angular.io/]().
 
 
 Formularis
@@ -400,7 +403,7 @@ tots els navegadors de l'època.
 
 L'associació **ECMA:** (European Computer Manufacturers Association) va voler
 estandarditzar-lo. Però el terme "Javascript" és una marca comercial registrada
-i l'aleshores titular Netscape no va permetre el seu ús. Motiu pel qual, el
+i l'aleshores titular, *Netscape*, no va permetre el seu ús. Motiu pel qual, el
 llenguatge va ésser estandarditzat sota el nom de "ECMASCRIPT".
 
 Avui en dia però, sempre que col·loquialment parlem de "Javascript" s'entén que
@@ -424,7 +427,7 @@ console.log(comptador);
 
 ...retornaria `-1` (quan nosaltres probablement esperaríem un `9`) en comptes
 de donar un error per variable no declarada, que és el que realment hauria de
-fer.
+fer (en Javascript els identificadors son *Case-Sensitive*).
 
 Per poder solucionar això i no rompre la compatibilitat amb codi antic, es va
 introduir el que es coneix com a "mode estricte".
@@ -432,6 +435,9 @@ introduir el que es coneix com a "mode estricte".
 Així, fins i tot els motors de Javascript més moderns funcionen en un mode
 compatible amb aquelles regles fins que nosaltres explícitament activam el mode
 estricte.
+
+
+#### Activació
 
 Per activar el mode estricte basta amb posar la següent cadena (cometes
 incloses) al principi del nostre codi:
@@ -581,25 +587,28 @@ Obrirem una terminal i seguirem els passos següents:
 nostres exercicis i projectes i ens situam en ell.
 
 ```sh
-usuari@maquina:~$ mkdir exercicis
-usuari@maquina:~$ cd exercicis
-usuari@maquina:~/exercicis$
+u@m:~$ mkdir exercicis
+u@m:~$ cd exercicis
+u@m:~/exercicis$
 ```
 
 *2.* Repetirem el pas anterior per crear a dins d'aquest un subdirectori, per
 exemple "cursHTML5" per al nostre primer projecte.
 
 ```sh
-usuari@maquina:~/exercicis$ mkdir cursHTML5
-usuari@maquina:~/exercicis$ cd cursHTML5/
-usuari@maquina:~/exercicis/cursHTML5$
+u@m:~/exercicis$ mkdir cursHTML5
+u@m:~/exercicis$ cd cursHTML5/
+u@m:~/exercicis/cursHTML5$
 ```
 
 *3.* Fem servir la comanda `express` (l'*express-generator*) per crear un
-projecte buit:
+projecte buit.
+
+Farem servir el paràmetre `--view=pug` per indicar-li que volem fer servir
+específicament aquest motor de plantilles:
 
 ```sh
-usuari@maquina:~/exercicis/cursHTML5$ express --view=pug
+u@m:~/exercicis/cursHTML5$ express --view=pug
 
    create : public/
    create : public/javascripts/
@@ -656,7 +665,7 @@ Les dues següents passes ja ens les ha suggerit el propi express-generator...
 *4.* Executam `npm install` per tal que s'instal·lin totes les dependències:
 
 ```sh
-usuari@maquina:~/exercicis/cursHTML5$ npm install
+u@m:~/exercicis/cursHTML5$ npm install
 npm notice created a lockfile as package-lock.json. You should commit this file.
 added 118 packages from 174 contributors and audited 247 packages in 3.707s
 found 0 vulnerabilities
@@ -669,7 +678,7 @@ o, en el nostre cas, amb `npm start` serà suficient.
 
 
 ```sh
-usuari@maquina:~/exercicis/cursHTML5$ npm start
+u@m:~/exercicis/cursHTML5$ npm start
 
 > curshtml5@0.0.0 start /home/usuari/exercicis/cursHTML5
 > node ./bin/www

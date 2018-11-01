@@ -52,7 +52,10 @@
 <ul>
 <li><a href="#ecmascript">ECMASCRIPT</a>
 <ul>
-<li><a href="#strict-mode">Strict Mode</a></li>
+<li><a href="#strict-mode">Strict Mode</a>
+<ul>
+<li><a href="#activació">Activació</a></li>
+</ul></li>
 <li><a href="#variables">Variables</a></li>
 <li><a href="#Àmbit-scope">Àmbit (Scope)</a></li>
 <li><a href="#closures">Closures</a></li>
@@ -100,7 +103,7 @@
 <h3 id="abans-de-html5">Abans de HTML5</h3>
 <p><a href="/setslide/abans_html5">Abans d'HTML5</a></p>
 <ul>
-<li>No hi havia un estandard clar.
+<li>No hi havia un estàndard clar.
 <ul>
 <li>O millor dit: N'hi havia molts de discrepants.</li>
 </ul></li>
@@ -131,9 +134,11 @@
 <h1 id="llenguatge-de-marques-markup">Llenguatge de Marques (Markup)</h1>
 <h2 id="elements-tags">Elements (Tags)</h2>
 <h3 id="anatomia">Anatomia</h3>
+<p>Amb contingut:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;menu&quot;</span><span class="kw">&gt;</span>
     (contingut...)
 <span class="kw">&lt;/div&gt;</span></code></pre></div>
+<p>Auto-tancats:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;input</span><span class="ot"> name=</span><span class="st">&quot;age&quot;</span><span class="ot"> type=</span><span class="st">&quot;number&quot;</span> <span class="kw">/&gt;</span></code></pre></div>
 <h3 id="custom-elements">Custom Elements</h3>
 <p>Els elements de client o &quot;custom&quot; son aquells en els que el nom del tag està en minúscules i conté al menys un guió (&quot;-&quot;). Llevat d'algunes excepcions que no vénen al cas.</p>
@@ -142,7 +147,7 @@
     (contingut...)
 <span class="kw">&lt;/my-component&gt;</span></code></pre></div>
 <blockquote>
-<p>:point-right: <a href="https://reactjs.org/">React</a>, <a href="https://www.polymer-project.org/">Polymer</a> i <a href="https://angular.io/">Angular</a> son alguns dels frameworks més coneguts que en fan ús.</p>
+<p>☞ React, Polymer i Angular son alguns dels frameworks més coneguts que en fan ús.</p>
 </blockquote>
 <h2 id="atributs">Atributs</h2>
 <ul>
@@ -236,8 +241,13 @@
 <ul>
 <li>Viewport: <a href="">https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag</a>.</li>
 </ul></li>
+<li><strong>Frameworks:</strong>
+<ul>
+<li>React: <a href="">https://reactjs.org/</a>.</li>
+<li>Polymer: <a href="">https://www.polymer-project.org/</a>.</li>
+<li>Angular: <a href="">https://angular.io/</a>.</li>
+</ul></li>
 </ul>
-
 <h1 id="formularis">Formularis</h1>
 <h2 id="validació-de-formularis">Validació de Formularis</h2>
 <h2 id="referències-1">Referències</h2>
@@ -278,27 +288,28 @@
 <li><code>window</code></li>
 </ul></li>
 </ul>
-<p>...un cas especial és el de l'objecte <code>console</code> que ens el trobarem sempre (pel que podriem dir que pertany al primer grup), amb els seus arxiconeguts mètodes <code>console.log()</code> i <code>console.error()</code>, però que el cito apart perquè, tot i presentar una interficie idèntica en tots els entorns, i realitzar una funció, efectivament idèntica. La forma en que es materialitza aquesta interacció pot ser radicalment distinta:</p>
+<p>...un cas especial és el de l'objecte <code>console</code> que ens el trobarem sempre (pel que podriem dir que pertany al primer grup), amb els seus arxiconeguts mètodes <code>console.log()</code> i <code>console.error()</code>, però que el cito apart perquè, tot i presentar una interfície idèntica en tots els entorns, i realitzar una funció, efectivament idèntica. La forma en que es materialitza aquesta interacció pot ser radicalment distinta:</p>
 <ul>
-<li><p>A qualsevol intérpret de terminal, com Node.JS: Ens mostrarà el resultat per la pantalla (consola).</p></li>
+<li><p>A qualsevol intèrpret de terminal, com Node.JS: Ens mostrarà el resultat per la pantalla (consola).</p></li>
 <li><p>En un navegador, en canvi: Els missatges romanen ocults a no ser que nosaltres accediguem a la <em>consola del navegador</em> (que típicament s'obre amb la tecla F12).</p></li>
 </ul>
 <h2 id="ecmascript">ECMASCRIPT</h2>
-<p>Javascript es va extendre ràpidament per tots els navegadors de l'època. Si be cadascun en feia les seves pròpies variacions i, per això, durant molts d'anys va resultar caòtic programar en Javascript i que el nostre codi funcionas bé a tots els navegadors de l'època.</p>
-<p>L'associació <strong>ECMA:</strong> (European Computer Manufacturers Association) va voler estanarditzar-lo. Però el terme &quot;Javascript&quot; és una marca comercial registrada i l'aleshores titular Netscape no va permetre el seu ús. Motíu pel qual, el llenguatge va ésser estandarditzat sota el nom de &quot;ECMASCRIPT&quot;.</p>
+<p>Javascript es va estendre ràpidament per tots els navegadors de l'època. Si be cadascun en feia les seves pròpies variacions i, per això, durant molts d'anys va resultar caòtic programar en Javascript i que el nostre codi funcionàs bé a tots els navegadors de l'època.</p>
+<p>L'associació <strong>ECMA:</strong> (European Computer Manufacturers Association) va voler estandarditzar-lo. Però el terme &quot;Javascript&quot; és una marca comercial registrada i l'aleshores titular, <em>Netscape</em>, no va permetre el seu ús. Motiu pel qual, el llenguatge va ésser estandarditzat sota el nom de &quot;ECMASCRIPT&quot;.</p>
 <p>Avui en dia però, sempre que col·loquialment parlem de &quot;Javascript&quot; s'entén que en realitat estem parlant d'ECMASCRIPT.</p>
 <h3 id="strict-mode">Strict Mode</h3>
-<p>En els seus origens Javascript era un llenguatge molt laxe i, entre d'altres coses, no requeria declarar les variables: Si feiem servir un identificador que no apareixia declarat al codi, automàticament es creava com a variable d'àmbit global.</p>
+<p>En els seus origens Javascript era un llenguatge molt lax i, entre d'altres coses, no requeria declarar les variables: Si fèiem servir un identificador que no apareixia declarat al codi, automàticament es creava com a variable d'àmbit global.</p>
 <p>Així, codi com el següent:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> Comptador <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>
 comptador<span class="op">--;</span>
 <span class="va">console</span>.<span class="at">log</span>(comptador)<span class="op">;</span></code></pre></div>
-<p>...retornaria <code>-1</code> (quan nosaltres probablement esperariem un <code>9</code>) en comptes de donar un error per variable no declarada, que és el que realment hauria de fer.</p>
-<p>Per poder solucionar això i no rompre la compatibilitat amb codi antic, es va introduïr el que es coneix com a &quot;mode estricte&quot;.</p>
+<p>...retornaria <code>-1</code> (quan nosaltres probablement esperaríem un <code>9</code>) en comptes de donar un error per variable no declarada, que és el que realment hauria de fer (en Javascript els identificadors son <em>Case-Sensitive</em>).</p>
+<p>Per poder solucionar això i no rompre la compatibilitat amb codi antic, es va introduir el que es coneix com a &quot;mode estricte&quot;.</p>
 <p>Així, fins i tot els motors de Javascript més moderns funcionen en un mode compatible amb aquelles regles fins que nosaltres explícitament activam el mode estricte.</p>
+<h4 id="activació">Activació</h4>
 <p>Per activar el mode estricte basta amb posar la següent cadena (cometes incloses) al principi del nostre codi:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></code></pre></div>
-<p>Quan els motors de Javascript moderns veuen aquesta cadena enténen que han d'aplicar les regles modernes del Javascript (ECMASCRIPT).</p>
+<p>Quan els motors de Javascript moderns veuen aquesta cadena entenen que han d'aplicar les regles modernes del Javascript (ECMASCRIPT).</p>
 <p>A més, com que escriure un valor d'un tipus de dades donat (en aquest cas una cadena), encara que no l'assignem a cap variable ni en fem res d'especial és vàlid com a codi en qualsevol versió de Javascript. Si no utilitzam funcionalitats avançades no disponibles en ells, el nostre codi <strong>també funcionaria amb motors antics</strong>.</p>
 <blockquote>
 <p>En resum: <strong>SEMPRE</strong> que ens disposem a escriure codi en Javascript, el primer que farem serà posar la cadena <code>&quot;use strict&quot;;</code> al principi.</p>
@@ -368,15 +379,16 @@ comptador<span class="op">--;</span>
 <h3 id="procediment">Procediment</h3>
 <p>Obrirem una terminal i seguirem els passos següents:</p>
 <p><em>1.</em> Cream un directori, per exemple de nom &quot;exercicis&quot;, on emmagatzemar els nostres exercicis i projectes i ens situam en ell.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">usuari@maquina</span>:~$ mkdir exercicis
-<span class="ex">usuari@maquina</span>:~$ cd exercicis
-<span class="ex">usuari@maquina</span>:~/exercicis$</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~$ mkdir exercicis
+<span class="ex">u@m</span>:~$ cd exercicis
+<span class="ex">u@m</span>:~/exercicis$</code></pre></div>
 <p><em>2.</em> Repetirem el pas anterior per crear a dins d'aquest un subdirectori, per exemple &quot;cursHTML5&quot; per al nostre primer projecte.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">usuari@maquina</span>:~/exercicis$ mkdir cursHTML5
-<span class="ex">usuari@maquina</span>:~/exercicis$ cd cursHTML5/
-<span class="ex">usuari@maquina</span>:~/exercicis/cursHTML5$</code></pre></div>
-<p><em>3.</em> Fem servir la comanda <code>express</code> (l'<em>express-generator</em>) per crear un projecte buit:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">usuari@maquina</span>:~/exercicis/cursHTML5$ express --view=pug
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis$ mkdir cursHTML5
+<span class="ex">u@m</span>:~/exercicis$ cd cursHTML5/
+<span class="ex">u@m</span>:~/exercicis/cursHTML5$</code></pre></div>
+<p><em>3.</em> Fem servir la comanda <code>express</code> (l'<em>express-generator</em>) per crear un projecte buit.</p>
+<p>Farem servir el paràmetre <code>--view=pug</code> per indicar-li que volem fer servir específicament aquest motor de plantilles:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ express --view=pug
 
    <span class="ex">create</span> : public/
    <span class="ex">create</span> : public/javascripts/
@@ -421,13 +433,13 @@ comptador<span class="op">--;</span>
     └── layout.pug</code></pre>
 <p>Les dues següents passes ja ens les ha suggerit el propi express-generator...</p>
 <p><em>4.</em> Executam <code>npm install</code> per tal que s'instal·lin totes les dependències:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">usuari@maquina</span>:~/exercicis/cursHTML5$ npm install
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ npm install
 <span class="ex">npm</span> notice created a lockfile as package-lock.json. You should commit this file.
 <span class="ex">added</span> 118 packages from 174 contributors and audited 247 packages in 3.707s
 <span class="ex">found</span> 0 vulnerabilities</code></pre></div>
 <p>i...</p>
 <p><em>5.</em> Arrancam el nostre nou servidor web. Podem fer servir la comanda que s'ens o, en el nostre cas, amb <code>npm start</code> serà suficient.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">usuari@maquina</span>:~/exercicis/cursHTML5$ npm start
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ npm start
 
 <span class="op">&gt;</span> <span class="ex">curshtml5@0.0.0</span> start /home/usuari/exercicis/cursHTML5
 <span class="op">&gt;</span> <span class="ex">node</span> ./bin/www</code></pre></div>

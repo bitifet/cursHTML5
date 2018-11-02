@@ -1,9 +1,6 @@
 
-```
-－－－－－－－－－－－－－－－－－－－－－－－
-ＵＤ０２  －  Ｃｏｎｃｅｐｔｅｓ  Ｂｓｉｃｓ
-－－－－－－－－－－－－－－－－－－－－－－－
-```
+UD02 - Conceptes bàsics
+=======================
 
 __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
@@ -21,14 +18,14 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Selectors Bàsics](#selectors-bàsics)
         * [Combinadors (Combinators)](#combinadors-combinators)
         * [Selectors de Pseudo-Classe (Pseudo-class Selectors)](#selectors-de-pseudo-classe-pseudo-class-selectors)
-            * [General Pseudo-class Selectors](#general-pseudo-class-selectors)
-            * [Field-specific Pseudo-class Selectors](#field-specific-pseudo-class-selectors)
-        * [Pseudo-element selectors](#pseudo-element-selectors)
+            * [Selectors de Pseudo-classe Genèrics](#selectors-de-pseudo-classe-genèrics)
+            * [Selectors de Pseudo-classe Específics per a Formularis](#selectors-de-pseudo-classe-específics-per-a-formularis)
+        * [Selectors de Pseudo-element](#selectors-de-pseudo-element)
             * [`::before` i `::after`](#before-i-after)
             * [`::first-letter` i `::first-line`](#first-letter-i-first-line)
             * [`::selection`](#selection)
-        * [Attribute Selectors](#attribute-selectors)
-            * [Case-insensitive attribute selectors (WIP)](#case-insensitive-attribute-selectors-wip)
+        * [Selectors d'Atribut](#selectors-datribut)
+            * [Selectors d'Atribut *Case-insensitive*](#selectors-datribut-case-insensitive)
     * [Cascada (WIP)](#cascada-wip)
         * [Origen (WIP)](#origen-wip)
         * [Especificitat (WIP)](#especificitat-wip)
@@ -124,28 +121,23 @@ Selectors
 
 ### Selectors Bàsics
 
-  * tagname
-  * .class
-  * #id
-  * \*
+  * `tagname`
+  * .`class`
+  * `#id`
+  * `\*`
 
 
 ### Combinadors (Combinators)
 
-  * Compound Selectors `(a)(b)`.
-    - Exemple `h1.page-header`
 
-  * ` ` — Descendant: `(a) (b)`.
-    - Exemple `header h2`
+| Nom                                | Sintaxi |             | Exemple          |
+|:-----------------------------------|--------:|:------------|:-----------------|
+| Compound (composició)              | (res)   | `(a)(b)`    | `h1.page-header` |
+| Descendant (descendent)            | (espai) | `(a) (b)`   | `header h2`      |
+| Child (descendent directe)         | (`>`)   | `(a)>(b)`   | `li>ul`          |
+| Adjacent Sibling **(posterior)**   | (`+`)   | `(a)+(b)`   | `th+tr`          |
+| Following Sibling (el següent)     | (`~`)   | `(a)~(b)`   | `tr.today~tr`    |
 
-  * `>` Child (Direct Descendant): `(a)>(b)`.
-    - Exemple `li>ul`
-
-  * `+` **(Following)** Adjacent Sibling: `(a)+(b)`.
-    - Exemple `th+tr`
-
-  * `~` **(Following)** Sibling: `(a)~(b)`.
-    - Exemple `tr.today~tr`
 
 
 ### Selectors de Pseudo-Classe (Pseudo-class Selectors)
@@ -165,7 +157,7 @@ La llista completa de selectors de pseudo-classe es pot trobar al MDN sota:
 
 
 
-#### General Pseudo-class Selectors
+#### Selectors de Pseudo-classe Genèrics
 
 |                |                  |
 |----------------|------------------|
@@ -196,7 +188,7 @@ La llista completa de selectors de pseudo-classe es pot trobar al MDN sota:
 
 
 
-#### Field-specific Pseudo-class Selectors
+#### Selectors de Pseudo-classe Específics per a Formularis
 
 [Selectors de pseudo-classe per a Formularis](/setslide/form_selectors_0)
 
@@ -226,27 +218,27 @@ com estan de suportats als distints navegadors.
 
 
 
-### Pseudo-element selectors
+### Selectors de Pseudo-element
 
 
 [Selectors de pseudo-element](/setslide/pselement_selectors_0)
 
 
 Els pseudo-elements, a diferència de les pseudo-classes, no adrecen elements
-(tags) realment existents al document, sino que *virtualment* en creen de nous
-en un lloc determinat o sobre una part determinada de l'element sel·leccionat.
+(tags) realment existents al document, sinó que *virtualment* en creen de nous
+en un lloc determinat o sobre una part determinada de l'element seleccionat.
 
 Per exemple, `p::first-letter` ens permetria aplicar un estil distint
 **únicament** a la primera lletra de cada paràgraf com si aquesta estigués
-continguda en el seu propi subtag.
+continguda en el seu propi *subtag*.
 
 Es distingeixen de les pseudo-classes per anar prefixats per dos caràcters de
 "dos punts" (`::`) en comptes d'un sol com els pseudo-elements.
 
 >
-**⚠  Avís:** Ens podem trobar però casos en que s'hagin especificat amb nomeś ':'
+**⚠  Avís:** Ens podem trobar però casos en que s'hagin especificat amb només ':'
 ja que així fou com s'especificaren originalment i per ara tots els navegadors
-els reconèixen també. Nosaltres **sempre** els escriurem com a `::after` i no
+els reconeixen també. Nosaltres **sempre** els escriurem com a `::after` i no
 `:after`, per exemple. I si detectam codi antic o algun cas en que, per error,
 hem fet servir la versió incorrecta, la rectificarem.
 >
@@ -257,9 +249,9 @@ hem fet servir la versió incorrecta, la rectificarem.
 [Selectors de pseudo-element (I)](/setslide/pselement_selectors_1)
 
 Creen un pseudo-element que passa a ser el primer o darrer fill,
-respectivament, de l'element sel·leccionat.
+respectivament, de l'element seleccionat.
 
-  * Es poden utilitxar per pre/su-fixar texts o imatges.
+  * Es poden utilitzar per pre/su-fixar texts o imatges.
 
   * **És obligatori** definir la propietat `content`, encara que sigui amb un
     espaï en blanc, ja que **del contrari no apareixeran**.
@@ -280,7 +272,7 @@ Només permet unes poques propietats. Incloses
 
 
 
-### Attribute Selectors
+### Selectors d'Atribut
 
 Els selectors d'atribut permeten seleccionar elements en funció dels seus
 atributs HTML i ténen la mateixa especificitat que els selectors de classe
@@ -312,9 +304,10 @@ atributs HTML i ténen la mateixa especificitat que els selectors de classe
     - Exemple: `div[lang|="es"]` (concordaria amb `lang="es"`, `lang="es-ca"`, etc..)
 
 
-#### Case-insensitive attribute selectors (WIP)
+#### Selectors d'Atribut *Case-insensitive*
 
-Els selectors d'atribut *tradicionalment* distingeixen entre majúscules i minúscules, pel que, per exemple, '
+Els selectors d'atribut *tradicionalment* distingeixen entre majúscules i
+minúscules, pel que, per exemple, '
 
 
 //// TODO /////
@@ -455,8 +448,16 @@ Regles "AT" (@)
 
 
 
+
 Referències
 -----------
+
+
+
+  * Media print:
+    - Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+      + Maquetació avançada d'impressió
+      + (Desgraciadament cap navegador suporta massa més que establir els marges).
 
 
 Javascript - jQuery

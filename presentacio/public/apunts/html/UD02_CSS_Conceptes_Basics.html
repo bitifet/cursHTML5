@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<pre><code>－－－－－－－－－－－－－－－－－－－－－－－
-ＵＤ０２  －  Ｃｏｎｃｅｐｔｅｓ  Ｂｓｉｃｓ
-－－－－－－－－－－－－－－－－－－－－－－－</code></pre>
+<h1 id="ud02---conceptes-bàsics">UD02 - Conceptes bàsics</h1>
 <p><a href="./Planificacio.html">(⇧ Planificacio)</a></p>
 <h1 id="índex">Índex</h1>
 <!-- vim-markdown-toc GitLab -->
@@ -28,18 +26,18 @@
 <li><a href="#combinadors-combinators">Combinadors (Combinators)</a></li>
 <li><a href="#selectors-de-pseudo-classe-pseudo-class-selectors">Selectors de Pseudo-Classe (Pseudo-class Selectors)</a>
 <ul>
-<li><a href="#general-pseudo-class-selectors">General Pseudo-class Selectors</a></li>
-<li><a href="#field-specific-pseudo-class-selectors">Field-specific Pseudo-class Selectors</a></li>
+<li><a href="#selectors-de-pseudo-classe-genèrics">Selectors de Pseudo-classe Genèrics</a></li>
+<li><a href="#selectors-de-pseudo-classe-específics-per-a-formularis">Selectors de Pseudo-classe Específics per a Formularis</a></li>
 </ul></li>
-<li><a href="#pseudo-element-selectors">Pseudo-element selectors</a>
+<li><a href="#selectors-de-pseudo-element">Selectors de Pseudo-element</a>
 <ul>
 <li><a href="#before-i-after"><code>::before</code> i <code>::after</code></a></li>
 <li><a href="#first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></a></li>
 <li><a href="#selection"><code>::selection</code></a></li>
 </ul></li>
-<li><a href="#attribute-selectors">Attribute Selectors</a>
+<li><a href="#selectors-datribut">Selectors d'Atribut</a>
 <ul>
-<li><a href="#case-insensitive-attribute-selectors-wip">Case-insensitive attribute selectors (WIP)</a></li>
+<li><a href="#selectors-datribut-case-insensitive">Selectors d'Atribut <em>Case-insensitive</em></a></li>
 </ul></li>
 </ul></li>
 <li><a href="#cascada-wip">Cascada (WIP)</a>
@@ -116,31 +114,54 @@
 <h2 id="selectors">Selectors</h2>
 <h3 id="selectors-bàsics">Selectors Bàsics</h3>
 <ul>
-<li>tagname</li>
-<li>.class</li>
-<li><h1 id="id">id</h1></li>
-<li>*</li>
+<li><code>tagname</code></li>
+<li>.<code>class</code></li>
+<li><code>#id</code></li>
+<li><code>\*</code></li>
 </ul>
 <h3 id="combinadors-combinators">Combinadors (Combinators)</h3>
-<ul>
-<li>Compound Selectors <code>(a)(b)</code>.
-<ul>
-<li>Exemple <code>h1.page-header</code></li>
-</ul></li>
-<li><p><code>` — Descendant:</code>(a) (b)<code>. - Exemple</code>header h2`</p></li>
-<li><code>&gt;</code> Child (Direct Descendant): <code>(a)&gt;(b)</code>.
-<ul>
-<li>Exemple <code>li&gt;ul</code></li>
-</ul></li>
-<li><code>+</code> <strong>(Following)</strong> Adjacent Sibling: <code>(a)+(b)</code>.
-<ul>
-<li>Exemple <code>th+tr</code></li>
-</ul></li>
-<li><code>~</code> <strong>(Following)</strong> Sibling: <code>(a)~(b)</code>.
-<ul>
-<li>Exemple <code>tr.today~tr</code></li>
-</ul></li>
-</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Nom</th>
+<th align="right">Sintaxi</th>
+<th align="left"></th>
+<th align="left">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Compound (composició)</td>
+<td align="right">(res)</td>
+<td align="left"><code>(a)(b)</code></td>
+<td align="left"><code>h1.page-header</code></td>
+</tr>
+<tr class="even">
+<td align="left">Descendant (descendent)</td>
+<td align="right">(espai)</td>
+<td align="left"><code>(a) (b)</code></td>
+<td align="left"><code>header h2</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Child (descendent directe)</td>
+<td align="right">(<code>&gt;</code>)</td>
+<td align="left"><code>(a)&gt;(b)</code></td>
+<td align="left"><code>li&gt;ul</code></td>
+</tr>
+<tr class="even">
+<td align="left">Adjacent Sibling <strong>(posterior)</strong></td>
+<td align="right">(<code>+</code>)</td>
+<td align="left"><code>(a)+(b)</code></td>
+<td align="left"><code>th+tr</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Following Sibling (el següent)</td>
+<td align="right">(<code>~</code>)</td>
+<td align="left"><code>(a)~(b)</code></td>
+<td align="left"><code>tr.today~tr</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="selectors-de-pseudo-classe-pseudo-class-selectors">Selectors de Pseudo-Classe (Pseudo-class Selectors)</h3>
 <p><a href="/setslide/pseudoclass_selectors_0">Selectors de pseudo-classe - Introducció</a></p>
 <p>Els selectors de pseudo-classe ens permeten adreçar elements per alguna característica extrínseca a ells com ara la ubicació en relació a altres elements o determinats estats transitoris com ara si ténen el focus del teclat o si el cursor del ratolí es troba a sobre d'ells.</p>
@@ -148,7 +169,7 @@
 <ul>
 <li><a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes</a>.</li>
 </ul>
-<h4 id="general-pseudo-class-selectors">General Pseudo-class Selectors</h4>
+<h4 id="selectors-de-pseudo-classe-genèrics">Selectors de Pseudo-classe Genèrics</h4>
 <table>
 <tbody>
 <tr class="odd">
@@ -195,7 +216,7 @@
 <li><code>:empty</code> no pot contenir ni un espaï en blanc o salt de línia.</li>
 <li><code>&quot;:blank&quot;</code> de moment només és una proposta: no suportat per cap navegador a dia d'avui.</li>
 </ul>
-<h4 id="field-specific-pseudo-class-selectors">Field-specific Pseudo-class Selectors</h4>
+<h4 id="selectors-de-pseudo-classe-específics-per-a-formularis">Selectors de Pseudo-classe Específics per a Formularis</h4>
 <p><a href="/setslide/form_selectors_0">Selectors de pseudo-classe per a Formularis</a></p>
 <p>Alguns selectors de pseudo-classe es refereixen específicament a característiques de camps de formularis (tags <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;select&gt;</code> i/o <code>&lt;option&gt;</code>, segons el cas):</p>
 <p><a href="/setslide/form_selectors_1">Selectors de pseudo-classe per a Formularis I</a> <a href="/setslide/form_selectors_2">Selectors de pseudo-classe per a Formularis II</a></p>
@@ -223,19 +244,19 @@
 <p><strong>:warning: Avís:</strong> Alguns d'ells han estat introduïts o redefinits recentment pel que no funcionaran com s'espera en alguns navegadors.</p>
 <p>Haurem de consultar cadascun a <a href="">http://caniuse.com</a> per a saber exactament com estan de suportats als distints navegadors.</p>
 </blockquote>
-<h3 id="pseudo-element-selectors">Pseudo-element selectors</h3>
+<h3 id="selectors-de-pseudo-element">Selectors de Pseudo-element</h3>
 <p><a href="/setslide/pselement_selectors_0">Selectors de pseudo-element</a></p>
-<p>Els pseudo-elements, a diferència de les pseudo-classes, no adrecen elements (tags) realment existents al document, sino que <em>virtualment</em> en creen de nous en un lloc determinat o sobre una part determinada de l'element sel·leccionat.</p>
-<p>Per exemple, <code>p::first-letter</code> ens permetria aplicar un estil distint <strong>únicament</strong> a la primera lletra de cada paràgraf com si aquesta estigués continguda en el seu propi subtag.</p>
+<p>Els pseudo-elements, a diferència de les pseudo-classes, no adrecen elements (tags) realment existents al document, sinó que <em>virtualment</em> en creen de nous en un lloc determinat o sobre una part determinada de l'element seleccionat.</p>
+<p>Per exemple, <code>p::first-letter</code> ens permetria aplicar un estil distint <strong>únicament</strong> a la primera lletra de cada paràgraf com si aquesta estigués continguda en el seu propi <em>subtag</em>.</p>
 <p>Es distingeixen de les pseudo-classes per anar prefixats per dos caràcters de &quot;dos punts&quot; (<code>::</code>) en comptes d'un sol com els pseudo-elements.</p>
 <blockquote>
-<p><strong>⚠ Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb nomeś ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconèixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
+<p><strong>⚠ Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb només ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconeixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
 </blockquote>
 <h4 id="before-i-after"><code>::before</code> i <code>::after</code></h4>
 <p><a href="/setslide/pselement_selectors_1">Selectors de pseudo-element (I)</a></p>
-<p>Creen un pseudo-element que passa a ser el primer o darrer fill, respectivament, de l'element sel·leccionat.</p>
+<p>Creen un pseudo-element que passa a ser el primer o darrer fill, respectivament, de l'element seleccionat.</p>
 <ul>
-<li><p>Es poden utilitxar per pre/su-fixar texts o imatges.</p></li>
+<li><p>Es poden utilitzar per pre/su-fixar texts o imatges.</p></li>
 <li><p><strong>És obligatori</strong> definir la propietat <code>content</code>, encara que sigui amb un espaï en blanc, ja que <strong>del contrari no apareixeran</strong>.</p></li>
 </ul>
 <h4 id="first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></h4>
@@ -243,7 +264,7 @@
 <h4 id="selection"><code>::selection</code></h4>
 <p>Permet adreçar text (i sub-elements) que estiguin sel·leccionats per l'usuari.</p>
 <p>Només permet unes poques propietats. Incloses <code>color</code>, <code>background-color</code>, <code>cursor</code>, and <code>text-decoration</code>.</p>
-<h3 id="attribute-selectors">Attribute Selectors</h3>
+<h3 id="selectors-datribut">Selectors d'Atribut</h3>
 <p>Els selectors d'atribut permeten seleccionar elements en funció dels seus atributs HTML i ténen la mateixa especificitat que els selectors de classe (0,1,0).</p>
 <ul>
 <li><code>[attr]</code>: Existència de l'atribut (l'elements tenen l'atribut especificat, independentment del seu valor).
@@ -275,7 +296,7 @@
 <li>Exemple: <code>div[lang|=&quot;es&quot;]</code> (concordaria amb <code>lang=&quot;es&quot;</code>, <code>lang=&quot;es-ca&quot;</code>, etc..)</li>
 </ul></li>
 </ul>
-<h4 id="case-insensitive-attribute-selectors-wip">Case-insensitive attribute selectors (WIP)</h4>
+<h4 id="selectors-datribut-case-insensitive">Selectors d'Atribut <em>Case-insensitive</em></h4>
 <p>Els selectors d'atribut <em>tradicionalment</em> distingeixen entre majúscules i minúscules, pel que, per exemple, '</p>
 <p>//// TODO /////</p>
 <p>All of the previous attribute selectors are case-sensitive. The selectors level 4 specification introduces a case-insensitive modifier that can be added to any attribute selector. To do this, add an i before the closing bracket. Example: <code>input[value=&quot;search&quot; i]</code>.</p>
@@ -439,9 +460,20 @@
 <p>(funció calc())</p>
 <h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
 <h2 id="referències">Referències</h2>
+<ul>
+<li>Media print:
+<ul>
+<li>Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/</li>
+<li>Maquetació avançada d'impressió</li>
+<li>(Desgraciadament cap navegador suporta massa més que establir els marges).</li>
+</ul></li>
+</ul>
 <h1 id="javascript---jquery">Javascript - jQuery</h1>
 <h2 id="referències-1">Referències</h2>
 
+<footer>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+</footer>
 <script src="/javascripts/jquery-3.3.1.min.js"></script>
 <script src="/javascripts/remote_controller.js"></script>
 </body>

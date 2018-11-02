@@ -48,6 +48,9 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
             | pandoc -f markdown -t html -o - \
             | utfIcons \
         ;
+        echo '<footer>'
+        echo '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
+        echo '</footer>'
         echo '<script src="/javascripts/jquery-3.3.1.min.js"></script>'
         echo '<script src="/javascripts/remote_controller.js"></script>'
         echo '</body>'
@@ -79,6 +82,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
         echo '</head>'
         echo '<body>'
+        echo '<div id="contents">'
         echo
         cat "${f}" \
             | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
@@ -86,6 +90,34 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
             | perl -ne "/\\/setslide\\// || print" \
             | utfIcons \
         ;
+        echo '</div>'
+        echo '<footer>'
+        echo '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
+        echo '</footer>'
+        echo '<style>'
+        echo '#contents {'
+        echo '  position: relative;'
+        echo '  z-index: 10;'
+        echo '}'
+        echo 'footer {'
+        echo '  z-index: 1;'
+        echo '  display: block;'
+        echo '  position: fixed;'
+        echo '  bottom: 0;'
+        echo '  right: 0;'
+        echo '  overflow: display;'
+        echo '  opacity: .5;'
+        echo '}'
+        echo ''
+        echo '.content-block, p {'
+        echo '  page-break-inside: avoid;'
+        echo '}'
+        echo ''
+        echo 'html, body {'
+        echo '  width: 210mm;'
+        echo '  height: 297mm;'
+        echo '}'
+        echo '</style>'
         echo '<script src="/javascripts/jquery-3.3.1.min.js"></script>'
         echo '<script src="/javascripts/remote_controller.js"></script>'
         echo '</body>'

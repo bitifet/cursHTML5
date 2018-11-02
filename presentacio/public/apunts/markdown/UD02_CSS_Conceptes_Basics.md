@@ -54,16 +54,18 @@ CSS - Conceptes Bàsics
   CSS - Cascade Style Sheets
 
 
+>
 :pushpin: **Nivells d'estandardització:**
-
+>
   1. Editor's Draft (ED)
   2. Working Draft (WD)
   3. Transition – Last Call Working Draft (LCWD)
   4. Candidate Recommendation (CR)
   5. Transition – Proposed Recommendations (PR)
   6. Recommendation (REC)
-
+>
 **Font:** [https://css-tricks.com/css-standards-process/]()
+>
 
 
 Nomenclatura
@@ -236,7 +238,7 @@ Es distingeixen de les pseudo-classes per anar prefixats per dos caràcters de
 "dos punts" (`::`) en comptes d'un sol com els pseudo-elements.
 
 >
-**⚠  Avís:** Ens podem trobar però casos en que s'hagin especificat amb només ':'
+**:warning:  Avís:** Ens podem trobar però casos en que s'hagin especificat amb només ':'
 ja que així fou com s'especificaren originalment i per ara tots els navegadors
 els reconeixen també. Nosaltres **sempre** els escriurem com a `::after` i no
 `:after`, per exemple. I si detectam codi antic o algun cas en que, per error,
@@ -401,14 +403,14 @@ Aritmètica CSS3
 
 #### Longituds absolutes
 
-| Unitat  | Descripció |
-|---------|------------|
-| cm      | centimeters |
-| mm      | millimeters |
+| Unitat  | Descripció                   |
+|:--------|:-----------------------------|
+| cm      | centimeters                  |
+| mm      | millimeters                  |
 | in      | inches (1in = 96px = 2.54cm) |
 | px *    | pixels (1px = 1/96th of 1in) |
-| pt      | points (1pt = 1/72 of 1in) |
-| pc      | picas (1pc = 12 pt) |
+| pt      | points (1pt = 1/72 of 1in)   |
+| pc      | picas (1pc = 12 pt)          |
 
 
 :pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb
@@ -419,17 +421,17 @@ possibles en el món real independentment del dispositiu de visualització.
 
 #### Longituds relatives
 
-| Unitat    | Descripció |
-|-----------|------------|
+| Unitat    | Descripció                                                                                |
+|:----------|:------------------------------------------------------------------------------------------|
 | em        | Relative to the font-size of the element (2em means 2 times the size of the current font) |
-| ex        | Relative to the x-height of the current font (rarely used) |
-| ch        | Relative to width of the "0" (zero) |
-| **rem**   | Relative to font-size of the root element |
-| **vw**    | Relative to 1% of the width of the viewport* |
-| **vh**    | Relative to 1% of the height of the viewport* |
-| **vmin**  | Relative to 1% of viewport's* smaller dimension |
-| **vmax**  | Relative to 1% of viewport's* larger dimension |
-| %         | Relative to the parent element |
+| ex        | Relative to the x-height of the current font (rarely used)                                |
+| ch        | Relative to width of the "0" (zero)                                                       |
+| **rem**   | Relative to font-size of the root element                                                 |
+| **vw**    | Relative to 1% of the width of the viewport*                                              |
+| **vh**    | Relative to 1% of the height of the viewport*                                             |
+| **vmin**  | Relative to 1% of viewport's* smaller dimension                                           |
+| **vmax**  | Relative to 1% of viewport's* larger dimension                                            |
+| %         | Relative to the parent element                                                            |
 
 
 

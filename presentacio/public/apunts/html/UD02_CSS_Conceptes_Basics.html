@@ -68,7 +68,8 @@
 <h1 id="css---conceptes-bàsics">CSS - Conceptes Bàsics</h1>
 <p><a href="/setslide/css_start">CSS</a></p>
 <p>CSS - Cascade Style Sheets</p>
-<p>:pushpin: <strong>Nivells d'estandardització:</strong></p>
+<blockquote>
+<p>📌 <strong>Nivells d'estandardització:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Editor's Draft (ED)</li>
 <li>Working Draft (WD)</li>
@@ -78,6 +79,7 @@
 <li>Recommendation (REC)</li>
 </ol>
 <p><strong>Font:</strong> <a href="">https://css-tricks.com/css-standards-process/</a></p>
+</blockquote>
 <h2 id="nomenclatura">Nomenclatura</h2>
 <p><a href="/setslide/nomenclatura_css">Nomenclatura CSS</a></p>
 <div class="figure">
@@ -241,7 +243,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>:warning: Avís:</strong> Alguns d'ells han estat introduïts o redefinits recentment pel que no funcionaran com s'espera en alguns navegadors.</p>
+<p><strong>⚠  Avís:</strong> Alguns d'ells han estat introduïts o redefinits recentment pel que no funcionaran com s'espera en alguns navegadors.</p>
 <p>Haurem de consultar cadascun a <a href="">http://caniuse.com</a> per a saber exactament com estan de suportats als distints navegadors.</p>
 </blockquote>
 <h3 id="selectors-de-pseudo-element">Selectors de Pseudo-element</h3>
@@ -250,7 +252,7 @@
 <p>Per exemple, <code>p::first-letter</code> ens permetria aplicar un estil distint <strong>únicament</strong> a la primera lletra de cada paràgraf com si aquesta estigués continguda en el seu propi <em>subtag</em>.</p>
 <p>Es distingeixen de les pseudo-classes per anar prefixats per dos caràcters de &quot;dos punts&quot; (<code>::</code>) en comptes d'un sol com els pseudo-elements.</p>
 <blockquote>
-<p><strong>⚠ Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb només ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconeixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
+<p><strong>⚠  Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb només ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconeixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
 </blockquote>
 <h4 id="before-i-after"><code>::before</code> i <code>::after</code></h4>
 <p><a href="/setslide/pselement_selectors_1">Selectors de pseudo-element (I)</a></p>
@@ -374,85 +376,85 @@
 <caption>pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</caption>
 <thead>
 <tr class="header">
-<th>Unitat</th>
-<th>Descripció</th>
+<th align="left">Unitat</th>
+<th align="left">Descripció</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>cm</td>
-<td>centimeters</td>
+<td align="left">cm</td>
+<td align="left">centimeters</td>
 </tr>
 <tr class="even">
-<td>mm</td>
-<td>millimeters</td>
+<td align="left">mm</td>
+<td align="left">millimeters</td>
 </tr>
 <tr class="odd">
-<td>in</td>
-<td>inches (1in = 96px = 2.54cm)</td>
+<td align="left">in</td>
+<td align="left">inches (1in = 96px = 2.54cm)</td>
 </tr>
 <tr class="even">
-<td>px *</td>
-<td>pixels (1px = 1/96th of 1in)</td>
+<td align="left">px *</td>
+<td align="left">pixels (1px = 1/96th of 1in)</td>
 </tr>
 <tr class="odd">
-<td>pt</td>
-<td>points (1pt = 1/72 of 1in)</td>
+<td align="left">pt</td>
+<td align="left">points (1pt = 1/72 of 1in)</td>
 </tr>
 <tr class="even">
-<td>pc</td>
-<td>picas (1pc = 12 pt)</td>
+<td align="left">pc</td>
+<td align="left">picas (1pc = 12 pt)</td>
 </tr>
 </tbody>
 </table>
 <h4 id="longituds-relatives">Longituds relatives</h4>
-<table style="width:35%;">
+<table>
 <colgroup>
-<col width="16%" />
-<col width="18%" />
+<col width="11%" />
+<col width="88%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Unitat</th>
-<th>Descripció</th>
+<th align="left">Unitat</th>
+<th align="left">Descripció</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>em</td>
-<td>Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
+<td align="left">em</td>
+<td align="left">Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
 </tr>
 <tr class="even">
-<td>ex</td>
-<td>Relative to the x-height of the current font (rarely used)</td>
+<td align="left">ex</td>
+<td align="left">Relative to the x-height of the current font (rarely used)</td>
 </tr>
 <tr class="odd">
-<td>ch</td>
-<td>Relative to width of the &quot;0&quot; (zero)</td>
+<td align="left">ch</td>
+<td align="left">Relative to width of the &quot;0&quot; (zero)</td>
 </tr>
 <tr class="even">
-<td><strong>rem</strong></td>
-<td>Relative to font-size of the root element</td>
+<td align="left"><strong>rem</strong></td>
+<td align="left">Relative to font-size of the root element</td>
 </tr>
 <tr class="odd">
-<td><strong>vw</strong></td>
-<td>Relative to 1% of the width of the viewport*</td>
+<td align="left"><strong>vw</strong></td>
+<td align="left">Relative to 1% of the width of the viewport*</td>
 </tr>
 <tr class="even">
-<td><strong>vh</strong></td>
-<td>Relative to 1% of the height of the viewport*</td>
+<td align="left"><strong>vh</strong></td>
+<td align="left">Relative to 1% of the height of the viewport*</td>
 </tr>
 <tr class="odd">
-<td><strong>vmin</strong></td>
-<td>Relative to 1% of viewport's* smaller dimension</td>
+<td align="left"><strong>vmin</strong></td>
+<td align="left">Relative to 1% of viewport's* smaller dimension</td>
 </tr>
 <tr class="even">
-<td><strong>vmax</strong></td>
-<td>Relative to 1% of viewport's* larger dimension</td>
+<td align="left"><strong>vmax</strong></td>
+<td align="left">Relative to 1% of viewport's* larger dimension</td>
 </tr>
 <tr class="odd">
-<td>%</td>
-<td>Relative to the parent element</td>
+<td align="left">%</td>
+<td align="left">Relative to the parent element</td>
 </tr>
 </tbody>
 </table>

@@ -9,12 +9,14 @@ source "./etc/build_prefs.sh";
 
 abs_figures_path=$(realpath "$(dirname ${0})/../public/images/figures");
 rel_figures_path='../../images/figures';
+url_figures_path='http://localhost:3000/images/figures';
 
 
 function utfIcons() {
   cat \
-      | perl -pe 's/:warining:/⚠ /g' \
+      | perl -pe 's/:warning:/⚠ /g' \
       | perl -pe 's/:point-right:/☞/g' \
+      | perl -pe 's/:pushpin:/📌/g' \
   ;
 };
 
@@ -85,7 +87,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<div id="contents">'
         echo
         cat "${f}" \
-            | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
+            | perl -pe "s#__FIGURES_PATH__#${url_figures_path}#g" \
             | perl -ne "/__NAV_LINK__/ || print" \
             | perl -ne "/\\/setslide\\// || print" \
             | utfIcons \
@@ -95,6 +97,9 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
         echo '</footer>'
         echo '<style>'
+        echo 'table {'
+        echo '  width: 100%;'
+        echo '}'
         echo '#contents {'
         echo '  position: relative;'
         echo '  z-index: 10;'

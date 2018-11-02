@@ -18,9 +18,9 @@ pre {
     max-height: 70vh;
     overflow: auto;
     padding: .5em;
-    border: black solid 1px;
-    background: #333333;
-    color: white;
+    border: #999999 solid 2px;
+    background: #dddddd;
+    color: black;
     overflow-wrap: break-word;
     word-wrap: break-word;
 
@@ -47,6 +47,38 @@ body {
     margin-bottom: 90px;
 }
 
+
+body>ul:first-of-type {
+    list-style-type: decimal;
+    ul {
+        list-style-type: square;
+    }
+}
+
+body>ul:first-of-type ul ul ul {
+  display: none;
+}
+
+ul {
+    margin-left: .5em;
+    padding-left: 1em;
+
+    ul {
+        margin-top: .3em;
+        margin-bottom: .3em;
+    }
+
+    list-style-type: disc;
+    li {
+        padding-left: 0px;
+        margin-left: 0px;
+        a, a:link, a:visited {
+          color: #333377;
+          text-decoration: none;
+        }
+    }
+}
+
 .controlButtons {
     display: grid;
     grid-template-columns: 1fr 1fr .2fr 1fr 1fr;
@@ -57,18 +89,26 @@ body {
     height: 80px;
     margin:0px;
     margin-left: -.5em;
-
-    .buttom, .button:link, .button:visited {
-        color: black;
-        background: white;
-        font-size: x-large;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-
 }
 
+.buttom, a[href^="/setslide"] {
+  &:link, &:visited {
+    color: black;
+    background: #ddddff;
+    font-size: x-large;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+table {
+    th {
+        background: #dddddd;
+    }
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+}
 
 
 @page {

@@ -5,12 +5,37 @@ body h1:first-of-type {
 }
 
 
-img[src*="/images/figures/"] {
-    float: right;
+div.img {
+
+    &.right {
+        float: right;
+    }
+    &.left {
+        float: left;
+    }
+    max-width: 60%;
+    &.big {
+        max-width: 80%;
+    }
+    &.small {
+        max-width: 30%;
+    }
+
     margin: 1em;
-    border: black solid 1px;
-    max-width: 40%;
+
+    img {
+        width: 100%;
+    }
+
 }
+
+
+div.clearfix {
+    clear:both;
+    content: "";
+    display: table;
+}
+
 
 pre {
     max-width: 90vw;

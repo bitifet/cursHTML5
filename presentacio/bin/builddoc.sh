@@ -20,6 +20,20 @@ function utfIcons() {
   ;
 };
 
+function enhanceImages() {
+  cat \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_RIGHT__(.*)\$#<div class='img right'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_LEFT__(.*)\$#<div class='img left'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_BIG_LEFT__(.*)\$#<div class='img big left'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_BIG_RIGHT__(.*)\$#<div class='img big right'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_SMALL_LEFT__(.*)\$#<div class='img small left'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_SMALL_RIGHT__(.*)\$#<div class='img small right'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_BIG__(.*)\$#<div class='img big'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH_SMALL__(.*)\$#<div class='img small'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#^(.*?)__FIGURES_PATH__(.*)\$#<div class='img'>\$1${1}\$2</div>#g" \
+    | perl -pe "s#__CLEARFIX__#<div class='clearfix'></div>#g" \
+  ;
+}
 
 
 
@@ -45,7 +59,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<body>'
         echo
         cat "${f}" \
-            | perl -pe "s#__FIGURES_PATH__#${rel_figures_path}#g" \
+            | enhanceImages "${rel_figures_path}" \
             | perl -pe "s/__NAV_LINK__//" \
             | pandoc -f markdown -t html -o - \
             | utfIcons \
@@ -62,7 +76,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
     echo "  * ${baseName}.odt"
     ( \
         cat "${f}" \
-            | perl -pe "s#__FIGURES_PATH__#${abs_figures_path}#g" \
+            | enhanceImages "${abs_figures_path}" \
             | perl -ne "/__NAV_LINK__/ || print" \
             | perl -ne "/\\/setslide\\// || print" \
             | utfIcons \
@@ -87,7 +101,7 @@ for f in $(find "${markdown_path}" -type f -iname '*.md'); do
         echo '<div id="contents">'
         echo
         cat "${f}" \
-            | perl -pe "s#__FIGURES_PATH__#${url_figures_path}#g" \
+            | enhanceImages "${url_figures_path}" \
             | perl -ne "/__NAV_LINK__/ || print" \
             | perl -ne "/\\/setslide\\// || print" \
             | utfIcons \

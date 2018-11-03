@@ -73,7 +73,7 @@ Nomenclatura
 
 [Nomenclatura CSS](/setslide/nomenclatura_css)
 
-![](__FIGURES_PATH__/NomenclaturaCSS_medium.png)
+![](__FIGURES_PATH_RIGHT__/NomenclaturaCSS_medium.png)
 
 
   * **Propietat:** Designa un paràmetre o característica que desitjam ajustar a

@@ -83,6 +83,15 @@ a {
         li {
             margin-bottom: .5em;
             padding-left: .5em;
+
+        }
+    }
+
+    .step {
+        transform: translateX(100vw);
+        transition: transform 1s;
+        &.done {
+            transform: translateX(0);
         }
     }
 

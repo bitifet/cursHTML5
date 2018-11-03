@@ -26,13 +26,13 @@
                 span (segons el cas...)
 
       table
-        tr
+        tr.step
           th.lateral.bigfont
-            b Avís:
+            b ⚠ Avís:
           td.
             Alguns d'ells han estat introduïts o redefinits recentment pel que
             no funcionaran com s'espera en alguns navegadors.
-        tr
+        tr.step
           th(colspan=2)
             span Haurem de consultar cadascun a
             span.link http://caniuse.com
@@ -47,26 +47,26 @@
     h2 per a Formularis (I)
 
     table
-      tr
+      tr.step
         th.lateral
           code=':empty'
         td.
           Selecciona camps el contingut dels quals és buïd.
-      tr
+      tr.step
         th.lateral
           code=':disabled'
         td.
           Selecciona camps deshabilitats.
-      tr
+      tr.step
         th.lateral
           code=':enabled'
         td.
           Selecciona camps habilitats (no deshabilitats).
-      tr
+      tr.step
         th.lateral
           code=':checked'
         td.
-          Selecciona camps de tipus "checkbox" o "radio" que estiguin marcats.
+          Selecciona camps de tipus #[i checkbox] o #[i radio] que estiguin marcats.
 
 
 .slide(data-name="form_selectors_2")
@@ -75,25 +75,25 @@
     h2 per a Formularis (II)
 
     table
-      tr
+      tr.step
         th.lateral
           code=':invalid'
         td.
           Selecciona camps el contingut dels quals no passa les regles de
-          validació o, en el cas de tenir l'attribut de "required", també si
+          validació o, en el cas de tenir l'attribut de #[i required], també si
           estan buïds.
-      tr
+      tr.step
         th.lateral
           code=':valid'
         td.
           Selecciona camps el contingut dels quals compleix les regles de
           validació.
-      tr
+      tr.step
         th.lateral
           code=':required'
         td.
           Selecciona camps requerits (que ténen l'atribut "required"). 
-      tr
+      tr.step
         th.lateral
           code=':optional'
         td.

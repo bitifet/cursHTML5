@@ -17,7 +17,17 @@
         if (n == "_reload") {
             return window.location.reload();
         };
-        if (n == "+") n = current + 1;
+        if (n == "+") {
+            let nextStep = $(".step:not(.done)", slides[current]).first();
+            if (nextStep.length) {
+                nextStep.addClass("done");
+            } else {
+                $(".step", slides[current]).removeClass("done");
+                n = current + 1;
+            };
+        } else {
+            $(".step", slides[current]).removeClass("done");
+        };
         if (n == "-") n = current - 1;
         if (isNaN(n)) { // Find by data-name:{{{
             for (let i=0; i<slides.length; i++) {

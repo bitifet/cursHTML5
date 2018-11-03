@@ -6,83 +6,65 @@
 
     div.center
       ul
-        li.
+        li.step.
           Seleccionen elements ficticis que es en realitat no existeixen com a
           tals al document.
 
-        li
-          span.
-            Com les pseudoclasses van prefixats amb el caràcter 'dos punts',
-          b.
-            però en aquest cas doble: (::).
+        li.step.
+          Com les pseudoclasses van prefixats amb el caràcter 'dos punts',
+          #[b però en aquest cas doble: (::)].
 
-        li
-          b="EXEMPLE: "
-          code.code='::first-letter'
+        li.step.
+          #[b EXEMPLE:] #[code.code='::first-letter']
 
-    table
+    table.step
       tr
         th.bigfont.lateral='⚠  Avís:'
         td
-          p
-            span='Originalment van ser especificats amb només un caràcter ":"'
-            span=" igual que les "
-            i="Pseudo-Classes"
-            span.
-               i, per aquest motiu tots els navegadors les accepten així de
-              moment.
-          p
-            span Però nosaltres
-            b=" sempre"
-            span=" escriurem, per exemple, "
-            code.code="::after"
-            span=" i no "
-            code.code.wrong=":after"
-            span=" donat que en qualsevol moment podrien deixar de fer-ho."
+          p.
+            Originalment van ser especificats amb només un caràcter ":" igual
+            que les #[i Pseudo-Classes] i, per aquest motiu tots els
+            navegadors les accepten així de moment.
+          p.
+            span Però nosaltres #[b="sempre"] escriurem, per exemple,
+            #[code.code="::after"] i no #[code.code.wrong=":after"] donat que
+            en qualsevol moment podrien deixar de fer-ho.
 
 .slide(data-name="pselement_selectors_1")
   div
     h2 Selectors de Pseudo-Element (I)
 
     table
-      tr
+      tr.step
         th.lateral
           code= '::before'
           p=' i '
           code= '::after'
         td
-          p
-            span.
-              Creen un element "virtual" al principi o final, respectivament,
-            b=" del contingut "
-            span.
-              de l'element al que es refereixen.
-          p
-            span="És "
-            b imprescindible
-            span=" especificar la propietat "
-            code content
-            span=" donat que, en cas contrari, l'element no apareixerà."
+          p.
+            Creen un element "virtual" al principi o final, respectivament,
+            #[b del contingut] de l'element al que es refereixen.
+          p.
+            És #[b imprescindible] especificar la propietat
+            #[code.code content] donat que, en cas contrari, l'element no
+            apareixerà.
 
-      tr
+      tr.step
         th.lateral
           code= '::first-letter'
         td.first-letter.
           Selecciona la primera lletra del contingut d'un element,
           permetent-nos aplicar-li estils específics com si tingués el seu
           propi element dins el DOM.
-      tr
+      tr.step
         th.lateral
           code= '::first-line'
-        td.first-line
-          span="Semblant a "
-          code="::first-letter"
-          span=", però sobre la primera línia de text sencera "
-          span.
-            (independentment de que aquesta pugui estar o no composada de
-            múltiples sub-elements)
+        td.first-line.
+          Semblant a #[code="::first-letter"], però sobre la primera línia de
+          text sencera (independentment de que aquesta pugui estar o no
+          composada de múltiples sub-elements)
 
-      tr
+      tr.step
         th.lateral
           code= '::selection'
         td.

@@ -26,6 +26,12 @@
                 n = current + 1;
             };
         } else {
+            // Auto-stepping by re-calling same slide.
+            if (slides[current].data("name") == n) {
+                if (! $(".step:not(.done)", slides[current]).length) return;
+                return change("+");
+            };
+            // Stepping reset:
             $(".step", slides[current]).removeClass("done");
         };
         if (n == "-") n = current - 1;

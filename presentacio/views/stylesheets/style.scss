@@ -90,8 +90,14 @@ a {
     .step {
         transform: translateX(100vw);
         transition: transform 1s;
+        &.fade {
+            transform: translateX(0);
+            opacity: 0;
+            transition: opacity 1s;
+        }
         &.done {
             transform: translateX(0);
+            opacity: 100;
         }
     }
 

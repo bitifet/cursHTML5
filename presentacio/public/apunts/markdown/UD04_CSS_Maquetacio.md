@@ -36,8 +36,10 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Exercici](#exercici)
     * [Grid Layout](#grid-layout)
         * [Conceptes bàsics](#conceptes-bàsics)
-        * [Propietats del contenidor](#propietats-del-contenidor-1)
+        * [Propietats](#propietats)
             * [grid-template-columns i grid-template-rows](#grid-template-columns-i-grid-template-rows)
+            * [grid-column i grid-row (grid-items)](#grid-column-i-grid-row-grid-items)
+            * [grid-template-areas](#grid-template-areas)
             * [grid-gap](#grid-gap)
     * [Disseny Responsiu](#disseny-responsiu)
         * [Disseny Adaptatiu (Elasticitat)](#disseny-adaptatiu-elasticitat)
@@ -538,7 +540,30 @@ __CLEARFIX__
 
 
 
-### Propietats del contenidor
+### Propietats
+
+Seguidament s'expliquen algunes de les propietats més importants que podem fer
+servir en un **CSS-Grid**.
+
+L'especificació és molt àmplia i moltes vegades els mateixos resultats es poden
+assolir de diverses formes (i mitjançant múltiples propietats) distintes.
+
+Per aquest motiu aquí ens limitarem a intentar donar una visió global de les
+tècniques i propietats més comunes de manera que ens permetin resoldre la
+majoria de situacions que s'ens puguin presentar.
+
+Per a més informació, a l'apartat de referències s'enllaça un article molt
+complet del portal web *CSS Tricks* al respecte.
+
+>
+:pushpin: A l'apartat anterior sobre *Flexbox* hem separat les propietats que
+s'apliquen al contenidor de les que s'apliquen als *ítems*.
+>
+En canvi en aquest apartat, per tal de posar-les més en context, el que farem
+és marcar els apartats amb el text "(grid-items)" quan es tracti de propietats
+dels *items*.
+>
+
 
 #### grid-template-columns i grid-template-rows
 
@@ -564,7 +589,83 @@ Si be, fer servir *grid-template-rows* ens permetrà controlar la seva altura.
 }
 ```
 
+Amb això ja tindríem un *Grid* completament funcional. L'únic que hem de fer és
+emplenar-lo de *grid-items* que s'aniran distribuint automàticament d'esquerra
+a dreta i de dalt a baix per les cel·les disponibles.
+
+
+**Exemple:**
+
+```
+<div class="grid">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+    <div>Item 4</div>
+    <div>Item 5</div>
+    <div>...</div>
+</div>
+```
+
+
+
 __CLEARFIX__
+
+
+#### grid-column i grid-row (grid-items)
+
+Si, per altra banda, desitjam especificar la fila i columna a la que ha d'anar
+ubicat un element, podem fer servir les propietats *grid-column* i *grid-row*
+per especificar **després de quin *grid-line* volem que s'ubiqui**
+
+**Exemple:**
+
+```
+.very-first-item {
+    grid-column: 1;
+    grid-row: 1;
+}
+```
+
+>
+:pushpin: De fet, en realitat, *grid-column* i *grid-row* accepten no un, sinó 2 nombres
+de *grid-line*, separats per una barra inclinada (/).
+>
+
+
+![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-template-areas.png)
+
+Això ens permet construir layouts com el de la figura, on alguns dels *items*
+ocupen més d'una cel·la.
+
+El CSS seria el següent:
+
+```
+.container {
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+}
+.header {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2; /* O simplement '1'  */
+}
+.main {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+}
+.sidebar {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+.footer {
+  grid-column: 1 / 5;
+  grid-row: 3 / 4;
+}
+```
+
+
+__CLEARFIX__
+
 
 
 >
@@ -573,12 +674,12 @@ __CLEARFIX__
 etiquetes entre cadascun dels *grid-track* (columnes o files) que estem
 definint.
 >
-Aquestes etiquetes es defineixen entre claudàtors ([]). A més, en podem definir
+
+Les etiquetes es defineixen entre claudàtors (`[]`). A més, en podem definir
 més d'una a cada emplaçament. Per exemple per delimitar el final d'una secció i
 el principi d'una altra. Així, si algun dia volguéssim canviar-les de lloc o
 inserir una altra secció enmig, només caldria moure les etiquetes pertinents
 sense necessitat de redefinir-les.
->
 
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-names.png)
@@ -601,35 +702,20 @@ __CLEARFIX__
 
 
 
+#### grid-template-areas
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-template-areas.png)
 
+Les etiquetes ens simplifiquen enormement la feina de crear (i sobretot
+mantenir) *layouts* complexes. Especialment quan no coneixem prèviament el
+nombre d'elements (*grid-items*) que contindrà la nostra graella o, sobretot,
+si aquest pot variar.
 
+Però quan es tracta d'un *layout* estàtic, la propietat *grid-template-areas*
+ens ofereix una forma molt millor...
 
-```
-.container {
-  grid-template-columns: 50px 50px 50px 50px;
-  grid-template-rows: auto;
-}
-.header {
-  grid-column: 1 / 5;
-  grid-row: 1 / 2;
-}
-.main {
-  grid-column: 1 / 3;
-  grid-row: 2 / 3;
-}
-.sidebar {
-  grid-column: 4 / 5;
-  grid-row: 2 / 3;
-}
-.footer {
-  grid-column: 1 / 5;
-  grid-row: 3 / 4;
-}
-```
-
-
+Per exemple, per implementar el mateix *layout* d'abans, el CSS seria el
+següent:
 
 
 ```

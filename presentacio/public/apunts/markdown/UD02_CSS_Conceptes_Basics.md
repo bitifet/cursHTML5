@@ -49,8 +49,6 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 CSS - Conceptes Bàsics
 ======================
 
-[CSS](/setslide/css_start)
-
   CSS - Cascade Style Sheets
 
 
@@ -67,11 +65,12 @@ CSS - Conceptes Bàsics
 **Font:** [https://css-tricks.com/css-standards-process/]()
 >
 
+[Nomenclatura CSS](/setslide/nomenclatura_css)
+
 
 Nomenclatura
 ------------
 
-[Nomenclatura CSS](/setslide/nomenclatura_css)
 
 ![](__FIGURES_PATH_RIGHT__/NomenclaturaCSS_medium.png)
 

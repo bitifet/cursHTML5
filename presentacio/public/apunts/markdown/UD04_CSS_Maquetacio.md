@@ -32,15 +32,17 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [flex-basis](#flex-basis)
             * [flex](#flex)
             * [align-self](#align-self)
-        * [Maquetació amb Flexbox](#maquetació-amb-flexbox)
         * [Exercici](#exercici)
     * [Grid Layout](#grid-layout)
         * [Conceptes bàsics](#conceptes-bàsics)
-        * [Propietats](#propietats)
+        * [Propietats Principals](#propietats-principals)
             * [grid-template-columns i grid-template-rows](#grid-template-columns-i-grid-template-rows)
             * [grid-column i grid-row (grid-items)](#grid-column-i-grid-row-grid-items)
+                * [Etiquetes](#etiquetes)
             * [grid-template-areas](#grid-template-areas)
-            * [grid-gap](#grid-gap)
+            * [gap / grid-gap](#gap-grid-gap)
+        * [Graelles Dinàmiques](#graelles-dinàmiques)
+            * [Exercici:](#exercici-1)
     * [Disseny Responsiu](#disseny-responsiu)
         * [Disseny Adaptatiu (Elasticitat)](#disseny-adaptatiu-elasticitat)
         * [Media Queries](#media-queries)
@@ -109,7 +111,7 @@ Així, si tenim un objecte flotant per il·lustrar el contingut d'un paràgraf o
 d'una secció i no volem que, si el text que realment està relacionat amb ell
 s'acaba abans, el text del següent paràgraf o secció comenci a renderitzar-se
 al seu costat. Podem impedir-ho inserint un element buit amb la declaració
-`clearfix: both;`:
+`clear: both;`:
 
 ```
 <div style="clear: both;"></div>
@@ -172,6 +174,60 @@ __CLEARFIX__
 
 ### Maquetació amb `float`s
 
+El primer que hem de saber sobre la *maquetació amb floats* és que la propietat
+*float* no està pensada per a aquest fi.
+
+HTML va ser concebut originalment com a un format per publicar documents a la
+xarxa amb la *novedosa* capacitat d'hiper-enllaçar continguts entre ells.
+Posteriorment aparegueren els formularis i poc a poc ens anàrem adonant que
+"allò" tenia un immens potencial per a implementar complexes aplicacions en
+línia.
+
+...però havia estat pensat únicament per a mostrar documents de text linials en
+pantalles relativament petites. No hi havia mecanismes per per fer maquetacions
+elàstiques ni massa complexes i els *float* van resultar un *hack* idoni per a,
+no sense certa dificultat, construir maquetacions més elaborades.
+
+La tècnica en essència és molt senzilla:
+
+  * `margin: 0px`.
+  * `box-sizing: border-box` (o establir `border`s i `padding`s també a '0').
+  * I ajustar les mides amb percentatges per tal que tot quadri.
+
+Sembla senzill, però el problema és que, com els percentatges son relatius a
+la mida del contenidor i aquest, tret que el fixem, tendeix a adaptar-se al
+contingut (a excepció de `overflow: auto;` i `overflow: hidden;`, amb els
+corresponents efectes indesitjables que poden comportar) sempre acaben
+apareixent barres de desplaçament que augmenten la mida dels contenidors i ho
+desbaraten tot.
+
+Per mirar d'evitar això hi ha una quarta regla essencial:
+
+  * Fixar les dimensions del `<body>` (i de qualsevol altre tag entremig que hi
+    pugui haver) al 100%.
+
+...però encara així, un simple espaï o salt de línia entre dos tags ens pot
+crear contingut que ocupa espaï i que ens llenci a norris tot l'invent.
+
+>
+:pushpin: Fer servir `vw` per a l'amplada i `vh` per a l'altura podria ajudar a
+solucionar el problema. Però aquestes unitats son també relativament modernes i
+els navegadors que ens les suportaran també suporten *Flexbox* i *Grid*.
+>
+
+
+En conclusió: avui en dia fer servir *floats* per a la maquetació només té
+sentit si volem suportar navegadors *bastant* antics. I així i tot cal
+considerar si realment ens paga la pena optar per aquesta opció en comptes
+d'algun altre *failback* més senzill.
+
+Per això en aquest curs no anirem més enllà de les nocions generals ja
+exposades i ens centrarem més en *Flexbox* i *Grid* que son els que realment
+ens permetran realitzar maquetacions modernes i consistents.
+
+Però per si a algú li interessa entendre millor com es poden fer maquetacions
+relativament complexes utilitzant *floats*, a la secció de *Referències* us
+deixo un enllaç a un article del portal *CSS Tricks* al respecte.
 
 
 
@@ -237,7 +293,7 @@ __CLEARFIX__
 La propietat *flex-wrap* ens permet especificar què fer quan l'espaï demandat
 (en la direcció del *Main-Axis*) pels *Flex-Items* supera el *main-size*
 (amplada o altura del contenidor, segons *flex-direction* sigui *row* /
-*row-reverse* o *column* / *column-reverse*, respectivament.
+*row-reverse* o *column* / *column-reverse*, respectivament).
 
 **Valors:**
 
@@ -256,7 +312,7 @@ La propietat *flex-flow* és el *Shorthand* de `flex-direction` i `flex-wrap`.
 **Exemple:**
 
 ```
-flex-flow: rows wrap;
+flex-flow: row wrap;
 ```
 
 #### justify-content
@@ -363,6 +419,22 @@ nombre negatiu per enviar-los al principi del *Main-Axis* o positiu per
 enviar-los al final.
 
 
+>
+:pushpin: Tot i que la propietat *order* pot resultar molt útil en alguns casos
+(per exemple per canviar la distribució dels elements segons la pantalla
+estigui en horitzontal o vertical) **en general és millor procurar que sigui el
+document qui dicti l'ordre dels continguts**.
+>
+  * En primer lloc perquè aquest és l'ordre que seguiran, per exemple, els
+    dispositius *braille* per a persones amb problemes de visió.
+>
+  * En segon lloc perquè, si l'usuari fa servir el teclat per navegar entre els
+    elements (per exemple els camps d'un formulari), també serà aquest l'ordre
+    en que s'anirà assignant el focus, pel que l'efecte podria resultar bastant
+    estrany.
+>
+
+
 __CLEARFIX__
 
 #### flex-grow
@@ -437,18 +509,6 @@ Per defecte agafa el valor *auto* vol dir que l'element respondrà al paràmetre
 *align-items* del contenidor o, cas que aquest tampoc s'especifiqui, al seu
 comportament per defecte.
 
-
-
-### Maquetació amb Flexbox
-
-Històricament, per poder implementar *layouts* complexos, s'han fet servir
-*floats* perquè era la única forma de colocar dos o més contenidors un vora
-l'altra sense necessitat de conèixer prèviament les coordenades (horitzontals)
-de cadascun.
-
-Era un mètode dificultós perquè s'havien de tenir en comte els marges
-(normalment posant-los a '0') i, si no es feia servir la declaració
-`box-sizing: border-box;`, també les voreres i els *paddings*.
 
 
 ### Exercici
@@ -540,13 +600,14 @@ __CLEARFIX__
 
 
 
-### Propietats
+### Propietats Principals
 
 Seguidament s'expliquen algunes de les propietats més importants que podem fer
 servir en un **CSS-Grid**.
 
-L'especificació és molt àmplia i moltes vegades els mateixos resultats es poden
-assolir de diverses formes (i mitjançant múltiples propietats) distintes.
+Com hem dit l'especificació és molt àmplia i moltes vegades els mateixos
+resultats es poden assolir de diverses formes (i mitjançant múltiples
+propietats) distintes.
 
 Per aquest motiu aquí ens limitarem a intentar donar una visió global de les
 tècniques i propietats més comunes de manera que ens permetin resoldre la
@@ -668,12 +729,12 @@ __CLEARFIX__
 
 
 
->
-:pushpin: **Etiquetes:** Una característica interessant de
-*grid-template-columns* i *grid-template-rows* és que ens permeten inserir
-etiquetes entre cadascun dels *grid-track* (columnes o files) que estem
-definint.
->
+##### Etiquetes
+
+
+Una característica interessant de *grid-template-columns* i
+*grid-template-rows* és que ens permeten inserir etiquetes entre cadascun dels
+*grid-track* (columnes o files) que estem definint.
 
 Les etiquetes es defineixen entre claudàtors (`[]`). A més, en podem definir
 més d'una a cada emplaçament. Per exemple per delimitar el final d'una secció i
@@ -711,11 +772,11 @@ mantenir) *layouts* complexes. Especialment quan no coneixem prèviament el
 nombre d'elements (*grid-items*) que contindrà la nostra graella o, sobretot,
 si aquest pot variar.
 
-Però quan es tracta d'un *layout* estàtic, la propietat *grid-template-areas*
-ens ofereix una forma molt millor...
+Però **quan es tracta d'un *layout* estàtic, la propietat *grid-template-areas*
+ens ofereix una forma molt millor**...
 
-Per exemple, per implementar el mateix *layout* d'abans, el CSS seria el
-següent:
+Per exemple, per implementar el mateix *layout* d'abans amb
+*grid-template-areas*, el CSS seria el següent:
 
 
 ```
@@ -735,16 +796,178 @@ següent:
 ```
 
 
+>
+:pushpin: **La funció *repeat()*:** Si ens hi fixam, al llistat anterior hem
+canviat la declaració `grid-template-columns: 50px 50px 50px 50px;` per
+`grid-template-columns: repeat(4, 50px);`.
+>
+Aquesta funció ens permet abreviar a l'hora d'especificar patrons repetitius de
+files o columnes.
+>
+En aquest cas hem repetit 4 vegades '50px'. Però podem repetir patrons molt més
+complexos. Exemple:
+>
+`grid-template-columns: repeat(6, 10px 20em 2fr 1fr);`
+>
+
+
 __CLEARFIX__
 
 
-#### grid-gap
+#### gap / grid-gap
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-column-row-gap.png)
 
+Fins ara hem vist com repartir l'espaï de la graella i assignar-lo (o deixar
+que es es reparteixin ells) als distints *grid-items*.
+
+Però els elements ens queden aferrats els uns als altres sense gens d'espai
+enmig. El que no resulta gaire estètic...
+
+Per solucionar aquest problema, tenim la propietat *gap* que ens permet
+especificar un marge de separació entre els elements.
+
+__CLEARFIX__
+
+>
+:pushpin: Originalment la propietat *gap* s'anomenava *grid-gap*, pel que les
+versions menys recents d'alguns navegadors només suporten aquesta darrera. Per
+aquest motiu és recomanable fer servir *grid-gap* en comptes de *gap* o, en tot
+cas les dues:
+>
+`gap: .5em;`
+>
+`grid-gap: var(gap);`
+>
+
+En realitat la propietat *gap* és el *shorthand* de les propietats *row-gap* i
+*column-gap* que ens permeten especificar el "gap" entre files i entre
+columnes, respectivament.
+
+La propietat *gap* (o *grid-gap*) però, ens permet a més, especificar un únic
+"gap" per files i columnes.
+
+Dit d'altra manera, les delcaracions `grid-gap 3px;` i `grid-gap 3px 3px;` son
+equivalents.
 
 
 __CLEARFIX__
+
+
+### Graelles Dinàmiques
+
+
+
+![](__FIGURES_PATH_RIGHT__/grid/grid-elastic-sample.png)
+
+Suposem que tenim una sèrie de fotografies i volem muntar una galeria
+fotogràfica.
+
+També volem que algunes fotografies, escollides per nosaltres, surtin doble
+tamany i que no ens quedi cap espaï buid.
+
+A més, volem que les fotografies no siguin ni massa grosses ni massa petites i
+que el conjunt s'ajusti a l'amplada disponible.
+
+
+Com veurem després, podem especificar regles css que només s'apliquin segons si
+el tamany de la pantalla compleix o no determinades condicions (com ara estar
+dins un determinat rang).
+
+El problema però és que, per fer-ho així, hauríem de dissenyar una distribució
+distinta per a cada cas, com il·lustren els exemples de la figura que mostren
+múltiples configuracions segons un ample de pantalla determinat.
+
+
+#### Exercici:
+
+1. Obteniu una sèrie d'imatges i preparau un document html com el següent per a
+   mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos
+   agradi:
+
+
+```
+<div class="album">
+  <figure class="big">
+    <img src="./view_01.jpeg" alt="Vista 1" />
+    <figcaption>Vista 1</figcaption>
+  </figure>
+  <figure>
+    <img src="./view_02.jpeg" alt="Vista 2" />
+    <figcaption>Vista 2</figcaption>
+  </figure>
+  <figure class="big">
+    <img src="./view_03.jpeg" alt="Vista 3" />
+    <figcaption>Vista 3</figcaption>
+  </figure>
+
+  <figure> ... </figure>
+  ...
+</div>
+```
+
+2. Aplicau-li el següent full d'estil i observau que passa:
+
+```
+
+.album > figure {
+  display: inline-block;
+  max-width: 300px;
+  margin: 0;
+}
+
+.album img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.album figcaption {
+  padding: 0.3em 0.8em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: right;
+}
+
+@supports (display: grid) {
+  .album {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 1em;
+    grid-auto-flow: dense;
+  }
+
+  .album > figure {
+    display: flex;
+    flex-direction: column;
+    max-width: initial;
+  }
+
+  .album img {
+    flex: 1;
+  }
+
+  .album .big {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}
+```
+
+
+3. Provau a canviar el tamany de la finestra del navegador mentre estau
+   visualitzant la pàgina. Observau com les imatges canvien d'ordre si és
+   necessari per tal de no deixar espaïs en blanc.
+
+4. Identificau entre tots quines de les propietats que aparèixen al css
+   anterior encara no coneixieu.  Investigau a la xarxa quina és la seva
+   finalitat. Podeu fer-ho en grups i repartir-vos les propietats.
+
+5. Experimentau que passa quan en treieu alguna d'elles.
+
+
+
+
 
 
 
@@ -763,6 +986,8 @@ Disseny Responsiu
 Referències:
 ------------
 
+  * Maquetació amb Floats:
+    - [https://css-tricks.com/almanac/properties/f/float/#article-header-id-3]().
   * Flexbox:
     - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/]().
   * Grid:

@@ -44,18 +44,24 @@
 <li><a href="#flex">flex</a></li>
 <li><a href="#align-self">align-self</a></li>
 </ul></li>
-<li><a href="#maquetació-amb-flexbox">Maquetació amb Flexbox</a></li>
 <li><a href="#exercici">Exercici</a></li>
 </ul></li>
 <li><a href="#grid-layout">Grid Layout</a>
 <ul>
 <li><a href="#conceptes-bàsics">Conceptes bàsics</a></li>
-<li><a href="#propietats">Propietats</a>
+<li><a href="#propietats-principals">Propietats Principals</a>
 <ul>
 <li><a href="#grid-template-columns-i-grid-template-rows">grid-template-columns i grid-template-rows</a></li>
-<li><a href="#grid-column-i-grid-row-grid-items">grid-column i grid-row (grid-items)</a></li>
+<li><a href="#grid-column-i-grid-row-grid-items">grid-column i grid-row (grid-items)</a>
+<ul>
+<li><a href="#etiquetes">Etiquetes</a></li>
+</ul></li>
 <li><a href="#grid-template-areas">grid-template-areas</a></li>
-<li><a href="#grid-gap">grid-gap</a></li>
+<li><a href="#gap-grid-gap">gap / grid-gap</a></li>
+</ul></li>
+<li><a href="#graelles-dinàmiques">Graelles Dinàmiques</a>
+<ul>
+<li><a href="#exercici-1">Exercici:</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#disseny-responsiu">Disseny Responsiu</a>
@@ -97,7 +103,7 @@
 <p>Dit d'altra manera: Si la resta del contingut no ho evita, poden sobresortir del seu contenidor solapant-se amb el següent (en el qual exerciran el mateix efecte desplaçant el seu contingut).</p>
 <h4 id="la-propietat-clear">La propietat <code>clear</code></h4>
 <p>La propietat <em>clear</em> ens permet prohibir els elements flotats a un (<code>clear: left</code>), altre (<code>clear: right</code>) o ambdós (<code>clear: both</code>) d'un element de bloc.</p>
-<p>Així, si tenim un objecte flotant per il·lustrar el contingut d'un paràgraf o d'una secció i no volem que, si el text que realment està relacionat amb ell s'acaba abans, el text del següent paràgraf o secció comenci a renderitzar-se al seu costat. Podem impedir-ho inserint un element buit amb la declaració <code>clearfix: both;</code>:</p>
+<p>Així, si tenim un objecte flotant per il·lustrar el contingut d'un paràgraf o d'una secció i no volem que, si el text que realment està relacionat amb ell s'acaba abans, el text del següent paràgraf o secció comenci a renderitzar-se al seu costat. Podem impedir-ho inserint un element buit amb la declaració <code>clear: both;</code>:</p>
 <pre><code>&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</code></pre>
 <blockquote>
 <p>📌 Fem servir un element independent en comptes d'aplicar la declaració al següent perquè si ho féssim així li estaríem prohibint a aquest tenir els seus propis elements flotats a un i altre costat. I això no és el que volem.</p>
@@ -128,6 +134,27 @@
 
 </div>
 <h3 id="maquetació-amb-floats">Maquetació amb <code>float</code>s</h3>
+<p>El primer que hem de saber sobre la <em>maquetació amb floats</em> és que la propietat <em>float</em> no està pensada per a aquest fi.</p>
+<p>HTML va ser concebut originalment com a un format per publicar documents a la xarxa amb la <em>novedosa</em> capacitat d'hiper-enllaçar continguts entre ells. Posteriorment aparegueren els formularis i poc a poc ens anàrem adonant que &quot;allò&quot; tenia un immens potencial per a implementar complexes aplicacions en línia.</p>
+<p>...però havia estat pensat únicament per a mostrar documents de text linials en pantalles relativament petites. No hi havia mecanismes per per fer maquetacions elàstiques ni massa complexes i els <em>float</em> van resultar un <em>hack</em> idoni per a, no sense certa dificultat, construir maquetacions més elaborades.</p>
+<p>La tècnica en essència és molt senzilla:</p>
+<ul>
+<li><code>margin: 0px</code>.</li>
+<li><code>box-sizing: border-box</code> (o establir <code>border</code>s i <code>padding</code>s també a '0').</li>
+<li>I ajustar les mides amb percentatges per tal que tot quadri.</li>
+</ul>
+<p>Sembla senzill, però el problema és que, com els percentatges son relatius a la mida del contenidor i aquest, tret que el fixem, tendeix a adaptar-se al contingut (a excepció de <code>overflow: auto;</code> i <code>overflow: hidden;</code>, amb els corresponents efectes indesitjables que poden comportar) sempre acaben apareixent barres de desplaçament que augmenten la mida dels contenidors i ho desbaraten tot.</p>
+<p>Per mirar d'evitar això hi ha una quarta regla essencial:</p>
+<ul>
+<li>Fixar les dimensions del <code>&lt;body&gt;</code> (i de qualsevol altre tag entremig que hi pugui haver) al 100%.</li>
+</ul>
+<p>...però encara així, un simple espaï o salt de línia entre dos tags ens pot crear contingut que ocupa espaï i que ens llenci a norris tot l'invent.</p>
+<blockquote>
+<p>📌 Fer servir <code>vw</code> per a l'amplada i <code>vh</code> per a l'altura podria ajudar a solucionar el problema. Però aquestes unitats son també relativament modernes i els navegadors que ens les suportaran també suporten <em>Flexbox</em> i <em>Grid</em>.</p>
+</blockquote>
+<p>En conclusió: avui en dia fer servir <em>floats</em> per a la maquetació només té sentit si volem suportar navegadors <em>bastant</em> antics. I així i tot cal considerar si realment ens paga la pena optar per aquesta opció en comptes d'algun altre <em>failback</em> més senzill.</p>
+<p>Per això en aquest curs no anirem més enllà de les nocions generals ja exposades i ens centrarem més en <em>Flexbox</em> i <em>Grid</em> que son els que realment ens permetran realitzar maquetacions modernes i consistents.</p>
+<p>Però per si a algú li interessa entendre millor com es poden fer maquetacions relativament complexes utilitzant <em>floats</em>, a la secció de <em>Referències</em> us deixo un enllaç a un article del portal <em>CSS Tricks</em> al respecte.</p>
 <h2 id="flexbox">Flexbox</h2>
 <p>Flexbox és un relativament nou mòdul de CSS que s'activa mitjançant la declaració <code>display: flex</code>:</p>
 <pre><code>.contenidor {
@@ -168,7 +195,7 @@
 <div class="img small right">
 <img src="../../images/figures/flex/flex-wrap.png" />
 </div>
-<p>La propietat <em>flex-wrap</em> ens permet especificar què fer quan l'espaï demandat (en la direcció del <em>Main-Axis</em>) pels <em>Flex-Items</em> supera el <em>main-size</em> (amplada o altura del contenidor, segons <em>flex-direction</em> sigui <em>row</em> / <em>row-reverse</em> o <em>column</em> / <em>column-reverse</em>, respectivament.</p>
+<p>La propietat <em>flex-wrap</em> ens permet especificar què fer quan l'espaï demandat (en la direcció del <em>Main-Axis</em>) pels <em>Flex-Items</em> supera el <em>main-size</em> (amplada o altura del contenidor, segons <em>flex-direction</em> sigui <em>row</em> / <em>row-reverse</em> o <em>column</em> / <em>column-reverse</em>, respectivament).</p>
 <p><strong>Valors:</strong></p>
 <ul>
 <li><code>nowrap</code> (per defecte): Tots els elements s'ajusten per encabir-se en una única línia.</li>
@@ -178,7 +205,7 @@
 <h4 id="flex-flow">flex-flow</h4>
 <p>La propietat <em>flex-flow</em> és el <em>Shorthand</em> de <code>flex-direction</code> i <code>flex-wrap</code>.</p>
 <p><strong>Exemple:</strong></p>
-<pre><code>flex-flow: rows wrap;</code></pre>
+<pre><code>flex-flow: row wrap;</code></pre>
 <h4 id="justify-content">justify-content</h4>
 <div class="img small right">
 <img src="../../images/figures/flex/justify-content.png" />
@@ -244,6 +271,13 @@
 <p>Amb <em>Flexbox</em> per defecte els elements es renderitzen segons l'ordre en que aparèixen al codi font seguint la direcció apuntada per la propietat <em>flex-direction</em>.</p>
 <p>La propietat <em>order</em> ens permet alterar aquest comportament assignant un valor numèric a cada element. Els elements amb un <em>order</em> menor apareixeran primer i, en cas d'empat, continuarà prevalent l'ordre d'aparició.</p>
 <p>El valor per defecte d'aquesta propietat és '0'. De manera que si només volem desplaçar elements concrets cap a un o altre costat, bastarà amb fer servir un nombre negatiu per enviar-los al principi del <em>Main-Axis</em> o positiu per enviar-los al final.</p>
+<blockquote>
+<p>📌 Tot i que la propietat <em>order</em> pot resultar molt útil en alguns casos (per exemple per canviar la distribució dels elements segons la pantalla estigui en horitzontal o vertical) <strong>en general és millor procurar que sigui el document qui dicti l'ordre dels continguts</strong>.</p>
+<ul>
+<li><p>En primer lloc perquè aquest és l'ordre que seguiran, per exemple, els dispositius <em>braille</em> per a persones amb problemes de visió.</p></li>
+<li><p>En segon lloc perquè, si l'usuari fa servir el teclat per navegar entre els elements (per exemple els camps d'un formulari), també serà aquest l'ordre en que s'anirà assignant el focus, pel que l'efecte podria resultar bastant estrany.</p></li>
+</ul>
+</blockquote>
 <div class="clearfix">
 
 </div>
@@ -280,9 +314,6 @@
 </div>
 <p>Té el mateix efecte que la propietat <em>align-items</em> del contenidor abans explicada amb la diferència que aquesta s'aplica als elements. Permetent així que un o més elements presentin una alineació distinta a la resta.</p>
 <p>Per defecte agafa el valor <em>auto</em> vol dir que l'element respondrà al paràmetre <em>align-items</em> del contenidor o, cas que aquest tampoc s'especifiqui, al seu comportament per defecte.</p>
-<h3 id="maquetació-amb-flexbox">Maquetació amb Flexbox</h3>
-<p>Històricament, per poder implementar <em>layouts</em> complexos, s'han fet servir <em>floats</em> perquè era la única forma de colocar dos o més contenidors un vora l'altra sense necessitat de conèixer prèviament les coordenades (horitzontals) de cadascun.</p>
-<p>Era un mètode dificultós perquè s'havien de tenir en comte els marges (normalment posant-los a '0') i, si no es feia servir la declaració <code>box-sizing: border-box;</code>, també les voreres i els <em>paddings</em>.</p>
 <h3 id="exercici">Exercici</h3>
 <p>Implementar una barra d'encapçalament elàstica com la del següent esquema:</p>
 <table>
@@ -336,9 +367,9 @@
 <div class="clearfix">
 
 </div>
-<h3 id="propietats">Propietats</h3>
+<h3 id="propietats-principals">Propietats Principals</h3>
 <p>Seguidament s'expliquen algunes de les propietats més importants que podem fer servir en un <strong>CSS-Grid</strong>.</p>
-<p>L'especificació és molt àmplia i moltes vegades els mateixos resultats es poden assolir de diverses formes (i mitjançant múltiples propietats) distintes.</p>
+<p>Com hem dit l'especificació és molt àmplia i moltes vegades els mateixos resultats es poden assolir de diverses formes (i mitjançant múltiples propietats) distintes.</p>
 <p>Per aquest motiu aquí ens limitarem a intentar donar una visió global de les tècniques i propietats més comunes de manera que ens permetin resoldre la majoria de situacions que s'ens puguin presentar.</p>
 <p>Per a més informació, a l'apartat de referències s'enllaça un article molt complet del portal web <em>CSS Tricks</em> al respecte.</p>
 <blockquote>
@@ -408,9 +439,8 @@
 <div class="clearfix">
 
 </div>
-<blockquote>
-<p>📌 <strong>Etiquetes:</strong> Una característica interessant de <em>grid-template-columns</em> i <em>grid-template-rows</em> és que ens permeten inserir etiquetes entre cadascun dels <em>grid-track</em> (columnes o files) que estem definint.</p>
-</blockquote>
+<h5 id="etiquetes">Etiquetes</h5>
+<p>Una característica interessant de <em>grid-template-columns</em> i <em>grid-template-rows</em> és que ens permeten inserir etiquetes entre cadascun dels <em>grid-track</em> (columnes o files) que estem definint.</p>
 <p>Les etiquetes es defineixen entre claudàtors (<code>[]</code>). A més, en podem definir més d'una a cada emplaçament. Per exemple per delimitar el final d'una secció i el principi d'una altra. Així, si algun dia volguéssim canviar-les de lloc o inserir una altra secció enmig, només caldria moure les etiquetes pertinents sense necessitat de redefinir-les.</p>
 <div class="img small right">
 <img src="../../images/figures/grid/grid-names.png" />
@@ -433,8 +463,8 @@
 <img src="../../images/figures/grid/grid-template-areas.png" />
 </div>
 <p>Les etiquetes ens simplifiquen enormement la feina de crear (i sobretot mantenir) <em>layouts</em> complexes. Especialment quan no coneixem prèviament el nombre d'elements (<em>grid-items</em>) que contindrà la nostra graella o, sobretot, si aquest pot variar.</p>
-<p>Però quan es tracta d'un <em>layout</em> estàtic, la propietat <em>grid-template-areas</em> ens ofereix una forma molt millor...</p>
-<p>Per exemple, per implementar el mateix <em>layout</em> d'abans, el CSS seria el següent:</p>
+<p>Però <strong>quan es tracta d'un <em>layout</em> estàtic, la propietat <em>grid-template-areas</em> ens ofereix una forma molt millor</strong>...</p>
+<p>Per exemple, per implementar el mateix <em>layout</em> d'abans amb <em>grid-template-areas</em>, el CSS seria el següent:</p>
 <pre><code>.container {
   grid-template-columns: repeat(4, 50px);
   grid-template-rows: auto;
@@ -448,22 +478,127 @@
 .sidebar { grid-area: sidebar; }
 .footer { grid-area: footer; }
 [...]</code></pre>
+<blockquote>
+<p>📌 <strong>La funció <em>repeat()</em>:</strong> Si ens hi fixam, al llistat anterior hem canviat la declaració <code>grid-template-columns: 50px 50px 50px 50px;</code> per <code>grid-template-columns: repeat(4, 50px);</code>.</p>
+<p>Aquesta funció ens permet abreviar a l'hora d'especificar patrons repetitius de files o columnes.</p>
+<p>En aquest cas hem repetit 4 vegades '50px'. Però podem repetir patrons molt més complexos. Exemple:</p>
+<p><code>grid-template-columns: repeat(6, 10px 20em 2fr 1fr);</code></p>
+</blockquote>
 <div class="clearfix">
 
 </div>
-<h4 id="grid-gap">grid-gap</h4>
+<h4 id="gap-grid-gap">gap / grid-gap</h4>
 <div class="img small right">
 <img src="../../images/figures/grid/grid-column-row-gap.png" />
 </div>
+<p>Fins ara hem vist com repartir l'espaï de la graella i assignar-lo (o deixar que es es reparteixin ells) als distints <em>grid-items</em>.</p>
+<p>Però els elements ens queden aferrats els uns als altres sense gens d'espai enmig. El que no resulta gaire estètic...</p>
+<p>Per solucionar aquest problema, tenim la propietat <em>gap</em> que ens permet especificar un marge de separació entre els elements.</p>
 <div class="clearfix">
 
 </div>
+<blockquote>
+<p>📌 Originalment la propietat <em>gap</em> s'anomenava <em>grid-gap</em>, pel que les versions menys recents d'alguns navegadors només suporten aquesta darrera. Per aquest motiu és recomanable fer servir <em>grid-gap</em> en comptes de <em>gap</em> o, en tot cas les dues:</p>
+<p><code>gap: .5em;</code></p>
+<p><code>grid-gap: var(gap);</code></p>
+</blockquote>
+<p>En realitat la propietat <em>gap</em> és el <em>shorthand</em> de les propietats <em>row-gap</em> i <em>column-gap</em> que ens permeten especificar el &quot;gap&quot; entre files i entre columnes, respectivament.</p>
+<p>La propietat <em>gap</em> (o <em>grid-gap</em>) però, ens permet a més, especificar un únic &quot;gap&quot; per files i columnes.</p>
+<p>Dit d'altra manera, les delcaracions <code>grid-gap 3px;</code> i <code>grid-gap 3px 3px;</code> son equivalents.</p>
+<div class="clearfix">
+
+</div>
+<h3 id="graelles-dinàmiques">Graelles Dinàmiques</h3>
+<div class="img right">
+<img src="../../images/figures/grid/grid-elastic-sample.png" />
+</div>
+<p>Suposem que tenim una sèrie de fotografies i volem muntar una galeria fotogràfica.</p>
+<p>També volem que algunes fotografies, escollides per nosaltres, surtin doble tamany i que no ens quedi cap espaï buid.</p>
+<p>A més, volem que les fotografies no siguin ni massa grosses ni massa petites i que el conjunt s'ajusti a l'amplada disponible.</p>
+<p>Com veurem després, podem especificar regles css que només s'apliquin segons si el tamany de la pantalla compleix o no determinades condicions (com ara estar dins un determinat rang).</p>
+<p>El problema però és que, per fer-ho així, hauríem de dissenyar una distribució distinta per a cada cas, com il·lustren els exemples de la figura que mostren múltiples configuracions segons un ample de pantalla determinat.</p>
+<h4 id="exercici-1">Exercici:</h4>
+<ol style="list-style-type: decimal">
+<li>Obteniu una sèrie d'imatges i preparau un document html com el següent per a mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos agradi:</li>
+</ol>
+<pre><code>&lt;div class=&quot;album&quot;&gt;
+  &lt;figure class=&quot;big&quot;&gt;
+    &lt;img src=&quot;./view_01.jpeg&quot; alt=&quot;Vista 1&quot; /&gt;
+    &lt;figcaption&gt;Vista 1&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;./view_02.jpeg&quot; alt=&quot;Vista 2&quot; /&gt;
+    &lt;figcaption&gt;Vista 2&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure class=&quot;big&quot;&gt;
+    &lt;img src=&quot;./view_03.jpeg&quot; alt=&quot;Vista 3&quot; /&gt;
+    &lt;figcaption&gt;Vista 3&lt;/figcaption&gt;
+  &lt;/figure&gt;
+
+  &lt;figure&gt; ... &lt;/figure&gt;
+  ...
+&lt;/div&gt;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Aplicau-li el següent full d'estil i observau que passa:</li>
+</ol>
+<pre><code>
+.album &gt; figure {
+  display: inline-block;
+  max-width: 300px;
+  margin: 0;
+}
+
+.album img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.album figcaption {
+  padding: 0.3em 0.8em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: right;
+}
+
+@supports (display: grid) {
+  .album {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 1em;
+    grid-auto-flow: dense;
+  }
+
+  .album &gt; figure {
+    display: flex;
+    flex-direction: column;
+    max-width: initial;
+  }
+
+  .album img {
+    flex: 1;
+  }
+
+  .album .big {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+}</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Provau a canviar el tamany de la finestra del navegador mentre estau visualitzant la pàgina. Observau com les imatges canvien d'ordre si és necessari per tal de no deixar espaïs en blanc.</p></li>
+<li><p>Identificau entre tots quines de les propietats que aparèixen al css anterior encara no coneixieu. Investigau a la xarxa quina és la seva finalitat. Podeu fer-ho en grups i repartir-vos les propietats.</p></li>
+<li><p>Experimentau que passa quan en treieu alguna d'elles.</p></li>
+</ol>
 <h2 id="disseny-responsiu">Disseny Responsiu</h2>
 <h3 id="disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</h3>
 <h3 id="media-queries">Media Queries</h3>
 <h3 id="mobile-first-approach">Mobile-First Approach</h3>
 <h2 id="referències">Referències:</h2>
 <ul>
+<li>Maquetació amb Floats:
+<ul>
+<li><a href="">https://css-tricks.com/almanac/properties/f/float/#article-header-id-3</a>.</li>
+</ul></li>
 <li>Flexbox:
 <ul>
 <li><a href="">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>.</li>

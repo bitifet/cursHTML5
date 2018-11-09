@@ -1,0 +1,92 @@
+
+
+.slide.bigfont(data-name="javascript")
+  div
+    h3.step.title Javascript
+
+    ul
+      li.step Assíncron
+      li.step Orientat a Events
+      li.step (Callbacks)
+      li.step Event Loop
+
+.slide.bigfont(data-name="ecmascript")
+  div
+    h3 Javascript
+    h4.step (ECMASCRIPT / ES6+)
+
+    table
+      tr
+        td.step ☞ ES6/ES2015
+        td.step ☞ ES2016
+        td.step ☞ ES2017
+        td.step ☞ ES2018
+        td.step ☞ ES2019 ...
+      tr
+        td.step Use
+        td.step.code(colspan=4)
+          code.code "use strict";
+
+.slide.bigfont(data-name="js_vars")
+  div
+    h3 Variables
+
+    ul
+      li.step #[code.code var] Runtime Scope
+      li.step #[code.code let] Block Scope (ES6+)
+      li.step #[code.code const] Block Scope, not de-referenceable (ES6+)
+
+.slide.bigfont(data-name="js_let")
+  div
+    h3 let / const (Block Scope)
+
+    pre.step.
+      const arr = [1, 2, 3, 4]
+      for (let i=0; i&lt;arr.length; i++) {
+          arr[i] += 2;
+      };
+      console.log (arr); // [3, 4, 5, 6]
+      console.log (i); // Error!!
+                       // Això amb en Franco no passava...
+
+
+.slide(data-name="es6+")
+  div
+    h3 Noves Funcionalitats ES6+
+
+    div.center.bigfont
+      ul
+        li.step Let and Const.
+        li.step Template literals.
+        li.step Arrow Functions.
+        li.step Destructuring.
+        li.step #[code.code class]
+      
+    table.step
+      tr
+        th ⚠ Alerta!
+        td.
+          L'elecció del keyword #[code.code class] per a aquesta finalitat és
+          controvertida perquè pot portar a confondre amb l'herència de classes
+          d'altres llenguatges mentre que en Javascript #[b sempre] el que
+          s'hereda és el prototip.
+
+
+.slide(data-name="es6_backward_compatibility")
+  div
+    h3 Compatibilitat Cap Enrere
+    h4 (Backward Compatibility)
+
+    div.center.bigfont
+      ul
+        li.step Polyfills / Shims
+          ul
+            li.step (Detecció de Funcionalitats)
+            li.step Modernizr
+
+        li.step Transpiladors (Transpilers)
+          ul
+            li.step Babel
+      
+
+//- vim: set ft=jade:

@@ -14,47 +14,49 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 * [Introducció](#introducció)
     * [Història](#història)
         * [Abans de HTML5](#abans-de-html5)
-    * [A partir d'HTML5](#a-partir-dhtml5)
-* [Ecosistema HTML 5](#ecosistema-html-5)
-* [Llenguatge de Marques (Markup)](#llenguatge-de-marques-markup)
-    * [Elements (Tags)](#elements-tags)
-        * [Anatomia](#anatomia)
-        * [Custom Elements](#custom-elements)
-    * [Atributs](#atributs)
-        * [Atributs "data-xxx"](#atributs-data-xxx)
-    * [Estructura de l'HTML](#estructura-de-lhtml)
-        * [Elements de la Capçalera](#elements-de-la-capçalera)
-        * [Elements del Cos](#elements-del-cos)
-    * [Referències](#referències)
-* [Formularis](#formularis)
-    * [Validació de Formularis](#validació-de-formularis)
-    * [Referències](#referències-1)
-* [Javascript](#javascript)
-    * [ECMASCRIPT](#ecmascript)
-        * [Strict Mode](#strict-mode)
-            * [Activació](#activació)
-        * [Variables](#variables)
-        * [Àmbit (Scope)](#Àmbit-scope)
-        * [Closures](#closures)
-        * [This](#this)
-        * [Class](#class)
-    * [ES6+](#es6)
-        * [Noves Funcionalitats](#noves-funcionalitats)
-        * [Compatibilitat cap Enrere](#compatibilitat-cap-enrere)
-            * [Manual](#manual)
-            * [Automatitzada](#automatitzada)
-* [Exercici 1:](#exercici-1)
+        * [A partir d'HTML5](#a-partir-dhtml5)
+    * [Ecosistema HTML 5](#ecosistema-html-5)
+        * [Llenguatge de Marques (Markup)](#llenguatge-de-marques-markup)
+            * [Elements (Tags)](#elements-tags)
+                * [Anatomia](#anatomia)
+                * [Custom Elements](#custom-elements)
+            * [Atributs](#atributs)
+                * [Atributs "data-xxx"](#atributs-data-xxx)
+            * [Estructura de l'HTML](#estructura-de-lhtml)
+                * [Elements de la Capçalera](#elements-de-la-capçalera)
+                * [Elements del Cos](#elements-del-cos)
+            * [Referències](#referències)
+        * [Formularis](#formularis)
+            * [Nous tipus de camps a HTML5](#nous-tipus-de-camps-a-html5)
+            * [Nous atributs per a camps de formularis a HTML5](#nous-atributs-per-a-camps-de-formularis-a-html5)
+            * [Validació de Formularis](#validació-de-formularis)
+            * [Referències](#referències-1)
+        * [Javascript](#javascript)
+            * [ECMASCRIPT](#ecmascript)
+                * [Strict Mode](#strict-mode)
+                    * [Activació](#activació)
+                * [Variables](#variables)
+                * [Àmbit (Scope)](#Àmbit-scope)
+                * [Closures](#closures)
+                * [This](#this)
+            * [ES6+](#es6)
+                * [Noves Funcionalitats](#noves-funcionalitats)
+                * [Compatibilitat cap Enrere](#compatibilitat-cap-enrere)
+                    * [Polyfill](#polyfill)
+                    * [Transpiladors](#transpiladors)
+        * [Referències](#referències-2)
+    * [Exercici 1:](#exercici-1)
 * [Entorn de Treball](#entorn-de-treball)
     * [Editor de Text](#editor-de-text)
     * [Servidor Web i Motor de Plantilles PUG.](#servidor-web-i-motor-de-plantilles-pug)
         * [Prerequisits](#prerequisits)
         * [Procediment](#procediment)
-    * [Referències](#referències-2)
+    * [Referències](#referències-3)
 * [Preprocessadors](#preprocessadors)
     * [Preprocessadors HTML](#preprocessadors-html)
     * [Preprocessadors CSS](#preprocessadors-css)
     * [Preprocessadors Javascript](#preprocessadors-javascript)
-    * [Referències](#referències-3)
+    * [Referències](#referències-4)
 
 <!-- vim-markdown-toc -->
 
@@ -96,8 +98,7 @@ Història
 
 
 
-A partir d'HTML5
-----------------
+### A partir d'HTML5
 
 [En arribat HTML5](/setslide/html5_is_here)
 
@@ -140,7 +141,7 @@ validadors d'HTML:
 
 
 Ecosistema HTML 5
-=================
+-----------------
 
   * Markup (HTML)
   * Fulls d'Estil (StyleSheets)
@@ -150,14 +151,12 @@ Ecosistema HTML 5
 
 
 
-Llenguatge de Marques (Markup)
-==============================
+### Llenguatge de Marques (Markup)
 
-Elements (Tags)
----------------
+#### Elements (Tags)
 
 
-### Anatomia
+##### Anatomia
 
 Amb contingut:
 
@@ -174,7 +173,7 @@ Auto-tancats:
 ```
 
 
-### Custom Elements
+##### Custom Elements
 
 Els elements de client o "custom" son aquells en els que el nom del tag està en
 minúscules i conté al menys un guió ("-"). Llevat d'algunes excepcions que no
@@ -196,13 +195,12 @@ que en fan ús.
 >
 
 
-Atributs
---------
+#### Atributs
 
   * Els noms del atributs és "case-insensitive" a HTML5.
 
 
-### Atributs "data-xxx"
+##### Atributs "data-xxx"
 
 De forma semblant als *Custom Elements*, els atributs el nom dels quals comenci
 per "data-", son considerats atributs d'usuari.
@@ -219,15 +217,14 @@ javascript com, si cal, des del full d'estil CSS.
 
 
 
-Estructura de l'HTML
---------------------
+#### Estructura de l'HTML
 
   * DTD
   * Document (`<html>`)
     - Capçalera (`<head>`)
     - Cos (`<body>`)
 
-### Elements de la Capçalera
+##### Elements de la Capçalera
 
   * Títol (`<title>`)
   * Codificació de caràcters: `<meta charset='utf-8' />`
@@ -240,7 +237,7 @@ Estructura de l'HTML
     - Interns: `<script>...</script>` (També poden anar dins el cos\*)
 
 >
-**NOTA:** Avui en dia els scripts es solen ubicar al propi cos del document i,
+:pushpin: Avui en dia els scripts es solen ubicar al propi cos del document i,
 preferentment, al final per dues raons:
 >
   1. Per evitar retardar la descàrrega (i, com a conseqüència, també la
@@ -251,7 +248,7 @@ preferentment, al final per dues raons:
 >
 
 
-### Elements del Cos
+##### Elements del Cos
 
 Els mes comuns son:
 
@@ -287,8 +284,7 @@ Nous a HTML5
   * etcètera...
 
 
-Referències
------------
+#### Referències
 
   * **Elements HTML5:**
     - Nous elements HTML5: [https://www.w3schools.com/html/html5_new_elements.asp]().
@@ -303,21 +299,93 @@ Referències
     - Angular: [https://angular.io/]().
 
 
-Formularis
-==========
+### Formularis
 
-Validació de Formularis
------------------------
+**Exemple:**
+
+```
+  <form>
+    <input type="text" name="nom" placeholder="Escrigui el seu nom">
+    <input type="text" name="cognoms" placeholder="Escrigui els seus cognoms">
+    <button type="submit">
+  </form>
+```
+
+>
+:pushpin: A l'exemple anterior probablement hi trobareu a faltar els atributs
+*action* o *method* i pot ser hageu notat que hem fet servir un `<button>` en
+comptes d'un `<input type="text">`.
+>
+No és que ja no hi siguin a HTML5. Però moltes vegades no seran la forma més
+idònia de gestionar els formularis:
+>
+  * En comptes d'esperar a que l'usuari envii el formulari per a validar-lo,
+    normalment preferirem advertir a l'usuari tot d'una que detectem alguna
+    cosa que no estigui bé.
+  * Tampoc és ja gaire habitual enviar un formulari recarregant tota la pàgina.
+    El més usual és enviar les dades via *Ajax* i realitzar alguna modificació
+    al document per a que l'usuari se n'adoni que la informació ha estat
+    processada.
+>
 
 
-Referències
------------
+#### Nous tipus de camps a HTML5
 
 
-Javascript
-==========
+|       |        |                |
+|-------|--------|----------------|
+| color | date   | datetime-local |
+| email | month  | number         |
+| range | search | tel            |
+| time  | url    | week           |
 
-Javascript és un llenguatge de programació **asíncron**.
+
+>
+:point-right: Els tipus de camps que no estiguin suportats en un navegador
+antic, es comportaran igual que si fóssin `<input type="text">`.
+>
+
+
+#### Nous atributs per a camps de formularis a HTML5
+
+
+  * **placeholder:** Ens permet especificar un text (o "pista") que apareixerà
+    difuminat al fons dels camps que no estiguin emplenats.
+  * **pattern:** Ens permet especificar una expressió regular de validació.
+  * **required:** Ens permet especificar quan un camp és obligatori.
+  * **autofocus:** Marca un camp indicant que és ell qui ha de rebre el focus
+    en carregar-se la pàgina.
+
+Altres...
+
+|              |            |                |
+|--------------|------------|----------------|
+| autocomplete | form       | formaction     |
+| formenctype  | formmethod | formnovalidate |
+| formtarget   | height     | width          |
+| list         | min        | max            |
+| multiple     | step       |                |
+
+
+
+#### Validació de Formularis
+
+
+
+
+
+#### Referències
+
+
+### Javascript
+
+[Javascript](/setslide/javascript)
+
+Javascript és un llenguatge de programació **asíncron**:
+
+  * Orientat a events
+  * ...que son gestionats mitjançant *callbacks*
+  * ...que s'enqueuen al *event-loop*.
 
 Va ésser desenvolupat en una setmana per encàrec de *Netscape* amb la intenció
 de dotar els seus navegadors de certa interactivitat.
@@ -390,8 +458,9 @@ ser radicalment distinta:
     amb la tecla F12).
 
 
-ECMASCRIPT
-----------
+#### ECMASCRIPT
+
+[ECMASCRIPT](/setslide/ecmascript)
 
 Javascript es va estendre ràpidament per tots els navegadors de l'època. Si be
 cadascun en feia les seves pròpies variacions i, per això, durant molts d'anys
@@ -407,7 +476,7 @@ Avui en dia però, sempre que col·loquialment parlem de "Javascript" s'entén q
 en realitat estem parlant d'ECMASCRIPT.
 
 
-### Strict Mode
+##### Strict Mode
 
 En els seus origens Javascript era un llenguatge molt lax i, entre d'altres
 coses, no requeria declarar les variables: Si fèiem servir un identificador que
@@ -434,7 +503,7 @@ compatible amb aquelles regles fins que nosaltres explícitament activam el mode
 estricte.
 
 
-#### Activació
+###### Activació
 
 Per activar el mode estricte basta amb posar la següent cadena (cometes
 incloses) al principi del nostre codi:
@@ -455,7 +524,7 @@ funcionaria amb motors antics**.
 
 
 >
-En resum: **SEMPRE** que ens disposem a escriure codi en Javascript, el primer
+:pushpin: En resum: **SEMPRE** que ens disposem a escriure codi en Javascript, el primer
 que farem serà posar la cadena `"use strict";` al principi.
 >
 >Això ens ajudarà a fer millor codi i ens evitarà molts de problemes...
@@ -464,42 +533,235 @@ que farem serà posar la cadena `"use strict";` al principi.
 
 
 
-### Variables
+##### Variables
 
-### Àmbit (Scope)
+[Variables](/setslide/js_vars)
 
-### Closures
+Tenim tres formes de declarar variables:
 
-### This
+```
+var foo; // Function (closure) level scope
+let bar; // Block ({ ... }) level scope
+const foo;  // Block-level, not de-referenciable.
+```
 
-### Class
+  * Només `var` funcionarà en versions antigues (però hi ha transpiladors que
+    ens ho arreglen).
+
+  * Amb `let` i `const` no hi ha *hoisting*: (No poden ser referenciades abans
+    de la declaració). Ni tampoc fora del bloc en el que s'han definit.
+
+  * Les variables en Javascript son *referències* a objectes: **Amb `const`
+    l'únic que és constant és la referència:** El contingut de l'objecte sí pot
+    canviar.
+
+>
+:pushpin: Com a bona pràctica (sempre que ens ho poguem permetre) farem servir
+preferentment *const*. Si no ens serveix *let* i, només com a darrer recurs
+*var*.
+>
 
 
-ES6+
-----
+##### Àmbit (Scope)
 
-### Noves Funcionalitats
+L'àmbit d'una variable determina a quines parts del codi aquesta és visible.
+
+  * Les variables *globals* son aquelles que son visibles des de qualsevol part
+    del programa.
+    - Fora del mode estricte les variables invocades sense haver estat
+      prèviament declarades (ex.: `a = 23;`) es declaren automàticament a
+      l'àmbit global. **Per això SEMPRE hem d'activar el mode estricte**.
+    - En el mode estricte només es poden declarar variables globals amb `var`
+      i exclusivament fora de qualsevol *clausura*.
+    - En realitat, les variables d'àmbit global son propietats del *global
+      object*. Així `var foo="bar"` (fora de qualsevol clausura) i
+      `window.foo="bar"` serien declaracions equivalents.
+    - El *global object* és `window` als navegadors i `process` a *Node.JS*.
+      Existeix la proposta d'estandarditzar pròpiament `global` com a
+      referència a `window` o `process`, respectivament.
+
+  * L'àmbit de les variables declarades amb `var` és el de la *clausura* dins
+    la que han estat declarades o l'àmbit global en el cas que de no haver
+    estat declarades dins cap.
+
+  * L'àmbit de les variables declarades amb `let` o `const` és el del *bloc* de
+    codi en el que han estat definides.
+    - Els *blocs de codi* es delimiten amb `{` i `}` ja sigui com a predicat
+      d'una sentència (`if (x) {...}`) o simplement posats expréssament amb la
+      finalitat de limitar l'àmbit de les variables del seu interior (`{let
+      i=0; ...}`):
+    - Un cas especial és el de la sentència *for* ón al codi `for (let i=0;
+      i<arr.length; i++) {...}`, l'àmbit de `i` correspondria a l'interior el
+      bloc `{...}`.
+
+
+```
+const arr = [1, 2, 3, 4]
+for (let i=0; i<arr.length; i++) {
+    arr[i] += 2;
+};
+console.log (arr); // [3, 4, 5, 6]
+console.log (i); // Error!!
+                 // Això amb var no passava...
+```
+
+
+##### Closures
+
+
+[let](/setslide/js_let)
+
+Les clausures delimiten l'àmbit de visibilitat d'una variable.
+
+Es creen automàticament cada cop **que invocam** una funció (no en el temps de
+creació) pel que cada cop que invoquem de nou la mateixa funció s'en crearà una
+de nova totalment separada de la anterior.
+
+En canvi, **els objectes que aquestes referncien, també poden ser referenciats
+des de l'exterior**:
+
+```
+function sumador(n) { // Això no crea cap clausura.
+    let x = n; // (en realitat hauriem pogut fer servir 'n')
+    let fn = function suma(m) {
+        x += m;
+        return x;
+    };
+    return fn;
+};
+
+
+let s1 = sumador(0); // Això sí crea una clausura.
+let s2 = sumador(100); // I això una altra...
+
+console.log (s1(3)); // 3
+console.log (s1(5)); // 8
+console.log (s2(5)); // 105
+
+```
+
+Les variables creades dins una clausura només son visibles dins d'aquesta **i
+dins les que es crein dins ella.** D'això s'en diu *Runtime Scope* o àmbit en
+temps d'execució.
+
+Una utilitat molt pràctica de les clausures és fer-les servir per aïllar petits
+blocs de codi (o sub-controladors) de manera que les variables que ells
+declarin no puguin veure's afectades pel codi de l'exterior. Si be, avui en
+dia, pels casos més senzills, ens bastarà fer servir `const` o `let`:
+
+```
+// Petit controlador secundari:
+(function(model) {
+   ... implementació ...
+})(model.submodel.foo.bar);
+```
+
+>
+:pushpin: El patró anterior es coneix pel nom de *IFE*: *(Immediately Invoked
+Function Expression)*.
+>
+La seva forma més senzilla és `(function(){...})()`. Però podem fer les
+variacions que vulguem: com ara fer servir paràmetres per evitar referenciar
+variables externes des de l'interior, igual que a l'exemple anterior, fer que
+ens retornin un valor que podem assignar a una variable i/o assignar-li un nom
+a la funció: `const myCoolObj = (function coolObjBulder(options){...;return
+obj})(config);`
 
 
 
-### Compatibilitat cap Enrere
+##### This
+
+*this* és la propietat més àmpliament incompresa de Javascript.
+
+*this* implementa el *Call Site Scope* (en contraposició amb el *Runtime Scope*
+que acabam de veure).
+
+>
+:pushpin: Explicar a fons *this* queda més enllà dels objectíus d'aquest curs,
+però per a qui tingui interés en aprofundir, us deixo a les referències un
+enllaç a l'article "Understanding Javascript OOP".
+>
 
 
-#### Manual
+.....
 
 
-#### Automatitzada
 
-  * shims
-  * polyfills
-  * transpilers
+#### ES6+
 
+
+##### Noves Funcionalitats
+
+[Noves Funcionalitats](/setslide/es6+)
+
+  * **Let and Const.**
+
+  * **Template literals.**
+
+  * **Arrow Functions.**
+
+  * **Destructuring.**
+
+  * **`Class`:** (:warning: L'herència continua essent de prototip)
+
+
+>
+:point-right: A l'apartat de *referències* teniu alguns articles sobre aquests
+temes.
+>
+
+
+
+##### Compatibilitat cap Enrere
+
+
+
+[Compatibilitat](/setslide/es6_backward_compatibility)
+
+Quan desenvolupam codi que ha de ser interpretat per un navegador, tenim el
+problema afegit que no sabem com d'antic pot arribar a ser aquest.
+
+Com més compatibles vulguem ser, menys noves característiques del llenguatge
+podem fer servir...
+
+...o **NO.**
+
+
+En Javascript tenim dues eines molt potents que ens permeten fer servir fins i
+tot les més recents funcionalitats del llenguatge encara que el nostre codi
+s'executi en motors antics.
+
+Aquestes eines son els *polyfills* i els *transpiladors* (o "transpilers").
+
+
+
+###### Polyfill
+
+
+
+Modernizr
+
+
+
+###### Transpiladors
+
+Babel
+
+
+### Referències
+
+  * Understanding Javascript OOP:
+    [https://robotlolita.me/2011/10/09/understanding-javascript-oop.html]().
+  * 4 Modern ES6+ Features You Should Be Using Now:
+    [https://programmingwithmosh.com/javascript/essential-modern-javascript-features/]().
+
+  * Modernizr: [https://modernizr.com/]().
 
 -----------------------------------------------------------------------------------------
 
 
 Exercici 1:
-===========
+-----------
 
 Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:
 

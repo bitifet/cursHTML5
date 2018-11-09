@@ -931,7 +931,8 @@ múltiples configuracions segons un ample de pantalla determinat.
 @supports (display: grid) {
   .album {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns:
+        repeat(auto-fill, minmax(100px, 1fr));
     grid-auto-rows: 1fr;
     grid-gap: 1em;
     grid-auto-flow: dense;

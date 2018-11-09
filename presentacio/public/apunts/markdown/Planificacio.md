@@ -16,7 +16,7 @@ UD01 - Introducció a HTML5, CSS i eines de preprocessat
   * Entorn de Treball
   * Preprocessadors
 
-__NAV_LINK__[(⟶  Continguts)](./UD01_Introduccio.html)
+__NAV_LINK__  * [(⟶  Continguts)](./UD01_Introduccio.html) ([(pdf)](../pdf/UD01_Introduccio.pdf))
 
 
 UD02 - Conceptes Bàsics
@@ -33,7 +33,7 @@ UD02 - Conceptes Bàsics
     - Regles "AT" (@)
   * Javascript - jQuery
 
-__NAV_LINK__[(⟶   Continguts)](./UD02_CSS_Conceptes_Basics.html)
+__NAV_LINK__  * [⟶   Continguts](./UD02_CSS_Conceptes_Basics.html) ([pdf](../pdf/UD02_CSS_Conceptes_Basics.pdf))
 
 
 UD03 - CSS Posicionament i Ancoratge
@@ -48,7 +48,7 @@ UD03 - CSS Posicionament i Ancoratge
     - Voreres
   * Javascript - Components CSS
 
-__NAV_LINK__[(⟶   Continguts)](./UD03_CSS_Posicionament_i_Ancoratge.html)
+__NAV_LINK__  * [⟶   Continguts](./UD03_CSS_Posicionament_i_Ancoratge.html) ([pdf](../pdf/UD03_CSS_Posicionament_i_Ancoratge.pdf))
 
 
 UD04 - CSS Maquetació
@@ -61,7 +61,7 @@ UD04 - CSS Maquetació
     - Disseny Responsiu
   * Javascript - Programació Asíncrona
 
-__NAV_LINK__[(⟶   Continguts)](./UD04_CSS_Maquetacio.html)
+__NAV_LINK__  * [⟶   Continguts](./UD04_CSS_Maquetacio.html) ([pdf](../pdf/UD04_CSS_Maquetacio.pdf))
 
 
 UD05 - CSS Aspecte i Efectes
@@ -81,7 +81,7 @@ UD05 - CSS Aspecte i Efectes
   * Javascript - APIs HTML5
 
 
-__NAV_LINK__[(⟶   Continguts)](./UD05_CSS_Aspecte_i_Efectes.html)
+__NAV_LINK__  * [⟶   Continguts](./UD05_CSS_Aspecte_i_Efectes.html) ([pdf](./UD05_CSS_Aspecte_i_Efectes.pdf))
 
 
 UD06 - Projecte Final
@@ -90,6 +90,6 @@ UD06 - Projecte Final
   * Projecte Final
 
 
-__NAV_LINK__[(⟶   Continguts)](./UD06_Projecte_Final.html)
+__NAV_LINK__  * [⟶   Continguts](./UD06_Projecte_Final.html) ([pdf](../pdf/UD06_Projecte_Final.pdf))
 
 

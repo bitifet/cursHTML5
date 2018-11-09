@@ -18,10 +18,10 @@
 <li><a href="#història">Història</a>
 <ul>
 <li><a href="#abans-de-html5">Abans de HTML5</a></li>
-</ul></li>
 <li><a href="#a-partir-dhtml5">A partir d'HTML5</a></li>
 </ul></li>
-<li><a href="#ecosistema-html-5">Ecosistema HTML 5</a></li>
+<li><a href="#ecosistema-html-5">Ecosistema HTML 5</a>
+<ul>
 <li><a href="#llenguatge-de-marques-markup">Llenguatge de Marques (Markup)</a>
 <ul>
 <li><a href="#elements-tags">Elements (Tags)</a>
@@ -42,6 +42,8 @@
 </ul></li>
 <li><a href="#formularis">Formularis</a>
 <ul>
+<li><a href="#nous-tipus-de-camps-a-html5">Nous tipus de camps a HTML5</a></li>
+<li><a href="#nous-atributs-per-a-camps-de-formularis-a-html5">Nous atributs per a camps de formularis a HTML5</a></li>
 <li><a href="#validació-de-formularis">Validació de Formularis</a></li>
 <li><a href="#referències-1">Referències</a></li>
 </ul></li>
@@ -57,19 +59,21 @@
 <li><a href="#Àmbit-scope">Àmbit (Scope)</a></li>
 <li><a href="#closures">Closures</a></li>
 <li><a href="#this">This</a></li>
-<li><a href="#class">Class</a></li>
 </ul></li>
 <li><a href="#es6">ES6+</a>
 <ul>
 <li><a href="#noves-funcionalitats">Noves Funcionalitats</a></li>
 <li><a href="#compatibilitat-cap-enrere">Compatibilitat cap Enrere</a>
 <ul>
-<li><a href="#manual">Manual</a></li>
-<li><a href="#automatitzada">Automatitzada</a></li>
+<li><a href="#polyfill">Polyfill</a></li>
+<li><a href="#transpiladors">Transpiladors</a></li>
 </ul></li>
 </ul></li>
+</ul></li>
+<li><a href="#referències-2">Referències</a></li>
 </ul></li>
 <li><a href="#exercici-1">Exercici 1:</a></li>
+</ul></li>
 <li><a href="#entorn-de-treball">Entorn de Treball</a>
 <ul>
 <li><a href="#editor-de-text">Editor de Text</a></li>
@@ -78,14 +82,14 @@
 <li><a href="#prerequisits">Prerequisits</a></li>
 <li><a href="#procediment">Procediment</a></li>
 </ul></li>
-<li><a href="#referències-2">Referències</a></li>
+<li><a href="#referències-3">Referències</a></li>
 </ul></li>
 <li><a href="#preprocessadors">Preprocessadors</a>
 <ul>
 <li><a href="#preprocessadors-html">Preprocessadors HTML</a></li>
 <li><a href="#preprocessadors-css">Preprocessadors CSS</a></li>
 <li><a href="#preprocessadors-javascript">Preprocessadors Javascript</a></li>
-<li><a href="#referències-3">Referències</a></li>
+<li><a href="#referències-4">Referències</a></li>
 </ul></li>
 </ul>
 <!-- vim-markdown-toc -->
@@ -106,7 +110,7 @@
 </ul></li>
 <li>Imperava la &quot;guerra dels navegadors&quot;.</li>
 </ul>
-<h2 id="a-partir-dhtml5">A partir d'HTML5</h2>
+<h3 id="a-partir-dhtml5">A partir d'HTML5</h3>
 <p><a href="/setslide/html5_is_here">En arribat HTML5</a></p>
 <pre><code>&lt;!DOCTYPE HTML&gt;</code></pre>
 <p>Al contrari que les versions anteriors, HTML5 és una especificació oberta que va creixent al llarg del temps.</p>
@@ -120,7 +124,7 @@
 <li><p>Primer perquè sempre és bo verificar que el nostre codi s'ajusta als estàndards actuals.</p></li>
 <li><p>I segon perquè és fàcil cometre errors quan escrivim html i, tot i que els navegadors intentaran endevinar &quot;què volíem dir realment&quot;, sempre n'hi haurà que hi tindran més traça que d'altres..</p></li>
 </ul>
-<h1 id="ecosistema-html-5">Ecosistema HTML 5</h1>
+<h2 id="ecosistema-html-5">Ecosistema HTML 5</h2>
 <ul>
 <li>Markup (HTML)</li>
 <li>Fulls d'Estil (StyleSheets)</li>
@@ -128,16 +132,16 @@
 <li>DOM</li>
 <li>HTML5 APIs</li>
 </ul>
-<h1 id="llenguatge-de-marques-markup">Llenguatge de Marques (Markup)</h1>
-<h2 id="elements-tags">Elements (Tags)</h2>
-<h3 id="anatomia">Anatomia</h3>
+<h3 id="llenguatge-de-marques-markup">Llenguatge de Marques (Markup)</h3>
+<h4 id="elements-tags">Elements (Tags)</h4>
+<h5 id="anatomia">Anatomia</h5>
 <p>Amb contingut:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;menu&quot;</span><span class="kw">&gt;</span>
     (contingut...)
 <span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Auto-tancats:</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;input</span><span class="ot"> name=</span><span class="st">&quot;age&quot;</span><span class="ot"> type=</span><span class="st">&quot;number&quot;</span> <span class="kw">/&gt;</span></code></pre></div>
-<h3 id="custom-elements">Custom Elements</h3>
+<h5 id="custom-elements">Custom Elements</h5>
 <p>Els elements de client o &quot;custom&quot; son aquells en els que el nom del tag està en minúscules i conté al menys un guió (&quot;-&quot;). Llevat d'algunes excepcions que no vénen al cas.</p>
 <p>Els elements &quot;custom&quot; no seran reportats com a &quot;desconeguts&quot; per un validador. I la seva finalitat és la de poder implementar components específics del costat del navegador.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;my-component&gt;</span>
@@ -146,15 +150,15 @@
 <blockquote>
 <p>☞ React, Polymer i Angular son alguns dels frameworks més coneguts que en fan ús.</p>
 </blockquote>
-<h2 id="atributs">Atributs</h2>
+<h4 id="atributs">Atributs</h4>
 <ul>
 <li>Els noms del atributs és &quot;case-insensitive&quot; a HTML5.</li>
 </ul>
-<h3 id="atributs-data-xxx">Atributs &quot;data-xxx&quot;</h3>
+<h5 id="atributs-data-xxx">Atributs &quot;data-xxx&quot;</h5>
 <p>De forma semblant als <em>Custom Elements</em>, els atributs el nom dels quals comenci per &quot;data-&quot;, son considerats atributs d'usuari.</p>
 <p>Aquests atributs es poden fer servir lliurement a qualsevol element sense que mai cap validador ens alerti de que no el reconeix i, <strong>el que és molt més important:</strong> sense el perill que nous atributs que s'estandarditzin en el futur hi puguin col·lisionar.</p>
 <p>Resulten <strong>molt útils</strong> per atribuir informació semàntica a elements determinats que després podem fer servir tant des dels nostres controladors javascript com, si cal, des del full d'estil CSS.</p>
-<h2 id="estructura-de-lhtml">Estructura de l'HTML</h2>
+<h4 id="estructura-de-lhtml">Estructura de l'HTML</h4>
 <ul>
 <li>DTD</li>
 <li>Document (<code>&lt;html&gt;</code>)
@@ -163,7 +167,7 @@
 <li>Cos (<code>&lt;body&gt;</code>)</li>
 </ul></li>
 </ul>
-<h3 id="elements-de-la-capçalera">Elements de la Capçalera</h3>
+<h5 id="elements-de-la-capçalera">Elements de la Capçalera</h5>
 <ul>
 <li>Títol (<code>&lt;title&gt;</code>)</li>
 <li>Codificació de caràcters: <code>&lt;meta charset='utf-8' /&gt;</code></li>
@@ -180,13 +184,13 @@
 </ul></li>
 </ul>
 <blockquote>
-<p><strong>NOTA:</strong> Avui en dia els scripts es solen ubicar al propi cos del document i, preferentment, al final per dues raons:</p>
+<p>📌 Avui en dia els scripts es solen ubicar al propi cos del document i, preferentment, al final per dues raons:</p>
 <ol style="list-style-type: decimal">
 <li>Per evitar retardar la descàrrega (i, com a conseqüència, també la renderització) del document.</li>
 <li>Perquè si el script necessita capturar elements del DOM, no pot fer-ho fins que aquests s'hagin creat. <strong>I aquesta és la millor manera d'assegurar-ho</strong>.</li>
 </ol>
 </blockquote>
-<h3 id="elements-del-cos">Elements del Cos</h3>
+<h5 id="elements-del-cos">Elements del Cos</h5>
 <p>Els mes comuns son:</p>
 <ul>
 <li><code>&lt;div&gt;&lt;/div&gt;</code></li>
@@ -223,7 +227,7 @@
 <li><code>&lt;aside&gt;&lt;/aside&gt;</code></li>
 <li>etcètera...</li>
 </ul>
-<h2 id="referències">Referències</h2>
+<h4 id="referències">Referències</h4>
 <ul>
 <li><strong>Elements HTML5:</strong>
 <ul>
@@ -245,11 +249,96 @@
 <li>Angular: <a href="">https://angular.io/</a>.</li>
 </ul></li>
 </ul>
-<h1 id="formularis">Formularis</h1>
-<h2 id="validació-de-formularis">Validació de Formularis</h2>
-<h2 id="referències-1">Referències</h2>
-<h1 id="javascript">Javascript</h1>
-<p>Javascript és un llenguatge de programació <strong>asíncron</strong>.</p>
+<h3 id="formularis">Formularis</h3>
+<p><strong>Exemple:</strong></p>
+<pre><code>  &lt;form&gt;
+    &lt;input type=&quot;text&quot; name=&quot;nom&quot; placeholder=&quot;Escrigui el seu nom&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;cognoms&quot; placeholder=&quot;Escrigui els seus cognoms&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;
+  &lt;/form&gt;</code></pre>
+<blockquote>
+<p>📌 A l'exemple anterior probablement hi trobareu a faltar els atributs <em>action</em> o <em>method</em> i pot ser hageu notat que hem fet servir un <code>&lt;button&gt;</code> en comptes d'un <code>&lt;input type=&quot;text&quot;&gt;</code>.</p>
+<p>No és que ja no hi siguin a HTML5. Però moltes vegades no seran la forma més idònia de gestionar els formularis:</p>
+<ul>
+<li>En comptes d'esperar a que l'usuari envii el formulari per a validar-lo, normalment preferirem advertir a l'usuari tot d'una que detectem alguna cosa que no estigui bé.</li>
+<li>Tampoc és ja gaire habitual enviar un formulari recarregant tota la pàgina. El més usual és enviar les dades via <em>Ajax</em> i realitzar alguna modificació al document per a que l'usuari se n'adoni que la informació ha estat processada.</li>
+</ul>
+</blockquote>
+<h4 id="nous-tipus-de-camps-a-html5">Nous tipus de camps a HTML5</h4>
+<table>
+<tbody>
+<tr class="odd">
+<td>color</td>
+<td>date</td>
+<td>datetime-local</td>
+</tr>
+<tr class="even">
+<td>email</td>
+<td>month</td>
+<td>number</td>
+</tr>
+<tr class="odd">
+<td>range</td>
+<td>search</td>
+<td>tel</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>url</td>
+<td>week</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>☞ Els tipus de camps que no estiguin suportats en un navegador antic, es comportaran igual que si fóssin <code>&lt;input type=&quot;text&quot;&gt;</code>.</p>
+</blockquote>
+<h4 id="nous-atributs-per-a-camps-de-formularis-a-html5">Nous atributs per a camps de formularis a HTML5</h4>
+<ul>
+<li><strong>placeholder:</strong> Ens permet especificar un text (o &quot;pista&quot;) que apareixerà difuminat al fons dels camps que no estiguin emplenats.</li>
+<li><strong>pattern:</strong> Ens permet especificar una expressió regular de validació.</li>
+<li><strong>required:</strong> Ens permet especificar quan un camp és obligatori.</li>
+<li><strong>autofocus:</strong> Marca un camp indicant que és ell qui ha de rebre el focus en carregar-se la pàgina.</li>
+</ul>
+<p>Altres...</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>autocomplete</td>
+<td>form</td>
+<td>formaction</td>
+</tr>
+<tr class="even">
+<td>formenctype</td>
+<td>formmethod</td>
+<td>formnovalidate</td>
+</tr>
+<tr class="odd">
+<td>formtarget</td>
+<td>height</td>
+<td>width</td>
+</tr>
+<tr class="even">
+<td>list</td>
+<td>min</td>
+<td>max</td>
+</tr>
+<tr class="odd">
+<td>multiple</td>
+<td>step</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="validació-de-formularis">Validació de Formularis</h4>
+<h4 id="referències-1">Referències</h4>
+<h3 id="javascript">Javascript</h3>
+<p><a href="/setslide/javascript">Javascript</a></p>
+<p>Javascript és un llenguatge de programació <strong>asíncron</strong>:</p>
+<ul>
+<li>Orientat a events</li>
+<li>...que son gestionats mitjançant <em>callbacks</em></li>
+<li>...que s'enqueuen al <em>event-loop</em>.</li>
+</ul>
 <p>Va ésser desenvolupat en una setmana per encàrec de <em>Netscape</em> amb la intenció de dotar els seus navegadors de certa interactivitat.</p>
 <p>Els programes en Javascript s'executen en un sol fil del processador. El que ens permet programar <strong>gairebé</strong> com si no existís concurrència.</p>
 <p>El programari que interpreta el codi Javascript s'anomena &quot;motor&quot; (de l'anglès &quot;engine&quot;). El més utilitzat avui en dia és el &quot;V8&quot; de Google.</p>
@@ -290,11 +379,12 @@
 <li><p>A qualsevol intèrpret de terminal, com Node.JS: Ens mostrarà el resultat per la pantalla (consola).</p></li>
 <li><p>En un navegador, en canvi: Els missatges romanen ocults a no ser que nosaltres accediguem a la <em>consola del navegador</em> (que típicament s'obre amb la tecla F12).</p></li>
 </ul>
-<h2 id="ecmascript">ECMASCRIPT</h2>
+<h4 id="ecmascript">ECMASCRIPT</h4>
+<p><a href="/setslide/ecmascript">ECMASCRIPT</a></p>
 <p>Javascript es va estendre ràpidament per tots els navegadors de l'època. Si be cadascun en feia les seves pròpies variacions i, per això, durant molts d'anys va resultar caòtic programar en Javascript i que el nostre codi funcionàs bé a tots els navegadors de l'època.</p>
 <p>L'associació <strong>ECMA:</strong> (European Computer Manufacturers Association) va voler estandarditzar-lo. Però el terme &quot;Javascript&quot; és una marca comercial registrada i l'aleshores titular, <em>Netscape</em>, no va permetre el seu ús. Motiu pel qual, el llenguatge va ésser estandarditzat sota el nom de &quot;ECMASCRIPT&quot;.</p>
 <p>Avui en dia però, sempre que col·loquialment parlem de &quot;Javascript&quot; s'entén que en realitat estem parlant d'ECMASCRIPT.</p>
-<h3 id="strict-mode">Strict Mode</h3>
+<h5 id="strict-mode">Strict Mode</h5>
 <p>En els seus origens Javascript era un llenguatge molt lax i, entre d'altres coses, no requeria declarar les variables: Si fèiem servir un identificador que no apareixia declarat al codi, automàticament es creava com a variable d'àmbit global.</p>
 <p>Així, codi com el següent:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> Comptador <span class="op">=</span> <span class="dv">10</span><span class="op">;</span>
@@ -303,32 +393,124 @@ comptador<span class="op">--;</span>
 <p>...retornaria <code>-1</code> (quan nosaltres probablement esperaríem un <code>9</code>) en comptes de donar un error per variable no declarada, que és el que realment hauria de fer (en Javascript els identificadors son <em>Case-Sensitive</em>).</p>
 <p>Per poder solucionar això i no rompre la compatibilitat amb codi antic, es va introduir el que es coneix com a &quot;mode estricte&quot;.</p>
 <p>Així, fins i tot els motors de Javascript més moderns funcionen en un mode compatible amb aquelles regles fins que nosaltres explícitament activam el mode estricte.</p>
-<h4 id="activació">Activació</h4>
+<h6 id="activació">Activació</h6>
 <p>Per activar el mode estricte basta amb posar la següent cadena (cometes incloses) al principi del nostre codi:</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></code></pre></div>
 <p>Quan els motors de Javascript moderns veuen aquesta cadena entenen que han d'aplicar les regles modernes del Javascript (ECMASCRIPT).</p>
 <p>A més, com que escriure un valor d'un tipus de dades donat (en aquest cas una cadena), encara que no l'assignem a cap variable ni en fem res d'especial és vàlid com a codi en qualsevol versió de Javascript. Si no utilitzam funcionalitats avançades no disponibles en ells, el nostre codi <strong>també funcionaria amb motors antics</strong>.</p>
 <blockquote>
-<p>En resum: <strong>SEMPRE</strong> que ens disposem a escriure codi en Javascript, el primer que farem serà posar la cadena <code>&quot;use strict&quot;;</code> al principi.</p>
+<p>📌 En resum: <strong>SEMPRE</strong> que ens disposem a escriure codi en Javascript, el primer que farem serà posar la cadena <code>&quot;use strict&quot;;</code> al principi.</p>
 <p>Això ens ajudarà a fer millor codi i ens evitarà molts de problemes...</p>
 </blockquote>
-<h3 id="variables">Variables</h3>
-<h3 id="àmbit-scope">Àmbit (Scope)</h3>
-<h3 id="closures">Closures</h3>
-<h3 id="this">This</h3>
-<h3 id="class">Class</h3>
-<h2 id="es6">ES6+</h2>
-<h3 id="noves-funcionalitats">Noves Funcionalitats</h3>
-<h3 id="compatibilitat-cap-enrere">Compatibilitat cap Enrere</h3>
-<h4 id="manual">Manual</h4>
-<h4 id="automatitzada">Automatitzada</h4>
+<h5 id="variables">Variables</h5>
+<p><a href="/setslide/js_vars">Variables</a></p>
+<p>Tenim tres formes de declarar variables:</p>
+<pre><code>var foo; // Function (closure) level scope
+let bar; // Block ({ ... }) level scope
+const foo;  // Block-level, not de-referenciable.</code></pre>
 <ul>
-<li>shims</li>
-<li>polyfills</li>
-<li>transpilers</li>
+<li><p>Només <code>var</code> funcionarà en versions antigues (però hi ha transpiladors que ens ho arreglen).</p></li>
+<li><p>Amb <code>let</code> i <code>const</code> no hi ha <em>hoisting</em>: (No poden ser referenciades abans de la declaració). Ni tampoc fora del bloc en el que s'han definit.</p></li>
+<li><p>Les variables en Javascript son <em>referències</em> a objectes: <strong>Amb <code>const</code> l'únic que és constant és la referència:</strong> El contingut de l'objecte sí pot canviar.</p></li>
+</ul>
+<blockquote>
+<p>📌 Com a bona pràctica (sempre que ens ho poguem permetre) farem servir preferentment <em>const</em>. Si no ens serveix <em>let</em> i, només com a darrer recurs <em>var</em>.</p>
+</blockquote>
+<h5 id="àmbit-scope">Àmbit (Scope)</h5>
+<p>L'àmbit d'una variable determina a quines parts del codi aquesta és visible.</p>
+<ul>
+<li>Les variables <em>globals</em> son aquelles que son visibles des de qualsevol part del programa.
+<ul>
+<li>Fora del mode estricte les variables invocades sense haver estat prèviament declarades (ex.: <code>a = 23;</code>) es declaren automàticament a l'àmbit global. <strong>Per això SEMPRE hem d'activar el mode estricte</strong>.</li>
+<li>En el mode estricte només es poden declarar variables globals amb <code>var</code> i exclusivament fora de qualsevol <em>clausura</em>.</li>
+<li>En realitat, les variables d'àmbit global son propietats del <em>global object</em>. Així <code>var foo=&quot;bar&quot;</code> (fora de qualsevol clausura) i <code>window.foo=&quot;bar&quot;</code> serien declaracions equivalents.</li>
+<li>El <em>global object</em> és <code>window</code> als navegadors i <code>process</code> a <em>Node.JS</em>. Existeix la proposta d'estandarditzar pròpiament <code>global</code> com a referència a <code>window</code> o <code>process</code>, respectivament.</li>
+</ul></li>
+<li><p>L'àmbit de les variables declarades amb <code>var</code> és el de la <em>clausura</em> dins la que han estat declarades o l'àmbit global en el cas que de no haver estat declarades dins cap.</p></li>
+<li>L'àmbit de les variables declarades amb <code>let</code> o <code>const</code> és el del <em>bloc</em> de codi en el que han estat definides.
+<ul>
+<li>Els <em>blocs de codi</em> es delimiten amb <code>{</code> i <code>}</code> ja sigui com a predicat d'una sentència (<code>if (x) {...}</code>) o simplement posats expréssament amb la finalitat de limitar l'àmbit de les variables del seu interior (<code>{let   i=0; ...}</code>):</li>
+<li>Un cas especial és el de la sentència <em>for</em> ón al codi <code>for (let i=0;   i&lt;arr.length; i++) {...}</code>, l'àmbit de <code>i</code> correspondria a l'interior el bloc <code>{...}</code>.</li>
+</ul></li>
+</ul>
+<pre><code>const arr = [1, 2, 3, 4]
+for (let i=0; i&lt;arr.length; i++) {
+    arr[i] += 2;
+};
+console.log (arr); // [3, 4, 5, 6]
+console.log (i); // Error!!
+                 // Això amb var no passava...</code></pre>
+<h5 id="closures">Closures</h5>
+<p><a href="/setslide/js_let">let</a></p>
+<p>Les clausures delimiten l'àmbit de visibilitat d'una variable.</p>
+<p>Es creen automàticament cada cop <strong>que invocam</strong> una funció (no en el temps de creació) pel que cada cop que invoquem de nou la mateixa funció s'en crearà una de nova totalment separada de la anterior.</p>
+<p>En canvi, <strong>els objectes que aquestes referncien, també poden ser referenciats des de l'exterior</strong>:</p>
+<pre><code>function sumador(n) { // Això no crea cap clausura.
+    let x = n; // (en realitat hauriem pogut fer servir &#39;n&#39;)
+    let fn = function suma(m) {
+        x += m;
+        return x;
+    };
+    return fn;
+};
+
+
+let s1 = sumador(0); // Això sí crea una clausura.
+let s2 = sumador(100); // I això una altra...
+
+console.log (s1(3)); // 3
+console.log (s1(5)); // 8
+console.log (s2(5)); // 105
+</code></pre>
+<p>Les variables creades dins una clausura només son visibles dins d'aquesta <strong>i dins les que es crein dins ella.</strong> D'això s'en diu <em>Runtime Scope</em> o àmbit en temps d'execució.</p>
+<p>Una utilitat molt pràctica de les clausures és fer-les servir per aïllar petits blocs de codi (o sub-controladors) de manera que les variables que ells declarin no puguin veure's afectades pel codi de l'exterior. Si be, avui en dia, pels casos més senzills, ens bastarà fer servir <code>const</code> o <code>let</code>:</p>
+<pre><code>// Petit controlador secundari:
+(function(model) {
+   ... implementació ...
+})(model.submodel.foo.bar);</code></pre>
+<blockquote>
+<p>📌 El patró anterior es coneix pel nom de <em>IFE</em>: <em>(Immediately Invoked Function Expression)</em>.</p>
+<p>La seva forma més senzilla és <code>(function(){...})()</code>. Però podem fer les variacions que vulguem: com ara fer servir paràmetres per evitar referenciar variables externes des de l'interior, igual que a l'exemple anterior, fer que ens retornin un valor que podem assignar a una variable i/o assignar-li un nom a la funció: <code>const myCoolObj = (function coolObjBulder(options){...;return obj})(config);</code></p>
+</blockquote>
+<h5 id="this">This</h5>
+<p><em>this</em> és la propietat més àmpliament incompresa de Javascript.</p>
+<p><em>this</em> implementa el <em>Call Site Scope</em> (en contraposició amb el <em>Runtime Scope</em> que acabam de veure).</p>
+<blockquote>
+<p>📌 Explicar a fons <em>this</em> queda més enllà dels objectíus d'aquest curs, però per a qui tingui interés en aprofundir, us deixo a les referències un enllaç a l'article &quot;Understanding Javascript OOP&quot;.</p>
+</blockquote>
+<p>.....</p>
+<h4 id="es6">ES6+</h4>
+<h5 id="noves-funcionalitats">Noves Funcionalitats</h5>
+<p><a href="/setslide/es6+">Noves Funcionalitats</a></p>
+<ul>
+<li><p><strong>Let and Const.</strong></p></li>
+<li><p><strong>Template literals.</strong></p></li>
+<li><p><strong>Arrow Functions.</strong></p></li>
+<li><p><strong>Destructuring.</strong></p></li>
+<li><p><strong><code>Class</code>:</strong> (⚠  L'herència continua essent de prototip)</p></li>
+</ul>
+<blockquote>
+<p>☞ A l'apartat de <em>referències</em> teniu alguns articles sobre aquests temes.</p>
+</blockquote>
+<h5 id="compatibilitat-cap-enrere">Compatibilitat cap Enrere</h5>
+<p><a href="/setslide/es6_backward_compatibility">Compatibilitat</a></p>
+<p>Quan desenvolupam codi que ha de ser interpretat per un navegador, tenim el problema afegit que no sabem com d'antic pot arribar a ser aquest.</p>
+<p>Com més compatibles vulguem ser, menys noves característiques del llenguatge podem fer servir...</p>
+<p>...o <strong>NO.</strong></p>
+<p>En Javascript tenim dues eines molt potents que ens permeten fer servir fins i tot les més recents funcionalitats del llenguatge encara que el nostre codi s'executi en motors antics.</p>
+<p>Aquestes eines son els <em>polyfills</em> i els <em>transpiladors</em> (o &quot;transpilers&quot;).</p>
+<h6 id="polyfill">Polyfill</h6>
+<p>Modernizr</p>
+<h6 id="transpiladors">Transpiladors</h6>
+<p>Babel</p>
+<h3 id="referències-2">Referències</h3>
+<ul>
+<li>Understanding Javascript OOP: <a href="">https://robotlolita.me/2011/10/09/understanding-javascript-oop.html</a>.</li>
+<li><p>4 Modern ES6+ Features You Should Be Using Now: <a href="">https://programmingwithmosh.com/javascript/essential-modern-javascript-features/</a>.</p></li>
+<li><p>Modernizr: <a href="">https://modernizr.com/</a>.</p></li>
 </ul>
 <hr />
-<h1 id="exercici-1">Exercici 1:</h1>
+<h2 id="exercici-1">Exercici 1:</h2>
 <p>Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:</p>
 <ul>
 <li>El vostre nom i llinatges.</li>
@@ -445,7 +627,7 @@ comptador<span class="op">--;</span>
 <li>També, si tenim el nostre mòbil connectat a la xarxa inalàmbrica i coneixem l'adreça IP del nostre ordinador (que podem obtenir amb les comandes <code>ifconfig</code> o <code>ip addr list</code>), hi podrem accedir canviant &quot;localhost&quot; per la nostre IP a l'enllaç anterior.</li>
 </ul>
 <p>Si ara desam el fitxer que hem creat a l'exercici anterior sota el directori &quot;public&quot; i amb el nom &quot;curriculum.html&quot;, veurem que podem accedir a ell sota al url <a href="">http://localhost:3000/curriculum.html</a> (o amb la IP corresponent si volem poder accedir-hi també des del nostre smartphone).</p>
-<h2 id="referències-2">Referències</h2>
+<h2 id="referències-3">Referències</h2>
 <ul>
 <li><p><em>Sublime Text</em>: <a href="">https://www.sublimetext.com/</a>.</p></li>
 <li>Instal·lació Node.JS i NPM:
@@ -504,7 +686,7 @@ block content
 <ul>
 <li>Babel</li>
 </ul>
-<h2 id="referències-3">Referències</h2>
+<h2 id="referències-4">Referències</h2>
 <ul>
 <li>Motors de Plantilles
 <ul>

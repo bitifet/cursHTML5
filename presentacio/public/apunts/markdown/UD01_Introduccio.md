@@ -30,6 +30,9 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [Nous tipus de camps a HTML5](#nous-tipus-de-camps-a-html5)
             * [Nous atributs per a camps de formularis a HTML5](#nous-atributs-per-a-camps-de-formularis-a-html5)
             * [Validació de Formularis](#validació-de-formularis)
+                * [Placeholder](#placeholder)
+                * [Nous tipus de camps](#nous-tipus-de-camps)
+                * [Atributs de validació](#atributs-de-validació)
             * [Referències](#referències-1)
         * [Javascript](#javascript)
             * [ECMASCRIPT](#ecmascript)
@@ -44,7 +47,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
                 * [Compatibilitat cap Enrere](#compatibilitat-cap-enrere)
                     * [Polyfill](#polyfill)
                     * [Transpiladors](#transpiladors)
-        * [Referències](#referències-2)
+            * [Referències](#referències-2)
     * [Exercici 1:](#exercici-1)
 * [Entorn de Treball](#entorn-de-treball)
     * [Editor de Text](#editor-de-text)
@@ -53,9 +56,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Procediment](#procediment)
     * [Referències](#referències-3)
 * [Preprocessadors](#preprocessadors)
-    * [Preprocessadors HTML](#preprocessadors-html)
     * [Preprocessadors CSS](#preprocessadors-css)
-    * [Preprocessadors Javascript](#preprocessadors-javascript)
     * [Referències](#referències-4)
 
 <!-- vim-markdown-toc -->
@@ -96,34 +97,38 @@ Història
 
   * Imperava la "guerra dels navegadors".
 
+  * Els navegadors aplicaven estrictament les normes imposades per
+    l'especificació corresponent al DTD.
+
+  * I si no hi havia DTD, reportaven un error per la consola (que l'usuari
+    corrent normalment no veu) i, "feien el que podien".
+
+>
+:pushpin: Al final un s'adonava que de vegades era millor treure DTD perquè
+així solien funcionar totes les funcionalitats de les distintes
+especificacions.
+>
 
 
 ### A partir d'HTML5
 
+
+Al contrari que les versions anteriors, HTML5 és una especificació oberta que
+va creixent al llarg del temps.
+
 [En arribat HTML5](/setslide/html5_is_here)
+
+Per aquest motiu es simplifica el *doctype* que passa a ser simplement:
 
 ```
 <!DOCTYPE HTML>
 ```
 
-Al contrari que les versions anteriors, HTML5 és una especificació oberta que
-va creixent al llarg del temps.
-
-Abans els navegadors aplicaven estrictament les normes imposades per
-l'especificació corresponent al DTD.
-
-I si no hi havia DTD, reportaven un error per la consola (que l'usuari corrent
-normalment no veu) i, "feien el que podien".
-
-Al final un s'adonava que de vegades era millor treure DTD perquè així solien
-funcionar totes les funcionalitats de les distintes especificacions.
-
-
-**A partir d'HTML5, aquell "feien el que podien" passa a ser la norma:** Si el
-navegador no reconeix un tag, un atribut o es troba amb qualsevol altra
-circumstància que no casi amb les especificacions que ell coneix, ha d'intentar
-resoldre-ho "de la millor manera possible" per tal de minimitzar l'impacte de
-cara a l'usuari.
+**A partir d'HTML5, aquell "feien el que podien" d'abans passa a ser la
+norma:** Si el navegador no reconeix un tag, un atribut o es troba amb
+qualsevol altra circumstància que no casi amb les especificacions que ell
+coneix, ha d'intentar resoldre-ho "de la millor manera possible" per tal de
+minimitzar l'impacte de cara a l'usuari.
 
 **Per exemple:** un navegador que no conegui el tag `<progress>`, el tractarà
 com si en el seu lloc hi hagués un simple `<div>`
@@ -216,7 +221,6 @@ javascript com, si cal, des del full d'estil CSS.
 
 
 
-
 #### Estructura de l'HTML
 
   * DTD
@@ -305,20 +309,22 @@ Nous a HTML5
 
 ```
   <form>
-    <input type="text" name="nom" placeholder="Escrigui el seu nom">
-    <input type="text" name="cognoms" placeholder="Escrigui els seus cognoms">
+    <input name="nom" type="text"
+        placeholder="Escrigui el seu nom"
+    >
+    <input name="cognoms" type="text"
+        placeholder="Escrigui els seus cognoms"
+    >
     <button type="submit">
   </form>
 ```
 
->
-:pushpin: A l'exemple anterior probablement hi trobareu a faltar els atributs
+A l'exemple anterior probablement hi trobareu a faltar els atributs
 *action* o *method* i pot ser hageu notat que hem fet servir un `<button>` en
 comptes d'un `<input type="text">`.
->
 No és que ja no hi siguin a HTML5. Però moltes vegades no seran la forma més
 idònia de gestionar els formularis:
->
+
   * En comptes d'esperar a que l'usuari envii el formulari per a validar-lo,
     normalment preferirem advertir a l'usuari tot d'una que detectem alguna
     cosa que no estigui bé.
@@ -326,6 +332,13 @@ idònia de gestionar els formularis:
     El més usual és enviar les dades via *Ajax* i realitzar alguna modificació
     al document per a que l'usuari se n'adoni que la informació ha estat
     processada.
+
+>
+:pushpin: Tampoc hem fet servir el tag `<label>`. Posar etiquetes és
+perfectament vàlid i, fins i tot recomanable en molts casos. Però de vegades,
+quan les dades son suficientment autoexplicatives, utilitzar només l'atribut
+*placehloder* per indicar què va a cada camp abans d'emplenar-lo, ens pot
+ajudar a assolir un aspecte molt més net.
 >
 
 
@@ -370,11 +383,197 @@ Altres...
 
 #### Validació de Formularis
 
+La regla d'or en quant a validació de formularis és que aquesta **sempre es fa
+costat del servidor**.
+
+>
+:pushpin: Qualsevol validació que puguem fer al costat del client no només
+depen de que les funcionalitats que facem servir estiguin disponibles i
+funcionin correctament al navegador i versió concrets que faci servir l'usuari.
+Sinó també de que aquest no ens vulgui enganar i colar-nos uns valors que no
+compleixin les regles que nosaltres hem imposat.
+>
+
+Dit això, obligar a l'usuari a emplenar tot un formulari per al final de tot
+dir-li que ho ha fet tot malament i que ha de tornar a començar és poc menys
+que suggerir-li que no torni. Especialment si en el procés li esborram les
+dades que havia introduït i el feim començar de zero.
+
+Per això, **A MÉS** de la validació principal al servidor, és recomanable que
+el formulari reaccioni a les accions de l'usuari proporcionant-li un feedback
+constant perquè pugui saber si ho està fent bé o malament.
 
 
+HTML5 ens proporciona vàries eines per fer just això:
+
+
+##### Placeholder
+
+D'acord: Tècnicament l'atribut *placeholder* no té res a veure amb la validació
+de formularis.
+
+Però en una situació com la següent:
+
+```
+<label for="data">Data</label>
+<input name="data" type="text">
+```
+
+...afegir un atribut de l'estil de `placeholder="dd/mm/aaaa"` pot ser un bon
+començament.
+
+>
+:pushpin: Evidentment, fer servir `type="date"` seria una solució molt millor.
+Però amb navegadors (bastant) antics no funcionarà. En canvi, si combinam les
+dues solucions, probablement els usuaris dels navegadors més antics ens ho
+agrairan.
+>
+
+
+##### Nous tipus de camps
+
+Considerem el següent exemple:
+
+```
+<label for="color">
+    Indiqui quin és el seu color favorit
+</label>
+<input name="color" type="text">
+```
+
+Això podríem dir que `placeholder="Ex. #ff0000"` no ens ho arregla *massa*,
+precisament...
+
+Afortunadament, en HTML5 tenim el tipus de camp *color* que ens incrustarà un
+flamant *color-picker* per a que l'usuari pugi triar el que més li agradi.
+
+
+També, com hem dit, tenim el tipus *date* per a dates.
+
+Altres que tenim son:
+
+|          |                  |         |
+|----------|------------------|---------|
+| `time`   | `datetime-local` | `month` |
+| `week`   | `number`         | `range` |
+| `search` | `tel`            | `url`   |
+| `email`  |                  |         |
+
+
+La forma d'implementar cadascun d'ells depen del navegador: 
+
+  * En general alguns d'ells, com `color` o `range` ens presentaran un widget
+    totalment personalitzat de manera que no podrem introduir valors invàlids
+    de cap manera (tret que, per exemple, només vulguem acceptar dates dins
+    d'un determinat període).
+
+  * Altres, com `tel`, `email`, etcètera... es mostraran com a camps de text
+    normal permetent-nos editar el contingut lliurement, però mentre el valor
+    introduït no sigui vàlid, presentaran un estil diferent (que per defecte
+    depen del navegador però, com veurem més endavant, el podem personalitzar
+    des del full d'estil).
+
+
+>
+:point-right: A l'apartat de *Referències* podeu trobar l'enllaç a la llista
+actualitzada completa.
+>
+
+
+##### Atributs de validació
+
+
+**pattern:**
+
+Desgraciadament no podem tenir un tipus de camp específic per a cada tipus de
+dades que eventualment puguem voler sol·licitar en un formulari.
+
+A l'exemple següent:
+
+```
+<label for="url">Url</label>
+<input name="url" type="url">
+<label for="ip">Adreça IP</label>
+<input name="ip" type="text" placeholder="Ex: 192.168.1.1">
+```
+
+...el *placeholder* és un bon intent. Però la realitat és que si introduïm una
+url invàlida ens en adonarem de seguida. Però si introduïm "257.30.25.13" (o
+simplement "Sancho Panza"...) al camp d'adreça IP, no hi haurà res que ens
+indiqui que el valor és invàlid.
+
+Per solucionar això, l'atribut *pattern* ens permet especificar una expressió
+regular associada al camp de manera que, sempre que el contingut del mateix no
+la compleixi, adoptarà l'estat de "no validat".
+
+```
+<label for="ip">Adreça IP</label>
+<input name="ip" type="text"
+    placeholder="Ex: 192.168.1.1"
+    pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$"
+>
+```
+
+>
+:pushpin: Les *expressions regulars* no acostumen a brillar per la seva
+llegibilitat i la de validar una IP, encara que sigui de versió 4, no és tampoc
+de les més senzilles.
+>
+Però un cop les dominam son un recurs impagable a l'hora de validar dades.
+>
+A la secció de *Referències* teniu dos enllaços al respecte:
+>
+  * Un és un interessant recull d'*expressions regulars* comunes en la
+    validació de formularis HTML5.
+  * L'altre, per aquells que estiguin interessats en aprendre'n més, és un
+    portal on trobareu tota la informació que pugueu necessitar per dominar les
+    *expressions regulars*.
+>
+
+
+
+**required:**
+
+L'atribut *pattern* ens permet dotar al formulari de la capacitat de
+diferenciar per ell mateix si el valor d'un camp és vàlid o no.
+
+Però no sempre és requerit emplenar tots els camps. De vegades alguns son
+opcionals i, si no estan emplenats difícilment podran complir el patró
+especificat.
+
+Per això l'atribut *required* ens permet identificar aquells camps que realment
+son requerits. De manera que el formulari pugui saber quan ens ha de marcar com
+a error el fet que, eventualment, no estigui emplenat.
+
+
+```
+<input name="nom" type="text" placeholder="Nom*" required>
+```
+
+**min, max i step:**
+
+En camps de tipus *number* i *range* ens permeten establir els valors mínim,
+màxim i la resolució d'increment/decrement.
+
+
+**minlength i maxlength:**
+
+En camps de text ens permeten establir una longitud mínima i màxima.
 
 
 #### Referències
+
+  * Tipus de camps en HTML5:
+    [https://www.w3schools.com/html/html_form_input_types.asp]()
+
+  * Repositori d'expressions regulars comunes per HTML4:
+    [http://html5pattern.com/Miscs]()
+
+  * Tot sobre expressions regulars: [https://www.regular-expressions.info/]().
+
+  * Més sobre validació de formularis:
+    [https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation]().
+
 
 
 ### Javascript
@@ -387,8 +586,9 @@ Javascript és un llenguatge de programació **asíncron**:
   * ...que son gestionats mitjançant *callbacks*
   * ...que s'enqueuen al *event-loop*.
 
-Va ésser desenvolupat en una setmana per encàrec de *Netscape* amb la intenció
-de dotar els seus navegadors de certa interactivitat.
+La seva primera versió la va desenvolupar *Brendan Eich* en només 10 dies per
+encàrrec de *Netscape* amb la intenció de dotar els seus navegadors de certa
+interactivitat.
 
 Els programes en Javascript s'executen en un sol fil del processador. El que
 ens permet programar **gairebé** com si no existís concurrència.
@@ -410,6 +610,15 @@ Per contra del que molta gent pensa, Javascript és un llenguatge fortament
 orientat a objectes. Fins al punt que fins i tot els seus tipus de dades més
 elementals com les cadenes de text o els valors numèrics, son en realitat
 objectes.
+
+Per aquest motiu, podem fer coses com:
+
+```
+> "hello world".length
+11
+> "hello world".split(" ")
+[ 'hello', 'world' ]
+```
 
 >
 El que no és en realitat és un llenguatge "orientat a classes": No cal una
@@ -545,7 +754,7 @@ let bar; // Block ({ ... }) level scope
 const foo;  // Block-level, not de-referenciable.
 ```
 
-  * Només `var` funcionarà en versions antigues (però hi ha transpiladors que
+  * Només `var` funcionarà en versions antigues (però hi ha *transpiladors* que
     ens ho arreglen).
 
   * Amb `let` i `const` no hi ha *hoisting*: (No poden ser referenciades abans
@@ -630,7 +839,6 @@ function sumador(n) { // Això no crea cap clausura.
     return fn;
 };
 
-
 let s1 = sumador(0); // Això sí crea una clausura.
 let s2 = sumador(100); // I això una altra...
 
@@ -657,7 +865,7 @@ dia, pels casos més senzills, ens bastarà fer servir `const` o `let`:
 ```
 
 >
-:pushpin: El patró anterior es coneix pel nom de *IFE*: *(Immediately Invoked
+:pushpin: El patró anterior es coneix pel nom de *IIFE*: *(Immediately Invoked
 Function Expression)*.
 >
 La seva forma més senzilla és `(function(){...})()`. Però podem fer les
@@ -683,10 +891,6 @@ enllaç a l'article "Understanding Javascript OOP".
 >
 
 
-.....
-
-
-
 #### ES6+
 
 
@@ -694,26 +898,66 @@ enllaç a l'article "Understanding Javascript OOP".
 
 [Noves Funcionalitats](/setslide/es6+)
 
-  * **Let and Const.**
+L'arribada de ES6 va suposar una fita històrica per Javascript (tècnicament
+ECMASCRIPT).
 
-  * **Template literals.**
+Amb ella arribaren noves característiques molt desitjades. Però el que és
+millor: Es va canviar la forma en que s'alliberaven les noves versions de
+l'especificació per un sistema molt més eficient i dinàmic:
 
-  * **Arrow Functions.**
+Ara cada any s'allibera una nova versió. Per exemple, la d'enguany serà la
+ES2018.
 
-  * **Destructuring.**
+Això és possible gràcies a que les noves funcionalitats poden ser provades molt
+abans gràcies a l'ús de polyfills i transpiladors que ens permeten executar
+codi que fa servir les darreres funcionalitats en motors que encara no les
+suporten.
 
-  * **`Class`:** (:warning: L'herència continua essent de prototip)
+Les següents son algunes de les noves característiques més interessants:
 
+
+  * **Paràmetres per defecte:** `function inc(step=1){this.counter += step}`.
+
+  * **Template Literals:**
+    - Fins ara per definir cadenes de text literals podiem fer servir cometes
+      simples o dobles. Ara s'afegeix el caràcter d'accent greu o *backtick*
+      (\`).
+    - Les cadenes així definides s'anomenen *template literals* i entre
+      d'altres característiques més avançades, son multi-línia (ja no cal posar
+      `\n`, etc...) i permeten la interpolació de variables o expressions.
+
+  * **Destructuració:**
+    - En objectes: `let {foo, bar} = {foo: "Hello", bar: "world!", baz:
+      "lost"}`.
+    - I arrays: `let [a, b] = [1, 2]`, `[a, b] = [b, a]`
+
+  * **Arrow Functions:**  `let double = n=>n*2`
+    - Molt convenients per a implementar callbacks senzills (augmentant la
+      legibilitat).
+    - Al temps que **absolutament desaconsellables** en la resta de casos: Per
+      a funcions llargues empitjoren la legibilitat i, a més, el seu
+      comportament no és igual (hereten el *this* de la funció on han estat
+      invocades).
+
+  * **Promeses** Que tractarem més endavant en abordar el tema de la
+    *programació asíncrona*.
+
+  * **`let` i `const`:** De les que ja hem parlat.
+
+  * **El keyword *class*:** Que proveeix una sintaxi millor a l'hora de crear
+    objectes, tot i que pot ser l'elecció del nom no fora la més adequada,
+    doncs indueix a pensar que pugui funcionar com el keyword *class* d'altres
+    llenguatges.
+
+  * **Mòduls ES6.**
 
 >
-:point-right: A l'apartat de *referències* teniu alguns articles sobre aquests
-temes.
+:point-right: A l'apartat de *referències* us deixo un article que les explica
+en més profunditat.
 >
-
 
 
 ##### Compatibilitat cap Enrere
-
 
 
 [Compatibilitat](/setslide/es6_backward_compatibility)
@@ -737,25 +981,87 @@ Aquestes eines son els *polyfills* i els *transpiladors* (o "transpilers").
 
 ###### Polyfill
 
+Un *polyfill* és un bocí de codi Javascript que implementa una funcionalitat
+*futura* que encara no està disponible a la versió del motor que l'executa.
 
+D'aquesta manera ens asseguram que el nostre codi, tot i fer ús d'una nova
+funcionalitat, s'executarà sense problemes fins i tot en motors que encara no
+la suportin.
 
-Modernizr
+Els *polyfills* apliquen una tècnica que s'anomena *detecció de funcionalitat*
+per saber si s'han d'aplicar o no. Així, si incloem un *olyfill* al nostre
+programa i aquest és executat per un motor que ja no el necessita, el
+*polyfill* s'autoinhibirà de manera que, de forma transparent, passarem a fer
+servir la implementació nativa.
+
+Per exemple, un *polyfill* per assegurar la disponibilitat de *Promeses*
+tindria una forma semblant al següent:
+
+```
+(function(global) {
+    if (! global.Promise) {
+        global.Promise = class {
+           ...
+        }
+    };
+})(window || process);
+```
+
+>
+:pushpin: La tècnica de *detecció de funcionalitat* no només es fa servir per
+als *polyfills*: La podem fer servir també nosaltres sempre que ens enfrontem a
+la situació de voler fer servir una funcionalitat que no estem segurs estarà
+disponible en tots els casos.
+>
+D'aquesta manera podem oferir una funcionalitat alternativa o simplement
+ometre-la però sense que afecti a l'estabilitat de la resta del codi.
+>
+Per exemple, algunes APIs d'HTML5, com la que ens permet activar la vibració
+del mòbil, difícilment estaran disponibles en navegadors PC.
+>
+
+Una de les llibreries de *Polyfills* més extensament utilitzada és *Modernizr*,
+que podeu trobar enllaçada a les *referències*.
 
 
 
 ###### Transpiladors
 
-Babel
+*Promise* és un objecte que, com hem vist, podem implementar nosaltres mateixos
+en Javascript i aplicar-lo, només si cal, en temps d'execució (*polyfill*).
+
+Però quan es tracta però de construccions del llenguatge, com les sentències
+`let` i `const` o com la *destructuració* d'objectes, no queda altra opció que
+reescriure el codi de manera que, amb les eines disponibles, faci el mateix (o,
+cas que no sigui posible, presenti la funcionalitat més semblant possible) que
+hauria fet l'original en un intèrpret que la suportàs.
+
+En aquest cas no podem simplement carregar una llibreria, sinó que és necessari
+transformar el codi original en una versió modificada que sigui compatible.
+
+Les eines que ens permeten fer aquesta transformació de forma automatitzada es
+diuen *transpiladors*.
+
+El més conegut és el *Babel*, que teniu també enllaçat a les referències.
 
 
-### Referències
+#### Referències
+
 
   * Understanding Javascript OOP:
     [https://robotlolita.me/2011/10/09/understanding-javascript-oop.html]().
-  * 4 Modern ES6+ Features You Should Be Using Now:
-    [https://programmingwithmosh.com/javascript/essential-modern-javascript-features/]().
+
+  * Top 10 ES6 Features Every Busy JavaScript Developer Must Know:
+    [https://webapplog.com/es6/]().
 
   * Modernizr: [https://modernizr.com/]().
+
+  * Babel: [https://babeljs.io/]().
+
+  * Altres:
+    - Motor de JavaScript V8 de Google:
+      [https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)]().
+
 
 -----------------------------------------------------------------------------------------
 
@@ -793,6 +1099,11 @@ Per poder seguir aquest curs necessitarem principalment tres coses:
        cometem errors greus el compilador els detectarà).
      - Fer servir models de dades externs (el que seria separar la vista de les
        dades en un model MVC).
+
+>
+:pushpin: A les *Referències* trobareu l'enllaç al portal web del motor de
+plantilles *Pug* on s'explica perfectament la seva senzilla sintaxi.
+>
 
 
 Editor de Text
@@ -972,11 +1283,8 @@ Referències
       [https://nodejs.org/es/download/package-manager/]().
     - Instal·lació manual: [https://nodejs.org/en/download/]().
 
+  * Motor de plantilles Pug: [https://pugjs.org]().
 
-  * Altres:
-    - Motor de JavaScript V8 de Google: [https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)]().
-
-\newpage
 
 
 Preprocessadors
@@ -986,9 +1294,12 @@ Els preprocessadors son eines que ens permeten transformar un fitxer de codi
 escrit en un llenguatge modificat o totalment distint al que entén compilador o
 intèrpret al que estan destinats.
 
-Per exemple, el motor de plantilles *Pug* és un preprocessador que transforma
-una plantilla *Pug* en un document HTML vàlid que pot llegir qualsevol
-navegador.
+Per exemple, els *transpiladors* de Javascript dels que hem parlat abans, son
+un cas de preprocessadors.
+
+El motor de plantilles *Pug* n'és un altre que en aquest cas, transforma
+completament la sintaxi (com veurem molt més planera i senzilla) d'una
+plantilla *Pug* en un document HTML vàlid que pot llegir qualsevol navegador.
 
 Al projecte *Expres* que hem creat anteriorment, podem veure com a dins el
 directori *views* tenim tres fitxers:
@@ -1032,18 +1343,17 @@ block content
 ```
 
 
+    ====
+    TODO
+    ====
+
+    * Ruta per a publicar qualsevol fitxer "pug" amb el model del mateix nom.
+
+    * Script de "building" de sass i js.
 
 
 
-Definicions:
 
-  * shims
-  * polyfills
-  * transpilers
-
-
-Preprocessadors HTML
---------------------
 
 Preprocessadors CSS
 -------------------
@@ -1052,10 +1362,6 @@ Preprocessadors CSS
   * PostCSS: [https://postcss.org/]().
     - Autoprefixer: [https://github.com/postcss/autoprefixer]().
 
-Preprocessadors Javascript
---------------------------
-
-  * Babel
 
 
 Referències
@@ -1064,8 +1370,6 @@ Referències
   * Motors de Plantilles
     - Pug (Jade): [https://pugjs.org]()
     - Handlebars: [https://handlebarsjs.com]()
-  * ECMASCRIPT:
-    - Modernizr: [https://modernizr.com/]().
 
 
 

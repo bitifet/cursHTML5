@@ -44,7 +44,12 @@
 <ul>
 <li><a href="#nous-tipus-de-camps-a-html5">Nous tipus de camps a HTML5</a></li>
 <li><a href="#nous-atributs-per-a-camps-de-formularis-a-html5">Nous atributs per a camps de formularis a HTML5</a></li>
-<li><a href="#validació-de-formularis">Validació de Formularis</a></li>
+<li><a href="#validació-de-formularis">Validació de Formularis</a>
+<ul>
+<li><a href="#placeholder">Placeholder</a></li>
+<li><a href="#nous-tipus-de-camps">Nous tipus de camps</a></li>
+<li><a href="#atributs-de-validació">Atributs de validació</a></li>
+</ul></li>
 <li><a href="#referències-1">Referències</a></li>
 </ul></li>
 <li><a href="#javascript">Javascript</a>
@@ -69,8 +74,8 @@
 <li><a href="#transpiladors">Transpiladors</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
 <li><a href="#referències-2">Referències</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#exercici-1">Exercici 1:</a></li>
 </ul></li>
@@ -86,9 +91,7 @@
 </ul></li>
 <li><a href="#preprocessadors">Preprocessadors</a>
 <ul>
-<li><a href="#preprocessadors-html">Preprocessadors HTML</a></li>
 <li><a href="#preprocessadors-css">Preprocessadors CSS</a></li>
-<li><a href="#preprocessadors-javascript">Preprocessadors Javascript</a></li>
 <li><a href="#referències-4">Referències</a></li>
 </ul></li>
 </ul>
@@ -108,16 +111,19 @@
 <ul>
 <li>O millor dit: N'hi havia molts de discrepants.</li>
 </ul></li>
-<li>Imperava la &quot;guerra dels navegadors&quot;.</li>
+<li><p>Imperava la &quot;guerra dels navegadors&quot;.</p></li>
+<li><p>Els navegadors aplicaven estrictament les normes imposades per l'especificació corresponent al DTD.</p></li>
+<li><p>I si no hi havia DTD, reportaven un error per la consola (que l'usuari corrent normalment no veu) i, &quot;feien el que podien&quot;.</p></li>
 </ul>
+<blockquote>
+<p>📌 Al final un s'adonava que de vegades era millor treure DTD perquè així solien funcionar totes les funcionalitats de les distintes especificacions.</p>
+</blockquote>
 <h3 id="a-partir-dhtml5">A partir d'HTML5</h3>
-<p><a href="/setslide/html5_is_here">En arribat HTML5</a></p>
-<pre><code>&lt;!DOCTYPE HTML&gt;</code></pre>
 <p>Al contrari que les versions anteriors, HTML5 és una especificació oberta que va creixent al llarg del temps.</p>
-<p>Abans els navegadors aplicaven estrictament les normes imposades per l'especificació corresponent al DTD.</p>
-<p>I si no hi havia DTD, reportaven un error per la consola (que l'usuari corrent normalment no veu) i, &quot;feien el que podien&quot;.</p>
-<p>Al final un s'adonava que de vegades era millor treure DTD perquè així solien funcionar totes les funcionalitats de les distintes especificacions.</p>
-<p><strong>A partir d'HTML5, aquell &quot;feien el que podien&quot; passa a ser la norma:</strong> Si el navegador no reconeix un tag, un atribut o es troba amb qualsevol altra circumstància que no casi amb les especificacions que ell coneix, ha d'intentar resoldre-ho &quot;de la millor manera possible&quot; per tal de minimitzar l'impacte de cara a l'usuari.</p>
+<p><a href="/setslide/html5_is_here">En arribat HTML5</a></p>
+<p>Per aquest motiu es simplifica el <em>doctype</em> que passa a ser simplement:</p>
+<pre><code>&lt;!DOCTYPE HTML&gt;</code></pre>
+<p><strong>A partir d'HTML5, aquell &quot;feien el que podien&quot; d'abans passa a ser la norma:</strong> Si el navegador no reconeix un tag, un atribut o es troba amb qualsevol altra circumstància que no casi amb les especificacions que ell coneix, ha d'intentar resoldre-ho &quot;de la millor manera possible&quot; per tal de minimitzar l'impacte de cara a l'usuari.</p>
 <p><strong>Per exemple:</strong> un navegador que no conegui el tag <code>&lt;progress&gt;</code>, el tractarà com si en el seu lloc hi hagués un simple <code>&lt;div&gt;</code></p>
 <p>Això no vol dir que puguem fer el que vulguem ni que ja no hagem de fer servir validadors d'HTML:</p>
 <ul>
@@ -252,17 +258,21 @@
 <h3 id="formularis">Formularis</h3>
 <p><strong>Exemple:</strong></p>
 <pre><code>  &lt;form&gt;
-    &lt;input type=&quot;text&quot; name=&quot;nom&quot; placeholder=&quot;Escrigui el seu nom&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;cognoms&quot; placeholder=&quot;Escrigui els seus cognoms&quot;&gt;
+    &lt;input name=&quot;nom&quot; type=&quot;text&quot;
+        placeholder=&quot;Escrigui el seu nom&quot;
+    &gt;
+    &lt;input name=&quot;cognoms&quot; type=&quot;text&quot;
+        placeholder=&quot;Escrigui els seus cognoms&quot;
+    &gt;
     &lt;button type=&quot;submit&quot;&gt;
   &lt;/form&gt;</code></pre>
-<blockquote>
-<p>📌 A l'exemple anterior probablement hi trobareu a faltar els atributs <em>action</em> o <em>method</em> i pot ser hageu notat que hem fet servir un <code>&lt;button&gt;</code> en comptes d'un <code>&lt;input type=&quot;text&quot;&gt;</code>.</p>
-<p>No és que ja no hi siguin a HTML5. Però moltes vegades no seran la forma més idònia de gestionar els formularis:</p>
+<p>A l'exemple anterior probablement hi trobareu a faltar els atributs <em>action</em> o <em>method</em> i pot ser hageu notat que hem fet servir un <code>&lt;button&gt;</code> en comptes d'un <code>&lt;input type=&quot;text&quot;&gt;</code>. No és que ja no hi siguin a HTML5. Però moltes vegades no seran la forma més idònia de gestionar els formularis:</p>
 <ul>
 <li>En comptes d'esperar a que l'usuari envii el formulari per a validar-lo, normalment preferirem advertir a l'usuari tot d'una que detectem alguna cosa que no estigui bé.</li>
 <li>Tampoc és ja gaire habitual enviar un formulari recarregant tota la pàgina. El més usual és enviar les dades via <em>Ajax</em> i realitzar alguna modificació al document per a que l'usuari se n'adoni que la informació ha estat processada.</li>
 </ul>
+<blockquote>
+<p>📌 Tampoc hem fet servir el tag <code>&lt;label&gt;</code>. Posar etiquetes és perfectament vàlid i, fins i tot recomanable en molts casos. Però de vegades, quan les dades son suficientment autoexplicatives, utilitzar només l'atribut <em>placehloder</em> per indicar què va a cada camp abans d'emplenar-lo, ens pot ajudar a assolir un aspecte molt més net.</p>
 </blockquote>
 <h4 id="nous-tipus-de-camps-a-html5">Nous tipus de camps a HTML5</h4>
 <table>
@@ -330,7 +340,104 @@
 </tbody>
 </table>
 <h4 id="validació-de-formularis">Validació de Formularis</h4>
+<p>La regla d'or en quant a validació de formularis és que aquesta <strong>sempre es fa costat del servidor</strong>.</p>
+<blockquote>
+<p>📌 Qualsevol validació que puguem fer al costat del client no només depen de que les funcionalitats que facem servir estiguin disponibles i funcionin correctament al navegador i versió concrets que faci servir l'usuari. Sinó també de que aquest no ens vulgui enganar i colar-nos uns valors que no compleixin les regles que nosaltres hem imposat.</p>
+</blockquote>
+<p>Dit això, obligar a l'usuari a emplenar tot un formulari per al final de tot dir-li que ho ha fet tot malament i que ha de tornar a començar és poc menys que suggerir-li que no torni. Especialment si en el procés li esborram les dades que havia introduït i el feim començar de zero.</p>
+<p>Per això, <strong>A MÉS</strong> de la validació principal al servidor, és recomanable que el formulari reaccioni a les accions de l'usuari proporcionant-li un feedback constant perquè pugui saber si ho està fent bé o malament.</p>
+<p>HTML5 ens proporciona vàries eines per fer just això:</p>
+<h5 id="placeholder">Placeholder</h5>
+<p>D'acord: Tècnicament l'atribut <em>placeholder</em> no té res a veure amb la validació de formularis.</p>
+<p>Però en una situació com la següent:</p>
+<pre><code>&lt;label for=&quot;data&quot;&gt;Data&lt;/label&gt;
+&lt;input name=&quot;data&quot; type=&quot;text&quot;&gt;</code></pre>
+<p>...afegir un atribut de l'estil de <code>placeholder=&quot;dd/mm/aaaa&quot;</code> pot ser un bon començament.</p>
+<blockquote>
+<p>📌 Evidentment, fer servir <code>type=&quot;date&quot;</code> seria una solució molt millor. Però amb navegadors (bastant) antics no funcionarà. En canvi, si combinam les dues solucions, probablement els usuaris dels navegadors més antics ens ho agrairan.</p>
+</blockquote>
+<h5 id="nous-tipus-de-camps">Nous tipus de camps</h5>
+<p>Considerem el següent exemple:</p>
+<pre><code>&lt;label for=&quot;color&quot;&gt;
+    Indiqui quin és el seu color favorit
+&lt;/label&gt;
+&lt;input name=&quot;color&quot; type=&quot;text&quot;&gt;</code></pre>
+<p>Això podríem dir que <code>placeholder=&quot;Ex. #ff0000&quot;</code> no ens ho arregla <em>massa</em>, precisament...</p>
+<p>Afortunadament, en HTML5 tenim el tipus de camp <em>color</em> que ens incrustarà un flamant <em>color-picker</em> per a que l'usuari pugi triar el que més li agradi.</p>
+<p>També, com hem dit, tenim el tipus <em>date</em> per a dates.</p>
+<p>Altres que tenim son:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>time</code></td>
+<td><code>datetime-local</code></td>
+<td><code>month</code></td>
+</tr>
+<tr class="even">
+<td><code>week</code></td>
+<td><code>number</code></td>
+<td><code>range</code></td>
+</tr>
+<tr class="odd">
+<td><code>search</code></td>
+<td><code>tel</code></td>
+<td><code>url</code></td>
+</tr>
+<tr class="even">
+<td><code>email</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>La forma d'implementar cadascun d'ells depen del navegador:</p>
+<ul>
+<li><p>En general alguns d'ells, com <code>color</code> o <code>range</code> ens presentaran un widget totalment personalitzat de manera que no podrem introduir valors invàlids de cap manera (tret que, per exemple, només vulguem acceptar dates dins d'un determinat període).</p></li>
+<li><p>Altres, com <code>tel</code>, <code>email</code>, etcètera... es mostraran com a camps de text normal permetent-nos editar el contingut lliurement, però mentre el valor introduït no sigui vàlid, presentaran un estil diferent (que per defecte depen del navegador però, com veurem més endavant, el podem personalitzar des del full d'estil).</p></li>
+</ul>
+<blockquote>
+<p>☞ A l'apartat de <em>Referències</em> podeu trobar l'enllaç a la llista actualitzada completa.</p>
+</blockquote>
+<h5 id="atributs-de-validació">Atributs de validació</h5>
+<p><strong>pattern:</strong></p>
+<p>Desgraciadament no podem tenir un tipus de camp específic per a cada tipus de dades que eventualment puguem voler sol·licitar en un formulari.</p>
+<p>A l'exemple següent:</p>
+<pre><code>&lt;label for=&quot;url&quot;&gt;Url&lt;/label&gt;
+&lt;input name=&quot;url&quot; type=&quot;url&quot;&gt;
+&lt;label for=&quot;ip&quot;&gt;Adreça IP&lt;/label&gt;
+&lt;input name=&quot;ip&quot; type=&quot;text&quot; placeholder=&quot;Ex: 192.168.1.1&quot;&gt;</code></pre>
+<p>...el <em>placeholder</em> és un bon intent. Però la realitat és que si introduïm una url invàlida ens en adonarem de seguida. Però si introduïm &quot;257.30.25.13&quot; (o simplement &quot;Sancho Panza&quot;...) al camp d'adreça IP, no hi haurà res que ens indiqui que el valor és invàlid.</p>
+<p>Per solucionar això, l'atribut <em>pattern</em> ens permet especificar una expressió regular associada al camp de manera que, sempre que el contingut del mateix no la compleixi, adoptarà l'estat de &quot;no validat&quot;.</p>
+<pre><code>&lt;label for=&quot;ip&quot;&gt;Adreça IP&lt;/label&gt;
+&lt;input name=&quot;ip&quot; type=&quot;text&quot;
+    placeholder=&quot;Ex: 192.168.1.1&quot;
+    pattern=&quot;((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$&quot;
+&gt;</code></pre>
+<blockquote>
+<p>📌 Les <em>expressions regulars</em> no acostumen a brillar per la seva llegibilitat i la de validar una IP, encara que sigui de versió 4, no és tampoc de les més senzilles.</p>
+<p>Però un cop les dominam son un recurs impagable a l'hora de validar dades.</p>
+<p>A la secció de <em>Referències</em> teniu dos enllaços al respecte:</p>
+<ul>
+<li>Un és un interessant recull d'<em>expressions regulars</em> comunes en la validació de formularis HTML5.</li>
+<li>L'altre, per aquells que estiguin interessats en aprendre'n més, és un portal on trobareu tota la informació que pugueu necessitar per dominar les <em>expressions regulars</em>.</li>
+</ul>
+</blockquote>
+<p><strong>required:</strong></p>
+<p>L'atribut <em>pattern</em> ens permet dotar al formulari de la capacitat de diferenciar per ell mateix si el valor d'un camp és vàlid o no.</p>
+<p>Però no sempre és requerit emplenar tots els camps. De vegades alguns son opcionals i, si no estan emplenats difícilment podran complir el patró especificat.</p>
+<p>Per això l'atribut <em>required</em> ens permet identificar aquells camps que realment son requerits. De manera que el formulari pugui saber quan ens ha de marcar com a error el fet que, eventualment, no estigui emplenat.</p>
+<pre><code>&lt;input name=&quot;nom&quot; type=&quot;text&quot; placeholder=&quot;Nom*&quot; required&gt;</code></pre>
+<p><strong>min, max i step:</strong></p>
+<p>En camps de tipus <em>number</em> i <em>range</em> ens permeten establir els valors mínim, màxim i la resolució d'increment/decrement.</p>
+<p><strong>minlength i maxlength:</strong></p>
+<p>En camps de text ens permeten establir una longitud mínima i màxima.</p>
 <h4 id="referències-1">Referències</h4>
+<ul>
+<li><p>Tipus de camps en HTML5: <a href="">https://www.w3schools.com/html/html_form_input_types.asp</a></p></li>
+<li><p>Repositori d'expressions regulars comunes per HTML4: <a href="">http://html5pattern.com/Miscs</a></p></li>
+<li><p>Tot sobre expressions regulars: <a href="">https://www.regular-expressions.info/</a>.</p></li>
+<li><p>Més sobre validació de formularis: <a href="">https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation</a>.</p></li>
+</ul>
 <h3 id="javascript">Javascript</h3>
 <p><a href="/setslide/javascript">Javascript</a></p>
 <p>Javascript és un llenguatge de programació <strong>asíncron</strong>:</p>
@@ -339,13 +446,18 @@
 <li>...que son gestionats mitjançant <em>callbacks</em></li>
 <li>...que s'enqueuen al <em>event-loop</em>.</li>
 </ul>
-<p>Va ésser desenvolupat en una setmana per encàrec de <em>Netscape</em> amb la intenció de dotar els seus navegadors de certa interactivitat.</p>
+<p>La seva primera versió la va desenvolupar <em>Brendan Eich</em> en només 10 dies per encàrrec de <em>Netscape</em> amb la intenció de dotar els seus navegadors de certa interactivitat.</p>
 <p>Els programes en Javascript s'executen en un sol fil del processador. El que ens permet programar <strong>gairebé</strong> com si no existís concurrència.</p>
 <p>El programari que interpreta el codi Javascript s'anomena &quot;motor&quot; (de l'anglès &quot;engine&quot;). El més utilitzat avui en dia és el &quot;V8&quot; de Google.</p>
 <p>El motor, a més d'interpretar el codi Javascript, serveix de pont entre aquest i l'entorn en el que s'ha d'executar el nostre programa.</p>
 <p>Així, en un programa que s'executi en un navegador, el nostre entorn serà el DOM, que ens dona accés a poder manipular totes les característiques del document i, fins i tot, algunes del propi navegador.</p>
 <p>Per programes executats en un intèrpret com ara Node.JS, en canvi, el nostre entorn és el sistema operatiu i tots els serveïs que aquest ens ofereix.</p>
 <p>Per contra del que molta gent pensa, Javascript és un llenguatge fortament orientat a objectes. Fins al punt que fins i tot els seus tipus de dades més elementals com les cadenes de text o els valors numèrics, son en realitat objectes.</p>
+<p>Per aquest motiu, podem fer coses com:</p>
+<pre><code>&gt; &quot;hello world&quot;.length
+11
+&gt; &quot;hello world&quot;.split(&quot; &quot;)
+[ &#39;hello&#39;, &#39;world&#39; ]</code></pre>
 <blockquote>
 <p>El que no és en realitat és un llenguatge &quot;orientat a classes&quot;: No cal una <em>classe</em> per crear un objecte en Javascript.</p>
 <p>També té herència. Però el que s'hereden son els <em>prototipus</em> i no les <em>classes</em>.</p>
@@ -409,7 +521,7 @@ comptador<span class="op">--;</span>
 let bar; // Block ({ ... }) level scope
 const foo;  // Block-level, not de-referenciable.</code></pre>
 <ul>
-<li><p>Només <code>var</code> funcionarà en versions antigues (però hi ha transpiladors que ens ho arreglen).</p></li>
+<li><p>Només <code>var</code> funcionarà en versions antigues (però hi ha <em>transpiladors</em> que ens ho arreglen).</p></li>
 <li><p>Amb <code>let</code> i <code>const</code> no hi ha <em>hoisting</em>: (No poden ser referenciades abans de la declaració). Ni tampoc fora del bloc en el que s'han definit.</p></li>
 <li><p>Les variables en Javascript son <em>referències</em> a objectes: <strong>Amb <code>const</code> l'únic que és constant és la referència:</strong> El contingut de l'objecte sí pot canviar.</p></li>
 </ul>
@@ -454,7 +566,6 @@ console.log (i); // Error!!
     return fn;
 };
 
-
 let s1 = sumador(0); // Això sí crea una clausura.
 let s2 = sumador(100); // I això una altra...
 
@@ -469,7 +580,7 @@ console.log (s2(5)); // 105
    ... implementació ...
 })(model.submodel.foo.bar);</code></pre>
 <blockquote>
-<p>📌 El patró anterior es coneix pel nom de <em>IFE</em>: <em>(Immediately Invoked Function Expression)</em>.</p>
+<p>📌 El patró anterior es coneix pel nom de <em>IIFE</em>: <em>(Immediately Invoked Function Expression)</em>.</p>
 <p>La seva forma més senzilla és <code>(function(){...})()</code>. Però podem fer les variacions que vulguem: com ara fer servir paràmetres per evitar referenciar variables externes des de l'interior, igual que a l'exemple anterior, fer que ens retornin un valor que podem assignar a una variable i/o assignar-li un nom a la funció: <code>const myCoolObj = (function coolObjBulder(options){...;return obj})(config);</code></p>
 </blockquote>
 <h5 id="this">This</h5>
@@ -478,19 +589,38 @@ console.log (s2(5)); // 105
 <blockquote>
 <p>📌 Explicar a fons <em>this</em> queda més enllà dels objectíus d'aquest curs, però per a qui tingui interés en aprofundir, us deixo a les referències un enllaç a l'article &quot;Understanding Javascript OOP&quot;.</p>
 </blockquote>
-<p>.....</p>
 <h4 id="es6">ES6+</h4>
 <h5 id="noves-funcionalitats">Noves Funcionalitats</h5>
 <p><a href="/setslide/es6+">Noves Funcionalitats</a></p>
+<p>L'arribada de ES6 va suposar una fita històrica per Javascript (tècnicament ECMASCRIPT).</p>
+<p>Amb ella arribaren noves característiques molt desitjades. Però el que és millor: Es va canviar la forma en que s'alliberaven les noves versions de l'especificació per un sistema molt més eficient i dinàmic:</p>
+<p>Ara cada any s'allibera una nova versió. Per exemple, la d'enguany serà la ES2018.</p>
+<p>Això és possible gràcies a que les noves funcionalitats poden ser provades molt abans gràcies a l'ús de polyfills i transpiladors que ens permeten executar codi que fa servir les darreres funcionalitats en motors que encara no les suporten.</p>
+<p>Les següents son algunes de les noves característiques més interessants:</p>
 <ul>
-<li><p><strong>Let and Const.</strong></p></li>
-<li><p><strong>Template literals.</strong></p></li>
-<li><p><strong>Arrow Functions.</strong></p></li>
-<li><p><strong>Destructuring.</strong></p></li>
-<li><p><strong><code>Class</code>:</strong> (⚠  L'herència continua essent de prototip)</p></li>
+<li><p><strong>Paràmetres per defecte:</strong> <code>function inc(step=1){this.counter += step}</code>.</p></li>
+<li><strong>Template Literals:</strong>
+<ul>
+<li>Fins ara per definir cadenes de text literals podiem fer servir cometes simples o dobles. Ara s'afegeix el caràcter d'accent greu o <em>backtick</em> (`).</li>
+<li>Les cadenes així definides s'anomenen <em>template literals</em> i entre d'altres característiques més avançades, son multi-línia (ja no cal posar <code>\n</code>, etc...) i permeten la interpolació de variables o expressions.</li>
+</ul></li>
+<li><strong>Destructuració:</strong>
+<ul>
+<li>En objectes: <code>let {foo, bar} = {foo: &quot;Hello&quot;, bar: &quot;world!&quot;, baz:   &quot;lost&quot;}</code>.</li>
+<li>I arrays: <code>let [a, b] = [1, 2]</code>, <code>[a, b] = [b, a]</code></li>
+</ul></li>
+<li><strong>Arrow Functions:</strong> <code>let double = n=&gt;n*2</code>
+<ul>
+<li>Molt convenients per a implementar callbacks senzills (augmentant la legibilitat).</li>
+<li>Al temps que <strong>absolutament desaconsellables</strong> en la resta de casos: Per a funcions llargues empitjoren la legibilitat i, a més, el seu comportament no és igual (hereten el <em>this</em> de la funció on han estat invocades).</li>
+</ul></li>
+<li><p><strong>Promeses</strong> Que tractarem més endavant en abordar el tema de la <em>programació asíncrona</em>.</p></li>
+<li><p><strong><code>let</code> i <code>const</code>:</strong> De les que ja hem parlat.</p></li>
+<li><p><strong>El keyword <em>class</em>:</strong> Que proveeix una sintaxi millor a l'hora de crear objectes, tot i que pot ser l'elecció del nom no fora la més adequada, doncs indueix a pensar que pugui funcionar com el keyword <em>class</em> d'altres llenguatges.</p></li>
+<li><p><strong>Mòduls ES6.</strong></p></li>
 </ul>
 <blockquote>
-<p>☞ A l'apartat de <em>referències</em> teniu alguns articles sobre aquests temes.</p>
+<p>☞ A l'apartat de <em>referències</em> us deixo un article que les explica en més profunditat.</p>
 </blockquote>
 <h5 id="compatibilitat-cap-enrere">Compatibilitat cap Enrere</h5>
 <p><a href="/setslide/es6_backward_compatibility">Compatibilitat</a></p>
@@ -500,14 +630,39 @@ console.log (s2(5)); // 105
 <p>En Javascript tenim dues eines molt potents que ens permeten fer servir fins i tot les més recents funcionalitats del llenguatge encara que el nostre codi s'executi en motors antics.</p>
 <p>Aquestes eines son els <em>polyfills</em> i els <em>transpiladors</em> (o &quot;transpilers&quot;).</p>
 <h6 id="polyfill">Polyfill</h6>
-<p>Modernizr</p>
+<p>Un <em>polyfill</em> és un bocí de codi Javascript que implementa una funcionalitat <em>futura</em> que encara no està disponible a la versió del motor que l'executa.</p>
+<p>D'aquesta manera ens asseguram que el nostre codi, tot i fer ús d'una nova funcionalitat, s'executarà sense problemes fins i tot en motors que encara no la suportin.</p>
+<p>Els <em>polyfills</em> apliquen una tècnica que s'anomena <em>detecció de funcionalitat</em> per saber si s'han d'aplicar o no. Així, si incloem un <em>olyfill</em> al nostre programa i aquest és executat per un motor que ja no el necessita, el <em>polyfill</em> s'autoinhibirà de manera que, de forma transparent, passarem a fer servir la implementació nativa.</p>
+<p>Per exemple, un <em>polyfill</em> per assegurar la disponibilitat de <em>Promeses</em> tindria una forma semblant al següent:</p>
+<pre><code>(function(global) {
+    if (! global.Promise) {
+        global.Promise = class {
+           ...
+        }
+    };
+})(window || process);</code></pre>
+<blockquote>
+<p>📌 La tècnica de <em>detecció de funcionalitat</em> no només es fa servir per als <em>polyfills</em>: La podem fer servir també nosaltres sempre que ens enfrontem a la situació de voler fer servir una funcionalitat que no estem segurs estarà disponible en tots els casos.</p>
+<p>D'aquesta manera podem oferir una funcionalitat alternativa o simplement ometre-la però sense que afecti a l'estabilitat de la resta del codi.</p>
+<p>Per exemple, algunes APIs d'HTML5, com la que ens permet activar la vibració del mòbil, difícilment estaran disponibles en navegadors PC.</p>
+</blockquote>
+<p>Una de les llibreries de <em>Polyfills</em> més extensament utilitzada és <em>Modernizr</em>, que podeu trobar enllaçada a les <em>referències</em>.</p>
 <h6 id="transpiladors">Transpiladors</h6>
-<p>Babel</p>
-<h3 id="referències-2">Referències</h3>
+<p><em>Promise</em> és un objecte que, com hem vist, podem implementar nosaltres mateixos en Javascript i aplicar-lo, només si cal, en temps d'execució (<em>polyfill</em>).</p>
+<p>Però quan es tracta però de construccions del llenguatge, com les sentències <code>let</code> i <code>const</code> o com la <em>destructuració</em> d'objectes, no queda altra opció que reescriure el codi de manera que, amb les eines disponibles, faci el mateix (o, cas que no sigui posible, presenti la funcionalitat més semblant possible) que hauria fet l'original en un intèrpret que la suportàs.</p>
+<p>En aquest cas no podem simplement carregar una llibreria, sinó que és necessari transformar el codi original en una versió modificada que sigui compatible.</p>
+<p>Les eines que ens permeten fer aquesta transformació de forma automatitzada es diuen <em>transpiladors</em>.</p>
+<p>El més conegut és el <em>Babel</em>, que teniu també enllaçat a les referències.</p>
+<h4 id="referències-2">Referències</h4>
 <ul>
-<li>Understanding Javascript OOP: <a href="">https://robotlolita.me/2011/10/09/understanding-javascript-oop.html</a>.</li>
-<li><p>4 Modern ES6+ Features You Should Be Using Now: <a href="">https://programmingwithmosh.com/javascript/essential-modern-javascript-features/</a>.</p></li>
+<li><p>Understanding Javascript OOP: <a href="">https://robotlolita.me/2011/10/09/understanding-javascript-oop.html</a>.</p></li>
+<li><p>Top 10 ES6 Features Every Busy JavaScript Developer Must Know: <a href="">https://webapplog.com/es6/</a>.</p></li>
 <li><p>Modernizr: <a href="">https://modernizr.com/</a>.</p></li>
+<li><p>Babel: <a href="">https://babeljs.io/</a>.</p></li>
+<li>Altres:
+<ul>
+<li>Motor de JavaScript V8 de Google: <a href="">https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)</a>.</li>
+</ul></li>
 </ul>
 <hr />
 <h2 id="exercici-1">Exercici 1:</h2>
@@ -531,6 +686,9 @@ console.log (s2(5)); // 105
 <li>Fer servir models de dades externs (el que seria separar la vista de les dades en un model MVC).</li>
 </ul></li>
 </ol>
+<blockquote>
+<p>📌 A les <em>Referències</em> trobareu l'enllaç al portal web del motor de plantilles <em>Pug</em> on s'explica perfectament la seva senzilla sintaxi.</p>
+</blockquote>
 <h2 id="editor-de-text">Editor de Text</h2>
 <p>Podeu fer servir el que vulgueu si el teniu disponible.</p>
 <p>Als ordinadors de l'aula trobareu preparat el Sublime Text.</p>
@@ -636,15 +794,12 @@ console.log (s2(5)); // 105
 <li>Amb el gestor de paquets del Sistema Operatiu: <a href="">https://nodejs.org/es/download/package-manager/</a>.</li>
 <li>Instal·lació manual: <a href="">https://nodejs.org/en/download/</a>.</li>
 </ul></li>
-<li>Altres:
-<ul>
-<li>Motor de JavaScript V8 de Google: <a href="">https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)</a>.</li>
-</ul></li>
+<li><p>Motor de plantilles Pug: <a href="">https://pugjs.org</a>.</p></li>
 </ul>
-
 <h1 id="preprocessadors">Preprocessadors</h1>
 <p>Els preprocessadors son eines que ens permeten transformar un fitxer de codi escrit en un llenguatge modificat o totalment distint al que entén compilador o intèrpret al que estan destinats.</p>
-<p>Per exemple, el motor de plantilles <em>Pug</em> és un preprocessador que transforma una plantilla <em>Pug</em> en un document HTML vàlid que pot llegir qualsevol navegador.</p>
+<p>Per exemple, els <em>transpiladors</em> de Javascript dels que hem parlat abans, son un cas de preprocessadors.</p>
+<p>El motor de plantilles <em>Pug</em> n'és un altre que en aquest cas, transforma completament la sintaxi (com veurem molt més planera i senzilla) d'una plantilla <em>Pug</em> en un document HTML vàlid que pot llegir qualsevol navegador.</p>
 <p>Al projecte <em>Expres</em> que hem creat anteriorment, podem veure com a dins el directori <em>views</em> tenim tres fitxers:</p>
 <p>error.pug index.pug layout.pug</p>
 <p><strong>layout.pug:</strong></p>
@@ -668,13 +823,6 @@ block content
   h1= message
   h2= error.status
   pre #{error.stack}</code></pre>
-<p>Definicions:</p>
-<ul>
-<li>shims</li>
-<li>polyfills</li>
-<li>transpilers</li>
-</ul>
-<h2 id="preprocessadors-html">Preprocessadors HTML</h2>
 <h2 id="preprocessadors-css">Preprocessadors CSS</h2>
 <ul>
 <li>PostCSS: <a href="">https://postcss.org/</a>.
@@ -682,20 +830,12 @@ block content
 <li>Autoprefixer: <a href="">https://github.com/postcss/autoprefixer</a>.</li>
 </ul></li>
 </ul>
-<h2 id="preprocessadors-javascript">Preprocessadors Javascript</h2>
-<ul>
-<li>Babel</li>
-</ul>
 <h2 id="referències-4">Referències</h2>
 <ul>
 <li>Motors de Plantilles
 <ul>
 <li>Pug (Jade): <a href="">https://pugjs.org</a></li>
 <li>Handlebars: <a href="">https://handlebarsjs.com</a></li>
-</ul></li>
-<li>ECMASCRIPT:
-<ul>
-<li>Modernizr: <a href="">https://modernizr.com/</a>.</li>
 </ul></li>
 </ul>
 <hr />

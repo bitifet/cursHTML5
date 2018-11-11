@@ -461,6 +461,12 @@ Referències
       + (Desgraciadament cap navegador suporta massa més que establir els marges).
 
 
+  ( TO-DO !!)
+  * PostCSS: [https://postcss.org/]().
+    - Autoprefixer: [https://github.com/postcss/autoprefixer]().
+
+
+
 Javascript - jQuery
 ===================
 
@@ -472,6 +478,7 @@ Javascript - jQuery
 Referències
 -----------
 
+  * [You might not need jQuery](http://youmightnotneedjquery.com/)
 
 \newpage
 

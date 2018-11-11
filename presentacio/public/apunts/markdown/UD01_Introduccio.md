@@ -54,10 +54,8 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
     * [Servidor Web i Motor de Plantilles PUG.](#servidor-web-i-motor-de-plantilles-pug)
         * [Prerequisits](#prerequisits)
         * [Procediment](#procediment)
+        * [Plantilles *Pug*](#plantilles-pug)
     * [Referències](#referències-3)
-* [Preprocessadors](#preprocessadors)
-    * [Preprocessadors CSS](#preprocessadors-css)
-    * [Referències](#referències-4)
 
 <!-- vim-markdown-toc -->
 
@@ -69,8 +67,8 @@ Introducció
 
 Benvinguts al curs d'HTML5 de l'EBAP.
 
-Aquest és un curs avançat. Motiu pel qual es pressuposen uns mínims
-coneixements previs d'HTML, CSS i Javascript.
+Aquest és un curs avançat. Motiu pel qual es pressuposen uns certs coneixements
+previs d'HTML, CSS i Javascript.
 
 En aquesta unitat didàctica repassarem breument els conceptes més importants,
 sense entrar en detalls, per assegurar que tots tenim, més o menys, els
@@ -82,6 +80,20 @@ curs.
 Si alguna cosa no l'entenem o ens resulta nova, és important preguntar al
 professor i/o investigar pel nostre compte a fi de poder entendre millor la
 resta d'unitats didàctiques.
+
+Hi ha molta matèria, però la major part és informació que molts ja coneixereu i
+que, en qualsevol cas, es pot trobar molt fàcilment a Internet.
+
+De fet, l'objectiu del curs no és que memoritzeu res: Sinó que assimileu els
+conceptes bàsics i sigueu capaços de trobar la documentació necessària quan la
+necessiteu.
+
+Al final d'aquesta primera unitat didàctica, veurem com implementar un senzill
+servidor web amb *Node.JS* i *Express* que ens servirà per penjar-hi els
+exercicis que anem desenvolupant i poder contrastar així com es veu el resultat
+tant al nostre ordinador com, a través de la xarxa Wifi, també als nostres
+telèfons mòbils.
+
 
 
 Història
@@ -148,6 +160,8 @@ validadors d'HTML:
 Ecosistema HTML 5
 -----------------
 
+[Ecosistema](/setslide/ecosistema)
+
   * Markup (HTML)
   * Fulls d'Estil (StyleSheets)
   * Javascript
@@ -160,8 +174,10 @@ Ecosistema HTML 5
 
 #### Elements (Tags)
 
+[Elements](/setslide/elements)
 
 ##### Anatomia
+
 
 Amb contingut:
 
@@ -202,6 +218,8 @@ que en fan ús.
 
 #### Atributs
 
+[Atributs](/setslide/atributs)
+
   * Els noms del atributs és "case-insensitive" a HTML5.
 
 
@@ -223,12 +241,19 @@ javascript com, si cal, des del full d'estil CSS.
 
 #### Estructura de l'HTML
 
+
+[Estructura](/setslide/estructura)
+
+
   * DTD
   * Document (`<html>`)
     - Capçalera (`<head>`)
     - Cos (`<body>`)
 
 ##### Elements de la Capçalera
+
+[Capçalera](/setslide/heading_elements)
+
 
   * Títol (`<title>`)
   * Codificació de caràcters: `<meta charset='utf-8' />`
@@ -253,6 +278,8 @@ preferentment, al final per dues raons:
 
 
 ##### Elements del Cos
+
+[Cos](/setslide/body_tags)
 
 Els mes comuns son:
 
@@ -279,6 +306,8 @@ Taules:
 
 
 Nous a HTML5
+
+[Nous Elements](/setslide/new_elements)
 
   * `<header></header>`
   * `<footer></footer>`
@@ -1263,43 +1292,28 @@ nostre PC. És a dir: a la url [http://localhost:3000]().
     nostre IP a l'enllaç anterior. 
 
 
-Si ara desam el fitxer que hem creat a l'exercici anterior sota el directori
-"public" i amb el nom "curriculum.html", veurem que podem accedir a ell sota al
-url [http://localhost:3000/curriculum.html]() (o amb la IP corresponent si
-volem poder accedir-hi també des del nostre smartphone).
+>
+:pushpin: Si ara desam el fitxer que hem creat a l'exercici anterior sota el
+directori "public" i amb el nom "curriculum.html", veurem que podem accedir a
+ell sota al url [http://localhost:3000/curriculum.html]() (o amb la IP
+corresponent si volem poder accedir-hi també des del nostre smartphone).
+>
 
 
 
+### Plantilles *Pug*
 
-Referències
------------
+Ja tenim un servidor web amb el que podem penjar tota mena de fitxers estàtics.
+Ja siguin html, css, imatges, javascript...
 
-  * *Sublime Text*: [https://www.sublimetext.com/]().
+Però fer feina amb fitxers html directament resulta molt dificultós i propens a
+errors.
 
-  * Instal·lació Node.JS i NPM:
-    - Via *NVM* (recomanat):
-      [https://github.com/creationix/nvm/blob/master/README.md#install-script]().
-    - Amb el gestor de paquets del Sistema Operatiu:
-      [https://nodejs.org/es/download/package-manager/]().
-    - Instal·lació manual: [https://nodejs.org/en/download/]().
-
-  * Motor de plantilles Pug: [https://pugjs.org]().
-
-
-
-Preprocessadors
-===============
-
-Els preprocessadors son eines que ens permeten transformar un fitxer de codi
-escrit en un llenguatge modificat o totalment distint al que entén compilador o
-intèrpret al que estan destinats.
-
-Per exemple, els *transpiladors* de Javascript dels que hem parlat abans, son
-un cas de preprocessadors.
-
-El motor de plantilles *Pug* n'és un altre que en aquest cas, transforma
-completament la sintaxi (com veurem molt més planera i senzilla) d'una
-plantilla *Pug* en un document HTML vàlid que pot llegir qualsevol navegador.
+Exprés ens permet fer servir motors de plantilles, com el *Pug*, que no només
+ens faciliten molt la feina, sinó que també ens eviten moltes hores cercant
+errors estúpids com tancar un tag malament (o simplement no fer-ho) ja que
+sabem que el HTML que ens generarà serà sempre, com a mínim estructuralment,
+correcte.
 
 Al projecte *Expres* que hem creat anteriorment, podem veure com a dins el
 directori *views* tenim tres fitxers:
@@ -1342,42 +1356,87 @@ block content
   pre #{error.stack}
 ```
 
+Si be la sintaxi és prou autoexplicativa, a l'apartat de *Referències* hi
+trobareu també l'enllaç a la plana web de *Pug* on podreu aprendre com li podeu
+treure més suc.
 
-    ====
-    TODO
-    ====
+En aquest cas però, aquestes plantilles no es publiquen automàticament, sinó
+que estan pensades per a ser utilitzades des d'un programa més complex.
 
-    * Ruta per a publicar qualsevol fitxer "pug" amb el model del mateix nom.
-
-    * Script de "building" de sass i js.
-
-
-
-
-
-Preprocessadors CSS
--------------------
+El responsable de que en accedir a http://localhost:3000 vegem la plantilla
+*index.pug* renderitzada és la següent *ruta* que podem trobar al fitxer
+*routes/index.js*:
 
 
-  * PostCSS: [https://postcss.org/]().
-    - Autoprefixer: [https://github.com/postcss/autoprefixer]().
+```
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+```
 
+Com que l'objectiu del curs no és aprendre *Express*, simplement afegirem
+aquesta nova ruta al mateix fitxer:
+
+```
+/* Get any (root-level) pug template. */
+router.get('/:baseName.html', function(req, res, next) {
+  const bName = req.params.baseName;
+  var model = {};
+  try {
+    model = require("../models/"+bName + ".js");
+  } catch (err) {
+    console.warn("Error processant el model: models/" + bName + ".js");
+  };
+  res.render(bName, model);
+});
+```
+
+Amb ella, i un cop arrancat de nou el servidor amb la comanda `npm start`,
+qualsevol fitxer *Pug* que desem al directori *views*, estarà disponible sota
+la ruta del mateix nom però extensió `.html`.
+
+**Exemple:** `views/cursHTML.pug` -> `http://localhost:3000/cursHTML.html`.
+
+
+>
+:pushpin: Aquesta ruta, a més, intentarà trobar un fitxer, també del mateix
+nom, però amb extensió *.js* i sota el directori *models* que carregarà com a
+*model* de dades per a la nostra plantilla.
+>
+Així, si cream aquest directori (`mkdir models`) i, seguint amb l'exemple
+anterior, hi desam un fitxer `cursHTML.js` amb un contingut semblant al
+següent, hi podrem accedir des de la nostra plantilla evitant-nos així haver de
+mesclar aquesta amb les dades a mostrar:
+>
+> ```
+> module.exports = {
+>   title: "Curs HTML 5",
+>   someTable: [
+>     {
+>       name: "Manel",
+>       birthdate: "21/04/1983",
+>       address: "A ca seva",
+>     },
+>     ...
+>   ],
+> }
+> ```
+>
 
 
 Referències
 -----------
 
-  * Motors de Plantilles
-    - Pug (Jade): [https://pugjs.org]()
-    - Handlebars: [https://handlebarsjs.com]()
+  * *Sublime Text*: [https://www.sublimetext.com/]().
+
+  * Instal·lació Node.JS i NPM:
+    - Via *NVM* (recomanat):
+      [https://github.com/creationix/nvm/blob/master/README.md#install-script]().
+    - Amb el gestor de paquets del Sistema Operatiu:
+      [https://nodejs.org/es/download/package-manager/]().
+    - Instal·lació manual: [https://nodejs.org/en/download/]().
+
+  * Motor de plantilles Pug: [https://pugjs.org]().
 
 
-
-
----------------------------------------------------------------
-
----------------------------------------------------------------
-
-  * Frameworks
-    · jQuery
-    · [You might not need jQuery](http://youmightnotneedjquery.com/)

@@ -14,4 +14,142 @@
           code='<!DOCTYPE HTML>'
 
 
+.slide(data-name="ecosistema")
+  div
+
+    header.step.title
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Ecosistema
+
+    table
+      tr.step
+        th.lateral Continguts
+        td Markup (HTML)
+      tr.step
+        th.lateral Aspecte
+        td Estils (CSS)
+      tr.step
+        th.lateral Lògica d'Aplicació
+        td Javascript + DOM
+      tr.step
+        th.lateral Interacció
+        td APIs HTML5
+
+
+.slide(data-name="elements")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Elements
+
+    ul
+      li.step.fade Amb contingut:
+
+        pre.step.
+          &lt;div class="menu"&gt;
+              (contingut...)
+          &lt;/div&gt;
+
+      li.step.fade Auto-tancats:
+
+        pre.step.
+          &lt;input name="age" type="number" /&gt;
+
+      li.step.fade Custom Elements:
+
+        pre.step.
+          &lt;my-component&gt;
+              (contingut...)
+          &lt;/my-component&gt;
+
+
+.slide(data-name="atributs")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Atributs
+
+    ul
+      li.step.fade Els noms del atributs és "case-insensitive" a HTML5.
+      li.step.fade Atributs personalitzats: #[code.code data-myCoolAttr="value"].
+
+
+.slide(data-name="estructura")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Estructura
+
+    ul
+      li DTD
+      li Document (#[code.code &lt;html&gt;])
+        ul
+          li Capçalera (#[code.code &lt;head&gt;])
+          li Cos (#[code.code &lt;body&gt;])
+
+
+
+.slide(data-name="heading_elements")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Elements de la Capçalera
+
+    ul
+      li Títol (#[code.code &lt;title&gt;])
+      li Codificació de caràcters: #[code.code &lt;meta charset='utf-8' /&gt;]
+      li Viewport: #[code.code &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;]
+      li Fulls d'estil
+        ul
+          li Externs: #[code.code &lt;link rel="stylesheet" type="text/css" href="..." /&gt;]
+          li Interns: #[code.code &lt;style&gt;...&lt;/style&gt;] (També poden anar dins el cos)
+      li Scripts (?)
+        ul
+          li Externs: #[code.code &lt;script src="..." /&gt;] (També poden anar dins el cos[span.super *])
+          li Interns: #[code.code &lt;script&gt;...&lt;/script&gt;] (També poden anar dins el cos[span.super *])
+
+
+
+
+.slide(data-name="body_tags")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Elements del Cos
+
+    img.big(src="/images/figures/html_tags.jpg")
+
+
+.slide(data-name="new_elements")
+
+  div
+    h2
+      span HTML
+      img.inline(src="/images/html5.png")
+    h3 Markup - Elements Nous a HTML5
+
+
+    ul
+      li #[code.code &lt;header&gt;&lt;/header&gt;]
+      li #[code.code &lt;footer&gt;&lt;/footer&gt;]
+      li #[code.code &lt;section&gt;&lt;/section&gt;]
+      li #[code.code &lt;article&gt;&lt;/article&gt;]
+      li #[code.code &lt;aside&gt;&lt;/aside&gt;]
+      li etcètera...
+
+    p.credits https://www.w3schools.com/html/html5_new_elements.asp
+
+
 //- vim: set ft=jade:

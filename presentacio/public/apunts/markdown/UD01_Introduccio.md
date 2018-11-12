@@ -68,7 +68,28 @@ Introducció
 Benvinguts al curs d'HTML5 de l'EBAP.
 
 Aquest és un curs avançat. Motiu pel qual es pressuposen uns certs coneixements
-previs d'HTML, CSS i Javascript.
+previs.
+
+Com veurem al llarg del curs, HTML5 no és només el llenguatge de marques
+(HTML), sino tot un ecosistema que comprèn aquest, els fulls d'estil (CSS), el
+llenguatge de programació ECMASCRIPT (Javascript) i tota una sèrie d'APIs que
+ens permeten des d'emmagatzemar dades als ordinadors de l'usuari
+(*LocalStorage*) fins a interactuar amb el sistema operatiu d'aquest ja sigui
+per obtenir les coordenades on es troba ubicat el dispositiu, la orientació de
+la pantalla, consultar els contactes, o fer vibrar el dispositiu, entre
+moltíssimes altres possibilitats.
+
+Però el gran desconegut amb diferència i no perquè li manqui importància és
+CSS. Dominar bé els conceptes fonamentals de CSS pot marcar la diferència a
+l'hora de treballar amb HTML5.
+
+Per aquest motiu, a més fer un breu repàs al HTML aprofundint només en les
+novetats que incorpora HTML5, aquest curs es centrarà principalment en
+aprofundir en els fulls d'estil (CSS).
+
+Addicionalment, al final de cada unitat didàctica, veurem una mica de
+Javascript, el qual ens ajudarà a acabar d'arrodonir els nostres projectes en
+HTML5.
 
 En aquesta unitat didàctica repassarem breument els conceptes més importants,
 sense entrar en detalls, per assegurar que tots tenim, més o menys, els

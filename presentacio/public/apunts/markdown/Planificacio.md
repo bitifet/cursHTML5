@@ -16,6 +16,8 @@ UD01 - Introducció a HTML5, CSS i eines de preprocessat
   * Entorn de Treball
   * Preprocessadors
 
+  (Duració: 3h)
+
 __NAV_LINK__  * [(⟶  Continguts)](./UD01_Introduccio.html) ([(pdf)](../pdf/UD01_Introduccio.pdf))
 
 
@@ -33,6 +35,8 @@ UD02 - Conceptes Bàsics
     - Regles "AT" (@)
   * Javascript - jQuery
 
+  (Duració: 3.5h)
+
 __NAV_LINK__  * [⟶   Continguts](./UD02_CSS_Conceptes_Basics.html) ([pdf](../pdf/UD02_CSS_Conceptes_Basics.pdf))
 
 
@@ -47,6 +51,8 @@ UD03 - CSS Posicionament i Ancoratge
     - Marges
     - Voreres
   * Javascript - Components CSS
+
+  (Duració: 3.5h)
 
 __NAV_LINK__  * [⟶   Continguts](./UD03_CSS_Posicionament_i_Ancoratge.html) ([pdf](../pdf/UD03_CSS_Posicionament_i_Ancoratge.pdf))
 
@@ -63,6 +69,8 @@ UD04 - CSS Maquetació
 
 __NAV_LINK__  * [⟶   Continguts](./UD04_CSS_Maquetacio.html) ([pdf](../pdf/UD04_CSS_Maquetacio.pdf))
 
+
+  (Duració: 3h)
 
 UD05 - CSS Aspecte i Efectes
 ----------------------------
@@ -81,6 +89,8 @@ UD05 - CSS Aspecte i Efectes
   * Javascript - APIs HTML5
 
 
+  (Duració: 3.5h)
+
 __NAV_LINK__  * [⟶   Continguts](./UD05_CSS_Aspecte_i_Efectes.html) ([pdf](./UD05_CSS_Aspecte_i_Efectes.pdf))
 
 
@@ -89,6 +99,8 @@ UD06 - Projecte Final
 
   * Projecte Final
 
+
+  (Duració: 3.5h)
 
 __NAV_LINK__  * [⟶   Continguts](./UD06_Projecte_Final.html) ([pdf](../pdf/UD06_Projecte_Final.pdf))
 

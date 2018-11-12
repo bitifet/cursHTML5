@@ -1129,6 +1129,8 @@ El més conegut és el *Babel*, que teniu també enllaçat a les referències.
 Exercici 1:
 -----------
 
+[Exercici_1](/setslide/exercici_1)
+
 Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:
 
   - El vostre nom i llinatges.

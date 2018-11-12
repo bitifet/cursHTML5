@@ -290,24 +290,24 @@
 <table>
 <tbody>
 <tr class="odd">
-<td align="left">color</td>
-<td align="left">date</td>
-<td align="left">datetime-local</td>
+<td>color</td>
+<td>date</td>
+<td>datetime-local</td>
 </tr>
 <tr class="even">
-<td align="left">email</td>
-<td align="left">month</td>
-<td align="left">number</td>
+<td>email</td>
+<td>month</td>
+<td>number</td>
 </tr>
 <tr class="odd">
-<td align="left">range</td>
-<td align="left">search</td>
-<td align="left">tel</td>
+<td>range</td>
+<td>search</td>
+<td>tel</td>
 </tr>
 <tr class="even">
-<td align="left">time</td>
-<td align="left">url</td>
-<td align="left">week</td>
+<td>time</td>
+<td>url</td>
+<td>week</td>
 </tr>
 </tbody>
 </table>
@@ -319,34 +319,34 @@
 <table>
 <tbody>
 <tr class="odd">
-<td align="left">placeholder</td>
-<td align="left">pattern</td>
-<td align="left">required</td>
+<td>placeholder</td>
+<td>pattern</td>
+<td>required</td>
 </tr>
 <tr class="even">
-<td align="left">autocomplete</td>
-<td align="left">form</td>
-<td align="left">formaction</td>
+<td>autocomplete</td>
+<td>form</td>
+<td>formaction</td>
 </tr>
 <tr class="odd">
-<td align="left">formenctype</td>
-<td align="left">formmethod</td>
-<td align="left">formnovalidate</td>
+<td>formenctype</td>
+<td>formmethod</td>
+<td>formnovalidate</td>
 </tr>
 <tr class="even">
-<td align="left">formtarget</td>
-<td align="left">height</td>
-<td align="left">width</td>
+<td>formtarget</td>
+<td>height</td>
+<td>width</td>
 </tr>
 <tr class="odd">
-<td align="left">list</td>
-<td align="left">min</td>
-<td align="left">max</td>
+<td>list</td>
+<td>min</td>
+<td>max</td>
 </tr>
 <tr class="even">
-<td align="left">multiple</td>
-<td align="left">step</td>
-<td align="left">autofocus</td>
+<td>multiple</td>
+<td>step</td>
+<td>autofocus</td>
 </tr>
 </tbody>
 </table>
@@ -382,24 +382,24 @@
 <table>
 <tbody>
 <tr class="odd">
-<td align="left"><code>time</code></td>
-<td align="left"><code>datetime-local</code></td>
-<td align="left"><code>month</code></td>
+<td><code>time</code></td>
+<td><code>datetime-local</code></td>
+<td><code>month</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>week</code></td>
-<td align="left"><code>number</code></td>
-<td align="left"><code>range</code></td>
+<td><code>week</code></td>
+<td><code>number</code></td>
+<td><code>range</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>search</code></td>
-<td align="left"><code>tel</code></td>
-<td align="left"><code>url</code></td>
+<td><code>search</code></td>
+<td><code>tel</code></td>
+<td><code>url</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>email</code></td>
-<td align="left"></td>
-<td align="left"></td>
+<td><code>email</code></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -683,6 +683,7 @@ console.log (s2(5)); // 105
 </ul>
 <hr />
 <h2 id="exercici-1">Exercici 1:</h2>
+<p><a href="/setslide/exercici_1">Exercici_1</a></p>
 <p>Redactar una carta de presentació, estil currículum en HTML5. Ha de contenir com a mínim:</p>
 <ul>
 <li>El vostre nom i llinatges.</li>
@@ -733,40 +734,39 @@ console.log (s2(5)); // 105
 <h3 id="procediment">Procediment</h3>
 <p>Obrirem una terminal i seguirem els passos següents:</p>
 <p><em>1.</em> Cream un directori, per exemple de nom &quot;exercicis&quot;, on emmagatzemar els nostres exercicis i projectes i ens situam en ell.</p>
-<pre class="sh"><code>u@m:~$ mkdir exercicis
-u@m:~$ cd exercicis
-u@m:~/exercicis$</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~$ mkdir exercicis
+<span class="ex">u@m</span>:~$ cd exercicis
+<span class="ex">u@m</span>:~/exercicis$</code></pre></div>
 <p><em>2.</em> Repetirem el pas anterior per crear a dins d'aquest un subdirectori, per exemple &quot;cursHTML5&quot; per al nostre primer projecte.</p>
-<pre class="sh"><code>u@m:~/exercicis$ mkdir cursHTML5
-u@m:~/exercicis$ cd cursHTML5/
-u@m:~/exercicis/cursHTML5$</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis$ mkdir cursHTML5
+<span class="ex">u@m</span>:~/exercicis$ cd cursHTML5/
+<span class="ex">u@m</span>:~/exercicis/cursHTML5$</code></pre></div>
 <p><em>3.</em> Fem servir la comanda <code>express</code> (l'<em>express-generator</em>) per crear un projecte buit.</p>
 <p>Farem servir el paràmetre <code>--view=pug</code> per indicar-li que volem fer servir específicament aquest motor de plantilles:</p>
-<pre class="sh"><code>u@m:~/exercicis/cursHTML5$ express --view=pug
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ express --view=pug
 
-   create : public/
-   create : public/javascripts/
-   create : public/images/
-   create : public/stylesheets/
-   create : public/stylesheets/style.css
-   create : routes/
-   create : routes/index.js
-   create : routes/users.js
-   create : views/
-   create : views/error.pug
-   create : views/index.pug
-   create : views/layout.pug
-   create : app.js
-   create : package.json
-   create : bin/
-   create : bin/www
+   <span class="ex">create</span> : public/
+   <span class="ex">create</span> : public/javascripts/
+   <span class="ex">create</span> : public/images/
+   <span class="ex">create</span> : public/stylesheets/
+   <span class="ex">create</span> : public/stylesheets/style.css
+   <span class="ex">create</span> : routes/
+   <span class="ex">create</span> : routes/index.js
+   <span class="ex">create</span> : routes/users.js
+   <span class="ex">create</span> : views/
+   <span class="ex">create</span> : views/error.pug
+   <span class="ex">create</span> : views/index.pug
+   <span class="ex">create</span> : views/layout.pug
+   <span class="ex">create</span> : app.js
+   <span class="ex">create</span> : package.json
+   <span class="ex">create</span> : bin/
+   <span class="ex">create</span> : bin/www
 
-   install dependencies:
-     $ npm install
+   <span class="fu">install</span> dependencies:
+     $ <span class="ex">npm</span> install
 
-   run the app:
-     $ DEBUG=curshtml5:* npm start
-</code></pre>
+   <span class="ex">run</span> the app:
+     $ <span class="va">DEBUG=</span>curshtml5:<span class="ex">*</span> npm start</code></pre></div>
 <p>Això ens haurà creat una estructura de fitxers i directoris com aquesta:</p>
 <pre><code>.
 ├── app.js
@@ -788,16 +788,16 @@ u@m:~/exercicis/cursHTML5$</code></pre>
     └── layout.pug</code></pre>
 <p>Les dues següents passes ja ens les ha suggerit el propi express-generator...</p>
 <p><em>4.</em> Executam <code>npm install</code> per tal que s'instal·lin totes les dependències:</p>
-<pre class="sh"><code>u@m:~/exercicis/cursHTML5$ npm install
-npm notice created a lockfile as package-lock.json. You should commit this file.
-added 118 packages from 174 contributors and audited 247 packages in 3.707s
-found 0 vulnerabilities</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ npm install
+<span class="ex">npm</span> notice created a lockfile as package-lock.json. You should commit this file.
+<span class="ex">added</span> 118 packages from 174 contributors and audited 247 packages in 3.707s
+<span class="ex">found</span> 0 vulnerabilities</code></pre></div>
 <p>i...</p>
 <p><em>5.</em> Arrancam el nostre nou servidor web. Podem fer servir la comanda que s'ens o, en el nostre cas, amb <code>npm start</code> serà suficient.</p>
-<pre class="sh"><code>u@m:~/exercicis/cursHTML5$ npm start
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ npm start
 
-&gt; curshtml5@0.0.0 start /home/usuari/exercicis/cursHTML5
-&gt; node ./bin/www</code></pre>
+<span class="op">&gt;</span> <span class="ex">curshtml5@0.0.0</span> start /home/usuari/exercicis/cursHTML5
+<span class="op">&gt;</span> <span class="ex">node</span> ./bin/www</code></pre></div>
 <p>Ara hauríem de poder accedir al nostre servidor web a través del port 3000 del nostre PC. És a dir: a la url <a href="">http://localhost:3000</a>.</p>
 <ul>
 <li>També, si tenim el nostre mòbil connectat a la xarxa inalàmbrica i coneixem l'adreça IP del nostre ordinador (que podem obtenir amb les comandes <code>ifconfig</code> o <code>ip addr list</code>), hi podrem accedir canviant &quot;localhost&quot; per la nostre IP a l'enllaç anterior.</li>

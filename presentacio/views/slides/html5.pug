@@ -2,12 +2,11 @@
 .slide.bigfont(data-name="html5_is_here")
   div
 
-
-    h2
+    h2.step.title
       span HTML
       img.inline(src="/images/html5.png")
 
-    table
+    table.step
       tr
         th HTML 5
         td.code
@@ -17,7 +16,7 @@
 .slide(data-name="ecosistema")
   div
 
-    header.step.title
+    header.step.fade
       h2
         span HTML
         img.inline(src="/images/html5.png")
@@ -41,10 +40,11 @@
 .slide(data-name="elements")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Elements
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Elements
 
     ul
       li.step.fade Amb contingut:
@@ -70,53 +70,56 @@
 .slide(data-name="atributs")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Atributs
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Atributs
 
     ul
-      li.step.fade Els noms del atributs és "case-insensitive" a HTML5.
-      li.step.fade Atributs personalitzats: #[code.code data-myCoolAttr="value"].
+      li.step Els noms del atributs és "case-insensitive" a HTML5.
+      li.step Atributs personalitzats: #[code.code data-myCoolAttr="value"].
 
 
 .slide(data-name="estructura")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Estructura
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Estructura
 
     ul
-      li DTD
-      li Document (#[code.code &lt;html&gt;])
+      li.step DTD
+      li.step Document (#[code.code &lt;html&gt;])
         ul
-          li Capçalera (#[code.code &lt;head&gt;])
-          li Cos (#[code.code &lt;body&gt;])
+          li.step Capçalera (#[code.code &lt;head&gt;])
+          li.step Cos (#[code.code &lt;body&gt;])
 
 
 
 .slide(data-name="heading_elements")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Elements de la Capçalera
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Elements de la Capçalera
 
     ul
-      li Títol (#[code.code &lt;title&gt;])
-      li Codificació de caràcters: #[code.code &lt;meta charset='utf-8' /&gt;]
-      li Viewport: #[code.code &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;]
-      li Fulls d'estil
+      li.step Títol (#[code.code &lt;title&gt;])
+      li.step Codificació de caràcters: #[code.code &lt;meta charset='utf-8' /&gt;]
+      li.step Viewport: #[code.code &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;]
+      li.step Fulls d'estil
         ul
-          li Externs: #[code.code &lt;link rel="stylesheet" type="text/css" href="..." /&gt;]
-          li Interns: #[code.code &lt;style&gt;...&lt;/style&gt;] (També poden anar dins el cos)
-      li Scripts (?)
+          li.step Externs: #[code.code &lt;link rel="stylesheet" type="text/css" href="..." /&gt;]
+          li.step Interns: #[code.code &lt;style&gt;...&lt;/style&gt;] (També poden anar dins el cos)
+      li.step Scripts (?)
         ul
-          li Externs: #[code.code &lt;script src="..." /&gt;] (També poden anar dins el cos[span.super *])
-          li Interns: #[code.code &lt;script&gt;...&lt;/script&gt;] (També poden anar dins el cos[span.super *])
+          li.step Externs: #[code.code &lt;script src="..." /&gt;] (També poden anar dins el cos[span.super *])
+          li.step Interns: #[code.code &lt;script&gt;...&lt;/script&gt;] (També poden anar dins el cos[span.super *])
 
 
 
@@ -124,32 +127,34 @@
 .slide(data-name="body_tags")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Elements del Cos
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Elements del Cos
 
-    img.big(src="/images/figures/html_tags.jpg")
+    img.big.step.fade(src="/images/figures/html_tags.jpg")
 
 
 .slide(data-name="new_elements")
 
   div
-    h2
-      span HTML
-      img.inline(src="/images/html5.png")
-    h3 Markup - Elements Nous a HTML5
+    header.step.fade
+      h2
+        span HTML
+        img.inline(src="/images/html5.png")
+      h3 Markup - Elements Nous a HTML5
 
 
     ul
-      li #[code.code &lt;header&gt;&lt;/header&gt;]
-      li #[code.code &lt;footer&gt;&lt;/footer&gt;]
-      li #[code.code &lt;section&gt;&lt;/section&gt;]
-      li #[code.code &lt;article&gt;&lt;/article&gt;]
-      li #[code.code &lt;aside&gt;&lt;/aside&gt;]
-      li etcètera...
+      li.step #[code.code &lt;header&gt;&lt;/header&gt;]
+      li.step #[code.code &lt;footer&gt;&lt;/footer&gt;]
+      li.step #[code.code &lt;section&gt;&lt;/section&gt;]
+      li.step #[code.code &lt;article&gt;&lt;/article&gt;]
+      li.step #[code.code &lt;aside&gt;&lt;/aside&gt;]
+      li.step etcètera...
 
-    p.moreinfo https://www.w3schools.com/html/html5_new_elements.asp
+    p.moreinfo.step https://www.w3schools.com/html/html5_new_elements.asp
 
 
 //- vim: set ft=jade:

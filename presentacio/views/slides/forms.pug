@@ -1,0 +1,166 @@
+
+
+.slide.bigfont(data-name="forms")
+  div
+
+    h2.step.title Formularis
+
+
+    pre.code.step.
+      &lt;form&gt;
+        &lt;input name="nom" type="text"
+            placeholder="Escrigui el seu nom"
+        &gt;
+        &lt;input name="cognoms" type="text"
+            placeholder="Escrigui els seus cognoms"
+        &gt;
+        &lt;button type="submit"&gt;
+      &lt;/form&gt;
+
+
+
+
+
+.slide(data-name="nous_camps_formularis")
+  div
+    header
+      h2 Formularis
+      h3 Nous Tipus de Camps
+
+
+    table.step.fade
+      tr
+        td.step ☞ color
+        td.step ☞ date
+        td.step ☞ datetime-local
+
+      tr
+        td.step ☞ email
+        td.step ☞ month 
+        td.step ☞ number        
+
+      tr
+        td.step ☞ range
+        td.step ☞ search
+        td.step ☞ tel           
+
+      tr
+        td.step ☞ time 
+        td.step ☞ url   
+        td.step ☞ week          
+
+
+    table
+      tr
+        td.step.
+          Els tipus de camps que no estiguin suportats en un navegador antic, #[br]
+          es comportaran igual que si fóssin #[code.code &lt;input type="text"&gt;].
+
+
+
+.slide(data-name="nous_atributs_formularis")
+  div
+    header
+      h2 Formularis
+      h3 Nous Atributs de Camps
+
+    table.step.fade
+      tr
+        td.step placeholder  
+        td.step pattern    
+        td.step required       
+
+      tr
+        td.step autocomplete 
+        td.step form       
+        td.step formaction     
+
+      tr
+        td.step formenctype  
+        td.step formmethod 
+        td.step formnovalidate 
+
+      tr
+        td.step formtarget   
+        td.step height     
+        td.step width          
+
+      tr
+        td.step list         
+        td.step min        
+        td.step max            
+
+      tr
+        td.step multiple     
+        td.step step       
+        td.step autofocus      
+
+
+.slide(data-name="validacio_formularis")
+  div
+    header
+      h2 Formularis
+      h3 Validació
+
+    ul.bigfont
+      li.step.
+        La validació principal dels formularis es fa #[b sempre] al costat del
+        Servidor.
+      li.step.
+        Però validar les dades #[i al moment] proporcionant #[i feedback] a
+        l'usuari de si ho està fent bé o malament #[b millora molt la usabilitat].
+      li.step.
+        HTML5 ens proporciona múltiples eines per fer-ho.
+
+
+
+.slide(data-name="validacio_formularis_1")
+  div
+    header
+      h2 Formularis - Validació (I)
+
+    ul.bigfont
+      li.step
+        span.
+          #[b placeholder:] L'atribut #[code placeholder] tècnicament no
+          serveix per a validar formularis.
+        ul
+          li.step.
+            Però ens pot ajudar a indicar a l'usuari la forma correcta
+            d'introduïr les dades quan no disposam d'un sistema millor.
+      li.step
+        span.
+          #[b Nous tipus de camp:] Alguns tipus de camp, com #[code date],
+          #[code time], #[code color]... proveeixen interfícies especialitzades
+          que dirèctament ja no permeten la introducció de dades invàlides.
+        ul
+          li.step.
+            Si be, depenent del navegador, és possible que alguns d'ells no
+            estiguin suportats. Pel que afegir un atribut #[code placeholder]
+            per indicar el format correcte en aquests casos, mai estara de més.
+
+.slide(data-name="validacio_formularis_2")
+  div
+    header
+      h2 Formularis - Validació (II)
+      h3.step (Atributs)
+
+    ul.bigfont
+      li.step.
+        #[b pattern:] Ens permet especificar una #[i expressió regular] que el
+        contingut del camp haurà de complir.
+      li.step.
+        #[b required:] Ens permet indicar quan el fet de deixar un camp en
+        blanc s'ha de considerar o no com a error.
+      li.step.
+        #[b min, max i step:] En camps numèrics (#[i number] i #[i range]),
+        permeten especificar un valor mínim, màxim i l'interval de
+        creixement/decreixement d'aquests.
+      li.step.
+        #[b minlength i maxlength:] En camps de text, permeten especificar la
+        longitud mínima i màxima acceptable.
+
+
+
+
+//- vim: set ft=jade:

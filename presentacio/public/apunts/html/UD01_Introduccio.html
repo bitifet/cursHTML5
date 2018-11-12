@@ -262,6 +262,7 @@
 </ul></li>
 </ul>
 <h3 id="formularis">Formularis</h3>
+<p><a href="/setslide/forms">Formularis</a></p>
 <p><strong>Exemple:</strong></p>
 <pre><code>  &lt;form&gt;
     &lt;input name=&quot;nom&quot; type=&quot;text&quot;
@@ -281,6 +282,7 @@
 <p>📌 Tampoc hem fet servir el tag <code>&lt;label&gt;</code>. Posar etiquetes és perfectament vàlid i, fins i tot recomanable en molts casos. Però de vegades, quan les dades son suficientment autoexplicatives, utilitzar només l'atribut <em>placehloder</em> per indicar què va a cada camp abans d'emplenar-lo, ens pot ajudar a assolir un aspecte molt més net.</p>
 </blockquote>
 <h4 id="nous-tipus-de-camps-a-html5">Nous tipus de camps a HTML5</h4>
+<p><a href="/setslide/nous_camps_formularis">Nous Camps</a></p>
 <table>
 <tbody>
 <tr class="odd">
@@ -309,43 +311,43 @@
 <p>☞ Els tipus de camps que no estiguin suportats en un navegador antic, es comportaran igual que si fóssin <code>&lt;input type=&quot;text&quot;&gt;</code>.</p>
 </blockquote>
 <h4 id="nous-atributs-per-a-camps-de-formularis-a-html5">Nous atributs per a camps de formularis a HTML5</h4>
-<ul>
-<li><strong>placeholder:</strong> Ens permet especificar un text (o &quot;pista&quot;) que apareixerà difuminat al fons dels camps que no estiguin emplenats.</li>
-<li><strong>pattern:</strong> Ens permet especificar una expressió regular de validació.</li>
-<li><strong>required:</strong> Ens permet especificar quan un camp és obligatori.</li>
-<li><strong>autofocus:</strong> Marca un camp indicant que és ell qui ha de rebre el focus en carregar-se la pàgina.</li>
-</ul>
-<p>Altres...</p>
+<p><a href="/setslide/nous_atributs_formularis">Nous Atributs</a></p>
 <table>
 <tbody>
 <tr class="odd">
+<td>placeholder</td>
+<td>pattern</td>
+<td>required</td>
+</tr>
+<tr class="even">
 <td>autocomplete</td>
 <td>form</td>
 <td>formaction</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>formenctype</td>
 <td>formmethod</td>
 <td>formnovalidate</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>formtarget</td>
 <td>height</td>
 <td>width</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>list</td>
 <td>min</td>
 <td>max</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>multiple</td>
 <td>step</td>
-<td></td>
+<td>autofocus</td>
 </tr>
 </tbody>
 </table>
 <h4 id="validació-de-formularis">Validació de Formularis</h4>
+<p><a href="/setslide/validacio_formularis">Validació Formularis</a></p>
 <p>La regla d'or en quant a validació de formularis és que aquesta <strong>sempre es fa costat del servidor</strong>.</p>
 <blockquote>
 <p>📌 Qualsevol validació que puguem fer al costat del client no només depen de que les funcionalitats que facem servir estiguin disponibles i funcionin correctament al navegador i versió concrets que faci servir l'usuari. Sinó també de que aquest no ens vulgui enganar i colar-nos uns valors que no compleixin les regles que nosaltres hem imposat.</p>
@@ -353,6 +355,7 @@
 <p>Dit això, obligar a l'usuari a emplenar tot un formulari per al final de tot dir-li que ho ha fet tot malament i que ha de tornar a començar és poc menys que suggerir-li que no torni. Especialment si en el procés li esborram les dades que havia introduït i el feim començar de zero.</p>
 <p>Per això, <strong>A MÉS</strong> de la validació principal al servidor, és recomanable que el formulari reaccioni a les accions de l'usuari proporcionant-li un feedback constant perquè pugui saber si ho està fent bé o malament.</p>
 <p>HTML5 ens proporciona vàries eines per fer just això:</p>
+<p><a href="/setslide/validacio_formularis_1">Validació Formularis I</a></p>
 <h5 id="placeholder">Placeholder</h5>
 <p>D'acord: Tècnicament l'atribut <em>placeholder</em> no té res a veure amb la validació de formularis.</p>
 <p>Però en una situació com la següent:</p>
@@ -404,6 +407,7 @@
 <blockquote>
 <p>☞ A l'apartat de <em>Referències</em> podeu trobar l'enllaç a la llista actualitzada completa.</p>
 </blockquote>
+<p><a href="/setslide/validacio_formularis_2">Validació Formularis II</a></p>
 <h5 id="atributs-de-validació">Atributs de validació</h5>
 <p><strong>pattern:</strong></p>
 <p>Desgraciadament no podem tenir un tipus de camp específic per a cada tipus de dades que eventualment puguem voler sol·licitar en un formulari.</p>
@@ -535,6 +539,7 @@ const foo;  // Block-level, not de-referenciable.</code></pre>
 <p>📌 Com a bona pràctica (sempre que ens ho poguem permetre) farem servir preferentment <em>const</em>. Si no ens serveix <em>let</em> i, només com a darrer recurs <em>var</em>.</p>
 </blockquote>
 <h5 id="àmbit-scope">Àmbit (Scope)</h5>
+<p><a href="/setslide/js_let">Block Scope</a></p>
 <p>L'àmbit d'una variable determina a quines parts del codi aquesta és visible.</p>
 <ul>
 <li>Les variables <em>globals</em> son aquelles que son visibles des de qualsevol part del programa.
@@ -559,10 +564,12 @@ console.log (arr); // [3, 4, 5, 6]
 console.log (i); // Error!!
                  // Això amb var no passava...</code></pre>
 <h5 id="closures">Closures</h5>
-<p><a href="/setslide/js_let">let</a></p>
+<p><a href="/setslide/js_closures">Clausures</a></p>
 <p>Les clausures delimiten l'àmbit de visibilitat d'una variable.</p>
 <p>Es creen automàticament cada cop <strong>que invocam</strong> una funció (no en el temps de creació) pel que cada cop que invoquem de nou la mateixa funció s'en crearà una de nova totalment separada de la anterior.</p>
-<p>En canvi, <strong>els objectes que aquestes referncien, també poden ser referenciats des de l'exterior</strong>:</p>
+<p>Les variables declarades dins una clausura només son visibles dins d'aquesta <strong>i dins les que es crein dins ella.</strong> D'això s'en diu <em>Runtime Scope</em> o àmbit en temps d'execució.</p>
+<p>En canvi, <strong>els objectes que aquestes referencien, també poden ser referenciats des de l'exterior</strong>:</p>
+<p><a href="/setslide/js_closures_ex">Exemple Clausures</a></p>
 <pre><code>function sumador(n) { // Això no crea cap clausura.
     let x = n; // (en realitat hauriem pogut fer servir &#39;n&#39;)
     let fn = function suma(m) {
@@ -579,12 +586,12 @@ console.log (s1(3)); // 3
 console.log (s1(5)); // 8
 console.log (s2(5)); // 105
 </code></pre>
-<p>Les variables creades dins una clausura només son visibles dins d'aquesta <strong>i dins les que es crein dins ella.</strong> D'això s'en diu <em>Runtime Scope</em> o àmbit en temps d'execució.</p>
 <p>Una utilitat molt pràctica de les clausures és fer-les servir per aïllar petits blocs de codi (o sub-controladors) de manera que les variables que ells declarin no puguin veure's afectades pel codi de l'exterior. Si be, avui en dia, pels casos més senzills, ens bastarà fer servir <code>const</code> o <code>let</code>:</p>
 <pre><code>// Petit controlador secundari:
 (function(model) {
    ... implementació ...
 })(model.submodel.foo.bar);</code></pre>
+<p><a href="/setslide/js_closures_iife">IIFE</a></p>
 <blockquote>
 <p>📌 El patró anterior es coneix pel nom de <em>IIFE</em>: <em>(Immediately Invoked Function Expression)</em>.</p>
 <p>La seva forma més senzilla és <code>(function(){...})()</code>. Però podem fer les variacions que vulguem: com ara fer servir paràmetres per evitar referenciar variables externes des de l'interior, igual que a l'exemple anterior, fer que ens retornin un valor que podem assignar a una variable i/o assignar-li un nom a la funció: <code>const myCoolObj = (function coolObjBulder(options){...;return obj})(config);</code></p>

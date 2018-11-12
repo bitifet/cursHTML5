@@ -334,6 +334,9 @@ Nous a HTML5
 
 ### Formularis
 
+
+[Formularis](/setslide/forms)
+
 **Exemple:**
 
 ```
@@ -373,6 +376,8 @@ ajudar a assolir un aspecte molt més net.
 
 #### Nous tipus de camps a HTML5
 
+[Nous Camps](/setslide/nous_camps_formularis)
+
 
 |       |        |                |
 |-------|--------|----------------|
@@ -390,27 +395,22 @@ antic, es comportaran igual que si fóssin `<input type="text">`.
 
 #### Nous atributs per a camps de formularis a HTML5
 
-
-  * **placeholder:** Ens permet especificar un text (o "pista") que apareixerà
-    difuminat al fons dels camps que no estiguin emplenats.
-  * **pattern:** Ens permet especificar una expressió regular de validació.
-  * **required:** Ens permet especificar quan un camp és obligatori.
-  * **autofocus:** Marca un camp indicant que és ell qui ha de rebre el focus
-    en carregar-se la pàgina.
-
-Altres...
+[Nous Atributs](/setslide/nous_atributs_formularis)
 
 |              |            |                |
 |--------------|------------|----------------|
+| placeholder  | pattern    | required       |
 | autocomplete | form       | formaction     |
 | formenctype  | formmethod | formnovalidate |
 | formtarget   | height     | width          |
 | list         | min        | max            |
-| multiple     | step       |                |
+| multiple     | step       | autofocus      |
 
 
 
 #### Validació de Formularis
+
+[Validació Formularis](/setslide/validacio_formularis)
 
 La regla d'or en quant a validació de formularis és que aquesta **sempre es fa
 costat del servidor**.
@@ -434,6 +434,9 @@ constant perquè pugui saber si ho està fent bé o malament.
 
 
 HTML5 ens proporciona vàries eines per fer just això:
+
+
+[Validació Formularis I](/setslide/validacio_formularis_1)
 
 
 ##### Placeholder
@@ -507,6 +510,8 @@ La forma d'implementar cadascun d'ells depen del navegador:
 :point-right: A l'apartat de *Referències* podeu trobar l'enllaç a la llista
 actualitzada completa.
 >
+
+[Validació Formularis II](/setslide/validacio_formularis_2)
 
 
 ##### Atributs de validació
@@ -802,6 +807,8 @@ preferentment *const*. Si no ens serveix *let* i, només com a darrer recurs
 
 ##### Àmbit (Scope)
 
+[Block Scope](/setslide/js_let)
+
 L'àmbit d'una variable determina a quines parts del codi aquesta és visible.
 
   * Les variables *globals* son aquelles que son visibles des de qualsevol part
@@ -846,8 +853,7 @@ console.log (i); // Error!!
 
 ##### Closures
 
-
-[let](/setslide/js_let)
+[Clausures](/setslide/js_closures)
 
 Les clausures delimiten l'àmbit de visibilitat d'una variable.
 
@@ -855,8 +861,14 @@ Es creen automàticament cada cop **que invocam** una funció (no en el temps de
 creació) pel que cada cop que invoquem de nou la mateixa funció s'en crearà una
 de nova totalment separada de la anterior.
 
-En canvi, **els objectes que aquestes referncien, també poden ser referenciats
+Les variables declarades dins una clausura només son visibles dins d'aquesta **i
+dins les que es crein dins ella.** D'això s'en diu *Runtime Scope* o àmbit en
+temps d'execució.
+
+En canvi, **els objectes que aquestes referencien, també poden ser referenciats
 des de l'exterior**:
+
+[Exemple Clausures](/setslide/js_closures_ex)
 
 ```
 function sumador(n) { // Això no crea cap clausura.
@@ -877,10 +889,6 @@ console.log (s2(5)); // 105
 
 ```
 
-Les variables creades dins una clausura només son visibles dins d'aquesta **i
-dins les que es crein dins ella.** D'això s'en diu *Runtime Scope* o àmbit en
-temps d'execució.
-
 Una utilitat molt pràctica de les clausures és fer-les servir per aïllar petits
 blocs de codi (o sub-controladors) de manera que les variables que ells
 declarin no puguin veure's afectades pel codi de l'exterior. Si be, avui en
@@ -892,6 +900,8 @@ dia, pels casos més senzills, ens bastarà fer servir `const` o `let`:
    ... implementació ...
 })(model.submodel.foo.bar);
 ```
+
+[IIFE](/setslide/js_closures_iife)
 
 >
 :pushpin: El patró anterior es coneix pel nom de *IIFE*: *(Immediately Invoked

@@ -50,6 +50,70 @@
                        // Això amb en Franco no passava...
 
 
+.slide.bigfont(data-name="js_closures")
+  div
+    h3 Clausures
+
+    ul
+
+      li.step Delimiten l'àmbit de visibilitat d'una variable.
+
+      li.step Es creen automàticament #[b en invocar una funció].
+
+      li.step.
+        Les variables declarades dins una clausura només son visibles dins
+        d'aquesta (#[i Runtime Scope]).
+
+      li.step. 
+        En canvi,
+        #[els objectes que aquestes referencien, també poden ser referenciats des de l'exterior]
+        si la funció retorna una referència a ells (#[i exposició]).
+
+
+.slide.bigfont(data-name="js_closures_ex")
+  div
+    h3 Clausures (Exemple)
+
+    pre.step.
+      function sumador(n) { // Això no crea cap clausura.
+          let x = n; // (en realitat hauriem pogut fer servir 'n')
+          let fn = function suma(m) {
+              x += m;
+              return x;
+          };
+          return fn;
+      };
+
+      let s1 = sumador(0); // Això sí crea una clausura.
+      let s2 = sumador(100); // I això una altra...
+
+      console.log (s1(3)); // 3
+      console.log (s1(5)); // 8
+      console.log (s2(5)); // 105
+
+
+.slide.bigfont(data-name="js_closures_iife")
+  div
+    h3 Clausures - IIFE
+
+    p.step #[b IIFE:] Immediately Invoked Function Expression.
+
+    pre.step.
+      // Petit controlador secundari:
+      (function(model) {
+         ... implementació ...
+      })(model.submodel.foo.bar);
+
+
+    p.step La seva forma més senzilla és #[code.code (function(){...})()]
+
+    table.step
+      tr
+        td.
+          Amb l'aparició de #[code let] i #[code const] ja no son tan necessàries.#[br]
+          Però continuen sent molt útils per aïllar petits submòduls específics.
+
+
 .slide(data-name="es6+")
   div
     h3 Noves Funcionalitats ES6+
@@ -61,6 +125,7 @@
         li.step Arrow Functions.
         li.step Destructuring.
         li.step #[code.code class]
+        li.step etcètera...
       
     table.step
       tr

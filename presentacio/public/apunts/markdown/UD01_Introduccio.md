@@ -939,10 +939,15 @@ obj})(config);`
 
 ##### This
 
+[this](/setslide/js_this)
+
+
 *this* és la propietat més àmpliament incompresa de Javascript.
 
 *this* implementa el *Call Site Scope* (en contraposició amb el *Runtime Scope*
 que acabam de veure).
+
+[const me=this](/setslide/js_this_not_that)
 
 >
 :pushpin: Explicar a fons *this* queda més enllà dels objectíus d'aquest curs,
@@ -1180,6 +1185,14 @@ per defecte el ressaltat sintàctic per a fitxers *Pug*. Però se li pot afegir
 mitjançant el seu sistema de paquets:
 
   * Menú Preferences -> Package Control
+
+>
+:point-right: Si l'acabam d'instal·lar, no trobarem aquesta opció. Per activar-la:
+>
+  * Teclejarem `Ctrl+Shift+P`.
+  * Ens sortirà un camp de text al que escriurem "install package control" i
+    pitjarem `Enter`
+>
 
   * Teclejam 'pi' i sel·leccionam "Install Package"
 
@@ -1462,6 +1475,8 @@ Referències
 -----------
 
   * *Sublime Text*: [https://www.sublimetext.com/]().
+    - Instruccions Ubuntu:
+      [http://tipsonubuntu.com/2017/05/30/install-sublime-text-3-ubuntu-16-04-official-way/]().
 
   * Instal·lació Node.JS i NPM:
     - Via *NVM* (recomanat):

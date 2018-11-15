@@ -77,6 +77,30 @@ a {
         font-size: .8rem;
     }
 
+    .scratch {
+        position: relative;
+        display: inline-block;
+        &::before {
+            position: absolute;
+            top: 0px;
+            content: " ";
+            display: block;
+            height: 50%;
+            width: 90%;
+            border-bottom: #ff0000 solid .2em;
+            transform: rotate(15deg);
+        }
+        &::after {
+            position: absolute;
+            bottom: 0px;
+            content: " ";
+            display: block;
+            height: 50%;
+            width: 90%;
+            border-top: #ff0000 solid .2em;
+            transform: rotate(-15deg);
+        }
+    }
 
     h1 { font-size: 4.5em; }
     h2 { font-size: 3em; }

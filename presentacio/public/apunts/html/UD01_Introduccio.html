@@ -601,8 +601,10 @@ console.log (s2(5)); // 105
 <p>La seva forma més senzilla és <code>(function(){...})()</code>. Però podem fer les variacions que vulguem: com ara fer servir paràmetres per evitar referenciar variables externes des de l'interior, igual que a l'exemple anterior, fer que ens retornin un valor que podem assignar a una variable i/o assignar-li un nom a la funció: <code>const myCoolObj = (function coolObjBulder(options){...;return obj})(config);</code></p>
 </blockquote>
 <h5 id="this">This</h5>
+<p><a href="/setslide/js_this">this</a></p>
 <p><em>this</em> és la propietat més àmpliament incompresa de Javascript.</p>
 <p><em>this</em> implementa el <em>Call Site Scope</em> (en contraposició amb el <em>Runtime Scope</em> que acabam de veure).</p>
+<p><a href="/setslide/js_this_not_that">const me=this</a></p>
 <blockquote>
 <p>📌 Explicar a fons <em>this</em> queda més enllà dels objectíus d'aquest curs, però per a qui tingui interés en aprofundir, us deixo a les referències un enllaç a l'article &quot;Understanding Javascript OOP&quot;.</p>
 </blockquote>
@@ -712,7 +714,16 @@ console.log (s2(5)); // 105
 <p>Als ordinadors de l'aula trobareu preparat el Sublime Text.</p>
 <p>Si el voleu fer servir també a casa, heu de saber que Sublime Text no incorpora per defecte el ressaltat sintàctic per a fitxers <em>Pug</em>. Però se li pot afegir mitjançant el seu sistema de paquets:</p>
 <ul>
-<li><p>Menú Preferences -&gt; Package Control</p></li>
+<li>Menú Preferences -&gt; Package Control</li>
+</ul>
+<blockquote>
+<p>☞ Si l'acabam d'instal·lar, no trobarem aquesta opció. Per activar-la:</p>
+<ul>
+<li>Teclejarem <code>Ctrl+Shift+P</code>.</li>
+<li>Ens sortirà un camp de text al que escriurem &quot;install package control&quot; i pitjarem <code>Enter</code></li>
+</ul>
+</blockquote>
+<ul>
 <li><p>Teclejam 'pi' i sel·leccionam &quot;Install Package&quot;</p></li>
 <li><p>Teclejam 'Pug' i sel·leccionam &quot;Pug&quot;</p></li>
 </ul>
@@ -870,14 +881,17 @@ router.get(&#39;/:baseName.html&#39;, function(req, res, next) {
 </blockquote>
 <h2 id="referències-3">Referències</h2>
 <ul>
-<li><p><em>Sublime Text</em>: <a href="">https://www.sublimetext.com/</a>.</p></li>
+<li><em>Sublime Text</em>: <a href="">https://www.sublimetext.com/</a>.
+<ul>
+<li>Instruccions Ubuntu: <a href="">http://tipsonubuntu.com/2017/05/30/install-sublime-text-3-ubuntu-16-04-official-way/</a>.</li>
+</ul></li>
 <li>Instal·lació Node.JS i NPM:
 <ul>
 <li>Via <em>NVM</em> (recomanat): <a href="">https://github.com/creationix/nvm/blob/master/README.md#install-script</a>.</li>
 <li>Amb el gestor de paquets del Sistema Operatiu: <a href="">https://nodejs.org/es/download/package-manager/</a>.</li>
 <li>Instal·lació manual: <a href="">https://nodejs.org/en/download/</a>.</li>
 </ul></li>
-<li><p>Motor de plantilles Pug: <a href="">https://pugjs.org</a>.</p></li>
+<li>Motor de plantilles Pug: <a href="">https://pugjs.org</a>.</li>
 </ul>
 <footer>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>

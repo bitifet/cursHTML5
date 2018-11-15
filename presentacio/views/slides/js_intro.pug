@@ -114,6 +114,47 @@
           Però continuen sent molt útils per aïllar petits submòduls específics.
 
 
+
+.slide.bigfont(data-name="js_this")
+  div
+    h3 this
+
+    pre.code.step.
+      function foo() {
+        const me = this;
+        function bar() {
+          return me === this; // false
+        };
+        const baz = ()=&gt;me===this; // true
+      };
+
+.slide.bigfont(data-name="js_this_not_that")
+
+  div.medium
+    h3 this this, not that this
+    div.center
+      div
+        div.step
+          code.code.
+            const me = this;
+        div.step
+          h4 Spoiler
+          pre.code.scratch.
+            $(this).show();
+            $(this).whatever();
+            ...
+          pre.code.
+            const $this = $(this);
+            $this.show();
+            $this.whatever();
+            ...
+    table.step
+      td.
+        Recordau que amb la majoria de navegadors, fins i tot actuals, #[code const]
+        #[br]no funcionarà: Cal #[i transpilar] el codi o fer servir #[code var].
+
+
+
 .slide(data-name="es6+")
   div
     h3 Noves Funcionalitats ES6+

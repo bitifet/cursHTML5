@@ -695,6 +695,7 @@ console.log (s2(5)); // 105
 <p>Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sabeu (incloure una fotografia, aplicar estils, etcètera...).</p>
 <hr />
 <h1 id="entorn-de-treball">Entorn de Treball</h1>
+<p><a href="/setslide/entorn">Entorn</a></p>
 <p>Per poder seguir aquest curs necessitarem principalment tres coses:</p>
 <ol style="list-style-type: decimal">
 <li><p>Un editor de text que suporti ressaltat sintàctic.</p></li>
@@ -710,6 +711,7 @@ console.log (s2(5)); // 105
 <p>📌 A les <em>Referències</em> trobareu l'enllaç al portal web del motor de plantilles <em>Pug</em> on s'explica perfectament la seva senzilla sintaxi.</p>
 </blockquote>
 <h2 id="editor-de-text">Editor de Text</h2>
+<p><a href="/setslide/entorn_editor">Editor</a></p>
 <p>Podeu fer servir el que vulgueu si el teniu disponible.</p>
 <p>Als ordinadors de l'aula trobareu preparat el Sublime Text.</p>
 <p>Si el voleu fer servir també a casa, heu de saber que Sublime Text no incorpora per defecte el ressaltat sintàctic per a fitxers <em>Pug</em>. Però se li pot afegir mitjançant el seu sistema de paquets:</p>
@@ -728,6 +730,7 @@ console.log (s2(5)); // 105
 <li><p>Teclejam 'Pug' i sel·leccionam &quot;Pug&quot;</p></li>
 </ul>
 <h2 id="servidor-web-i-motor-de-plantilles-pug.">Servidor Web i Motor de Plantilles PUG.</h2>
+<p><a href="/setslide/entorn_express">Express</a></p>
 <p>Com a Servidor Web, farem servir <em>Express</em>. Que és un framework per <em>Node.JS</em> disponible al repositori de paquets <em>NPM</em>.</p>
 <p>Explicar Node.JS i el funcionament de Express està fora dels objectius d'aquest curs. Simplement els farem servir perquè son la forma més ràpida i senzilla d'obtenir un entorn de treball amb les eines que necessitam.</p>
 <p>Així que, seguidament, ens limitarem a relacionar les passes a seguir per crear un projecte <em>Express</em> per poder començar a treballar:</p>
@@ -743,6 +746,7 @@ console.log (s2(5)); // 105
 </ul></li>
 </ul>
 <h3 id="procediment">Procediment</h3>
+<p><a href="/setslide/entorn_express_setup">Express Setup</a></p>
 <p>Obrirem una terminal i seguirem els passos següents:</p>
 <p><em>1.</em> Cream un directori, per exemple de nom &quot;exercicis&quot;, on emmagatzemar els nostres exercicis i projectes i ens situam en ell.</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~$ mkdir exercicis
@@ -797,6 +801,7 @@ console.log (s2(5)); // 105
     ├── error.pug
     ├── index.pug
     └── layout.pug</code></pre>
+<p><a href="/setslide/entorn_express_start">Express Start</a></p>
 <p>Les dues següents passes ja ens les ha suggerit el propi express-generator...</p>
 <p><em>4.</em> Executam <code>npm install</code> per tal que s'instal·lin totes les dependències:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">u@m</span>:~/exercicis/cursHTML5$ npm install
@@ -809,6 +814,7 @@ console.log (s2(5)); // 105
 
 <span class="op">&gt;</span> <span class="ex">curshtml5@0.0.0</span> start /home/usuari/exercicis/cursHTML5
 <span class="op">&gt;</span> <span class="ex">node</span> ./bin/www</code></pre></div>
+<p><a href="/setslide/entorn_express_welcome">Express Welcome</a></p>
 <p>Ara hauríem de poder accedir al nostre servidor web a través del port 3000 del nostre PC. És a dir: a la url <a href="">http://localhost:3000</a>.</p>
 <ul>
 <li>També, si tenim el nostre mòbil connectat a la xarxa inalàmbrica i coneixem l'adreça IP del nostre ordinador (que podem obtenir amb les comandes <code>ifconfig</code> o <code>ip addr list</code>), hi podrem accedir canviant &quot;localhost&quot; per la nostre IP a l'enllaç anterior.</li>
@@ -817,6 +823,7 @@ console.log (s2(5)); // 105
 <p>📌 Si ara desam el fitxer que hem creat a l'exercici anterior sota el directori &quot;public&quot; i amb el nom &quot;curriculum.html&quot;, veurem que podem accedir a ell sota al url <a href="">http://localhost:3000/curriculum.html</a> (o amb la IP corresponent si volem poder accedir-hi també des del nostre smartphone).</p>
 </blockquote>
 <h3 id="plantilles-pug">Plantilles <em>Pug</em></h3>
+<p><a href="/setslide/entorn_pug_intro">Pug Intro</a></p>
 <p>Ja tenim un servidor web amb el que podem penjar tota mena de fitxers estàtics. Ja siguin html, css, imatges, javascript...</p>
 <p>Però fer feina amb fitxers html directament resulta molt dificultós i propens a errors.</p>
 <p>Exprés ens permet fer servir motors de plantilles, com el <em>Pug</em>, que no només ens faciliten molt la feina, sinó que també ens eviten moltes hores cercant errors estúpids com tancar un tag malament (o simplement no fer-ho) ja que sabem que el HTML que ens generarà serà sempre, com a mínim estructuralment, correcte.</p>
@@ -844,12 +851,14 @@ block content
   h2= error.status
   pre #{error.stack}</code></pre>
 <p>Si be la sintaxi és prou autoexplicativa, a l'apartat de <em>Referències</em> hi trobareu també l'enllaç a la plana web de <em>Pug</em> on podreu aprendre com li podeu treure més suc.</p>
+<p><a href="/setslide/entorn_express_routing">Routing</a></p>
 <p>En aquest cas però, aquestes plantilles no es publiquen automàticament, sinó que estan pensades per a ser utilitzades des d'un programa més complex.</p>
 <p>El responsable de que en accedir a http://localhost:3000 vegem la plantilla <em>index.pug</em> renderitzada és la següent <em>ruta</em> que podem trobar al fitxer <em>routes/index.js</em>:</p>
 <pre><code>/* GET home page. */
 router.get(&#39;/&#39;, function(req, res, next) {
   res.render(&#39;index&#39;, { title: &#39;Express&#39; });
 });</code></pre>
+<p><a href="/setslide/entorn_express_testing_route">Banc de Proves</a></p>
 <p>Com que l'objectiu del curs no és aprendre <em>Express</em>, simplement afegirem aquesta nova ruta al mateix fitxer:</p>
 <pre><code>/* Get any (root-level) pug template. */
 router.get(&#39;/:baseName.html&#39;, function(req, res, next) {

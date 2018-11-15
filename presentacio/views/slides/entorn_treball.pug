@@ -1,0 +1,307 @@
+
+.slide.bigfont(data-name="entorn")
+  div
+    h3.step.title Entorn de Treball
+
+
+    p.step Per poder seguir el curs necessitam:
+
+    ol
+      li.step.
+        Un editor de text pla amb acoloriment sintàctic.
+      li.step.
+        Un servidor web per poder penjar els nostres exercicis i així poder
+        comprovar com es visualitzen no només al PC sion també al nostre mòbil.
+      li.step
+        span.
+          També farem servir un motor de plantilles HTML. Concretament el
+          #[i Pug] que ens permetrà:
+        ul
+          li.step.
+            Generar HTML molt més ràpidament.
+          li.step.
+            Amb menys propensió a errors.
+          li.step.
+            Fer servir models de dades externs (el que seria separar la vista
+            de les dades en un model MVC).
+
+
+
+.slide.bigfont(data-name="entorn_editor")
+  div
+    h4 Editor de Text
+
+    div.center
+      div
+        ul
+          li.step Podeu fer servir el que vulgueu.
+          li.step Als ordinadors de l'aula trobareu preparat el Sublime Text.
+          li.step.
+            Als apunts teniu informació sobre com obtenir-lo si us el voleu
+            instal·lar a casa.
+    table.step
+      tr
+        td.medium.
+          ☞ El millor editor que vos puc recomanar amb diferència és el
+          #[i Vim] (Vi IMproved).
+          #[br] Però #[b no per seguir curs] (tret que ja el sapigueu fer anar)
+          perquè requereix un cert aprenentatge inicial.
+
+
+.slide.bigfont(data-name="entorn_express")
+
+  div
+    h4 Servidor Web
+
+    ul
+      li.step Com a Servidor Web farem servir #[i Express].
+      li.step Per a instal·lar-lo necessitam:
+        ul
+          li.step #[i Node.JS] i #[i NPM].
+            ul
+              li.step.
+                Als apunts teniu informació sobre com obtenir-los i
+                instal·lar-los.
+          li.step #[i Express-Generator].
+            ul
+              li.step.
+                Un cop instal·lats #[i Node] i #[i NPM], l'instal·larem amb la
+                comanda #[br] #[code.code.medium npm install express-generator].
+
+
+.slide.bigfont(data-name="entorn_express_setup")
+
+  div.medium
+    h4 Preparació Express
+
+    div.center
+      div
+        ul
+          li.step Crearem un directori per allotjar el nostre projecte.
+          li.step.
+            Ens situarem en ell i executarem la comanda
+            #[code.code express --view=pug].
+
+    table
+      tr
+        td.step.fade
+          pre.code.small.
+            u@m:~/exercicis/cursHTML5$ express --view=pug
+
+               create : public/
+               create : public/javascripts/
+               create : public/images/
+               create : public/stylesheets/
+               create : public/stylesheets/style.css
+               create : routes/
+               create : routes/index.js
+               create : routes/users.js
+               create : views/
+               create : views/error.pug
+               create : views/index.pug
+               create : views/layout.pug
+               create : app.js
+               create : package.json
+               create : bin/
+               create : bin/www
+
+               install dependencies:
+                 $ npm install
+
+               run the app:
+                 $ DEBUG=curshtml5:* npm start
+        td.step
+          b Resultat:
+          pre.code.small.
+            .
+            ├── app.js
+            ├── bin
+            │   └── www
+            ├── package.json
+            ├── package-lock.json
+            ├── public
+            │   ├── images
+            │   ├── javascripts
+            │   └── stylesheets
+            │       └── style.css
+            ├── routes
+            │   ├── index.js
+            │   └── users.js
+            └── views
+                ├── error.pug
+                ├── index.pug
+                └── layout.pug
+
+
+.slide.bigfont(data-name="entorn_express_start")
+
+  div.medium
+    h4 Posta en Marxa
+
+    ul
+      li.step Les dues passes següents ja ens les han indicat:
+
+    table
+      tr
+        td.step.fade
+          pre.code.small.
+            ...
+            install dependencies:
+              $ npm install
+
+            run the app:
+              $ DEBUG=curshtml5:* npm start
+        td.step
+          pre.code.small.
+            u@m:~/exercicis/cursHTML5$ npm install
+            npm notice created a lockfile as package-lock.json. You should commit this file.
+            added 118 packages from 174 contributors and audited 247 packages in 3.707s
+            found 0 vulnerabilities
+
+    ul
+      li.step.
+        La comanda #[code.code npm install] fa que s'instal·lin totes les
+        dependències declarades al fitxer #[i package.json] (inclòs el propi
+        #[i Express]) que l'Express-Generator ens ha creat.
+      li.step.
+        Finalment, per arrancar el nostre servidor web podem fer servir la
+        comanda que ens indiquen o, simplement #[code.code npm start].
+
+.slide.bigfont(data-name="entorn_express_welcome")
+
+  div.medium
+    h4 Et Voilà!
+
+    div.center
+      div
+        p.step.fade.
+          ☞ Si obrim un navegador i teclejam la url:
+          #[a(href="#") http://localhost:3000]
+
+        p.step.fade Podrem veure quelcom semblant al següent:
+
+        div.frame.step.fade
+          h2 Express
+          p Welcome to Express!
+
+    table.step
+      tr
+        td.
+          Si ara col·locam el fitxer de l'exercici que hem fet abans dins el
+          directori #[i public/] del nostre projecte, podrem accedir a ell des
+          de la ruta #[a(href="#") http://localhost:3000/Curriculum.html]
+          (suposant que li haguem posat aquest nom).
+
+
+.slide.bigfont(data-name="entorn_pug_intro")
+
+  div.medium
+    h4 Motor de Plantilles Pug
+
+    p.step.
+      Al projecte #[i Expres] que hem creat anteriorment, podem veure com#[br]
+      a dins el directori #[i views] tenim tres fitxers:
+
+    table.small.step
+      tr
+        th(colspan=2)
+          b layout.pug
+      tr
+        td(colspan=2)
+          pre.code.
+            doctype html
+            html
+              head
+                title= title
+                link(rel='stylesheet', href='/stylesheets/style.css')
+              body
+                block content
+      tr
+        th
+          b index.pug
+        th
+          b error.pug
+      tr
+        td
+          pre.code.
+            extends layout
+
+            block content
+              h1= title
+              p Welcome to #{title}
+        td
+          pre.code.
+            extends layout
+
+            block content
+              h1= message
+              h2= error.status
+              pre \#{error.stack}
+
+    p.moreinfo.step https://pugjs.org
+
+
+
+.slide.bigfont(data-name="entorn_express_routing")
+
+  div.medium
+    h4 Enrutat Express
+
+    p.step.fade.
+      A diferència dels fitxers estàtics desats al directori #[i public/], les
+      plantilles del directori #[i views] no estan disponibles automàticament,
+      sino que necessiten que un bocí del programa les invoqui quan accedim a
+      una determinada ruta.
+
+    p.step.fade.
+      El responsable de que en accedir a #[a(href="#") http://localhost:3000]
+      vegem la plantilla #[i index.pug] renderitzada és la següent #[i ruta]
+      que podem trobar al fitxer #[i routes/index.js]: 
+
+    div.center
+      pre.code.step.
+        /* GET home page. */
+        router.get('/', function(req, res, next) {
+          res.render('index', { title: 'Express' });
+        });
+
+
+.slide.bigfont(data-name="entorn_express_testing_route")
+
+  div.medium
+    h4 Banc de Proves
+
+    p.step.
+      Però l'objectiu del curs no és aprendre #[i Express]. Així que simplement
+      afegirem aquesta nova ruta al mateix fitxer:
+
+
+    div.center
+      pre.code.step.frame.
+        /* Get any (root-level) pug template. */
+        router.get('/:baseName.html', function(req, res, next) {
+          const bName = req.params.baseName;
+          var model = {};
+          try {
+            model = require("../models/"+bName + ".js");
+          } catch (err) {
+            console.warn("Error processant el model: models/" + bName + ".js");
+          };
+          res.render(bName, model);
+        });
+
+    p.step.
+      Amb ella, i un cop arrancat de nou el servidor amb la comanda
+      #[code.code npm start], qualsevol fitxer #[i Pug] que desem al directori
+      #[i views], estarà disponible sota la ruta del mateix nom però extensió
+      #[i .html].
+
+    table.step
+      tr
+        td.
+          A més, aquesta ruta, a més, intentarà trobar un fitxer, també del
+          mateix nom, però amb extensió #[i .js] i sota el directori #[i models]
+          que carregarà com a #[i model] de dades per a la nostra plantilla.
+
+
+//- vim: set ft=jade:

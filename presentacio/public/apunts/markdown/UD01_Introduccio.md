@@ -1152,6 +1152,8 @@ Heu d'aplicar el que heu après fins ara. Però podeu anar més enllà si en sab
 Entorn de Treball
 =================
 
+[Entorn](/setslide/entorn)
+
 Per poder seguir aquest curs necessitarem principalment tres coses:
 
   1. Un editor de text que suporti ressaltat sintàctic.
@@ -1175,6 +1177,8 @@ plantilles *Pug* on s'explica perfectament la seva senzilla sintaxi.
 
 Editor de Text
 --------------
+
+[Editor](/setslide/entorn_editor)
 
 Podeu fer servir el que vulgueu si el teniu disponible.
 
@@ -1202,6 +1206,8 @@ mitjançant el seu sistema de paquets:
 Servidor Web i Motor de Plantilles PUG.
 ---------------------------------------
 
+[Express](/setslide/entorn_express)
+
 Com a Servidor Web, farem servir *Express*. Que és un framework per *Node.JS*
 disponible al repositori de paquets *NPM*.
 
@@ -1225,6 +1231,8 @@ un projecte *Express* per poder començar a treballar:
 
 
 ### Procediment
+
+[Express Setup](/setslide/entorn_express_setup)
 
 Obrirem una terminal i seguirem els passos següents:
 
@@ -1304,6 +1312,9 @@ Això ens haurà creat una estructura de fitxers i directoris com aquesta:
 ```
 
 
+[Express Start](/setslide/entorn_express_start)
+
+
 Les dues següents passes ja ens les ha suggerit el propi express-generator...
 
 
@@ -1329,6 +1340,8 @@ u@m:~/exercicis/cursHTML5$ npm start
 > node ./bin/www
 ```
 
+[Express Welcome](/setslide/entorn_express_welcome)
+
 Ara hauríem de poder accedir al nostre servidor web a través del port 3000 del
 nostre PC. És a dir: a la url [http://localhost:3000]().
 
@@ -1348,6 +1361,10 @@ corresponent si volem poder accedir-hi també des del nostre smartphone).
 
 
 ### Plantilles *Pug*
+
+
+[Pug Intro](/setslide/entorn_pug_intro)
+
 
 Ja tenim un servidor web amb el que podem penjar tota mena de fitxers estàtics.
 Ja siguin html, css, imatges, javascript...
@@ -1406,6 +1423,9 @@ Si be la sintaxi és prou autoexplicativa, a l'apartat de *Referències* hi
 trobareu també l'enllaç a la plana web de *Pug* on podreu aprendre com li podeu
 treure més suc.
 
+
+[Routing](/setslide/entorn_express_routing)
+
 En aquest cas però, aquestes plantilles no es publiquen automàticament, sinó
 que estan pensades per a ser utilitzades des d'un programa més complex.
 
@@ -1420,6 +1440,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 ```
+
+[Banc de Proves](/setslide/entorn_express_testing_route)
 
 Com que l'objectiu del curs no és aprendre *Express*, simplement afegirem
 aquesta nova ruta al mateix fitxer:

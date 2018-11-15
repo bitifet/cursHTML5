@@ -207,7 +207,7 @@
         th(colspan=2)
           b layout.pug
       tr
-        td(colspan=2)
+        td(colspan=2).code
           pre.code.
             doctype html
             html
@@ -222,14 +222,14 @@
         th
           b error.pug
       tr
-        td
+        td.code
           pre.code.
             extends layout
 
             block content
               h1= title
               p Welcome to #{title}
-        td
+        td.code
           pre.code.
             extends layout
 

@@ -109,12 +109,17 @@ De fet, l'objectiu del curs no és que memoritzeu res: Sinó que assimileu els
 conceptes bàsics i sigueu capaços de trobar la documentació necessària quan la
 necessiteu.
 
+[Planificacio](/setslide/planificacio)
+
+
 Al final d'aquesta primera unitat didàctica, veurem com implementar un senzill
 servidor web amb *Node.JS* i *Express* que ens servirà per penjar-hi els
 exercicis que anem desenvolupant i poder contrastar així com es veu el resultat
 tant al nostre ordinador com, a través de la xarxa Wifi, també als nostres
 telèfons mòbils.
 
+
+[UD01](/setslide/ud01)
 
 
 Història

@@ -1,0 +1,91 @@
+
+.slide(data-name="attr_selectors_0")
+  div
+    h2.step.title Selectors d'Atribut
+
+    ul.bigfont
+      li.step Permeten seleccionar elements en funció dels seus atributs HTML
+      li.step.
+        Ténen la mateixa #[i especificitat] que els selectors de classe
+        (0,1,0).
+
+.slide(data-name="attr_selectors_1")
+  div
+    h2 Selectors d'Atribut (I)
+
+    table
+      tr.step
+        th.lateral.code.
+          [attr]
+        td.
+          Existència de l'atribut (l'elements tenen l'atribut especificat,
+          independentment del seu valor).
+          #[br]#[b Exemple:] #[code.code input[disabled&rbrack;]
+      tr.step
+        th.lateral.code.
+          [attr="value"]
+        td.
+          Concordancia de valor.
+          #[br]#[b Exemple:] #[code.code input[type="button"&rbrack;]
+      tr.step
+        th.lateral.code.
+          [attr^="value"]
+        td.
+          Concordancia inicial (que el valor "comença per...")
+          #[br]#[b Exemple:] #[code.code a[href^= "https"&rbrack;]
+      tr.step
+        th.lateral.code.
+          [attr$="value"]
+        td.
+          Concordancia final (que el valor "acaba en...")
+          #[br]#[b Exemple:] #[code.code a[href$= ".pdf"&rbrack;]
+
+
+.slide(data-name="attr_selectors_2")
+  div
+    h2 Selectors d'Atribut (II)
+
+    table
+      tr.step
+        th.lateral.code.
+          [attr*="value"]
+        td.
+          Concordancia parcial (l'atribut conté el text especificat).
+          #[br]#[b Exemple:] #[code.code *[class*="sprite-"&rbrack;].
+
+      tr.step
+        th.lateral.code.
+          [attr~="value"]
+        td.
+          Concordancia d'element en llista (d'elements separats per espaï)
+          #[br]#[b Exemple:] #[code.code div[class="menu"&rbrack;]
+          #[br](en aquest cas equivaldria a #[code.code div.menu], però no
+          esta limitat a l'atribut "class").
+      tr.step
+        th.lateral.code.
+          [attr|="value"]
+        td.
+          Igualtat o concordància de prefix (prefix = fins al primer "-").
+          #[br]#[b Exemple:] #[code.code div[lang|="es"&rbrack;]
+          #[br](concordaria amb #[code.code lang="es"],
+          #[code.code lang="es-ca"], etc..)
+
+.slide(data-name="ci_attr_selectors")
+  div
+    h3 Selectors d'Atribut
+    h2 "Case Insensitive"
+
+
+    ul.bigfont
+      li.step.
+        Els selectors d'atribut #[i tradicionalment] distingeixen entre
+        majúscules i minúscules.
+      li.step.
+        Recentment s'ha especificat el modificador #[code.code i] que ens permet
+        convertir els selectors anteriors en #[i Case Insensitive].
+      li.step.
+        #[b Exemple:] #[code.code a[href^="mailto://" i&rbrack;]
+      
+
+
+//- vim: set ft=jade:

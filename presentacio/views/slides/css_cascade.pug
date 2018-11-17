@@ -1,0 +1,240 @@
+
+.slide(data-name="css_cascade_almclk")
+  div
+    h2.step.title Cascada
+
+    p.center.step.fade
+      img.medium(src="/images/despertador.png")
+
+
+.slide(data-name="css_cascade")
+  div
+    h2 Cascada
+
+    ol.bigfont
+      li.step Origen del Full d'Estil
+      li.step Especifitat del Selector
+      li.step Ordre al Codi Font
+
+
+.slide(data-name="css_origin")
+  div
+    h3 Cascada - Origen
+
+    div.center
+      div
+        table
+          tr
+            td.code.step
+              h5 Origens
+              ol.bigfont
+                li.step Author (Tú)
+                li.step #[i (User Styles)] (L'usuari)
+                li.step User Agent (El Navegador de l'usuari)
+
+              div.frame.white.step
+                p.
+                  📌 Les declaracions especificades #[b inline] al propi #[i tag]
+                  HTML (mitjançant l'atribut #[i class]) s'apliquen dirèctament a
+                  l'element i ténen preferència sobre qualsevol altra
+                  independentment del seu origen.
+                p #[b Exemple:] #[code.code &lt;h1 style="color:red;"&gt;]
+
+
+            td.code.step
+              h4 !important
+              p.step.medium.
+                El keyword #[code.code !important] al final d'una declaració
+                CSS fa que aquesta prevaleixi fins i tot sobre altres
+                d'#[i origen] superior.
+
+              p.step.medium.
+                En realitat, podem pensar que els #[i origens] estan duplicats
+                de la següent manera:
+              div.center
+                ol.step.small
+                  li
+                    b Author !important
+                  li
+                    b #[i (User Styles)] !important
+                  li
+                    b User Agent !important
+                  li Author
+                  li #[i (User Styles)]
+                  li User Agent
+
+        div.center
+          p.step.
+            #[b MOLT IMPORTANT:] No fer servir (gairebé) MAI #[code.code.scratch !important].
+
+
+.slide(data-name="css_user_agent")
+  div
+    h3 Cascada - Origen
+    h4
+      i User Agent
+
+    ul.bigfont
+      li.step.
+        Els estils del #[i User Agent] son els que ténen menys preferència de
+        tots.
+      li.step.
+        Però serveixen per aplicar uns estils mínims.
+      li.step.
+        Aquests estils però poden diferir lleugerament d'un #[i User Agent] a
+        un altre.
+      li.step  ...El que pot acabar afectant a la resta del disseny.
+      li.step.
+        ...El tamany de lletra, per exemple, pot fer que un títol passi
+        d'ocupar una sola línia a dues.
+      li.step.
+        Si ens suposa un problema els haurem d'especificar explícitament per
+        assegurar un resultat consistent a tots els navegadors.
+      li.step.
+        Una solució a aquest problema és aplicar sempre un full d'estil que
+        fixi tots aqueixos estils.
+      li.step.
+        Per exemple amb #[i normalyze.css]
+        (#[a(href="#") https://necolas.github.io/normalize.css/]).
+
+
+.slide(data-name="css_specificity")
+  div
+    h2 Cascada - Especificitat
+
+    div.big
+      img.step.floatRight(src="/images/despertador.png")
+
+      p.step.
+        Donades dues declaracions conflictives i del mateix origen s'aplica
+        sempre la més específica.
+
+      pre.code.step.
+        &lt;style&gt;
+            h1 {
+              font-size: 16px;
+            }
+            .big {
+              font-size: 18px
+            }
+        &lt;/style&gt;
+        &lt;h1 class="big"&gt;Títol&lt;/h1&gt;
+
+.slide(data-name="css_specificity_notation")
+  div
+    h3 Cascada - Especificitat (Notació)
+
+    table
+      tr
+        td
+          p.step Per decidir quina declaració és més específica:
+          p.step.
+            #[b Ens fixam en els seus selectors] i els classificam segons els
+            següents criteris...
+
+          div.center
+            ul.bigfont
+              li.step Nombre d'Identificadors.
+              li.step Nombre de Classes.
+              li.step Nombre de Tags.
+
+        td.medium
+          img.step.floatRight.small(src="/images/despertador.png")
+          p.step.
+            La declaració amb més identificadors #[b al seu selector] guanya.
+          p.step.
+            En cas d'empat, guanya la que tengui més classes.
+          p.step.
+            En cas de tornar empatar, guanya la que té més nombre de tags.
+
+          div.frame.white.step
+            p.
+              📌 Les #[i Pseudo-Classes] i els #[i Pseudo-Elements] compten com
+              a #[i Classes].
+
+      table
+        tr
+          td(colspan=3).step.center
+            p.
+              📌 Per representar aquesta classificació fem servir la
+              notació: #[code.code (nI,nC,nT)]
+        tr.medium
+          td.code.step.
+            #[b nI:] Nombre d'identificadors.
+          td.code.step.
+            #[b nC:] Nombre de classes.
+          td.code.step.
+            #[b nT:] Nombre de tags.
+
+
+.slide(data-name="css_specificity_examples")
+  div
+    h2 Cascada - Especificitat
+    h3 Notació - Exemples
+
+
+    table
+      tr.step
+        th Selector
+        th Nº d'IDs
+        th Nº de Classes
+        th Nº de Tags
+        th Notació
+      tr.step
+        td.code html body header h1
+        td.code 0
+        td.code 0
+        td.code 4
+        td.code 0,0,4
+      tr.step
+        td.code section header.section-header h1
+        td.code 0
+        td.code 1
+        td.code 3
+        td.code 0,1,3
+      tr.step
+        td.code .page-header .title
+        td.code 0
+        td.code 2
+        td.code 0
+        td.code 0,2,0
+      tr.step
+        td.code #sidebar
+        td.code 1
+        td.code 0
+        td.code 0
+        td.code 1,0,0
+
+
+.slide(data-name="css_order")
+  div
+    h2 Cascada - Ordre
+
+    p.step.
+      Quan l'Origen i l'Especificitat coincideixen, la declaració que apareixi
+      #[b després] guanya.
+
+
+    table.step.fade
+      tr
+        td
+          p.step.
+            📌 De vegades això es fa servir fins i tot dins la mateixa regla.
+            #[br]#[b Exemple:]
+          pre.code.step.
+            .menu {
+              display: block;
+              display: flex;
+            }
+          ul
+            li.step.
+              En aquest cas guanya #[i sempre] la segona declaració.
+            li.step.
+              ...Però un navegador que no suporti #[i Flexbox] la ignorarà.
+            li.step.
+              Es a dir: la primera ens serveix per definir un valor per
+              defecte (#[i fallback]).
+
+
+
+//- vim: set ft=jade:

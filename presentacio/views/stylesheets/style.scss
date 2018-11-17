@@ -24,8 +24,9 @@ body {
   margin: 0px;
 }
 
-a {
-  color: #00B7FF;
+a, a:link, a:visited {
+  color: #004488;
+  font-size: 1.2em;
 }
 
 
@@ -191,6 +192,11 @@ a {
         width: 80vh;
         width: 80vmin;
     }
+    img.medium {
+        display: inline-block;
+        width: 55vh;
+        width: 55vmin;
+    }
     img.small {
         display: inline-block;
         width: 30vh;
@@ -200,6 +206,13 @@ a {
         height: 1.3em;
         transform: translateY(.3em);
         display: inline-block;
+    }
+
+    img.floatRight {
+        float: right;
+    }
+    img.floatLeft {
+        float: left;
     }
 
 
@@ -244,6 +257,9 @@ a {
             text-align: left;
         }
         padding-left: 1em;
+        &.white {
+            background: #ffffff;
+        }
     }
 
 }

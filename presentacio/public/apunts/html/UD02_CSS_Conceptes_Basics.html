@@ -31,9 +31,9 @@
 </ul></li>
 <li><a href="#selectors-de-pseudo-element">Selectors de Pseudo-element</a>
 <ul>
-<li><a href="#before-i-after"><code>::before</code> i <code>::after</code></a></li>
-<li><a href="#first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></a></li>
-<li><a href="#selection"><code>::selection</code></a></li>
+<li><a href="#before-i-after">::before i ::after</a></li>
+<li><a href="#first-letter-i-first-line">::first-letter i ::first-line</a></li>
+<li><a href="#selection">::selection</a></li>
 </ul></li>
 <li><a href="#selectors-datribut">Selectors d'Atribut</a>
 <ul>
@@ -42,8 +42,12 @@
 </ul></li>
 <li><a href="#cascada-wip">Cascada (WIP)</a>
 <ul>
-<li><a href="#origen-wip">Origen (WIP)</a></li>
+<li><a href="#origen">Origen</a>
+<ul>
+<li><a href="#important">!important</a></li>
+</ul></li>
 <li><a href="#especificitat-wip">Especificitat (WIP)</a></li>
+<li><a href="#ordre">Ordre</a></li>
 </ul></li>
 <li><a href="#herència-wip">Herència (WIP)</a></li>
 <li><a href="#variables">Variables</a></li>
@@ -252,20 +256,22 @@
 <blockquote>
 <p><strong>⚠  Avís:</strong> Ens podem trobar però casos en que s'hagin especificat amb només ':' ja que així fou com s'especificaren originalment i per ara tots els navegadors els reconeixen també. Nosaltres <strong>sempre</strong> els escriurem com a <code>::after</code> i no <code>:after</code>, per exemple. I si detectam codi antic o algun cas en que, per error, hem fet servir la versió incorrecta, la rectificarem.</p>
 </blockquote>
-<h4 id="before-i-after"><code>::before</code> i <code>::after</code></h4>
+<h4 id="before-i-after">::before i ::after</h4>
 <p><a href="/setslide/pselement_selectors_1">Selectors de pseudo-element (I)</a></p>
 <p>Creen un pseudo-element que passa a ser el primer o darrer fill, respectivament, de l'element seleccionat.</p>
 <ul>
 <li><p>Es poden utilitzar per pre/su-fixar texts o imatges.</p></li>
 <li><p><strong>És obligatori</strong> definir la propietat <code>content</code>, encara que sigui amb un espaï en blanc, ja que <strong>del contrari no apareixeran</strong>.</p></li>
 </ul>
-<h4 id="first-letter-i-first-line"><code>::first-letter</code> i <code>::first-line</code></h4>
+<h4 id="first-letter-i-first-line">::first-letter i ::first-line</h4>
 <p>Permeten adreçar, respectivament, la primera lletra o la primera línia de text, d'un element.</p>
-<h4 id="selection"><code>::selection</code></h4>
+<h4 id="selection">::selection</h4>
 <p>Permet adreçar text (i sub-elements) que estiguin sel·leccionats per l'usuari.</p>
 <p>Només permet unes poques propietats. Incloses <code>color</code>, <code>background-color</code>, <code>cursor</code>, and <code>text-decoration</code>.</p>
 <h3 id="selectors-datribut">Selectors d'Atribut</h3>
+<p><a href="/setslide/attr_selectors_0">Selectors d'Atribut</a></p>
 <p>Els selectors d'atribut permeten seleccionar elements en funció dels seus atributs HTML i ténen la mateixa especificitat que els selectors de classe (0,1,0).</p>
+<p><a href="/setslide/attr_selectors_1">Selectors d'Atribut (I)</a></p>
 <ul>
 <li><code>[attr]</code>: Existència de l'atribut (l'elements tenen l'atribut especificat, independentment del seu valor).
 <ul>
@@ -277,12 +283,15 @@
 </ul></li>
 <li><code>[attr^=&quot;value&quot;]</code>: Concordancia inicial (que el valor &quot;comença per...&quot;)
 <ul>
-<li>Exemple: <code>a[href^= &quot;https&quot;]</code></li>
+<li>Exemple: <code>a[href^=&quot;https&quot;]</code></li>
 </ul></li>
 <li><code>[attr$=&quot;value&quot;]</code>: Concordancia final (que el valor &quot;acaba en...&quot;)
 <ul>
-<li>Exemple: <code>a[href$= &quot;.pdf&quot;]</code></li>
+<li>Exemple: <code>a[href$=&quot;.pdf&quot;]</code></li>
 </ul></li>
+</ul>
+<p><a href="/setslide/attr_selectors_2">Selectors d'Atribut (II)</a></p>
+<ul>
 <li><code>[attr*=&quot;value&quot;]</code>: Concordancia parcial (l'atribut conté el text especificat).
 <ul>
 <li>Exemple: <code>*[class*=&quot;sprite-&quot;]</code>.</li>
@@ -297,24 +306,98 @@
 </ul></li>
 </ul>
 <h4 id="selectors-datribut-case-insensitive">Selectors d'Atribut <em>Case-insensitive</em></h4>
-<p>Els selectors d'atribut <em>tradicionalment</em> distingeixen entre majúscules i minúscules, pel que, per exemple, '</p>
-<p>//// TODO /////</p>
-<p>All of the previous attribute selectors are case-sensitive. The selectors level 4 specification introduces a case-insensitive modifier that can be added to any attribute selector. To do this, add an i before the closing bracket. Example: <code>input[value=&quot;search&quot; i]</code>.</p>
-<p>Many browsers don’t yet support this. Those that don’t will ignore it. For this reason, if you use case-insensitive modifiers, be sure to add a fallback to a regular case-sensitive version.</p>
+<p><a href="/setslide/ci_attr_selectors">Selectors d'Atribut (CI)</a></p>
+<p>Els selectors d'atribut <em>tradicionalment</em> distingeixen entre majúscules i minúscules, pel que, per exemple, <code>a[href^=&quot;mailto://&quot;]</code> <strong>no seleccionaria, per exemple <code>&lt;A HREF=&quot;MAILTO://someone@example.com&gt;Email me&lt;/A&gt;</code></strong>.</p>
+<p>Recentment s'ha especificat un modificador que ens permet convertir els selectors anteriors en <em>Case Insensitive</em> només afegint una &quot;i&quot; al final.</p>
+<p><strong>Per exemple:</strong> <code>a[href^=&quot;mailto://&quot; i]</code> sí seleccionaria l'enllaç anterior.</p>
+<blockquote>
+<p>⚠ <strong>AVÍS:</strong> Encara hi ha molts de navegadors que no uporten el modificador <em>i.</em> Per aquest motiu és millor procurar no dependre'n mentres ens sigui possible (en el cas de l'exemple anterior, procurant normalitzar tots els enllaços a minúscules (o majúscules).</p>
+</blockquote>
 <h2 id="cascada-wip">Cascada (WIP)</h2>
+<p><a href="/setslide/css_cascade_almclk">CASCADA</a></p>
 <ol style="list-style-type: decimal">
 <li>Origen del Full d'Estil</li>
 <li>Especifitat del Selector</li>
 <li>Ordre al Codi Font</li>
 </ol>
-<h3 id="origen-wip">Origen (WIP)</h3>
-<blockquote>
-<p><strong>⚠ Avís:</strong> (Browser Styles) WIP...</p>
+<p><a href="/setslide/css_cascade">CASCADA</a></p>
+<h3 id="origen">Origen</h3>
+<p><a href="/setslide/css_origin">Origen</a></p>
+<p>L'Origen fa referència a la procedència de les regles d'estil.</p>
+<p>Principalment tenim dos origens:</p>
+<ol style="list-style-type: decimal">
+<li>Els <em>Author Styles</em> que son els que definim nosaltres als fulls d'estil.</li>
+<li>Els <em>User Agent Styles</em> que son els estils que el navegador du predefinits de sèrie i gràcies als quals, fins i tot sense cap full d'estil (d'autor), un document HTML es renderitza amb uns estils mínims:
 <ul>
-<li><a href="https://www.npmjs.com/package/normalize.css">normalize.css</a>.</li>
-</ul>
+<li>Marges</li>
+<li>Lletres més grosses als títols (h1, h2, h3...)</li>
+<li>El color blau i el subratllat dels enllaços (a).</li>
+<li>Etcètera...</li>
+</ul></li>
+</ol>
+<p>Addicionalment, alguns navegadors permeten configurar un full d'estil personalitzat per a l'usuari. En tal cas tindriem un tercer origen (els <em>User Styles</em> o Estils d'Usuari) que <strong>es situarien al mig dels altres dos</strong>.</p>
+<p><a href="/setslide/css_user_agent">User Agent</a></p>
+<blockquote>
+<p>📌 Les declaracions especificades <em>inline</em> al propi <em>tag</em> HTML (mitjançant l'atribut <em>class</em>) s'apliquen dirèctament a l'element i ténen preferència sobre qualsevol altra independentment del seu origen.</p>
+<p><em>Exemple:</em> <code>&lt;h1 style=&quot;color:red;&quot;&gt;</code></p>
 </blockquote>
+<p>Els estils del <em>User Agent</em> son els que ténen menys preferència de tots. Això ens permet canviar-los a gust.</p>
+<p>...però també ens permet <strong>no fer-ho</strong> si els estils que proveeix el navegador per defecte son suficients per a nosaltres.</p>
+<blockquote>
+<p><strong>⚠ </strong> Però els <em>User Agent Styles</em> poden variar d'un navegador a l'altre. El que <strong>en alguns casos pot arribar a ser un problema:</strong></p>
+<p>Una diferència mínima en el tamany (o tipus) de lletra, per exemple, pot fer que un text passi d'ocupar-nos una línia a dues.</p>
+<p>Per evitar aquest problema, es sol incorporar un fill de ja predefinit amb els estils que volem <strong>per a tots</strong> els navegadors.</p>
+<p>Si no volem fer-ho manualment, en podem fer servir un de ja fet, com <a href="https://necolas.github.io/normalize.css/">normalyze.css</a>.</p>
+</blockquote>
+<h4 id="important">!important</h4>
+<p>El modificador <code>!important</code> al final d'una <em>declaració</em> CSS ens permet botar-nos la preferència d'origen fent que la regla s'apliqui fins i tot si hi ha una altra regla amb més preferència que la contradiu.</p>
+<p>El problema però és que si dues declaracions en conflicte ténen la clausula <code>!important</code> aleshores prevaldrà de nou la preferència d'origen (i la resta que veurem després) que puguin aplicar.</p>
+<p>Una forma senzilla d'entendre-ho és pensar que en realitat tenim 6 possibles origens en comptes de 3:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Author !important</strong></li>
+<li><strong>(<em>User Styles</em>) !important</strong></li>
+<li><strong>User Agent !important</strong></li>
+<li>Author</li>
+<li>(<em>User Styles</em>)</li>
+<li>User Agent</li>
+</ol>
 <h3 id="especificitat-wip">Especificitat (WIP)</h3>
+<p><a href="/setslide/css_specificity">Especificitat</a></p>
+<p>Donades dues declaracions conflictives i del mateix origen s'aplica sempre la més específica.</p>
+<blockquote>
+<p><strong>EXEMPLE:</strong> Imaginem un extens manual de circulació on apareixen, no necessàriament en aquest ordre i pot ser múltiples vegades en distints capítols, les següents regles:</p>
+<ul>
+<li>Les bicicletes circularan per l'esquerra.</li>
+<li>Tots els vehicles circularan per la dreta.</li>
+</ul>
+<p>...Si una bicicleta és un vehicle, per ón ha de circular una bicicleta?</p>
+</blockquote>
+<p>Com veieu intuitivament el concepte és molt senzill: Els <em>selectors</em> de l'exemple serien &quot;Les bicicletes&quot; i &quot;Tots els vehicles&quot;. I tots hem entès què ha de fer cadascun encara que les regles siguin contradictòries.</p>
+<p>Quan es tracta de <em>Selectors CSS</em> però, la cosa es complica. Considerem per exemple el següent fragment:</p>
+<pre><code>&lt;style&gt;
+    h1 {
+      font-size: 16px;
+    }
+    .big {
+      font-size: 18px
+    }
+&lt;/style&gt;
+&lt;h1 class=&quot;big&quot;&gt;Títol&lt;/h1&gt;</code></pre>
+<p>...quin tamany de lletra s'aplicarà al text &quot;Títol&quot;?</p>
+<p><a href="/setslide/css_specificity_notation">Notació</a></p>
+<p>Per poder decidir-ho necessitam unes regles precises que es puguin aplicar a qualsevol selector (pensau que un selector pot ser la composició de molts altres).</p>
+<p>I per poder definir aquestes regles classificarem els selectors segons tres criteris:</p>
+<ul>
+<li>Nombre d'Identificadors.</li>
+<li>Nombre de Classes.</li>
+<li>Nombre de Tags.</li>
+</ul>
+<p>Per representar aquesta classificació es sol fer servir la notació <code>(nI,nC,nT)</code> ón <em>nI</em> seria el nombre d'identificadors, <em>nC</em> el nombre de classes i <em>nT</em> el nombre de tags.</p>
+<blockquote>
+<p>📌 Les <em>Pseudo-Classes</em> i els <em>Pseudo-Elements</em> <strong>ténen la mateixa especificitat que les <em>Classes</em>.</strong> Pel que els comptarem també com a tals.</p>
+</blockquote>
+<p><a href="/setslide/css_specificity_examples">Exemples</a></p>
+<p>A la taula següent podem veure uns quants exemples de selectors i la classificació que els correspondria.</p>
 <table>
 <thead>
 <tr class="header">
@@ -322,7 +405,7 @@
 <th>Nº d'IDs</th>
 <th>Nº de Classes</th>
 <th>Nº de Tags</th>
-<th>Notation</th>
+<th>Notació</th>
 </tr>
 </thead>
 <tbody>
@@ -356,7 +439,19 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Més:</strong> <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p>
+<h3 id="ordre">Ordre</h3>
+<p><a href="/setslide/css_order">Ordre</a></p>
+<p>Finalment, quan l'Origen i l'Especificitat coincideixen, la declaració que apareixi <strong>després</strong> guanya.</p>
+<p>Així:</p>
+<ul>
+<li><p>Si el nostre document té varis fulls d'estil (ja siguin externs o inline), les regles que apareixin als fulls d'estil inclosos més avall en el document, tendran preferència sobre les que apareixin als anteriors.</p></li>
+<li><p>Si dues regles en conflicte apareixen al mateix fitxer (o dins el mateix tag <code>&lt;style&gt;...&lt;/style&gt;</code>), la que apareixi més al final tindrà preferència.</p></li>
+</ul>
+<blockquote>
+<p>📌 No és extrany tampoc especificar la mateixa propietat, fins i tot dins la mateixa regla. <strong>Exemple:</strong></p>
+<p><code>.menu {    display: block;    display: flex;  }</code></p>
+<p>...en aquest cas guanya <strong>sempre</strong> la segona declaració. Però en un navegador que no suporti <em>Flexbox</em>, aquesta seria ignorada, pel que la primera ens serveix per definir un valor per defecte quan el navegador no suporta quelcom que volem fer servir (<em>fallback</em>).</p>
+</blockquote>
 <h2 id="herència-wip">Herència (WIP)</h2>
 <h2 id="variables">Variables</h2>
 <p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
@@ -371,7 +466,6 @@
 <p><strong>Font:</strong> https://www.w3schools.com/cssref/css_units.asp</p>
 <h4 id="longituds-absolutes">Longituds absolutes</h4>
 <table>
-<caption>pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</caption>
 <thead>
 <tr class="header">
 <th align="left">Unitat</th>
@@ -405,6 +499,9 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>📌 Els 'px' son en realitat una unitat relativa i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</p>
+</blockquote>
 <h4 id="longituds-relatives">Longituds relatives</h4>
 <table>
 <colgroup>
@@ -461,6 +558,7 @@
 <h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
 <h2 id="referències">Referències</h2>
 <ul>
+<li><p>Especificitat: <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p></li>
 <li>Media print:
 <ul>
 <li>Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/</li>

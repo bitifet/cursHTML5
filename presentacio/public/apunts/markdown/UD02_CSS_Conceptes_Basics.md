@@ -21,14 +21,16 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [Selectors de Pseudo-classe Genèrics](#selectors-de-pseudo-classe-genèrics)
             * [Selectors de Pseudo-classe Específics per a Formularis](#selectors-de-pseudo-classe-específics-per-a-formularis)
         * [Selectors de Pseudo-element](#selectors-de-pseudo-element)
-            * [`::before` i `::after`](#before-i-after)
-            * [`::first-letter` i `::first-line`](#first-letter-i-first-line)
-            * [`::selection`](#selection)
+            * [::before i ::after](#before-i-after)
+            * [::first-letter i ::first-line](#first-letter-i-first-line)
+            * [::selection](#selection)
         * [Selectors d'Atribut](#selectors-datribut)
             * [Selectors d'Atribut *Case-insensitive*](#selectors-datribut-case-insensitive)
     * [Cascada (WIP)](#cascada-wip)
-        * [Origen (WIP)](#origen-wip)
+        * [Origen](#origen)
+            * [!important](#important)
         * [Especificitat (WIP)](#especificitat-wip)
+        * [Ordre](#ordre)
     * [Herència (WIP)](#herència-wip)
     * [Variables](#variables)
     * [Aritmètica CSS3](#aritmètica-css3)
@@ -245,7 +247,7 @@ hem fet servir la versió incorrecta, la rectificarem.
 >
 
 
-#### `::before` i `::after`
+#### ::before i ::after
 
 [Selectors de pseudo-element (I)](/setslide/pselement_selectors_1)
 
@@ -258,13 +260,13 @@ respectivament, de l'element seleccionat.
     espaï en blanc, ja que **del contrari no apareixeran**.
 
 
-#### `::first-letter` i `::first-line`
+#### ::first-letter i ::first-line
 
 Permeten adreçar, respectivament, la primera lletra o la primera línia de text,
 d'un element.
 
 
-#### `::selection`
+#### ::selection
 
 Permet adreçar text (i sub-elements) que estiguin sel·leccionats per l'usuari.
 
@@ -275,9 +277,15 @@ Només permet unes poques propietats. Incloses
 
 ### Selectors d'Atribut
 
+[Selectors d'Atribut](/setslide/attr_selectors_0)
+
+
 Els selectors d'atribut permeten seleccionar elements en funció dels seus
 atributs HTML i ténen la mateixa especificitat que els selectors de classe
 (0,1,0).
+
+
+[Selectors d'Atribut (I)](/setslide/attr_selectors_1)
 
 
   * `[attr]`: Existència de l'atribut (l'elements tenen l'atribut especificat,
@@ -288,10 +296,12 @@ atributs HTML i ténen la mateixa especificitat que els selectors de classe
     - Exemple: `input[type="button"]`
 
   * `[attr^="value"]`: Concordancia inicial (que el valor "comença per...")
-    - Exemple: `a[href^= "https"]`
+    - Exemple: `a[href^="https"]`
 
   * `[attr$="value"]`: Concordancia final (que el valor "acaba en...")
-    - Exemple: `a[href$= ".pdf"]`
+    - Exemple: `a[href$=".pdf"]`
+
+[Selectors d'Atribut (II)](/setslide/attr_selectors_2)
 
   * `[attr*="value"]`: Concordancia parcial (l'atribut conté el text especificat).
     - Exemple: `*[class*="sprite-"]`.
@@ -305,24 +315,26 @@ atributs HTML i ténen la mateixa especificitat que els selectors de classe
     - Exemple: `div[lang|="es"]` (concordaria amb `lang="es"`, `lang="es-ca"`, etc..)
 
 
+
 #### Selectors d'Atribut *Case-insensitive*
 
+[Selectors d'Atribut (CI)](/setslide/ci_attr_selectors)
+
 Els selectors d'atribut *tradicionalment* distingeixen entre majúscules i
-minúscules, pel que, per exemple, '
+minúscules, pel que, per exemple, `a[href^="mailto://"]` **no seleccionaria, per
+exemple `<A HREF="MAILTO://someone@example.com>Email me</A>`**.
 
+Recentment s'ha especificat un modificador que ens permet convertir els
+selectors anteriors en *Case Insensitive* només afegint una "i" al final.
 
-//// TODO /////
+**Per exemple:** `a[href^="mailto://" i]` sí seleccionaria l'enllaç anterior.
 
-
-All of the previous attribute selectors are case-sensitive. The selectors level
-4 specification introduces a case-insensitive modifier that can be added to any
-attribute selector. To do this, add an i before the closing bracket. Example:
-`input[value="search" i]`.
-
-Many browsers don’t yet support this. Those that don’t will ignore it. For this
-reason, if you use case-insensitive modifiers, be sure to add a fallback to a
-regular case-sensitive version.
-
+>
+⚠ **AVÍS:** Encara hi ha molts de navegadors que no uporten el modificador *i.*
+Per aquest motiu és millor procurar no dependre'n mentres ens sigui possible
+(en el cas de l'exemple anterior, procurant normalitzar tots els enllaços a
+ minúscules (o majúscules).  
+>
 
 
 
@@ -330,25 +342,160 @@ regular case-sensitive version.
 Cascada (WIP)
 -------------
 
+[CASCADA](/setslide/css_cascade_almclk)
+
   1. Origen del Full d'Estil
   2. Especifitat del Selector
   3. Ordre al Codi Font
 
 
-### Origen (WIP)
+[CASCADA](/setslide/css_cascade)
+
+### Origen
+
+[Origen](/setslide/css_origin)
+
+
+L'Origen fa referència a la procedència de les regles d'estil.
+
+Principalment tenim dos origens:
+
+  1. Els *Author Styles* que son els que definim nosaltres als fulls d'estil.
+  2. Els *User Agent Styles* que son els estils que el navegador du predefinits
+     de sèrie i gràcies als quals, fins i tot sense cap full d'estil (d'autor),
+     un document HTML es renderitza amb uns estils mínims:
+     - Marges
+     - Lletres més grosses als títols (h1, h2, h3...)
+     - El color blau i el subratllat dels enllaços (a).
+     - Etcètera...
+
+Addicionalment, alguns navegadors permeten configurar un full d'estil
+personalitzat per a l'usuari. En tal cas tindriem un tercer origen (els *User
+Styles* o Estils d'Usuari) que **es situarien al mig dels altres dos**.
+
+[User Agent](/setslide/css_user_agent)
+
+>
+:pushpin: Les declaracions especificades *inline* al propi *tag* HTML
+(mitjançant l'atribut *class*) s'apliquen dirèctament a l'element i ténen
+preferència sobre qualsevol altra independentment del seu origen.  
+>
+*Exemple:* `<h1 style="color:red;">`
+>
+
+Els estils del *User Agent* son els que ténen menys preferència de tots. Això
+ens permet canviar-los a gust.
+
+...però també ens permet **no fer-ho** si els estils que proveeix el navegador
+per defecte son suficients per a nosaltres.
 
 
 >
-**⚠ Avís:** (Browser Styles) WIP...
+**:warning:** Però els *User Agent Styles* poden variar d'un navegador a
+l'altre. El que **en alguns casos pot arribar a ser un problema:**
 >
-  * [normalize.css](https://www.npmjs.com/package/normalize.css).
+Una diferència mínima en el tamany (o tipus) de lletra, per exemple, pot fer
+que un text passi d'ocupar-nos una línia a dues. 
+>
+Per evitar aquest problema, es sol incorporar un fill de ja predefinit amb els
+estils que volem **per a tots** els navegadors.
+> 
+Si no volem fer-ho manualment, en podem fer servir un de ja fet, com
+[normalyze.css](https://necolas.github.io/normalize.css/).
 >
 
+
+#### !important
+
+El modificador `!important` al final d'una *declaració* CSS ens permet
+botar-nos la preferència d'origen fent que la regla s'apliqui fins i tot si hi
+ha una altra regla amb més preferència que la contradiu.
+
+El problema però és que si dues declaracions en conflicte ténen la clausula
+`!important` aleshores prevaldrà de nou la preferència d'origen (i la resta que
+veurem després) que puguin aplicar.
+
+Una forma senzilla d'entendre-ho és pensar que en realitat tenim 6 possibles
+origens en comptes de 3:
+
+  1. **Author !important**
+  2. **(*User Styles*) !important**
+  3. **User Agent !important**
+  4. Author
+  5. (*User Styles*)
+  6. User Agent
 
 
 ### Especificitat (WIP)
 
-| Selector                          | Nº d'IDs | Nº de Classes | Nº de Tags | Notation |
+[Especificitat](/setslide/css_specificity)
+
+Donades dues declaracions conflictives i del mateix origen s'aplica sempre la
+més específica.
+
+>
+**EXEMPLE:** Imaginem un extens manual de circulació on apareixen, no
+necessàriament en aquest ordre i pot ser múltiples vegades en distints
+capítols, les següents regles:
+>
+  * Les bicicletes circularan per l'esquerra.
+  * Tots els vehicles circularan per la dreta.
+>
+...Si una bicicleta és un vehicle, per ón ha de circular una bicicleta?
+>
+
+Com veieu intuitivament el concepte és molt senzill: Els *selectors* de
+l'exemple serien "Les bicicletes" i "Tots els vehicles". I tots hem entès què
+ha de fer cadascun encara que les regles siguin contradictòries.
+
+Quan es tracta de *Selectors CSS* però, la cosa es complica. Considerem per
+exemple el següent fragment:
+
+```
+<style>
+    h1 {
+      font-size: 16px;
+    }
+    .big {
+      font-size: 18px
+    }
+</style>
+<h1 class="big">Títol</h1>
+```
+
+...quin tamany de lletra s'aplicarà al text "Títol"?
+
+
+[Notació](/setslide/css_specificity_notation)
+
+
+Per poder decidir-ho necessitam unes regles precises que es puguin aplicar a
+qualsevol selector (pensau que un selector pot ser la composició de molts
+altres).
+
+I per poder definir aquestes regles classificarem els selectors segons tres
+criteris:
+
+  * Nombre d'Identificadors.
+  * Nombre de Classes.
+  * Nombre de Tags.
+
+Per representar aquesta classificació es sol fer servir la notació `(nI,nC,nT)`
+ón *nI* seria el nombre d'identificadors, *nC* el nombre de classes i *nT* el
+nombre de tags.
+
+>
+:pushpin: Les *Pseudo-Classes* i els *Pseudo-Elements* **ténen la mateixa
+especificitat que les *Classes*.** Pel que els comptarem també com a tals.
+>
+
+[Exemples](/setslide/css_specificity_examples)
+
+A la taula següent podem veure uns quants exemples de selectors i la
+classificació que els correspondria.
+
+
+| Selector                          | Nº d'IDs | Nº de Classes | Nº de Tags | Notació  |
 |-----------------------------------|----------|---------------|------------|----------|
 | html body header h1               | 0        | 0             | 4          | 0,0,4    |
 | section header.section-header h1  | 0        | 1             | 3          | 0,1,3    |
@@ -356,10 +503,37 @@ Cascada (WIP)
 | #sidebar                          | 1        | 0             | 0          | 1,0,0    |
 
 
+### Ordre
+
+[Ordre](/setslide/css_order)
+
+Finalment, quan l'Origen i l'Especificitat coincideixen, la declaració que
+apareixi **després** guanya.
+
+Així:
+
+  * Si el nostre document té varis fulls d'estil (ja siguin externs o inline),
+    les regles que apareixin als fulls d'estil inclosos més avall en el
+    document, tendran preferència sobre les que apareixin als anteriors.
+
+  * Si dues regles en conflicte apareixen al mateix fitxer (o dins el mateix
+    tag `<style>...</style>`), la que apareixi més al final tindrà preferència.
 
 
-**Més:** [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity]()
-
+>  :pushpin: No és extrany tampoc especificar la mateixa propietat, fins i tot
+>  dins la mateixa regla. **Exemple:**
+> 
+>  ```
+>  .menu {
+>    display: block;
+>    display: flex;
+>  }
+>  ```
+> 
+>  ...en aquest cas guanya **sempre** la segona declaració. Però en un navegador
+>  que no suporti *Flexbox*, aquesta seria ignorada, pel que la primera ens
+>  serveix per definir un valor per defecte quan el navegador no suporta quelcom
+>  que volem fer servir (*fallback*).
 
 
 
@@ -412,10 +586,12 @@ Aritmètica CSS3
 | pc      | picas (1pc = 12 pt)          |
 
 
+>
 :pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb
 els pixels físics del dispositiu sino que van en funció de la definició
 d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants
 possibles en el món real independentment del dispositiu de visualització.
+>
 
 
 #### Longituds relatives
@@ -454,6 +630,7 @@ Referències
 -----------
 
 
+  * Especificitat: [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity]()
 
   * Media print:
     - Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/

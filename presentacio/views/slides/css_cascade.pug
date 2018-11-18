@@ -11,10 +11,18 @@
   div
     h2 Cascada
 
-    ol.bigfont
-      li.step Origen del Full d'Estil
-      li.step Especifitat del Selector
-      li.step Ordre al Codi Font
+    div.bigfont
+      p.step.
+        Les normes que, en cas de conflicte entre dues #[i declaracions],
+        determinen quina s'aplica son el que anomenem #[i Cascada].
+
+      p.step I son, en aquest ordre:
+
+      div.center
+        ol
+          li.step Origen del Full d'Estil
+          li.step Especifitat del Selector
+          li.step Ordre al Codi Font
 
 
 .slide(data-name="css_origin")
@@ -112,13 +120,15 @@
       pre.code.step.
         &lt;style&gt;
             h1 {
-              font-size: 16px;
+              color: blue;
             }
-            .big {
-              font-size: 18px
+            .title {
+              color: green;
             }
         &lt;/style&gt;
-        &lt;h1 class="big"&gt;Títol&lt;/h1&gt;
+        &lt;h1 class="title"&gt;Títol&lt;/h1&gt;
+      p.step.
+        De quin color pensau que serà el text "Títol"?
 
 .slide(data-name="css_specificity_notation")
   div
@@ -180,30 +190,30 @@
         th Nº de Classes
         th Nº de Tags
         th Notació
-      tr.step
-        td.code html body header h1
-        td.code 0
-        td.code 0
-        td.code 4
-        td.code 0,0,4
-      tr.step
-        td.code section header.section-header h1
-        td.code 0
-        td.code 1
-        td.code 3
-        td.code 0,1,3
-      tr.step
-        td.code .page-header .title
-        td.code 0
-        td.code 2
-        td.code 0
-        td.code 0,2,0
-      tr.step
-        td.code #sidebar
-        td.code 1
-        td.code 0
-        td.code 0
-        td.code 1,0,0
+      tr
+        td.step.code html body header h1
+        td.step.code 0
+        td.step.code 0
+        td.step.code 4
+        td.step.code 0,0,4
+      tr
+        td.step.code section header.section-header h1
+        td.step.code 0
+        td.step.code 1
+        td.step.code 3
+        td.step.code 0,1,3
+      tr
+        td.step.code .page-header .title
+        td.step.code 0
+        td.step.code 2
+        td.step.code 0
+        td.step.code 0,2,0
+      tr
+        td.step.code #sidebar
+        td.step.code 1
+        td.step.code 0
+        td.step.code 0
+        td.step.code 1,0,0
 
 
 .slide(data-name="css_order")
@@ -220,7 +230,7 @@
         td
           p.step.
             📌 De vegades això es fa servir fins i tot dins la mateixa regla.
-            #[br]#[b Exemple:]
+          div.step #[b Exemple:]
           pre.code.step.
             .menu {
               display: block;
@@ -234,6 +244,34 @@
             li.step.
               Es a dir: la primera ens serveix per definir un valor per
               defecte (#[i fallback]).
+
+
+.slide(data-name="css_inheritance")
+  div
+    h2.step.title Herència
+
+    ul.bigfont
+      li.step.
+        La #[i Cascada] ens permet decidir quines #[i declaracions] CSS
+        s'apliquen a quins elements.
+
+      li.step.
+        L'#[i Herència] fa que aquestes declaracions s'apliquin recursivament
+        no només als elements sel·leccionants, sino també recursivament a tots
+        els que aquests continguin.
+
+      li.step
+        p.
+          Però #[b no totes les propietats s'hereten]. Només aquelles que
+          #[i normalment voldriem que s'heretessin]:
+        ul
+          li.step.
+            Les relacionades amb el text (#[i color], #[i font], #[i text-align], ...).
+          li.step.
+            Algunes relacionades amb les llistes (#[i list-style..], #[i ..-type],
+            #[i ..-position], ...).
+          li.step.
+            Etcètera...
 
 
 

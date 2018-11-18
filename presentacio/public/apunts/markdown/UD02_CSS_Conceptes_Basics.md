@@ -26,20 +26,22 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [::selection](#selection)
         * [Selectors d'Atribut](#selectors-datribut)
             * [Selectors d'Atribut *Case-insensitive*](#selectors-datribut-case-insensitive)
-    * [Cascada (WIP)](#cascada-wip)
+    * [Autoprefixer](#autoprefixer)
+    * [Cascada](#cascada)
         * [Origen](#origen)
             * [!important](#important)
-        * [Especificitat (WIP)](#especificitat-wip)
+        * [Especificitat](#especificitat)
         * [Ordre](#ordre)
-    * [Herència (WIP)](#herència-wip)
+    * [Herència](#herència)
     * [Variables](#variables)
-    * [Aritmètica CSS3](#aritmètica-css3)
+    * [Valors CSS](#valors-css)
         * [Unitats](#unitats)
             * [Longituds absolutes](#longituds-absolutes)
             * [Longituds relatives](#longituds-relatives)
-        * [Càlculs (WIP)](#càlculs-wip)
+        * [Càlculs](#càlculs)
     * [Regles "AT" (@)](#regles-at-)
     * [Referències](#referències)
+        * [Altres (Curiositats)](#altres-curiositats)
 * [Javascript - jQuery](#javascript-jquery)
     * [Referències](#referències-1)
 
@@ -337,19 +339,89 @@ Per aquest motiu és millor procurar no dependre'n mentres ens sigui possible
 >
 
 
+Autoprefixer
+------------
+
+[Autoprefixer](/setslide/css_autoprefixer)
+
+Com ja hem comentat, no tots els selectors i propietats descrits anteriorment
+estaran suportats als navegadors antics.
+
+Molts d'ells però, ja els suportaven (de vegades no al 100% conformes amb
+l'especificació definitiva) amb el que s'anomenen *vendor prefixes*.
+
+Els *vendor prefixes* son prefixs tipus "-webkit-" (Chrome, Safari...), "-moz-"
+(Firefox), etc... que posats al davant d'una propietat (o també alguns valors),
+componen un nom específic de la propietat que aquell navegador reconeixia, a
+títol experimental, abans de que dita característica fos definitivament
+estandarditzada.
+
+Per tant, repetint les declaracions afectades amb els *vendor prefixes* de cada
+navegador, podem ampliar el nombre de navegadors en els que la nostra pàgina
+funcionarà bé.
+
+El problema és que fer això a mà, a més d'una *feina de xinos*, empitjoraria
+greument la legibilitat del nostre CSS.
+
+L'*autoprefixer* (podeu trobar l'enllaç a les referències) és un preprocessador
+que agafa el nostre full d'estil original i hi afegeix automàticament totes
+aquestes declaracions addicionals per nosaltres.
+
+...aconseguint així que el nostre CSS funcioni bé en més navegadors.
 
 
-Cascada (WIP)
--------------
+Cascada
+-------
 
 [CASCADA](/setslide/css_cascade_almclk)
+
+Com hem vist fins ara, els *selectors* ens permeten seleccionar elements segons
+diverses característiques: el *tipus* (tag), el seu *Id* (si el ténen), les
+*Classes* que puguin tenir atribuïdes, etc...
+
+No és difícil però que dues o més *Regles CSS* puguin resultar d'aplicació a un
+mateix element tot i tenir selectors distints.
+
+**Exemple:**
+
+```
+<style>
+  h1 {...}
+  .title {...}
+<style>
+<h1 class="title">Títol</title>
+/* Les dues regles anteriors son d'aplicació a n'aquest tag */
+```
+
+Això d'entrada no és problema a no ser que les dues regles continguin
+declaracions conflictives...
+
+
+**Exemple:**
+
+```
+<style>
+  h1 {color: blue;}
+  .title {color: green;}
+<style>
+<h1 class="title">Títol</title>
+```
+
+[CASCADA](/setslide/css_cascade)
+
+>
+:pushpin: Les normes que, en cas de conflicte entre dues *declaracions*,
+determinen quina és la que s'aplica son el que anomenem *Cascada*. D'aquí el
+terme *"**Cascade** Style Sheet"*.
+>
+
+
 
   1. Origen del Full d'Estil
   2. Especifitat del Selector
   3. Ordre al Codi Font
 
 
-[CASCADA](/setslide/css_cascade)
 
 ### Origen
 
@@ -426,7 +498,7 @@ origens en comptes de 3:
   6. User Agent
 
 
-### Especificitat (WIP)
+### Especificitat
 
 [Especificitat](/setslide/css_specificity)
 
@@ -537,14 +609,49 @@ Així:
 
 
 
-Herència (WIP)
---------------
+Herència
+--------
+
+[Herència](/setslide/css_inheritance)
+
+La *Cascada* ens permet definir les característiques d'elements específics
+mitjançant les *Regles CSS*.
+
+En contraposició, l'*Herència* ens permet no haver-ho de fer per tots i
+cadascun dels elements d'un document.
+
+Així, si definim la propietat *color* (color del text) per a un element,
+aquesta s'aplicarà a n'aquest element i, recursivament, a tots els sub-elements
+que aquest contingui fins que topem amb algún en que, una altra regla CSS ens
+ho canvii.
+
+**No totes les propietats s'hereten.** Per exemple, si les propietats *width* i
+*height* s'heretessin, tots els elements tindrien per defecte les dimensions
+del séu contenidor (el que resultaria poc pràctic...)
+
+>
+:pushpin: En general, només s'hereten aquelles propietats que *en bona lògica*
+normalment voldriem que s'heretessin:
+>
+  * Les relacionades amb el text (*color*, *font*, *text-align*, ...).
+  * Algunes relacionades amb les llistes (*list-style..*, *..-type*,
+    *..-position*, ...).
+  * Etcètera...
+>
+
+L'herència ens permet, per exemple, definir un estil de text (color, tipus de
+lletra, tamany, etc...) al `<body>` i que aquests s'apliquin consistentment a
+la resta del document excepte alla on nosaltres explícitament especifiquem
+quelcom diferent.
+
 
 
 Variables
 ---------
 
-Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la
+[Variables](/setslide/css_vars)
+
+Una variable CSS es defineix mitjançant una *declaració* a la qual, el nom de la
 propietat comença per dos guions ("--").
 
 **Exemple:**
@@ -565,29 +672,128 @@ Per llegir-les fem servir la funció `var()`.
 background-color: var(--home_background_color);
 ```
 
+>
+:pushpin: En realitat amb la funció `var()` podem llegir el valor de qualsevol
+propietat CSS.
+>
 
-Aritmètica CSS3
----------------
+Alguns *frameworks CSS*, com el SASS, també proveeixen la funcionalitat de
+definir variables que després tradueïxen als seus respectius valors a l'hora de
+generar el CSS.
+
+**L'avantatge** de les variables CSS natives és que funcionen com a propietats CSS:
+
+  * Es defineixen com a *declaracions* dins una regla CSS i s'apliquen només
+    als objectes que compleixin les condicions del *selector*.
+
+  * S'hereten als elements continguts.
+
+>
+:pushpin: Per exemple, si volem aplicar un valor globalment, podem fer servir
+el selector `:root`.
+>
+
+**L'inconvenient** de les variables CSS és que, en navegadors antics que no les
+suportin, faran fallar totes les declaracions que les facin servir. **Fins i
+tot declaracions en les que la propietat que es declara sí està suportada**.
+
+Per exemple:
+
+```
+:root {
+  --fons_1: #cccccc;
+}
+
+.someClass {
+  background: var(--fons_1);
+}
+```
+
+
+[Consideracions](/setslide/css_vars_considerations)
+
+Davant aquest problema tenim tres opcions:
+
+  * La més òbvia és ignorar-ho si no tenim interés en suportar navegadors
+    antics (tret d'Internet Explorer i uns poc més molt minoritaris, la majoria
+    les suporta bé des de fa temps).
+
+  * La segona és no fer-les servir i, en tot cas, fer servir algún framework
+    com SASS que proveeixi la funcionalitat de variables, tot i no tenir la
+    mateixa funcionalitat.
+
+  * La tercera (i probablement la millor) és simplement tenir cura de proveïr
+    *fallbacks* en els casos més importants:
+
+Per exemple, en el fragment anterior, hauriem pogut fer:
+
+```
+.someClass {
+  background: white;
+  background: var(--fons_1);
+}
+```
+
+D'aquesta manera podem continuar fent servir les variables per ajustar certs
+valors del full d'estil (o fins i tot proveïr a l'usuari la possibilitat de,
+per exemple, escollir entre distints perfils de color) però, a l'hora,
+garantint que els usuaris de navegadors més antics, com al menys podran
+visualitzar la pàgina en unes condicións mínimes d'usabilitat.
+
+
+
+
+Valors CSS
+----------
+
+[Valors CSS](/setslide/css_values)
+
+Com hem vist abans, en CSS, una *declaració* es composa d'una *propietat* i un
+(o més) valors que assignam a ella.
+
+Els valors que accepta cada propietat depenen específicament de quina sigui
+aquesta.
+
+Si be hi ha dos valors especials que podem fer servir a qualsevol propietat.
+Aquests son:
+
+  * **initial:** A l'especificació de tota propietat CSS es defineix un valor
+    "inicial" pel cas en que aquesta no sigui explícitament definida. Aquest
+    valor de vegades fins i tot pot variar en funció del *Tag*. La paraula clau
+    *initial* ens serveix per assignar explícitament aquest valor a una
+    propietat (anul·lant així l'efecte d'altres valors obtinguts a través de la
+    cascada o l'herència.
+
+  * **auto:** Significa que el valor real s'ajustarà de forma automàtica segons
+    uns criteris preestablerts.
 
 ### Unitats
 
-**Font:** https://www.w3schools.com/cssref/css_units.asp
+[Unitats CSS](/setslide/css_units)
+
+En alguns casos, els valors poden tenir unitats associades.
+
+Pel que fa a les propietats que expressen mesures (*height*, *width*,
+*padding*, *border-width*, *margin*, etcètera...) aquestes unitats poden ser
+*absolutes* o *relatives*.
 
 
 #### Longituds absolutes
 
-| Unitat  | Descripció                   |
-|:--------|:-----------------------------|
-| cm      | centimeters                  |
-| mm      | millimeters                  |
-| in      | inches (1in = 96px = 2.54cm) |
-| px *    | pixels (1px = 1/96th of 1in) |
-| pt      | points (1pt = 1/72 of 1in)   |
-| pc      | picas (1pc = 12 pt)          |
+[Unitats Absolutes](/setslide/css_absolute_units)
+
+| Unitat  | Descripció                     |
+|:--------|:-------------------------------|
+| cm      | Centímetres                    |
+| mm      | Milímetres                     |
+| in      | Polzades (1in = 96px = 2.54cm) |
+| px *    | "Pixels" (1px = 1/96th of 1in) |
+| pt      | Punts (1pt = 1/72 of 1in)      |
+| pc      | Piques (1pc = 12 pt)           |
 
 
 >
-:pushpin: Els 'px' son en realitat una unitat relativa i no es corresponen amb
+:pushpin: Els 'px' son en realitat una unitat aproximada i no es corresponen amb
 els pixels físics del dispositiu sino que van en funció de la definició
 d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants
 possibles en el món real independentment del dispositiu de visualització.
@@ -596,51 +802,164 @@ possibles en el món real independentment del dispositiu de visualització.
 
 #### Longituds relatives
 
-| Unitat    | Descripció                                                                                |
-|:----------|:------------------------------------------------------------------------------------------|
-| em        | Relative to the font-size of the element (2em means 2 times the size of the current font) |
-| ex        | Relative to the x-height of the current font (rarely used)                                |
-| ch        | Relative to width of the "0" (zero)                                                       |
-| **rem**   | Relative to font-size of the root element                                                 |
-| **vw**    | Relative to 1% of the width of the viewport*                                              |
-| **vh**    | Relative to 1% of the height of the viewport*                                             |
-| **vmin**  | Relative to 1% of viewport's* smaller dimension                                           |
-| **vmax**  | Relative to 1% of viewport's* larger dimension                                            |
-| %         | Relative to the parent element                                                            |
+[Unitats Relatives](/setslide/css_relative_units)
+
+| Unitat    | Descripció                                                                                    |
+|:----------|:----------------------------------------------------------------------------------------------|
+| em        | Relatiu al tamany de la font de l'element (2em significa 2 vegades el tamany de font actual)  |
+| ex        | Relatiu a l'altura del caràcter "x" (rarament usat)                                           |
+| ch        | Relatiu a l'amplada del caràcter "0" (rarament usat)                                          |
+| **rem**   | Com "em" però relatiu a la font de l'element arrel ( :root)                                   |
+| **vw**    | Relatiu a l'1% de l'amplada del *viewport*                                                    |
+| **vh**    | Relatiu a l'1% de l'altura del *viewport*                                                     |
+| **vmin**  | Relatiu a l'1% de la dimensió menor del *viewport*                                            |
+| **vmax**  | Relatiu a l'1% de la dimensió major del *viewport*                                            |
+| %         | Relatiu a l'element pare                                                                      |
 
 
 
+### Càlculs
 
-### Càlculs (WIP)
+[calc()](/setslide/css_calc)
+
+La funció *calc()* ens permet realitzar operacions de càlcul senzilles:
+
+  * Suma (+)
+  * Resta (-)
+  * Multiplicació (\*)
+  * Divisió (/)
+
+Accepta tants paràmetres com vulguem i podem fer servir parèntesis (`(` i `)`)
+si ho necessitam.
+
+>
+:warning: *calc()* és una mica sensible a l'espaïat. És recomanable sempre
+deixar un espaï en blanc a banda i banda dels operadors.
+>
+
+Combinada amb la funció *var()* per llegir tant variables com altres propietats
+ens permet especificar propietats en forma de càlculs sobre altres paràmetres
+(per exemple marges, paddings, etc...) en comptes d'haver de posar el resultat
+literal.
 
 
-(funció calc())
+[Més calc()](/setslide/css_more_calc)
 
+**Exemple:**
 
+```
+:root { --sidebar_width: 200px; }
+.sidebar {
+  width: var(--sidebar_width);
+  ...
+}
+.contents {
+  width: calc(100vw - var(--sidebar_width));
+  ...
+}
+```
+
+D'aquesta manera, si en el futur volem alterar qualsevol d'aquests paràmetres,
+basta modificar-lo a un lloc. Sense necessitat de recalcular tots els
+paràmetres que en depenen.
+
+>
+:pushpin: A més, podem mesclar distintes unitats. Fins i tot *relatives* (com
+ara *vw*) amb *absolutes*. Cosa que no podem fer manualment perquè, per
+exemple, no podem conèixer a priori les dimensions del *viewport*).
+>
 
 
 Regles "AT" (@)
 ---------------
 
+[Regles AT](/setslide/css_at_rules)
 
+Les "Regles AT" son comandes especials, que es distingeixen per començar amb el
+caràcter '@' que serveixen per donar certes instruccions sobre el comportament
+del CSS.
+
+**Exemples:**
+
+  * `@import` ens permet insertar un altre full css.
+  * `@media <condicions> { (css) }` ens permet definir un bloc de CSS que
+    s'aplicarà només quan es compleixin determinades condicions.
+    - És el que es coneix com a *media query*.
+
+Sobre els *media querys* hi tornarem més endavant en parlar de *disseny
+responsiu*.
+
+Però hi ha un *media query*, habitualment oblidat, del que sí en farem menció
+especial:
+
+```
+@media print {
+  ...
+}
+```
+
+`@media print` ens permet controlar què (i com) veurem quan imprimim la nostra
+pàgina.
+
+Moltes vegades imprimim una pàgina web i ens surt infinitat d'informació
+absolutament inútil (menús de navegació, etc...) i el contingut real apareix de
+qualsevol manera relegat a un racó.
+
+Amb `@media print` podem ocultar tots aquells elements que no desitjam que
+apareixin a la impressió així com reposicionar la resta o, fins i tot
+mostrar-ne d'altres que no volem que surtin en pantalla.
+
+
+>
+:pushpin: Per no haver de rectificar tot el CSS, també podem fer servir `@media
+screen` sobre els blocs que dirèctament sapiguem que no ens interessen per res
+a la impressió.
+>
+
+
+També, la regla `@page` ens permet establir el tamany del paper i els marges.
+**Com a curiositat,** a les referències us deixo un enllaç on s'expliquen
+moltes més característiques d'`@page`. Però desgraciadament, llevat de les que
+acabo de mencionar, la resta només estan suportades en eines específiques per a
+la generació de llibres electrònics.
 
 
 
 Referències
 -----------
 
+  * Documentació HTML i CSS:
+    - W3C: [https://www.w3schools.com]()
+    - Mozilla Documentation Project: [https://developer.mozilla.org]()
+
+  * Autoprefixer: [https://github.com/postcss/autoprefixer]()
+    - (En realitat és un mòdul del preprocessador modular PostCSS: [https://postcss.org/]())
 
   * Especificitat: [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity]()
 
+  * Frameworks CSS:
+    - SASS: [https://sass-lang.com/]()
+
+  * Unitats CSS: [https://www.w3schools.com/cssref/css_units.asp]()
+
+  * CanIUse: [https://caniuse.com]().
+    - Ens permet saber com de suportada està una funcionalitat als múltiples
+      navegadors que hi ha al mercat.
+    - A més, de vegades també ens suggereix *fallbacks* per casos específics.
+
+  * Regles "AT": [https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule]()
+
+
+### Altres (Curiositats)
+
   * Media print:
-    - Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+    - Designing For Print With CSS: [https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/]()
       + Maquetació avançada d'impressió
       + (Desgraciadament cap navegador suporta massa més que establir els marges).
+      + Però si algun dia volem escriure un llibre o generar documents impresos
+        des d'una aplicació amb tecnologia HTML5, ens podria ser de molta
+        utilitat.
 
-
-  ( TO-DO !!)
-  * PostCSS: [https://postcss.org/]().
-    - Autoprefixer: [https://github.com/postcss/autoprefixer]().
 
 
 

@@ -1,0 +1,256 @@
+
+.slide(data-name="css_vars")
+  div
+    h2.step.title Variables
+
+    div.bigfont
+      ul
+        li.step
+          span.
+            Podem definir una variable (o també #[i Custorm Property]) CSS com
+            si fos una propietat més simplement prefixant-la amb dos guions
+            (--).
+          ul
+            li.step.
+              #[b Exemple:] #[code.code --color_de_fons: #cccccc;].
+        li.step
+          span.
+            Per llegir-les fem servir la funció #[i var()].
+          ul
+            li.step.
+              #[b Exemple:] #[code.code background-color: var(--color_de_fons);].
+        li.step
+          span.
+            En realitat amb la funció #[i var()] podem llegir el valor
+            de qualsevol propietat CSS.
+          ul
+            li.step.
+              #[b Exemple:] #[code.code border-color: var(color);].
+
+      table.step
+        tr
+          td.
+            📌 Donat que funcionen i es declaren com a propietats,
+            #[b segueixen exactament les mateixes regles que aquestes]
+            (Cascada i #[b Herència])
+
+
+.slide(data-name="css_vars_considerations")
+  div
+    h2 Variables - Consideracions
+
+    div.bigfont
+      ul
+        li.step.
+          Les variables CSS estan ben suportades des de fa temps a la majoria de
+          navegadors.
+        li.step.
+          Llevat, evidentment, de MS Internet Explorer i uns pocs més poc comuns.
+        li.step
+          span.
+            La majoria de frameworks CSS, com el #[i Sass], implementen el seu
+            propi sistema de variables.
+          ul
+            li.step.
+              #[b Però no son tan potents] com les #[i Variables CSS] natives.
+        li.step
+          span.
+            Si volem fer servir #[i Variables CSS] #[b i també] suportar els
+            navegadors més antics que no les entenen, una bona solució és
+            proveïr valors per defecte literals abans d'usar les variables, com
+            a mínim als punts més estratègics:
+      table.step
+        tr
+          td.code
+            pre.code.medium.
+              .someClass {
+                background: white;
+                background: var(--fons_1);
+              }
+
+
+.slide(data-name="css_values")
+  div
+    h2.step.title Valors
+
+    div.bigfont
+      ul
+        li.step.
+          Els valors que accepta cada propietat depenen específicament de quina
+          sigui aquesta.
+        li.step.
+          Si be totes les propietats accepten dos valors especials: #[i initial]
+          i #[i auto].
+        li.step.
+          #[code.code initial] reseteja la propietat al seu valor per defecte.
+        li.step.
+          #[code.code auto] estableix que aquest s'ha de calcular automàticament (segons
+          els criteris preestablerts d'acord a l'especificació de la propietat).  
+
+
+.slide(data-name="css_units")
+  div
+    h2.step.title Unitats
+
+    ul.bigfont
+      li.step.
+        En alguns casos, els valors poden tenir unitats associades.
+      li.step.
+        Aquestes unitats poden ser #[i absolutes] o #[i relatives].
+
+
+.slide(data-name="css_absolute_units")
+  div
+    h2 Unitats Absolutes
+
+    table
+      tr.step
+        th Unitat
+        th Descripció
+      tr.step
+        td.code cm
+        td Centímetres
+      tr.step
+        td.code mm
+        td Milímetres
+      tr.step
+        td.code in
+        td Polzades (1in = 96px = 2.54cm)
+      tr.step
+        td.code px *
+        td.first-letter Pixels (1px = 1/96th of 1in)
+      tr.step
+        td.code pt
+        td Punts (1pt = 1/72 of 1in)
+      tr.step
+        td.code pc
+        td Piques (1pc = 12 pt)
+
+    table.step
+      tr
+        td.
+          📌 Els 'px' son en realitat una unitat aproximada i no es corresponen
+          amb els pixels físics del dispositiu sino que van en funció de la
+          definició d'aquest amb la finalitat que les mesures en 'px' siguin el
+          més semblants possibles en el món real independentment del dispositiu
+          de visualització.
+
+
+.slide(data-name="css_relative_units")
+  div
+    h3 Unitats Relatives
+
+    table
+      tr.step
+        th Unitat
+        th Descripció
+      tr.step
+        td.code em
+        td.small Relatiu a l'altura de la font de l'element (2em significa 2 vegades el tamany de font actual)
+      tr.step
+        td.code ex
+        td.small Relatiu a l'altura del caràcter 'x' (rarament usat)
+      tr.step
+        td.code ch
+        td.small Relatiu a l'amplada del caràcter "0" (rarament usat)
+      tr.step
+        td.code #[b rem]
+        td.small Com "em" però relatiu a la font de l'element arrel ( :root)
+      tr.step
+        td.code #[b vw]
+        td.small Relatiu a l'1% de l'amplada del *viewport*
+      tr.step
+        td.code #[b vh]
+        td.small Relatiu a l'1% de l'altura del *viewport*
+      tr.step
+        td.code #[b vmin]
+        td.small Relatiu a l'1% de la dimensió menor del *viewport*
+      tr.step
+        td.code #[b vmax]
+        td.small Relatiu a l'1% de la dimensió major del *viewport*
+      tr.step
+        td.code %
+        td.small Relatiu a l'element pare
+
+
+.slide(data-name="css_calc")
+  div
+    h2.step.title Càlculs
+
+    p.step.
+      La funció #[code.code calc()] ens permet realitzar operacions de càlcul
+      senzilles:
+
+    div.center
+      ul
+        li.step Suma (+)
+        li.step Resta (-)
+        li.step Multiplicació (*)
+        li.step Divisió (/)
+
+    p.step.
+      Accepta tants paràmetres com vulguem i podem fer servir parèntesis si ho
+      necessitam.
+
+    table.step
+      tr
+        td.
+          ⚠ #[i calc()] és una mica sensible als espais. És recomanable sempre
+          deixar espais entre els operadors.
+
+
+.slide(data-name="css_more_calc")
+  div
+    h2 calc()
+
+    p.step.
+      Combinada amb la funció #[i var()] ens permet establir valors en funció
+      de variables css o altres propietats.
+
+    p.step.
+      A més, podem combinar valors amb distintes unitats.
+
+    pre.code.frame.step.
+      :root { --sidebar_width: 200px; }
+      .sidebar {
+        width: var(--sidebar_width);
+        ...
+      }
+      .contents {
+        width: calc(100vw - var(--sidebar_width));
+        ...
+      }
+
+
+.slide(data-name="css_at_rules")
+  div
+    h2 Regles "AT" (@)
+
+    div.bigfont
+      p.step.  
+        Les "Regles AT" son comandes especials, que es distingeixen per
+        començar amb el caràcter '@' que serveixen per donar certes
+        instruccions sobre el comportament del CSS.
+
+      p.step
+        b Exemples:
+
+      ul
+        li.step.
+          #[code.code @import] ens permet insertar un altre full css.
+        li.step
+          span.
+            #[code.code @media &lt;condicions&gt; { (css) }] ens permet definir
+            un bloc de CSS que s'aplicarà només quan es compleixin determinades
+            condicions.
+          ul
+            li.step És el que es coneix com a #[b media query].
+
+      table.step
+        tr
+          td
+            p El gran oblidat: #[code.code @media print]
+            p I també el seu company: #[code.code @media screen]
+
+
+//- vim: set ft=jade:

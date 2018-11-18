@@ -40,28 +40,32 @@
 <li><a href="#selectors-datribut-case-insensitive">Selectors d'Atribut <em>Case-insensitive</em></a></li>
 </ul></li>
 </ul></li>
-<li><a href="#cascada-wip">Cascada (WIP)</a>
+<li><a href="#autoprefixer">Autoprefixer</a></li>
+<li><a href="#cascada">Cascada</a>
 <ul>
 <li><a href="#origen">Origen</a>
 <ul>
 <li><a href="#important">!important</a></li>
 </ul></li>
-<li><a href="#especificitat-wip">Especificitat (WIP)</a></li>
+<li><a href="#especificitat">Especificitat</a></li>
 <li><a href="#ordre">Ordre</a></li>
 </ul></li>
-<li><a href="#herència-wip">Herència (WIP)</a></li>
+<li><a href="#herència">Herència</a></li>
 <li><a href="#variables">Variables</a></li>
-<li><a href="#aritmètica-css3">Aritmètica CSS3</a>
+<li><a href="#valors-css">Valors CSS</a>
 <ul>
 <li><a href="#unitats">Unitats</a>
 <ul>
 <li><a href="#longituds-absolutes">Longituds absolutes</a></li>
 <li><a href="#longituds-relatives">Longituds relatives</a></li>
 </ul></li>
-<li><a href="#càlculs-wip">Càlculs (WIP)</a></li>
+<li><a href="#càlculs">Càlculs</a></li>
 </ul></li>
 <li><a href="#regles-at-">Regles &quot;AT&quot; (@)</a></li>
-<li><a href="#referències">Referències</a></li>
+<li><a href="#referències">Referències</a>
+<ul>
+<li><a href="#altres-curiositats">Altres (Curiositats)</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#javascript-jquery">Javascript - jQuery</a>
 <ul>
@@ -313,14 +317,42 @@
 <blockquote>
 <p>⚠ <strong>AVÍS:</strong> Encara hi ha molts de navegadors que no uporten el modificador <em>i.</em> Per aquest motiu és millor procurar no dependre'n mentres ens sigui possible (en el cas de l'exemple anterior, procurant normalitzar tots els enllaços a minúscules (o majúscules).</p>
 </blockquote>
-<h2 id="cascada-wip">Cascada (WIP)</h2>
+<h2 id="autoprefixer">Autoprefixer</h2>
+<p><a href="/setslide/css_autoprefixer">Autoprefixer</a></p>
+<p>Com ja hem comentat, no tots els selectors i propietats descrits anteriorment estaran suportats als navegadors antics.</p>
+<p>Molts d'ells però, ja els suportaven (de vegades no al 100% conformes amb l'especificació definitiva) amb el que s'anomenen <em>vendor prefixes</em>.</p>
+<p>Els <em>vendor prefixes</em> son prefixs tipus &quot;-webkit-&quot; (Chrome, Safari...), &quot;-moz-&quot; (Firefox), etc... que posats al davant d'una propietat (o també alguns valors), componen un nom específic de la propietat que aquell navegador reconeixia, a títol experimental, abans de que dita característica fos definitivament estandarditzada.</p>
+<p>Per tant, repetint les declaracions afectades amb els <em>vendor prefixes</em> de cada navegador, podem ampliar el nombre de navegadors en els que la nostra pàgina funcionarà bé.</p>
+<p>El problema és que fer això a mà, a més d'una <em>feina de xinos</em>, empitjoraria greument la legibilitat del nostre CSS.</p>
+<p>L'<em>autoprefixer</em> (podeu trobar l'enllaç a les referències) és un preprocessador que agafa el nostre full d'estil original i hi afegeix automàticament totes aquestes declaracions addicionals per nosaltres.</p>
+<p>...aconseguint així que el nostre CSS funcioni bé en més navegadors.</p>
+<h2 id="cascada">Cascada</h2>
 <p><a href="/setslide/css_cascade_almclk">CASCADA</a></p>
+<p>Com hem vist fins ara, els <em>selectors</em> ens permeten seleccionar elements segons diverses característiques: el <em>tipus</em> (tag), el seu <em>Id</em> (si el ténen), les <em>Classes</em> que puguin tenir atribuïdes, etc...</p>
+<p>No és difícil però que dues o més <em>Regles CSS</em> puguin resultar d'aplicació a un mateix element tot i tenir selectors distints.</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>&lt;style&gt;
+  h1 {...}
+  .title {...}
+&lt;style&gt;
+&lt;h1 class=&quot;title&quot;&gt;Títol&lt;/title&gt;
+/* Les dues regles anteriors son d&#39;aplicació a n&#39;aquest tag */</code></pre>
+<p>Això d'entrada no és problema a no ser que les dues regles continguin declaracions conflictives...</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>&lt;style&gt;
+  h1 {color: blue;}
+  .title {color: green;}
+&lt;style&gt;
+&lt;h1 class=&quot;title&quot;&gt;Títol&lt;/title&gt;</code></pre>
+<p><a href="/setslide/css_cascade">CASCADA</a></p>
+<blockquote>
+<p>📌 Les normes que, en cas de conflicte entre dues <em>declaracions</em>, determinen quina és la que s'aplica son el que anomenem <em>Cascada</em>. D'aquí el terme <em>&quot;<strong>Cascade</strong> Style Sheet&quot;</em>.</p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li>Origen del Full d'Estil</li>
 <li>Especifitat del Selector</li>
 <li>Ordre al Codi Font</li>
 </ol>
-<p><a href="/setslide/css_cascade">CASCADA</a></p>
 <h3 id="origen">Origen</h3>
 <p><a href="/setslide/css_origin">Origen</a></p>
 <p>L'Origen fa referència a la procedència de les regles d'estil.</p>
@@ -361,7 +393,7 @@
 <li>(<em>User Styles</em>)</li>
 <li>User Agent</li>
 </ol>
-<h3 id="especificitat-wip">Especificitat (WIP)</h3>
+<h3 id="especificitat">Especificitat</h3>
 <p><a href="/setslide/css_specificity">Especificitat</a></p>
 <p>Donades dues declaracions conflictives i del mateix origen s'aplica sempre la més específica.</p>
 <blockquote>
@@ -452,19 +484,79 @@
 <p><code>.menu {    display: block;    display: flex;  }</code></p>
 <p>...en aquest cas guanya <strong>sempre</strong> la segona declaració. Però en un navegador que no suporti <em>Flexbox</em>, aquesta seria ignorada, pel que la primera ens serveix per definir un valor per defecte quan el navegador no suporta quelcom que volem fer servir (<em>fallback</em>).</p>
 </blockquote>
-<h2 id="herència-wip">Herència (WIP)</h2>
+<h2 id="herència">Herència</h2>
+<p><a href="/setslide/css_inheritance">Herència</a></p>
+<p>La <em>Cascada</em> ens permet definir les característiques d'elements específics mitjançant les <em>Regles CSS</em>.</p>
+<p>En contraposició, l'<em>Herència</em> ens permet no haver-ho de fer per tots i cadascun dels elements d'un document.</p>
+<p>Així, si definim la propietat <em>color</em> (color del text) per a un element, aquesta s'aplicarà a n'aquest element i, recursivament, a tots els sub-elements que aquest contingui fins que topem amb algún en que, una altra regla CSS ens ho canvii.</p>
+<p><strong>No totes les propietats s'hereten.</strong> Per exemple, si les propietats <em>width</em> i <em>height</em> s'heretessin, tots els elements tindrien per defecte les dimensions del séu contenidor (el que resultaria poc pràctic...)</p>
+<blockquote>
+<p>📌 En general, només s'hereten aquelles propietats que <em>en bona lògica</em> normalment voldriem que s'heretessin:</p>
+<ul>
+<li>Les relacionades amb el text (<em>color</em>, <em>font</em>, <em>text-align</em>, ...).</li>
+<li>Algunes relacionades amb les llistes (<em>list-style..</em>, <em>..-type</em>, <em>..-position</em>, ...).</li>
+<li>Etcètera...</li>
+</ul>
+</blockquote>
+<p>L'herència ens permet, per exemple, definir un estil de text (color, tipus de lletra, tamany, etc...) al <code>&lt;body&gt;</code> i que aquests s'apliquin consistentment a la resta del document excepte alla on nosaltres explícitament especifiquem quelcom diferent.</p>
 <h2 id="variables">Variables</h2>
-<p>Una variable CSS es defineix mitjançant una declaració a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
+<p><a href="/setslide/css_vars">Variables</a></p>
+<p>Una variable CSS es defineix mitjançant una <em>declaració</em> a la qual, el nom de la propietat comença per dos guions (&quot;--&quot;).</p>
 <p><strong>Exemple:</strong></p>
 <pre><code>--home_background_color: cyan;</code></pre>
 <p>Funcionen com una declaració normal i son heretades pels elements descendents amb la única diferència que no tenen cap efecte per si mateixes.</p>
 <p>Per llegir-les fem servir la funció <code>var()</code>.</p>
 <p><strong>Exemple:</strong></p>
 <pre><code>background-color: var(--home_background_color);</code></pre>
-<h2 id="aritmètica-css3">Aritmètica CSS3</h2>
+<blockquote>
+<p>📌 En realitat amb la funció <code>var()</code> podem llegir el valor de qualsevol propietat CSS.</p>
+</blockquote>
+<p>Alguns <em>frameworks CSS</em>, com el SASS, també proveeixen la funcionalitat de definir variables que després tradueïxen als seus respectius valors a l'hora de generar el CSS.</p>
+<p><strong>L'avantatge</strong> de les variables CSS natives és que funcionen com a propietats CSS:</p>
+<ul>
+<li><p>Es defineixen com a <em>declaracions</em> dins una regla CSS i s'apliquen només als objectes que compleixin les condicions del <em>selector</em>.</p></li>
+<li><p>S'hereten als elements continguts.</p></li>
+</ul>
+<blockquote>
+<p>📌 Per exemple, si volem aplicar un valor globalment, podem fer servir el selector <code>:root</code>.</p>
+</blockquote>
+<p><strong>L'inconvenient</strong> de les variables CSS és que, en navegadors antics que no les suportin, faran fallar totes les declaracions que les facin servir. <strong>Fins i tot declaracions en les que la propietat que es declara sí està suportada</strong>.</p>
+<p>Per exemple:</p>
+<pre><code>:root {
+  --fons_1: #cccccc;
+}
+
+.someClass {
+  background: var(--fons_1);
+}</code></pre>
+<p><a href="/setslide/css_vars_considerations">Consideracions</a></p>
+<p>Davant aquest problema tenim tres opcions:</p>
+<ul>
+<li><p>La més òbvia és ignorar-ho si no tenim interés en suportar navegadors antics (tret d'Internet Explorer i uns poc més molt minoritaris, la majoria les suporta bé des de fa temps).</p></li>
+<li><p>La segona és no fer-les servir i, en tot cas, fer servir algún framework com SASS que proveeixi la funcionalitat de variables, tot i no tenir la mateixa funcionalitat.</p></li>
+<li><p>La tercera (i probablement la millor) és simplement tenir cura de proveïr <em>fallbacks</em> en els casos més importants:</p></li>
+</ul>
+<p>Per exemple, en el fragment anterior, hauriem pogut fer:</p>
+<pre><code>.someClass {
+  background: white;
+  background: var(--fons_1);
+}</code></pre>
+<p>D'aquesta manera podem continuar fent servir les variables per ajustar certs valors del full d'estil (o fins i tot proveïr a l'usuari la possibilitat de, per exemple, escollir entre distints perfils de color) però, a l'hora, garantint que els usuaris de navegadors més antics, com al menys podran visualitzar la pàgina en unes condicións mínimes d'usabilitat.</p>
+<h2 id="valors-css">Valors CSS</h2>
+<p><a href="/setslide/css_values">Valors CSS</a></p>
+<p>Com hem vist abans, en CSS, una <em>declaració</em> es composa d'una <em>propietat</em> i un (o més) valors que assignam a ella.</p>
+<p>Els valors que accepta cada propietat depenen específicament de quina sigui aquesta.</p>
+<p>Si be hi ha dos valors especials que podem fer servir a qualsevol propietat. Aquests son:</p>
+<ul>
+<li><p><strong>initial:</strong> A l'especificació de tota propietat CSS es defineix un valor &quot;inicial&quot; pel cas en que aquesta no sigui explícitament definida. Aquest valor de vegades fins i tot pot variar en funció del <em>Tag</em>. La paraula clau <em>initial</em> ens serveix per assignar explícitament aquest valor a una propietat (anul·lant així l'efecte d'altres valors obtinguts a través de la cascada o l'herència.</p></li>
+<li><p><strong>auto:</strong> Significa que el valor real s'ajustarà de forma automàtica segons uns criteris preestablerts.</p></li>
+</ul>
 <h3 id="unitats">Unitats</h3>
-<p><strong>Font:</strong> https://www.w3schools.com/cssref/css_units.asp</p>
+<p><a href="/setslide/css_units">Unitats CSS</a></p>
+<p>En alguns casos, els valors poden tenir unitats associades.</p>
+<p>Pel que fa a les propietats que expressen mesures (<em>height</em>, <em>width</em>, <em>padding</em>, <em>border-width</em>, <em>margin</em>, etcètera...) aquestes unitats poden ser <em>absolutes</em> o <em>relatives</em>.</p>
 <h4 id="longituds-absolutes">Longituds absolutes</h4>
+<p><a href="/setslide/css_absolute_units">Unitats Absolutes</a></p>
 <table>
 <thead>
 <tr class="header">
@@ -475,34 +567,35 @@
 <tbody>
 <tr class="odd">
 <td align="left">cm</td>
-<td align="left">centimeters</td>
+<td align="left">Centímetres</td>
 </tr>
 <tr class="even">
 <td align="left">mm</td>
-<td align="left">millimeters</td>
+<td align="left">Milímetres</td>
 </tr>
 <tr class="odd">
 <td align="left">in</td>
-<td align="left">inches (1in = 96px = 2.54cm)</td>
+<td align="left">Polzades (1in = 96px = 2.54cm)</td>
 </tr>
 <tr class="even">
 <td align="left">px *</td>
-<td align="left">pixels (1px = 1/96th of 1in)</td>
+<td align="left">&quot;Pixels&quot; (1px = 1/96th of 1in)</td>
 </tr>
 <tr class="odd">
 <td align="left">pt</td>
-<td align="left">points (1pt = 1/72 of 1in)</td>
+<td align="left">Punts (1pt = 1/72 of 1in)</td>
 </tr>
 <tr class="even">
 <td align="left">pc</td>
-<td align="left">picas (1pc = 12 pt)</td>
+<td align="left">Piques (1pc = 12 pt)</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>📌 Els 'px' son en realitat una unitat relativa i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</p>
+<p>📌 Els 'px' son en realitat una unitat aproximada i no es corresponen amb els pixels físics del dispositiu sino que van en funció de la definició d'aquest amb la finalitat que les mesures en 'px' siguin el més semblants possibles en el món real independentment del dispositiu de visualització.</p>
 </blockquote>
 <h4 id="longituds-relatives">Longituds relatives</h4>
+<p><a href="/setslide/css_relative_units">Unitats Relatives</a></p>
 <table>
 <colgroup>
 <col width="11%" />
@@ -517,56 +610,128 @@
 <tbody>
 <tr class="odd">
 <td align="left">em</td>
-<td align="left">Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
+<td align="left">Relatiu al tamany de la font de l'element (2em significa 2 vegades el tamany de font actual)</td>
 </tr>
 <tr class="even">
 <td align="left">ex</td>
-<td align="left">Relative to the x-height of the current font (rarely used)</td>
+<td align="left">Relatiu a l'altura del caràcter &quot;x&quot; (rarament usat)</td>
 </tr>
 <tr class="odd">
 <td align="left">ch</td>
-<td align="left">Relative to width of the &quot;0&quot; (zero)</td>
+<td align="left">Relatiu a l'amplada del caràcter &quot;0&quot; (rarament usat)</td>
 </tr>
 <tr class="even">
 <td align="left"><strong>rem</strong></td>
-<td align="left">Relative to font-size of the root element</td>
+<td align="left">Com &quot;em&quot; però relatiu a la font de l'element arrel ( :root)</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>vw</strong></td>
-<td align="left">Relative to 1% of the width of the viewport*</td>
+<td align="left">Relatiu a l'1% de l'amplada del <em>viewport</em></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>vh</strong></td>
-<td align="left">Relative to 1% of the height of the viewport*</td>
+<td align="left">Relatiu a l'1% de l'altura del <em>viewport</em></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>vmin</strong></td>
-<td align="left">Relative to 1% of viewport's* smaller dimension</td>
+<td align="left">Relatiu a l'1% de la dimensió menor del <em>viewport</em></td>
 </tr>
 <tr class="even">
 <td align="left"><strong>vmax</strong></td>
-<td align="left">Relative to 1% of viewport's* larger dimension</td>
+<td align="left">Relatiu a l'1% de la dimensió major del <em>viewport</em></td>
 </tr>
 <tr class="odd">
 <td align="left">%</td>
-<td align="left">Relative to the parent element</td>
+<td align="left">Relatiu a l'element pare</td>
 </tr>
 </tbody>
 </table>
-<h3 id="càlculs-wip">Càlculs (WIP)</h3>
-<p>(funció calc())</p>
+<h3 id="càlculs">Càlculs</h3>
+<p><a href="/setslide/css_calc">calc()</a></p>
+<p>La funció <em>calc()</em> ens permet realitzar operacions de càlcul senzilles:</p>
+<ul>
+<li>Suma (+)</li>
+<li>Resta (-)</li>
+<li>Multiplicació (*)</li>
+<li>Divisió (/)</li>
+</ul>
+<p>Accepta tants paràmetres com vulguem i podem fer servir parèntesis (<code>(</code> i <code>)</code>) si ho necessitam.</p>
+<blockquote>
+<p>⚠  <em>calc()</em> és una mica sensible a l'espaïat. És recomanable sempre deixar un espaï en blanc a banda i banda dels operadors.</p>
+</blockquote>
+<p>Combinada amb la funció <em>var()</em> per llegir tant variables com altres propietats ens permet especificar propietats en forma de càlculs sobre altres paràmetres (per exemple marges, paddings, etc...) en comptes d'haver de posar el resultat literal.</p>
+<p><a href="/setslide/css_more_calc">Més calc()</a></p>
+<p><strong>Exemple:</strong></p>
+<pre><code>:root { --sidebar_width: 200px; }
+.sidebar {
+  width: var(--sidebar_width);
+  ...
+}
+.contents {
+  width: calc(100vw - var(--sidebar_width));
+  ...
+}</code></pre>
+<p>D'aquesta manera, si en el futur volem alterar qualsevol d'aquests paràmetres, basta modificar-lo a un lloc. Sense necessitat de recalcular tots els paràmetres que en depenen.</p>
+<blockquote>
+<p>📌 A més, podem mesclar distintes unitats. Fins i tot <em>relatives</em> (com ara <em>vw</em>) amb <em>absolutes</em>. Cosa que no podem fer manualment perquè, per exemple, no podem conèixer a priori les dimensions del <em>viewport</em>).</p>
+</blockquote>
 <h2 id="regles-at">Regles &quot;AT&quot; (@)</h2>
-<h2 id="referències">Referències</h2>
+<p><a href="/setslide/css_at_rules">Regles AT</a></p>
+<p>Les &quot;Regles AT&quot; son comandes especials, que es distingeixen per començar amb el caràcter '@' que serveixen per donar certes instruccions sobre el comportament del CSS.</p>
+<p><strong>Exemples:</strong></p>
 <ul>
-<li><p>Especificitat: <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p></li>
-<li>Media print:
+<li><code>@import</code> ens permet insertar un altre full css.</li>
+<li><code>@media &lt;condicions&gt; { (css) }</code> ens permet definir un bloc de CSS que s'aplicarà només quan es compleixin determinades condicions.
 <ul>
-<li>Designing For Print With CSS: https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/</li>
-<li>Maquetació avançada d'impressió</li>
-<li>(Desgraciadament cap navegador suporta massa més que establir els marges).</li>
+<li>És el que es coneix com a <em>media query</em>.</li>
 </ul></li>
 </ul>
-<p>( TO-DO !!) * PostCSS: <a href="">https://postcss.org/</a>. - Autoprefixer: <a href="">https://github.com/postcss/autoprefixer</a>.</p>
+<p>Sobre els <em>media querys</em> hi tornarem més endavant en parlar de <em>disseny responsiu</em>.</p>
+<p>Però hi ha un <em>media query</em>, habitualment oblidat, del que sí en farem menció especial:</p>
+<pre><code>@media print {
+  ...
+}</code></pre>
+<p><code>@media print</code> ens permet controlar què (i com) veurem quan imprimim la nostra pàgina.</p>
+<p>Moltes vegades imprimim una pàgina web i ens surt infinitat d'informació absolutament inútil (menús de navegació, etc...) i el contingut real apareix de qualsevol manera relegat a un racó.</p>
+<p>Amb <code>@media print</code> podem ocultar tots aquells elements que no desitjam que apareixin a la impressió així com reposicionar la resta o, fins i tot mostrar-ne d'altres que no volem que surtin en pantalla.</p>
+<blockquote>
+<p>📌 Per no haver de rectificar tot el CSS, també podem fer servir <code>@media screen</code> sobre els blocs que dirèctament sapiguem que no ens interessen per res a la impressió.</p>
+</blockquote>
+<p>També, la regla <code>@page</code> ens permet establir el tamany del paper i els marges. <strong>Com a curiositat,</strong> a les referències us deixo un enllaç on s'expliquen moltes més característiques d'<code>@page</code>. Però desgraciadament, llevat de les que acabo de mencionar, la resta només estan suportades en eines específiques per a la generació de llibres electrònics.</p>
+<h2 id="referències">Referències</h2>
+<ul>
+<li>Documentació HTML i CSS:
+<ul>
+<li>W3C: <a href="">https://www.w3schools.com</a></li>
+<li>Mozilla Documentation Project: <a href="">https://developer.mozilla.org</a></li>
+</ul></li>
+<li>Autoprefixer: <a href="">https://github.com/postcss/autoprefixer</a>
+<ul>
+<li>(En realitat és un mòdul del preprocessador modular PostCSS: <a href="">https://postcss.org/</a>)</li>
+</ul></li>
+<li><p>Especificitat: <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity</a></p></li>
+<li>Frameworks CSS:
+<ul>
+<li>SASS: <a href="">https://sass-lang.com/</a></li>
+</ul></li>
+<li><p>Unitats CSS: <a href="">https://www.w3schools.com/cssref/css_units.asp</a></p></li>
+<li>CanIUse: <a href="">https://caniuse.com</a>.
+<ul>
+<li>Ens permet saber com de suportada està una funcionalitat als múltiples navegadors que hi ha al mercat.</li>
+<li>A més, de vegades també ens suggereix <em>fallbacks</em> per casos específics.</li>
+</ul></li>
+<li><p>Regles &quot;AT&quot;: <a href="">https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule</a></p></li>
+</ul>
+<h3 id="altres-curiositats">Altres (Curiositats)</h3>
+<ul>
+<li>Media print:
+<ul>
+<li>Designing For Print With CSS: <a href="">https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/</a></li>
+<li>Maquetació avançada d'impressió</li>
+<li>(Desgraciadament cap navegador suporta massa més que establir els marges).</li>
+<li>Però si algun dia volem escriure un llibre o generar documents impresos des d'una aplicació amb tecnologia HTML5, ens podria ser de molta utilitat.</li>
+</ul></li>
+</ul>
 <h1 id="javascript---jquery">Javascript - jQuery</h1>
 <h2 id="referències-1">Referències</h2>
 <ul>

@@ -16,10 +16,6 @@
 <li><a href="#css-conceptes-bàsics">CSS - Conceptes Bàsics</a>
 <ul>
 <li><a href="#nomenclatura">Nomenclatura</a></li>
-<li><a href="#regles">Regles</a>
-<ul>
-<li><a href="#valors-especials">Valors Especials:</a></li>
-</ul></li>
 <li><a href="#selectors">Selectors</a>
 <ul>
 <li><a href="#selectors-bàsics">Selectors Bàsics</a></li>
@@ -118,12 +114,6 @@
 <li>En cas de dubte, consultar documentació.</li>
 <li><strong>Efecte col·lateral:</strong> SEMPRE estableixen totes les propietats (encara que s'ometin).</li>
 </ul></li>
-</ul>
-<h2 id="regles">Regles</h2>
-<h3 id="valors-especials">Valors Especials:</h3>
-<ul>
-<li><p><em>Initial</em>: És el valor per defecte de l'atribut a un determinat tipus d'element.</p></li>
-<li><p><em>Auto</em>: Significa que el navegador pot ajustar-lo automàticament en funció de certes premises preestablertes.</p></li>
 </ul>
 <h2 id="selectors">Selectors</h2>
 <h3 id="selectors-bàsics">Selectors Bàsics</h3>
@@ -576,10 +566,11 @@
 <p><a href="/setslide/css_values">Valors CSS</a></p>
 <p>Com hem vist abans, en CSS, una <em>declaració</em> es composa d'una <em>propietat</em> i un (o més) valors que assignam a ella.</p>
 <p>Els valors que accepta cada propietat depenen específicament de quina sigui aquesta.</p>
-<p>Si be hi ha dos valors especials que podem fer servir a qualsevol propietat. Aquests son:</p>
+<p>Si be hi ha tres valors especials que podem fer servir a qualsevol propietat. Aquests son:</p>
 <ul>
 <li><p><strong>initial:</strong> A l'especificació de tota propietat CSS es defineix un valor &quot;inicial&quot; pel cas en que aquesta no sigui explícitament definida. Aquest valor de vegades fins i tot pot variar en funció del <em>Tag</em>. La paraula clau <em>initial</em> ens serveix per assignar explícitament aquest valor a una propietat (anul·lant així l'efecte d'altres valors obtinguts a través de la cascada o l'herència.</p></li>
 <li><p><strong>auto:</strong> Significa que el valor real s'ajustarà de forma automàtica segons uns criteris preestablerts.</p></li>
+<li><p><strong>inherit:</strong> Força que el valor sigui heretat del pare.</p></li>
 </ul>
 <h3 id="unitats">Unitats</h3>
 <p><a href="/setslide/css_units">Unitats CSS</a></p>
@@ -819,7 +810,7 @@
 <p><a href="/setslide/exercici_3">Exercici_3</a></p>
 <p>Implementau un menú &quot;popup&quot; com el de l'exercici anterior. Però que en aquest cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.</p>
 <h3 id="opcionalment">Opcionalment:</h3>
-<p>Ajustau els colors fent servir variables css.</p>
+<p>Ajustau els colors de la pàgina i el menú fent servir variables css.</p>
 <ul>
 <li><p>Ajustau aquestes variables al selector <code>body</code>.</p></li>
 <li><p>Modificau el menú de manera que les opcions estableixin un valor a la propietat &quot;data-theme&quot; de l'element &quot;body&quot; (feu servir jQuery).</p></li>

@@ -12,8 +12,6 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
 * [CSS - Conceptes Bàsics](#css-conceptes-bàsics)
     * [Nomenclatura](#nomenclatura)
-    * [Regles](#regles)
-        * [Valors Especials:](#valors-especials)
     * [Selectors](#selectors)
         * [Selectors Bàsics](#selectors-bàsics)
         * [Combinadors (Combinators)](#combinadors-combinators)
@@ -110,19 +108,6 @@ Nomenclatura
     - En cas de dubte, consultar documentació.
     - **Efecte col·lateral:** SEMPRE estableixen totes les propietats (encara que
       s'ometin).
-
-
-
-Regles
-------
-
-### Valors Especials:
-
-  * *Initial*: És el valor per defecte de l'atribut a un determinat tipus
-    d'element.
-
-  * *Auto*: Significa que el navegador pot ajustar-lo automàticament en funció
-    de certes premises preestablertes.
 
 
 Selectors
@@ -798,7 +783,7 @@ Com hem vist abans, en CSS, una *declaració* es composa d'una *propietat* i un
 Els valors que accepta cada propietat depenen específicament de quina sigui
 aquesta.
 
-Si be hi ha dos valors especials que podem fer servir a qualsevol propietat.
+Si be hi ha tres valors especials que podem fer servir a qualsevol propietat.
 Aquests son:
 
   * **initial:** A l'especificació de tota propietat CSS es defineix un valor
@@ -810,6 +795,8 @@ Aquests son:
 
   * **auto:** Significa que el valor real s'ajustarà de forma automàtica segons
     uns criteris preestablerts.
+
+  * **inherit:** Força que el valor sigui heretat del pare.
 
 ### Unitats
 
@@ -1125,7 +1112,7 @@ cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.
 
 ### Opcionalment:
 
-Ajustau els colors fent servir variables css.
+Ajustau els colors de la pàgina i el menú fent servir variables css.
 
   * Ajustau aquestes variables al selector `body`.
 

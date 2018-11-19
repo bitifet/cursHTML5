@@ -997,6 +997,10 @@ Referències
 Javascript - jQuery
 ===================
 
+
+[jQuery](/setslide/jquery)
+
+
 *jQuery* és una llibreria/framework molt utilitzada per manipular el DOM.
 
 No s'ha de confondre amb *jQuery-UI* o *jQuery-Mobile* que son compilacions de
@@ -1023,6 +1027,9 @@ Per incloure jQuery al nostre projecte tenim dues opcions:
 
 Introducció
 -----------
+
+
+[Fonaments jQuery](/setslide/jquery_fundamentals)
 
 Un cop carregat, podem accedir a *jQuery* a través de dues variables indistintament:
 
@@ -1075,6 +1082,9 @@ Però també:
 
 A les referències trobareu els enllaços a la documentació compltea de jQuery
 així com un senzill tutorial del portal *w3schools*.
+
+
+[Exemple jQuery](/setslide/jquery_example)
 
 Un exemple d'ús senzill podria ser el següent:
 

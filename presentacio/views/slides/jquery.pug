@@ -1,0 +1,80 @@
+
+
+.slide.bigfont(data-name="jquery")
+  div
+
+    h2.step.title jQuery
+
+    div.bigfont
+
+      ul
+        li.step.
+          #[i jQuery] és una llibreria/framework molt utilitzada per manipular el
+          DOM.
+
+        li.step.
+          No confondre amb #[i jQuery-UI] o #[i jQuery-Mobile].
+
+        li.step
+          span Incorporació al document:
+          ul
+            li.step
+              code.code.
+                &lt;script src="jquery-x.y.z.min.js"&gt;&lt;/script&gt;
+            li.step O també amb el #[i CDN]...
+
+        li.step.
+          Un cop carregat accedim a ell a través de la variable '$'.
+
+
+
+.slide(data-name="jquery_fundamentals")
+  div
+    header
+      h2 jQuery
+      h3 Fonaments
+
+    div.bigfont
+
+      div.center
+        ul
+          li.step.
+            "$" és una funció Javascript i, en conseqüència, també un objecte.
+          li.step
+            span.
+              Com a funció, li podem passar un selector CSS
+              #[br]i ens retornarà tots els elements que el satisfacin.
+            ul
+              li.step.
+                #[b Exemple:] #[code.code let seccions = $("div.section");]
+
+
+      table.step
+        tr
+          td
+            p.
+              📌  La funció "$" també accepta un segón paràmetre que pot ser un
+              element DOM o una instància jQuery sobre ell (el resultat d'una
+              "captura" anterior).
+            p.
+              En aquest cas, només es capturen els elements que estiguin
+              continguts dins ell.
+
+
+.slide(data-name="jquery_example")
+  div
+    header
+      h2 jQuery
+      h3 Exemple
+
+    p.step.
+      Un exemple d'ús senzill:
+
+    pre.code.frame.step.
+
+      $(".menu").on("click", function(ev){
+        // console.log(ev); // Descomentar per inspeccionar...
+        $(ev.target).toggleClass("open");
+      });
+
+//- vim: set ft=jade:

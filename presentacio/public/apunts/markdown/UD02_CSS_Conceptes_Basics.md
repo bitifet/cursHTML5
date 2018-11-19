@@ -27,6 +27,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Selectors d'Atribut](#selectors-datribut)
             * [Selectors d'Atribut *Case-insensitive*](#selectors-datribut-case-insensitive)
     * [Autoprefixer](#autoprefixer)
+    * [Exercici 2](#exercici-2)
     * [Cascada](#cascada)
         * [Origen](#origen)
             * [!important](#important)
@@ -43,6 +44,9 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
     * [Referències](#referències)
         * [Altres (Curiositats)](#altres-curiositats)
 * [Javascript - jQuery](#javascript-jquery)
+    * [Introducció](#introducció)
+    * [Exercici 3](#exercici-3)
+        * [Opcionalment:](#opcionalment)
     * [Referències](#referències-1)
 
 <!-- vim-markdown-toc -->
@@ -368,6 +372,46 @@ que agafa el nostre full d'estil original i hi afegeix automàticament totes
 aquestes declaracions addicionals per nosaltres.
 
 ...aconseguint així que el nostre CSS funcioni bé en més navegadors.
+
+
+-----------------------------------------------------------------------------------------
+
+Exercici 2
+----------
+
+[Exercici_2](/setslide/exercici_2)
+
+Donat el següent markup (Pug):
+
+```
+  div.menu
+    label Opcions
+    ul
+      li 
+        a(href="#") Opció 1
+      li
+        a(href="#") Opció 2
+      li
+        a(href="#") Opció 3
+      li
+        a(href="#") Opció 4
+```
+
+Implementar el CSS necessari per convertir-lo en un "popup". Això és:
+
+  * La llista (ul) ha d'estar oculta inicialment.
+
+  * En passar el ratolí per sobre de l'etiqueta, ha d'aparèixer la llista.
+
+  * Si el ratolí surt de l'àrea del menú aquest es torna ocultar.
+
+  * Quan el ratolí passa per sobre d'una de les opcions, aquesta es ressalta
+    amb un color de fons distint.
+
+Provau a afegir contingut després del menú (per exemple un paràgraf de text).
+Què passa en desplegar el menú?
+
+-----------------------------------------------------------------------------------------
 
 
 Cascada
@@ -966,16 +1010,142 @@ Referències
 Javascript - jQuery
 ===================
 
+*jQuery* és una llibreria/framework molt utilitzada per manipular el DOM.
+
+No s'ha de confondre amb *jQuery-UI* o *jQuery-Mobile* que son compilacions de
+widgets implementats en forma de plugins de *jQuery*.
+
+*jQuery* ens permet manipular el DOM de forma més senzilla a la que ho fariem
+dirèctament amb les funcions nadives d'aquest (*document.getElementById()*,
+etc...)
+
+Per incloure jQuery al nostre projecte tenim dues opcions:
+
+1. Descarregar-lo i incloure'l com a script. Exemple:
+
+```
+<script src="jquery-3.3.1.min.js"></script>
+```
+
+2. Fer servir un *CDN* (Content Delivery Network) com per exemple el de Google:
+
+```
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+```
 
 
+Introducció
+-----------
 
+Un cop carregat, podem accedir a *jQuery* a través de dues variables indistintament:
+
+  * *jQuery:* Més formal però rarament usat.
+
+  * *$:* El símbol del *dollar*, que és un dels pocs caràcters no alfanumèrics
+    que és vàlid al nom d'una variable en Javascript.
+
+Nosaltres utilitzarem sempre "$".
+
+"$" és una funció Javascript i, en conseqüència, també un objecte amb múltiples
+mètodes que podem fer servir.
+
+La gran potència de jQuery radica en que ens permet capturar elements del DOM
+**fent servir selectors CSS**.
+
+Per exemple, amb:
+
+```
+let seccions = $("div.section");
+```
+
+...obtindriem tots els elements de tipus "div" que tenguin assignada la classe
+"section".
+
+>
+:pushpin: La funció "$" també accepta un segón paràmetre que pot ser un element
+DOM o una instància jQuery sobre ell (el resultat d'una "captura" anterior).
+>
+En aquest cas, només es capturen els elements que estiguin continguts dins ell.
+>
+
+El que ens retorna no és pròpiament un Array com podriem pensar, sino un
+objecte *semblant* però que a l'hora és una intància del propi jQuery.
+
+Així:
+
+  * `sections.length()` ens donaria el nombre total d'elements seleccionats.
+
+  * `sections[0]` ens retornaria el primer d'ells.
+
+Però també:
+
+  * `sections.css({color: "red"})` ens permetria alterar qualsevol propietat
+    css a tots ells.
+
+  * `sections.on("click", function(ev) {...})` assignariem una funció a l'event
+    de "click" que s'executaria cada cop que aquest event ocorri en cadascun
+    dels elements.
+
+A les referències trobareu els enllaços a la documentació compltea de jQuery
+així com un senzill tutorial del portal *w3schools*.
+
+Un exemple d'ús senzill podria ser el següent:
+
+```
+$(".menu").on("click", function(ev){
+  $(ev.target).toggleClass("open");
+});
+```
+
+...on fem el següent:
+
+  * Capturam tots els elements amb la classe "menu".
+
+  * Els assignam un manejador (callback) per a l'event de click.
+
+  * Quan l'event ocorre (fem click sobre un menú), obtenim l'element sobre el
+    que ha ocorregut (ev.target) i el convertim en una instància de jquery
+    (`$(...)`).
+
+  * Sobre aquesta instància invocam el mètode `toggleClass()` que ens afegirà
+    la classe "open" en el cas de que no la tingui ja o l'eliminarà en cas
+    contrari.
+
+
+-----------------------------------------------------------------------------------------
+
+Exercici 3
+----------
+
+[Exercici_3](/setslide/exercici_3)
+
+Implementau un menú "popup" com el de l'exercici anterior. Però que en aquest
+cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.
+
+
+### Opcionalment:
+
+Ajustau els colors fent servir variables css.
+
+  * Ajustau aquestes variables al selector `body`.
+
+  * Modificau el menú de manera que les opcions estableixin un valor a la
+    propietat "data-theme" de l'element "body" (feu servir jQuery).
+
+  * Feu servir aquesta propietat al CSS per definir distints colors segons el
+    tema seleccionat.
+
+
+-----------------------------------------------------------------------------------------
 
 
 Referències
 -----------
 
-  * [You might not need jQuery](http://youmightnotneedjquery.com/)
+  * jQuery: [https://jquery.com/]()
+    - Documentació [https://api.jquery.com]()
+    - Tutorial: [https://www.w3schools.com/jquery/]()
 
-\newpage
+  * You might not need jQuery: [http://youmightnotneedjquery.com/]()
 
 

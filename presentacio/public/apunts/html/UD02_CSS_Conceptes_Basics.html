@@ -41,6 +41,7 @@
 </ul></li>
 </ul></li>
 <li><a href="#autoprefixer">Autoprefixer</a></li>
+<li><a href="#exercici-2">Exercici 2</a></li>
 <li><a href="#cascada">Cascada</a>
 <ul>
 <li><a href="#origen">Origen</a>
@@ -69,6 +70,11 @@
 </ul></li>
 <li><a href="#javascript-jquery">Javascript - jQuery</a>
 <ul>
+<li><a href="#introducció">Introducció</a></li>
+<li><a href="#exercici-3">Exercici 3</a>
+<ul>
+<li><a href="#opcionalment">Opcionalment:</a></li>
+</ul></li>
 <li><a href="#referències-1">Referències</a></li>
 </ul></li>
 </ul>
@@ -326,6 +332,30 @@
 <p>El problema és que fer això a mà, a més d'una <em>feina de xinos</em>, empitjoraria greument la legibilitat del nostre CSS.</p>
 <p>L'<em>autoprefixer</em> (podeu trobar l'enllaç a les referències) és un preprocessador que agafa el nostre full d'estil original i hi afegeix automàticament totes aquestes declaracions addicionals per nosaltres.</p>
 <p>...aconseguint així que el nostre CSS funcioni bé en més navegadors.</p>
+<hr />
+<h2 id="exercici-2">Exercici 2</h2>
+<p><a href="/setslide/exercici_2">Exercici_2</a></p>
+<p>Donat el següent markup (Pug):</p>
+<pre><code>  div.menu
+    label Opcions
+    ul
+      li 
+        a(href=&quot;#&quot;) Opció 1
+      li
+        a(href=&quot;#&quot;) Opció 2
+      li
+        a(href=&quot;#&quot;) Opció 3
+      li
+        a(href=&quot;#&quot;) Opció 4</code></pre>
+<p>Implementar el CSS necessari per convertir-lo en un &quot;popup&quot;. Això és:</p>
+<ul>
+<li><p>La llista (ul) ha d'estar oculta inicialment.</p></li>
+<li><p>En passar el ratolí per sobre de l'etiqueta, ha d'aparèixer la llista.</p></li>
+<li><p>Si el ratolí surt de l'àrea del menú aquest es torna ocultar.</p></li>
+<li><p>Quan el ratolí passa per sobre d'una de les opcions, aquesta es ressalta amb un color de fons distint.</p></li>
+</ul>
+<p>Provau a afegir contingut després del menú (per exemple un paràgraf de text). Què passa en desplegar el menú?</p>
+<hr />
 <h2 id="cascada">Cascada</h2>
 <p><a href="/setslide/css_cascade_almclk">CASCADA</a></p>
 <p>Com hem vist fins ara, els <em>selectors</em> ens permeten seleccionar elements segons diverses característiques: el <em>tipus</em> (tag), el seu <em>Id</em> (si el ténen), les <em>Classes</em> que puguin tenir atribuïdes, etc...</p>
@@ -733,11 +763,78 @@
 </ul></li>
 </ul>
 <h1 id="javascript---jquery">Javascript - jQuery</h1>
+<p><em>jQuery</em> és una llibreria/framework molt utilitzada per manipular el DOM.</p>
+<p>No s'ha de confondre amb <em>jQuery-UI</em> o <em>jQuery-Mobile</em> que son compilacions de widgets implementats en forma de plugins de <em>jQuery</em>.</p>
+<p><em>jQuery</em> ens permet manipular el DOM de forma més senzilla a la que ho fariem dirèctament amb les funcions nadives d'aquest (<em>document.getElementById()</em>, etc...)</p>
+<p>Per incloure jQuery al nostre projecte tenim dues opcions:</p>
+<ol style="list-style-type: decimal">
+<li>Descarregar-lo i incloure'l com a script. Exemple:</li>
+</ol>
+<pre><code>&lt;script src=&quot;jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Fer servir un <em>CDN</em> (Content Delivery Network) com per exemple el de Google:</li>
+</ol>
+<pre><code>&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<h2 id="introducció">Introducció</h2>
+<p>Un cop carregat, podem accedir a <em>jQuery</em> a través de dues variables indistintament:</p>
+<ul>
+<li><p><em>jQuery:</em> Més formal però rarament usat.</p></li>
+<li><p><em>$:</em> El símbol del <em>dollar</em>, que és un dels pocs caràcters no alfanumèrics que és vàlid al nom d'una variable en Javascript.</p></li>
+</ul>
+<p>Nosaltres utilitzarem sempre &quot;$&quot;.</p>
+<p>&quot;$&quot; és una funció Javascript i, en conseqüència, també un objecte amb múltiples mètodes que podem fer servir.</p>
+<p>La gran potència de jQuery radica en que ens permet capturar elements del DOM <strong>fent servir selectors CSS</strong>.</p>
+<p>Per exemple, amb:</p>
+<pre><code>let seccions = $(&quot;div.section&quot;);</code></pre>
+<p>...obtindriem tots els elements de tipus &quot;div&quot; que tenguin assignada la classe &quot;section&quot;.</p>
+<blockquote>
+<p>📌 La funció &quot;$&quot; també accepta un segón paràmetre que pot ser un element DOM o una instància jQuery sobre ell (el resultat d'una &quot;captura&quot; anterior).</p>
+<p>En aquest cas, només es capturen els elements que estiguin continguts dins ell.</p>
+</blockquote>
+<p>El que ens retorna no és pròpiament un Array com podriem pensar, sino un objecte <em>semblant</em> però que a l'hora és una intància del propi jQuery.</p>
+<p>Així:</p>
+<ul>
+<li><p><code>sections.length()</code> ens donaria el nombre total d'elements seleccionats.</p></li>
+<li><p><code>sections[0]</code> ens retornaria el primer d'ells.</p></li>
+</ul>
+<p>Però també:</p>
+<ul>
+<li><p><code>sections.css({color: &quot;red&quot;})</code> ens permetria alterar qualsevol propietat css a tots ells.</p></li>
+<li><p><code>sections.on(&quot;click&quot;, function(ev) {...})</code> assignariem una funció a l'event de &quot;click&quot; que s'executaria cada cop que aquest event ocorri en cadascun dels elements.</p></li>
+</ul>
+<p>A les referències trobareu els enllaços a la documentació compltea de jQuery així com un senzill tutorial del portal <em>w3schools</em>.</p>
+<p>Un exemple d'ús senzill podria ser el següent:</p>
+<pre><code>$(&quot;.menu&quot;).on(&quot;click&quot;, function(ev){
+  $(ev.target).toggleClass(&quot;open&quot;);
+});</code></pre>
+<p>...on fem el següent:</p>
+<ul>
+<li><p>Capturam tots els elements amb la classe &quot;menu&quot;.</p></li>
+<li><p>Els assignam un manejador (callback) per a l'event de click.</p></li>
+<li><p>Quan l'event ocorre (fem click sobre un menú), obtenim l'element sobre el que ha ocorregut (ev.target) i el convertim en una instància de jquery (<code>$(...)</code>).</p></li>
+<li><p>Sobre aquesta instància invocam el mètode <code>toggleClass()</code> que ens afegirà la classe &quot;open&quot; en el cas de que no la tingui ja o l'eliminarà en cas contrari.</p></li>
+</ul>
+<hr />
+<h2 id="exercici-3">Exercici 3</h2>
+<p><a href="/setslide/exercici_3">Exercici_3</a></p>
+<p>Implementau un menú &quot;popup&quot; com el de l'exercici anterior. Però que en aquest cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.</p>
+<h3 id="opcionalment">Opcionalment:</h3>
+<p>Ajustau els colors fent servir variables css.</p>
+<ul>
+<li><p>Ajustau aquestes variables al selector <code>body</code>.</p></li>
+<li><p>Modificau el menú de manera que les opcions estableixin un valor a la propietat &quot;data-theme&quot; de l'element &quot;body&quot; (feu servir jQuery).</p></li>
+<li><p>Feu servir aquesta propietat al CSS per definir distints colors segons el tema seleccionat.</p></li>
+</ul>
+<hr />
 <h2 id="referències-1">Referències</h2>
 <ul>
-<li><a href="http://youmightnotneedjquery.com/">You might not need jQuery</a></li>
+<li>jQuery: <a href="">https://jquery.com/</a>
+<ul>
+<li>Documentació <a href="">https://api.jquery.com</a></li>
+<li>Tutorial: <a href="">https://www.w3schools.com/jquery/</a></li>
+</ul></li>
+<li>You might not need jQuery: <a href="">http://youmightnotneedjquery.com/</a></li>
 </ul>
-
 <footer>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 </footer>

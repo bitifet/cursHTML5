@@ -13,8 +13,15 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 
 * [Posicionament i ancoratge](#posicionament-i-ancoratge)
     * [Tipus de posicionament](#tipus-de-posicionament)
+        * [static](#static)
+        * [relative](#relative)
+        * [absolute](#absolute)
+        * [fixed](#fixed)
+        * [sticky](#sticky)
     * [Ancoratge dels elements](#ancoratge-dels-elements)
-    * [Model de Capes (stacking context)](#model-de-capes-stacking-context)
+    * [Model de Capes](#model-de-capes)
+        * [La propietat *z-index*](#la-propietat-z-index)
+        * [El *stacking context*](#el-stacking-context)
     * [Model de Caixa (Box Model)](#model-de-caixa-box-model)
         * [Propietat `box-sizing`](#propietat-box-sizing)
             * [Establir el box-sizing de forma global (WIP)](#establir-el-box-sizing-de-forma-global-wip)
@@ -41,20 +48,155 @@ Posicionament i ancoratge
 Tipus de posicionament
 ----------------------
 
-    (Propietat `position`)
+La propietat `position` estableix la forma en que es posicionen els elements
+dins el document i pot agafar els següents valors:
+
+
+### static
+
+  * És el valor per defecte.
+
+  * L'element es posiciona d'acord al flux normal del document.
+
+  * Les propietats *top*, *right*, *bottom*, *left* i *z-index* no ténen efecte
+    amb aquest tipus de posicionament.
+
+  * Es diu que els elements amb *posítion = static* **no estan posicionats**.
+
+### relative
+
+  * Com amb *static*, l'element es posiciona d'acord al flux normal del
+    document.
+
+  * Les propietats *top*, *right*, *bottom* i *left* el desplacen de la seva
+    posició natural **però les posicions dels altres elements no es veuen
+    afectats**.
+
+  * Els valors de *z-index* distints de "auto" crearàn un nou "context
+    d'amuntegament" o *stacking context*.
+
+### absolute
+
+  * L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).
+
+  * És posicionat, mitjançant les propietats *top*, *right*, *bottom* i *left*,
+    en relació al seu ancestre posicionat més proper o, si no n'hi ha cap,
+    relatiu al contenidor inicial.
+
+  * Els valors de *z-index* distints de "auto" crearàn un nou "context
+    d'amuntegament" o *stacking context*.
+
+
+### fixed
+
+  * L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).
+
+  * És posicionat, mitjançant les propietats *top*, *right*, *bottom* i *left*,
+    en relació al contenidor inicial.
+
+  * Sempre crea un nou *stacking context*.
+
+  * En documents impresos (@media print) apareix a totes les pàgines i sempre a
+    la mateixa posició.
+
+
+### sticky
+
+
+  * De recent introducció (pot no funcionar en alguns navegadors).
+
+  * L'element es posiciona d'acord al flux normal del document. Però si el
+    document (o un subcontenidor) es desplaça de manera que l'element anés a
+    quedar ocult, es "desenganxa" quedant-se fitxat a un *offset* determinat.
+
+  * No funciona en elements en que la propietat *overflow* valgui *hidden* o *auto*.
+
 
 
 Ancoratge dels elements
 -----------------------
 
-    (Propietat `display`)
+La propietat "display" especifica el comportament de l'element en relació als
+elements que l'envolten i als que conté.
+
+El seu valor per defecte depèn del tipus d'element: Per exemple, per a un `div`
+és "block" mentre que per un `span` és "inline".
+
+De fet aquests dos son els seus possibles valors més elementals:
+
+  * `inline`: L'element s'integra "en línia" amb els altres elements. Les seves
+    dimensions s'adapten al contingut (els atributs *width* i *height* no ténen
+    cap efecte).
+  * `block`: Mostra l'element com un bloc que comença en una nova línia i agafa
+    tota l'amplada disponible i l'alçada necessària per allotjar el contingut a
+    no ser que les fixem amb les propietats *width* i *height*,
+    respectivament..
+
+Addicionalment tenim un tercer valor que és una combinació dels dos anteriors:
+
+  * `inline-block`: Que flueix igual que els elements *inline* però permet
+    fixar les seves dimensions (comportant-se, de portes endins, com un element
+    de bloc).
+
+N'hi ha bastantes més, com *flex* i *grid* de les que parlarem més endavant.
+Però aquestes son les més essencials i, juntament amb *flex* i *grid*, les
+úniques que manejarem en la majoria dels casos.
 
 
-Model de Capes (stacking context)
----------------------------------
+
+Model de Capes
+--------------
+
+Quan activam el posicionament (*position* distint de *static*), els elements es
+poden moure (*relative*) del lloc que ténen assignat o fins i tot deixar
+d'ocupar cap espaï pel que fa al flux normal del contingut (*absolute*,
+*fixed*...).
+
+Això fa que puguin sol·lapar-se amb altres.
+
+Per decidir quin element es dibuixa a sobre de quin altre tenim una regla molt
+senzilla: **El que apareix més avall al DOM es pinta davant**. És a dir: van
+"trepitjant-se" a mida que es renderitzen.
+
+### La propietat *z-index*
+
+De vegades això no és suficient i necessitam poder definir quins elements
+cobriran quins...
+
+Per això tenim la propietat *z-index*:
+
+  * El valor per defecte de la propietat *z-index* és "auto", que significa que
+    els elements seguiran la regla anterior.
+
+  * Però *z-index* també pot agafar un valor numèric enter.
+
+  * Els elements amb z-index positíu o zero es situaran per sobre dels que
+    ténen *z-index* "auto" i més al front com més elevat sigui el seu valor.
+
+  * Els elements amb z-index negatiu es situaran per davall fins i tot dels
+    elements no posicionats i més avall com menor sigui el seu valor.
+
+
+### El *stacking context*
+
+Sempre que assignam un valor distint de "auto" a la propietat "z-index" (o el
+tipus de posicionament és un dels que ja hem indicat que el creen sempre), es
+crearà un nou *Stacking Context* en relació a l'element.
+
+Això vol dir que tots els elements que contengui podràn intercalar-se entre
+ells segons les regles anteriors, però **cap element exterior podrà
+intercalar-se entre dos d'ells**.
+
+Per aquest motiu no és recomanable abusar de la propietat *z-index*.
+
+
 
 Model de Caixa (Box Model)
 --------------------------
+
+![](__FIGURES_PATH_RIGHT__/boxmodel.gif)
+
+
 
 Font: [https://www.w3schools.com/css/css_boxmodel.asp]()
 

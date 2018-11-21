@@ -18,6 +18,7 @@ function utfIcons() {
       | perl -pe 's/:point-right:/☞/g' \
       | perl -pe 's/:pushpin:/📌/g' \
       | perl -pe 's/:bomb:/💣/g' \
+      | perl -pe 's/:construction:/🚧/g' \
   ;
 };
 

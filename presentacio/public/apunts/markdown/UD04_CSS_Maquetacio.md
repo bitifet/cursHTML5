@@ -42,14 +42,16 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [grid-template-areas](#grid-template-areas)
             * [gap / grid-gap](#gap-grid-gap)
         * [Graelles Dinàmiques](#graelles-dinàmiques)
-            * [Exercici:](#exercici-1)
+    * [Exercici 5](#exercici-5)
     * [Disseny Responsiu](#disseny-responsiu)
         * [Disseny Adaptatiu (Elasticitat)](#disseny-adaptatiu-elasticitat)
+            * [Tamany de lletra elàstic.](#tamany-de-lletra-elàstic)
         * [Media Queries](#media-queries)
         * [Mobile-First Approach](#mobile-first-approach)
     * [Referències:](#referències)
 * [Javascript - Programació Asíncrona](#javascript-programació-asíncrona)
     * [Callbacks](#callbacks)
+    * [Events](#events)
     * [Promeses](#promeses)
     * [Async/Await](#asyncawait)
 
@@ -879,7 +881,10 @@ distinta per a cada cas, com il·lustren els exemples de la figura que mostren
 múltiples configuracions segons un ample de pantalla determinat.
 
 
-#### Exercici:
+-----------------------------------------------------------------------------------------
+
+Exercici 5
+----------
 
 1. Obteniu una sèrie d'imatges i preparau un document html com el següent per a
    mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos
@@ -966,9 +971,7 @@ múltiples configuracions segons un ample de pantalla determinat.
 
 5. Experimentau que passa quan en treieu alguna d'elles.
 
-
-
-
+-----------------------------------------------------------------------------------------
 
 
 
@@ -976,11 +979,131 @@ múltiples configuracions segons un ample de pantalla determinat.
 Disseny Responsiu
 -----------------
 
+Entenem per "dissenys responsius" (*Responsive Designs*) aquells que d'alguna
+manera s'adapten a les característiques del dispositiu on son visualitzats
+sense perdre gens o gairebé gens de funcionalitat.
+
+Per a aconseguir això podem fer servir dues estratègies:
+
+  * El *disseny adaptatiu*.
+
+  * Els *Media Queries*.
+
+
 ### Disseny Adaptatiu (Elasticitat)
+
+Per disseny adaptatiu entenem aquell que s'adapta al tamany del *viewport* de
+forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra,
+el contingut s'escala de forma gradual (i "apropiada").
+
+Aquí juguen un paper molt important les unitats relatives. Especialment les
+noves relatives a l'amplada i/o altura del *viewport*: *vw*, *vh*, *vmin* i
+*vmax* que ens permeten dividir de forma exacta l'espaï disponible amb unes
+proporcions constants.
+
+Abans de disposar d'aquestes unitats això es feia típicament fent servir
+percentatges (%) però, a no ser mitjançant Javascript, resultava pràcticament
+impossible evitar que ens apareguessin barres de desplaçament indesitjades.
+
+
+#### Tamany de lletra elàstic.
+
+Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció
+directa al tamany del viewport ja que per a tamanys petits pot resultar
+illegible mentre que amb pantalles molt grans podríem estar desaprofitant
+l'espaï.
+
+Per això el més convenient és establir un tamany de lletra mínim amb unitats
+absolutes (px, mm, etc...) **més un increment relatiu 
+l tamany de la pantalla**.
+
+**Exemple:**
+
+```
+:root {
+  font-size: 14px;
+  font-size: calc(2px + 2vw);
+  font-size: calc(2px + 2vmin);
+}
+```
+
+Aquí fem el següent:
+
+  * Definim un tamany de lletra base de 14px per a aquells navegadors que no
+    suportin unitats relatives al *viewport* (i pot ser tampoc la funció calc()).
+
+  * Per a aquells navegadors que ho suportin, establim un tamany de lletra
+    proporcional a l'amplada *viewport* al que afegim un *offset* de 2px.
+
+  * Per a aquells navegadors que ho suportin (*vmin* i *vmax* estan
+    lleugerament menys suportats que *vw* i *vh*), establim un tamany de lletra
+    proporcional a la menor de les dimensions del *viewport* i li afegim el
+    mateix *offset*.
+
+Com que hem aquest tamany de lletra a l'element arrel (:root), ja no ens caldrà
+més repetir aquests càlculs donat que sempre que vulguem establir un tamany de
+lletra diferent, ho podrem fer relatiu a aquest (*rem*) o al que estigués
+prèviament establert per herència (*em*).
+
+
+>
+:pushpin: El fragment de CSS anterior, tret de la primera declaració
+(`font-size: 14px;`) que no la vaig considerar necessària és el tamany de
+lletra base de les diapositives que heu estat veient tot el curs.
+>
+Per aquest motiu l'*offset* és tan petit: Ens interessava que la informació que
+es mostràs en pantalla fos sempre la mateixa **independentment de la resolució
+d'aquesta**.
+>
+Pel cas d'una pàgina o aplicació web normal, normalment faríem servir un
+*offset* major i un increment més moderat.
+>
+
+
 
 ### Media Queries
 
+Quan l'elasticitat no és suficient, els *media queries* ens permeten establir
+regles CSS espacífiques per als casos en que la pantalla és molt gran o molt
+petita.
+
+L'avantatge d'aquest procediment és que podem realitzar qualsevol canvi que
+considerem oportú al CSS. Fins i tot reestructurar completament el layout.
+
+>
+:pushpin: Un exemple típic és convertir una barra de navegació lateral en el
+típic menú "burguer" (☰) que habitualment veiem a les aplicacions mòbils.
+>
+
+L'inconvenient però és que els canvis no son progressius, sinó que el canvi es
+produeix de forma abrupta quan les dimensions del viewport comencen a o deixen
+de complir una determinada condició.
+
+
+**Exemple de *Media Query*:**
+
+```
+@media (max-width: 600px) and (orientation: portrait) {
+  .facet_sidebar {
+    display: none;
+  }
+}
+```
+
+A les referències teniu un enllaç a la documentació de la MDN sobre *Media
+Queries* on trobareu ben detallades totes les condicions que podeu fer servir.
+
+
 ### Mobile-First Approach
+
+Es coneix com a *Mobile-First Approach* a una **molt recomanable** forma
+d'abordar els dissenys consistents en, tal com el seu nom indica, dissenyar
+**primer** per al mòbil.
+
+La idea bàsica és que si fem un disseny que funcioni bé a un dispositiu mòbil
+(petit, sense ratolí...) ens serà molt més senzill adaptar aquest a dispositius
+més grans (les adaptacions seran normalment per a aprofitar millor el
+dispositiu: no perquè perquè res no hi funcioni), que no a l'inrevés.
 
 
 
@@ -988,18 +1111,37 @@ Referències:
 ------------
 
   * Maquetació amb Floats:
-    - [https://css-tricks.com/almanac/properties/f/float/#article-header-id-3]().
+    - [https://css-tricks.com/almanac/properties/f/float/#article-header-id-3]()
   * Flexbox:
-    - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/]().
+    - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/]()
   * Grid:
-    - [https://css-tricks.com/snippets/css/complete-guide-grid/]().
+    - [https://css-tricks.com/snippets/css/complete-guide-grid/]()
+  * Media Queries:
+    - [https://developer.mozilla.org/es/docs/CSS/Media_queries]()
 
 
 Javascript - Programació Asíncrona
 ==================================
 
+>
+**:construction: Apartat pendent de redactar:**
+>
+Disculpau les molèsties, però he preferit fer-vos arribar una versió preliminar
+per tal que la tingueu abans.
+>
+Així, a més de poder-li donar un cop d'ull abans els que vulgueu. Si la portau
+a classe la sessió anterior pot ser puguem avançar una mica.
+>
+Aquesta és pot ser la Unitat Didàctica més densa de totes i ens caurà en un dia
+en que disposam de mitja hora menys...
+>
+
+
 Callbacks
 ---------
+
+Events
+------
 
 Promeses
 --------

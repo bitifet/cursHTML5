@@ -59,14 +59,15 @@
 <li><a href="#grid-template-areas">grid-template-areas</a></li>
 <li><a href="#gap-grid-gap">gap / grid-gap</a></li>
 </ul></li>
-<li><a href="#graelles-dinàmiques">Graelles Dinàmiques</a>
-<ul>
-<li><a href="#exercici-1">Exercici:</a></li>
+<li><a href="#graelles-dinàmiques">Graelles Dinàmiques</a></li>
 </ul></li>
-</ul></li>
+<li><a href="#exercici-5">Exercici 5</a></li>
 <li><a href="#disseny-responsiu">Disseny Responsiu</a>
 <ul>
-<li><a href="#disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</a></li>
+<li><a href="#disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</a>
+<ul>
+<li><a href="#tamany-de-lletra-elàstic">Tamany de lletra elàstic.</a></li>
+</ul></li>
 <li><a href="#media-queries">Media Queries</a></li>
 <li><a href="#mobile-first-approach">Mobile-First Approach</a></li>
 </ul></li>
@@ -75,6 +76,7 @@
 <li><a href="#javascript-programació-asíncrona">Javascript - Programació Asíncrona</a>
 <ul>
 <li><a href="#callbacks">Callbacks</a></li>
+<li><a href="#events">Events</a></li>
 <li><a href="#promeses">Promeses</a></li>
 <li><a href="#asyncawait">Async/Await</a></li>
 </ul></li>
@@ -517,7 +519,8 @@
 <p>A més, volem que les fotografies no siguin ni massa grosses ni massa petites i que el conjunt s'ajusti a l'amplada disponible.</p>
 <p>Com veurem després, podem especificar regles css que només s'apliquin segons si el tamany de la pantalla compleix o no determinades condicions (com ara estar dins un determinat rang).</p>
 <p>El problema però és que, per fer-ho així, hauríem de dissenyar una distribució distinta per a cada cas, com il·lustren els exemples de la figura que mostren múltiples configuracions segons un ample de pantalla determinat.</p>
-<h4 id="exercici-1">Exercici:</h4>
+<hr />
+<h2 id="exercici-5">Exercici 5</h2>
 <ol style="list-style-type: decimal">
 <li>Obteniu una sèrie d'imatges i preparau un document html com el següent per a mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos agradi:</li>
 </ol>
@@ -590,27 +593,84 @@
 <li><p>Identificau entre tots quines de les propietats que aparèixen al css anterior encara no coneixieu. Investigau a la xarxa quina és la seva finalitat. Podeu fer-ho en grups i repartir-vos les propietats.</p></li>
 <li><p>Experimentau que passa quan en treieu alguna d'elles.</p></li>
 </ol>
+<hr />
 <h2 id="disseny-responsiu">Disseny Responsiu</h2>
+<p>Entenem per &quot;dissenys responsius&quot; (<em>Responsive Designs</em>) aquells que d'alguna manera s'adapten a les característiques del dispositiu on son visualitzats sense perdre gens o gairebé gens de funcionalitat.</p>
+<p>Per a aconseguir això podem fer servir dues estratègies:</p>
+<ul>
+<li><p>El <em>disseny adaptatiu</em>.</p></li>
+<li><p>Els <em>Media Queries</em>.</p></li>
+</ul>
 <h3 id="disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</h3>
+<p>Per disseny adaptatiu entenem aquell que s'adapta al tamany del <em>viewport</em> de forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra, el contingut s'escala de forma gradual (i &quot;apropiada&quot;).</p>
+<p>Aquí juguen un paper molt important les unitats relatives. Especialment les noves relatives a l'amplada i/o altura del <em>viewport</em>: <em>vw</em>, <em>vh</em>, <em>vmin</em> i <em>vmax</em> que ens permeten dividir de forma exacta l'espaï disponible amb unes proporcions constants.</p>
+<p>Abans de disposar d'aquestes unitats això es feia típicament fent servir percentatges (%) però, a no ser mitjançant Javascript, resultava pràcticament impossible evitar que ens apareguessin barres de desplaçament indesitjades.</p>
+<h4 id="tamany-de-lletra-elàstic.">Tamany de lletra elàstic.</h4>
+<p>Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció directa al tamany del viewport ja que per a tamanys petits pot resultar illegible mentre que amb pantalles molt grans podríem estar desaprofitant l'espaï.</p>
+<p>Per això el més convenient és establir un tamany de lletra mínim amb unitats absolutes (px, mm, etc...) <strong>més un increment relatiu l tamany de la pantalla</strong>.</p>
+<p><strong>Exemple:</strong></p>
+<pre><code>:root {
+  font-size: 14px;
+  font-size: calc(2px + 2vw);
+  font-size: calc(2px + 2vmin);
+}</code></pre>
+<p>Aquí fem el següent:</p>
+<ul>
+<li><p>Definim un tamany de lletra base de 14px per a aquells navegadors que no suportin unitats relatives al <em>viewport</em> (i pot ser tampoc la funció calc()).</p></li>
+<li><p>Per a aquells navegadors que ho suportin, establim un tamany de lletra proporcional a l'amplada <em>viewport</em> al que afegim un <em>offset</em> de 2px.</p></li>
+<li><p>Per a aquells navegadors que ho suportin (<em>vmin</em> i <em>vmax</em> estan lleugerament menys suportats que <em>vw</em> i <em>vh</em>), establim un tamany de lletra proporcional a la menor de les dimensions del <em>viewport</em> i li afegim el mateix <em>offset</em>.</p></li>
+</ul>
+<p>Com que hem aquest tamany de lletra a l'element arrel (:root), ja no ens caldrà més repetir aquests càlculs donat que sempre que vulguem establir un tamany de lletra diferent, ho podrem fer relatiu a aquest (<em>rem</em>) o al que estigués prèviament establert per herència (<em>em</em>).</p>
+<blockquote>
+<p>📌 El fragment de CSS anterior, tret de la primera declaració (<code>font-size: 14px;</code>) que no la vaig considerar necessària és el tamany de lletra base de les diapositives que heu estat veient tot el curs.</p>
+<p>Per aquest motiu l'<em>offset</em> és tan petit: Ens interessava que la informació que es mostràs en pantalla fos sempre la mateixa <strong>independentment de la resolució d'aquesta</strong>.</p>
+<p>Pel cas d'una pàgina o aplicació web normal, normalment faríem servir un <em>offset</em> major i un increment més moderat.</p>
+</blockquote>
 <h3 id="media-queries">Media Queries</h3>
+<p>Quan l'elasticitat no és suficient, els <em>media queries</em> ens permeten establir regles CSS espacífiques per als casos en que la pantalla és molt gran o molt petita.</p>
+<p>L'avantatge d'aquest procediment és que podem realitzar qualsevol canvi que considerem oportú al CSS. Fins i tot reestructurar completament el layout.</p>
+<blockquote>
+<p>📌 Un exemple típic és convertir una barra de navegació lateral en el típic menú &quot;burguer&quot; (☰) que habitualment veiem a les aplicacions mòbils.</p>
+</blockquote>
+<p>L'inconvenient però és que els canvis no son progressius, sinó que el canvi es produeix de forma abrupta quan les dimensions del viewport comencen a o deixen de complir una determinada condició.</p>
+<p><strong>Exemple de <em>Media Query</em>:</strong></p>
+<pre><code>@media (max-width: 600px) and (orientation: portrait) {
+  .facet_sidebar {
+    display: none;
+  }
+}</code></pre>
+<p>A les referències teniu un enllaç a la documentació de la MDN sobre <em>Media Queries</em> on trobareu ben detallades totes les condicions que podeu fer servir.</p>
 <h3 id="mobile-first-approach">Mobile-First Approach</h3>
+<p>Es coneix com a <em>Mobile-First Approach</em> a una <strong>molt recomanable</strong> forma d'abordar els dissenys consistents en, tal com el seu nom indica, dissenyar <strong>primer</strong> per al mòbil.</p>
+<p>La idea bàsica és que si fem un disseny que funcioni bé a un dispositiu mòbil (petit, sense ratolí...) ens serà molt més senzill adaptar aquest a dispositius més grans (les adaptacions seran normalment per a aprofitar millor el dispositiu: no perquè perquè res no hi funcioni), que no a l'inrevés.</p>
 <h2 id="referències">Referències:</h2>
 <ul>
 <li>Maquetació amb Floats:
 <ul>
-<li><a href="">https://css-tricks.com/almanac/properties/f/float/#article-header-id-3</a>.</li>
+<li><a href="">https://css-tricks.com/almanac/properties/f/float/#article-header-id-3</a></li>
 </ul></li>
 <li>Flexbox:
 <ul>
-<li><a href="">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>.</li>
+<li><a href="">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></li>
 </ul></li>
 <li>Grid:
 <ul>
-<li><a href="">https://css-tricks.com/snippets/css/complete-guide-grid/</a>.</li>
+<li><a href="">https://css-tricks.com/snippets/css/complete-guide-grid/</a></li>
+</ul></li>
+<li>Media Queries:
+<ul>
+<li><a href="">https://developer.mozilla.org/es/docs/CSS/Media_queries</a></li>
 </ul></li>
 </ul>
 <h1 id="javascript---programació-asíncrona">Javascript - Programació Asíncrona</h1>
+<blockquote>
+<p><strong>🚧 Apartat pendent de redactar:</strong></p>
+<p>Disculpau les molèsties, però he preferit fer-vos arribar una versió preliminar per tal que la tingueu abans.</p>
+<p>Així, a més de poder-li donar un cop d'ull abans els que vulgueu. Si la portau a classe la sessió anterior pot ser puguem avançar una mica.</p>
+<p>Aquesta és pot ser la Unitat Didàctica més densa de totes i ens caurà en un dia en que disposam de mitja hora menys...</p>
+</blockquote>
 <h2 id="callbacks">Callbacks</h2>
+<h2 id="events">Events</h2>
 <h2 id="promeses">Promeses</h2>
 <h2 id="asyncawait">Async/Await</h2>
 <footer>

@@ -47,6 +47,8 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 Posicionament i ancoratge
 =========================
 
+[Posicionament](/setslide/posicionament)
+
 
 Tipus de posicionament
 ----------------------
@@ -56,6 +58,8 @@ dins el document i pot agafar els següents valors:
 
 
 ### static
+
+[Posicionament Estàtic](/setslide/pos_static)
 
   * És el valor per defecte.
 
@@ -67,6 +71,8 @@ dins el document i pot agafar els següents valors:
   * Es diu que els elements amb *posítion = static* **no estan posicionats**.
 
 ### relative
+
+[Posicionament Relatiu](/setslide/pos_relative)
 
   * Com amb *static*, l'element es posiciona d'acord al flux normal del
     document.
@@ -80,6 +86,8 @@ dins el document i pot agafar els següents valors:
 
 ### absolute
 
+[Posicionament Absolut](/setslide/pos_absolute)
+
   * L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).
 
   * És posicionat, mitjançant les propietats *top*, *right*, *bottom* i *left*,
@@ -91,6 +99,8 @@ dins el document i pot agafar els següents valors:
 
 
 ### fixed
+
+[Posicionament Fix](/setslide/pos_fixed)
 
   * L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).
 
@@ -105,6 +115,7 @@ dins el document i pot agafar els següents valors:
 
 ### sticky
 
+[Posicionament Sticky](/setslide/pos_sticky)
 
   * De recent introducció (pot no funcionar en alguns navegadors).
 
@@ -119,6 +130,8 @@ dins el document i pot agafar els següents valors:
 Ancoratge dels elements
 -----------------------
 
+[Display](/setslide/display)
+
 La propietat "display" especifica el comportament de l'element en relació als
 elements que l'envolten i als que conté.
 
@@ -126,6 +139,8 @@ El seu valor per defecte depèn del tipus d'element: Per exemple, per a un `div`
 és "block" mentre que per un `span` és "inline".
 
 De fet aquests dos son els seus possibles valors més elementals:
+
+[Valors de Disyplay](/setslide/display_values)
 
   * `inline`: L'element s'integra "en línia" amb els altres elements. Les seves
     dimensions s'adapten al contingut (els atributs *width* i *height* no ténen
@@ -136,6 +151,8 @@ De fet aquests dos son els seus possibles valors més elementals:
     respectivament..
 
 Addicionalment tenim un tercer valor que és una combinació dels dos anteriors:
+
+[Més valors de Display](/setslide/more_display_values)
 
   * `inline-block`: Que flueix igual que els elements *inline* però permet
     fixar les seves dimensions (comportant-se, de portes endins, com un element
@@ -150,6 +167,8 @@ Però aquestes son les més essencials i, juntament amb *flex* i *grid*, les
 Model de Capes
 --------------
 
+[Model de Capes](/setslide/layer_model)
+
 Quan activam el posicionament (*position* distint de *static*), els elements es
 poden moure (*relative*) del lloc que ténen assignat o fins i tot deixar
 d'ocupar cap espaï pel que fa al flux normal del contingut (*absolute*,
@@ -162,6 +181,8 @@ senzilla: **El que apareix més avall al DOM es pinta davant**. És a dir: van
 "trepitjant-se" a mida que es renderitzen.
 
 ### La propietat *z-index*
+
+[Z-Index](/setslide/z-index)
 
 De vegades això no és suficient i necessitam poder definir quins elements
 cobriran quins...
@@ -182,6 +203,8 @@ Per això tenim la propietat *z-index*:
 
 ### El *stacking context*
 
+[Stacking Context](/setslide/stacking_context)
+
 Sempre que assignam un valor distint de "auto" a la propietat "z-index" (o el
 tipus de posicionament és un dels que ja hem indicat que el creen sempre), es
 crearà un nou *Stacking Context* en relació a l'element.
@@ -197,6 +220,8 @@ Per aquest motiu no és recomanable abusar de la propietat *z-index*.
 Model de Caixa (Box Model)
 --------------------------
 
+[Model de Caixa](/setslide/box_model)
+
 Tots els elements HTML es poden considerar "caixes".
 
 ![](__FIGURES_PATH_RIGHT__/boxmodel.gif)
@@ -208,6 +233,8 @@ propi contingut, el "padding" (farcit), el "border" (vorera) i el "margin"
 Les propietats *padding*, *border* i *margin* ens permeten controlar les
 dimensions d'aquests.
 
+[Propietats del Model de Caixa](/setslide/box_model_properties)
+
 Encara que el nom de les propietats sigui en singular, consideram que tenim 4
 *paddings*, 4 *borders* i 4 *margins*. De fet, aquestes propietats anteriors
 son *shorthands* de *padding-top*, *padding-right*, *padding-bottom* i
@@ -215,6 +242,8 @@ son *shorthands* de *padding-top*, *padding-right*, *padding-bottom* i
 
 
 ### Voreres
+
+[Voreres](/setslide/box_model_borders)
 
 La propietat *border*, en canvi, és el shorthand de:
 
@@ -225,6 +254,8 @@ La propietat *border*, en canvi, és el shorthand de:
 I només permet especificar tots a l'hora (si volem valors distints segons el
 costat haurem de fer servir *border-top*, *border-right*, etcètera... o
 dirèctament *border-top-width*, *border-top-style*, *border-top-color*...
+
+[Estil de Voreres](/setslide/box_model_border-style)
 
 *border-style* pot agafar entre d'altres els següents valors:
 
@@ -240,6 +271,8 @@ dirèctament *border-top-width*, *border-top-style*, *border-top-color*...
 
 ### Propietat `border-radius`
 
+[Cantons Arrodonits](/setslide/box_model_border-radius)
+
 La propietat *border-radius* ens permet arrodonir els cantons de la caixa.
 
 Com que "border-radius-top" seria ambigu, en aquest cas, **només tenim la
@@ -253,6 +286,8 @@ de les 12).
 
 
 ### Propietat `box-sizing`
+
+[Box-Sizing](/setslide/box_model_box-sizing)
 
 **La propietat *box-sizing* estableix què mesuren les propietats `height`,
 `width`, respectivament** com també les seves derivades (`min-height`,
@@ -286,6 +321,8 @@ en tenim.
 #### Establir el box-sizing de forma global (WIP)
 
 
+[Box-Sizing Global](/setslide/box_model_box-sizing_globally)
+
 Si ho preferim, podem establir el `box-sizing` a `border-box` de forma global
 amb una senzilla regla:
 
@@ -309,6 +346,8 @@ ja fan servir `border-box` i/o fixen explícitament aquesta propietat per al seu
 css.
 >
 
+[Més Box-Sizing Global](/setslide/box_model_box-sizing_globally_refined)
+
 En qualsevol cas, el següent exemple ens mostra una forma més refinada de fer-ho:
 
 ```
@@ -330,6 +369,8 @@ hem definit sobre el selector `:root` ens garanteix que la resta heredarà el
 valor `border-box`.
 
 
+
+[Més CSS](/setslide/moreCSS)
 
 Marges
 ------

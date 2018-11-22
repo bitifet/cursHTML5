@@ -58,9 +58,11 @@
 <li>Javascript - Components CSS</li>
 </ul>
 <h1 id="posicionament-i-ancoratge">Posicionament i ancoratge</h1>
+<p><a href="/setslide/posicionament">Posicionament</a></p>
 <h2 id="tipus-de-posicionament">Tipus de posicionament</h2>
 <p>La propietat <code>position</code> estableix la forma en que es posicionen els elements dins el document i pot agafar els següents valors:</p>
 <h3 id="static">static</h3>
+<p><a href="/setslide/pos_static">Posicionament Estàtic</a></p>
 <ul>
 <li><p>És el valor per defecte.</p></li>
 <li><p>L'element es posiciona d'acord al flux normal del document.</p></li>
@@ -68,18 +70,21 @@
 <li><p>Es diu que els elements amb <em>posítion = static</em> <strong>no estan posicionats</strong>.</p></li>
 </ul>
 <h3 id="relative">relative</h3>
+<p><a href="/setslide/pos_relative">Posicionament Relatiu</a></p>
 <ul>
 <li><p>Com amb <em>static</em>, l'element es posiciona d'acord al flux normal del document.</p></li>
 <li><p>Les propietats <em>top</em>, <em>right</em>, <em>bottom</em> i <em>left</em> el desplacen de la seva posició natural <strong>però les posicions dels altres elements no es veuen afectats</strong>.</p></li>
 <li><p>Els valors de <em>z-index</em> distints de &quot;auto&quot; crearàn un nou &quot;context d'amuntegament&quot; o <em>stacking context</em>.</p></li>
 </ul>
 <h3 id="absolute">absolute</h3>
+<p><a href="/setslide/pos_absolute">Posicionament Absolut</a></p>
 <ul>
 <li><p>L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).</p></li>
 <li><p>És posicionat, mitjançant les propietats <em>top</em>, <em>right</em>, <em>bottom</em> i <em>left</em>, en relació al seu ancestre posicionat més proper o, si no n'hi ha cap, relatiu al contenidor inicial.</p></li>
 <li><p>Els valors de <em>z-index</em> distints de &quot;auto&quot; crearàn un nou &quot;context d'amuntegament&quot; o <em>stacking context</em>.</p></li>
 </ul>
 <h3 id="fixed">fixed</h3>
+<p><a href="/setslide/pos_fixed">Posicionament Fix</a></p>
 <ul>
 <li><p>L'element s'elimina del flux normal del document (ja no es crea un espaï per a ell).</p></li>
 <li><p>És posicionat, mitjançant les propietats <em>top</em>, <em>right</em>, <em>bottom</em> i <em>left</em>, en relació al contenidor inicial.</p></li>
@@ -87,29 +92,35 @@
 <li><p>En documents impresos (<span class="citation">@media</span> print) apareix a totes les pàgines i sempre a la mateixa posició.</p></li>
 </ul>
 <h3 id="sticky">sticky</h3>
+<p><a href="/setslide/pos_sticky">Posicionament Sticky</a></p>
 <ul>
 <li><p>De recent introducció (pot no funcionar en alguns navegadors).</p></li>
 <li><p>L'element es posiciona d'acord al flux normal del document. Però si el document (o un subcontenidor) es desplaça de manera que l'element anés a quedar ocult, es &quot;desenganxa&quot; quedant-se fitxat a un <em>offset</em> determinat.</p></li>
 <li><p>No funciona en elements en que la propietat <em>overflow</em> valgui <em>hidden</em> o <em>auto</em>.</p></li>
 </ul>
 <h2 id="ancoratge-dels-elements">Ancoratge dels elements</h2>
+<p><a href="/setslide/display">Display</a></p>
 <p>La propietat &quot;display&quot; especifica el comportament de l'element en relació als elements que l'envolten i als que conté.</p>
 <p>El seu valor per defecte depèn del tipus d'element: Per exemple, per a un <code>div</code> és &quot;block&quot; mentre que per un <code>span</code> és &quot;inline&quot;.</p>
 <p>De fet aquests dos son els seus possibles valors més elementals:</p>
+<p><a href="/setslide/display_values">Valors de Disyplay</a></p>
 <ul>
 <li><code>inline</code>: L'element s'integra &quot;en línia&quot; amb els altres elements. Les seves dimensions s'adapten al contingut (els atributs <em>width</em> i <em>height</em> no ténen cap efecte).</li>
 <li><code>block</code>: Mostra l'element com un bloc que comença en una nova línia i agafa tota l'amplada disponible i l'alçada necessària per allotjar el contingut a no ser que les fixem amb les propietats <em>width</em> i <em>height</em>, respectivament..</li>
 </ul>
 <p>Addicionalment tenim un tercer valor que és una combinació dels dos anteriors:</p>
+<p><a href="/setslide/more_display_values">Més valors de Display</a></p>
 <ul>
 <li><code>inline-block</code>: Que flueix igual que els elements <em>inline</em> però permet fixar les seves dimensions (comportant-se, de portes endins, com un element de bloc).</li>
 </ul>
 <p>N'hi ha bastantes més, com <em>flex</em> i <em>grid</em> de les que parlarem més endavant. Però aquestes son les més essencials i, juntament amb <em>flex</em> i <em>grid</em>, les úniques que manejarem en la majoria dels casos.</p>
 <h2 id="model-de-capes">Model de Capes</h2>
+<p><a href="/setslide/layer_model">Model de Capes</a></p>
 <p>Quan activam el posicionament (<em>position</em> distint de <em>static</em>), els elements es poden moure (<em>relative</em>) del lloc que ténen assignat o fins i tot deixar d'ocupar cap espaï pel que fa al flux normal del contingut (<em>absolute</em>, <em>fixed</em>...).</p>
 <p>Això fa que puguin sol·lapar-se amb altres.</p>
 <p>Per decidir quin element es dibuixa a sobre de quin altre tenim una regla molt senzilla: <strong>El que apareix més avall al DOM es pinta davant</strong>. És a dir: van &quot;trepitjant-se&quot; a mida que es renderitzen.</p>
 <h3 id="la-propietat-z-index">La propietat <em>z-index</em></h3>
+<p><a href="/setslide/z-index">Z-Index</a></p>
 <p>De vegades això no és suficient i necessitam poder definir quins elements cobriran quins...</p>
 <p>Per això tenim la propietat <em>z-index</em>:</p>
 <ul>
@@ -119,18 +130,22 @@
 <li><p>Els elements amb z-index negatiu es situaran per davall fins i tot dels elements no posicionats i més avall com menor sigui el seu valor.</p></li>
 </ul>
 <h3 id="el-stacking-context">El <em>stacking context</em></h3>
+<p><a href="/setslide/stacking_context">Stacking Context</a></p>
 <p>Sempre que assignam un valor distint de &quot;auto&quot; a la propietat &quot;z-index&quot; (o el tipus de posicionament és un dels que ja hem indicat que el creen sempre), es crearà un nou <em>Stacking Context</em> en relació a l'element.</p>
 <p>Això vol dir que tots els elements que contengui podràn intercalar-se entre ells segons les regles anteriors, però <strong>cap element exterior podrà intercalar-se entre dos d'ells</strong>.</p>
 <p>Per aquest motiu no és recomanable abusar de la propietat <em>z-index</em>.</p>
 <h2 id="model-de-caixa-box-model">Model de Caixa (Box Model)</h2>
+<p><a href="/setslide/box_model">Model de Caixa</a></p>
 <p>Tots els elements HTML es poden considerar &quot;caixes&quot;.</p>
 <div class="img right">
 <img src="../../images/figures/boxmodel.gif" />
 </div>
 <p>Cadascuna d'aquestes caixes consta (de dins cap a fora) de 4 &quot;sub-caixes&quot;: el propi contingut, el &quot;padding&quot; (farcit), el &quot;border&quot; (vorera) i el &quot;margin&quot; (marge).</p>
 <p>Les propietats <em>padding</em>, <em>border</em> i <em>margin</em> ens permeten controlar les dimensions d'aquests.</p>
+<p><a href="/setslide/box_model_properties">Propietats del Model de Caixa</a></p>
 <p>Encara que el nom de les propietats sigui en singular, consideram que tenim 4 <em>paddings</em>, 4 <em>borders</em> i 4 <em>margins</em>. De fet, aquestes propietats anteriors son <em>shorthands</em> de <em>padding-top</em>, <em>padding-right</em>, <em>padding-bottom</em> i <em>padding-left</em>, i el mateix amb <em>margin-</em>, respectivament.</p>
 <h3 id="voreres">Voreres</h3>
+<p><a href="/setslide/box_model_borders">Voreres</a></p>
 <p>La propietat <em>border</em>, en canvi, és el shorthand de:</p>
 <ul>
 <li><em>border-width</em></li>
@@ -138,6 +153,7 @@
 <li><em>border-color</em></li>
 </ul>
 <p>I només permet especificar tots a l'hora (si volem valors distints segons el costat haurem de fer servir <em>border-top</em>, <em>border-right</em>, etcètera... o dirèctament <em>border-top-width</em>, <em>border-top-style</em>, <em>border-top-color</em>...</p>
+<p><a href="/setslide/box_model_border-style">Estil de Voreres</a></p>
 <p><em>border-style</em> pot agafar entre d'altres els següents valors:</p>
 <ul>
 <li><strong>&quot;none&quot; (per defecte):</strong> No hi ha voreres.</li>
@@ -148,10 +164,12 @@
 <li><strong>hidden:</strong> Invisible (però ocupa l'espaï que li correspòn). Útil per a transicions (per exemple <em>:hover</em>) sense que les coses s'ens moguin de lloc.</li>
 </ul>
 <h3 id="propietat-border-radius">Propietat <code>border-radius</code></h3>
+<p><a href="/setslide/box_model_border-radius">Cantons Arrodonits</a></p>
 <p>La propietat <em>border-radius</em> ens permet arrodonir els cantons de la caixa.</p>
 <p>Com que &quot;border-radius-top&quot; seria ambigu, en aquest cas, <strong>només tenim la propietat &quot;border-radius&quot; exclusivament</strong>.</p>
 <p>Així <em>border-radius</em> ens permet especificar tots els radis a l'hora, dos a dos, etc... Per saber en quin ordre els hem d'introduïr podem continuar fent servir la regla de seguir el sentit de les agulles del rellotge amb només tombar el nostre &quot;rellotge&quot; 45º cap a l'esquerra (o &quot;partir de les 10 i mitja en comptes de les 12).</p>
 <h3 id="propietat-box-sizing">Propietat <code>box-sizing</code></h3>
+<p><a href="/setslide/box_model_box-sizing">Box-Sizing</a></p>
 <p><strong>La propietat <em>box-sizing</em> estableix què mesuren les propietats <code>height</code>, <code>width</code>, respectivament</strong> com també les seves derivades (<code>min-height</code>, <code>max-height</code>, ...).</p>
 <p>Sense comptar <code>initial</code> (que en aquest cas equivaldria a <code>content-box</code> i <code>inherit</code>, la propietat <code>box-sizing</code> pot agafar dos valors:</p>
 <ul>
@@ -164,6 +182,7 @@
 <p><strong>⚠  Alerta:</strong> Així i tot, encara haurem de tenir en compte els marges, si en tenim.</p>
 </blockquote>
 <h4 id="establir-el-box-sizing-de-forma-global-wip">Establir el box-sizing de forma global (WIP)</h4>
+<p><a href="/setslide/box_model_box-sizing_globally">Box-Sizing Global</a></p>
 <p>Si ho preferim, podem establir el <code>box-sizing</code> a <code>border-box</code> de forma global amb una senzilla regla:</p>
 <pre><code>*,
 ::before,
@@ -174,6 +193,7 @@
 <p>💣 Però si estam treballant en un projecte preexistent, podria passar que tinguéssim codi css anterior que, al estar calculat segons el comportament per defecte, deixas de funcionar corrèctament.</p>
 <p>El mateix ens pot passar si fem servir frameworks css externs que hagin estat dissenyats en base a <code>border-sizing: content-box</code>. Si be molts, com <em>Bootstrap</em> ja fan servir <code>border-box</code> i/o fixen explícitament aquesta propietat per al seu css.</p>
 </blockquote>
+<p><a href="/setslide/box_model_box-sizing_globally_refined">Més Box-Sizing Global</a></p>
 <p>En qualsevol cas, el següent exemple ens mostra una forma més refinada de fer-ho:</p>
 <pre><code>:root {
   box-sizing: border-box;
@@ -185,6 +205,7 @@
   box-sizing: inherit;
 }</code></pre>
 <p>Establint <code>box-sizing</code> a <code>inherit</code> obrim la possibilitat de canviar aquesta propietat recursivament de forma selectiva a les parts que ens interessi del DOM (per exemple <code>.oldCss {box-sizing: content-box;}</code>) mentre que la regla que hem definit sobre el selector <code>:root</code> ens garanteix que la resta heredarà el valor <code>border-box</code>.</p>
+<p><a href="/setslide/moreCSS">Més CSS</a></p>
 <h2 id="marges">Marges</h2>
 <h3 id="marges-negatius">Marges negatius</h3>
 <p>Una cosa que no tot-hom sap és que establir marges negatius és vàlid a CSS.</p>

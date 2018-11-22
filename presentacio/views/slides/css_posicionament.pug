@@ -1,0 +1,554 @@
+
+
+.slide.bigfont(data-name="posicionament")
+  div
+
+    h3.step.title Posicionament
+    h4.step Tipus de Posicionament
+
+    div
+
+      p.step.
+        La propietat #[i position] estableix la forma en que es posicionen
+        els elements dins el document.
+
+      div.center.medium
+        div
+          p.step.
+            Pot agafar els següents valors:
+
+          ul
+            li.step "static"
+            li.step "relative"
+            li.step "absolute"
+            li.step "fixed"
+            li.step "sticky" (nou)
+
+
+.slide.bigfont(data-name="pos_static")
+  div
+
+    h3 Posicionament Estàtic
+    h4.step (position = static)
+
+    div.bigfont
+
+      ul
+        li.step.
+          És el valor per defecte.
+
+        li.step.
+          L'element es posiciona d'acord al flux normal del document.
+
+        li.step.
+          Les propietats #[i top], #[i right], #[i bottom], #[i left] i 
+          #[i z-index] no ténen efecte amb aquest tipus de posicionament.
+
+        li.step.
+          Es diu que els elements amb #[code.code posítion = static]
+          #[b no estan posicionats].
+
+
+.slide.bigfont(data-name="pos_relative")
+  div
+
+    h3 Posicionament Relatiu
+    h4.step (position = relative)
+
+    div.bigfont
+
+      ul
+        li.step.
+         Com amb #[i static], l'element es posiciona d'acord al flux normal del
+         document.
+        li.step.
+         Les propietats #[i top], #[i right], #[i bottom] i #[i left] el
+         desplacen de la seva posició natural
+         #[b però les posicions dels altres elements no es veuen afectats].
+        li.step.
+          Els valors de #[i z-index] distints de "auto" crearàn un nou "context
+         d'amuntegament" o #[i Stacking Context].
+
+.slide.bigfont(data-name="pos_absolute")
+  div
+
+    h3 Posicionament Absolut
+    h4.step (position = absolute)
+
+    div.bigfont
+
+      ul
+        li.step.
+          L'element s'elimina del flux normal del document (ja no es crea un
+          espaï per a ell).  
+        li.step.
+          És posicionat, mitjançant les propietats #[i top], #[i right],
+          #[i bottom] i #[i left], en relació al seu ancestre posicionat més
+          proper o, si no n'hi ha cap, relatiu al contenidor inicial.
+        li.step.
+          Els valors de #[i z-index] distints de "auto" crearàn un nou "context
+          d'amuntegament" o #[i Stacking Context].
+
+
+.slide.bigfont(data-name="pos_fixed")
+  div
+
+    h3 Posicionament Fix
+    h4.step (position = fixed)
+
+    div.bigfont
+
+      ul
+        li.step.
+          L'element s'elimina del flux normal del document (ja no es crea un
+          espaï per a ell).
+        li.step.
+          És posicionat, mitjançant les propietats #[i top], #[i right],
+          #[i bottom] i #[i left], en relació al contenidor inicial.
+        li.step.
+          Sempre crea un nou #[i Stacking Context].
+        li.step.
+          En documents impresos (@media print) apareix a totes les pàgines i
+          sempre a la mateixa posició.
+
+
+.slide.bigfont(data-name="pos_sticky")
+  div
+
+    h3 Posicionament "Sticky"
+    h4.step (position = sticky)
+
+    div.bigfont
+
+      ul
+        li.step.
+          De recent introducció (pot no funcionar en alguns navegadors).
+
+        li.step.
+          L'element es posiciona d'acord al flux normal del document. Però si
+          el document (o un subcontenidor) es desplaça de manera que l'element
+          anés a quedar ocult, es "desenganxa" quedant-se fitxat a un
+          #[i offset] determinat.
+
+        li.step.
+          No funciona en elements en que la propietat #[i overflow] valgui
+          #[code.code hidden] o #[code.code auto].
+
+
+.slide.bigfont(data-name="display")
+  div
+
+    h3.step.title Ancoratge
+    h3.step La propietat "display"
+
+    div.bigfont
+
+      p.step.
+        La propietat "display" especifica el comportament de l'element en
+        relació als elements que l'envolten i als que conté.
+
+      p.step.
+        El seu valor per defecte depèn del tipus d'element: Per exemple, per a
+        un #[code.code &lt;div&gt;] és "block" mentre que per un
+        #[code.code &lt;span&gt;] és "inline".
+
+
+.slide.bigfont(data-name="display_values")
+  div
+
+    h3 Valors de la propietat "display"
+
+    p.step.
+      Els valors més elementals de la propietat "display" son:
+
+    ul
+      li.step
+        b inline:
+        ul
+          li.step.
+            L'element s'integra "en línia" amb els altres elements.
+          li.step.
+            Les seves dimensions s'adapten al contingut.
+          li.step.
+            Els atributs #[i width] i #[i height] no ténen cap efecte.
+      li.step
+        b block:
+        ul
+          li.step.
+            Mostra l'element com un bloc que comença en una nova línia.
+          li.step.
+            Agafa tota l'amplada disponible i l'alçada necessària per allotjar
+            el contingut.
+          li.step.
+            ...A no ser que les fixem amb les propietats #[i width] i
+            #[i height], respectivament..
+
+.slide.bigfont(data-name="more_display_values")
+  div
+
+    h3 Més Valors de la propietat "display"
+
+    p.step.
+      Addicionalment la propietat "display" té un tercer valor que és una
+      combinació dels dos anteriors:
+
+    div.center
+      ul
+        li.step
+          b inline-block:
+          ul
+            li.step.
+              Flueix igual que els elements #[i inline].
+            li.step.
+              Però permet fixar les seves dimensions.
+            li.step.
+              Comportant-se, de portes endins, com un element de bloc.
+
+    table.step.medium
+      tr
+        td
+          p.
+            📌 La propietat "display" accepta bastants més valors, com #[code.code flex]
+            i #[code.code grid] de les que parlarem més endavant.
+          p.
+            Però aquestes son les més essencials i, juntament amb #[code.code flex] i
+            #[code.code grid], les úniques que manejarem en la majoria dels casos.
+
+
+.slide.bigfont(data-name="layer_model")
+  div
+
+    h3.step.title Model de Capes
+
+    p.step.
+      Quan activam el posicionament (#[i position] distint de #[code.code static]), els
+      elements es poden moure (#[code.code relative]) del lloc que ténen assignat o
+      #[b fins i tot deixar d'ocupar cap espaï] pel que fa al flux normal del
+      contingut (#[code.code absolute], #[code.code fixed]...).
+
+    table.step
+      tr
+        td.
+          💣 Això fa que puguin sol·lapar-se amb altres.
+
+    p.step.
+      Per decidir quin element es dibuixa a sobre de quin altre tenim una regla
+      molt senzilla:
+
+    ul
+      li.step.
+        #[b El que apareix més avall al DOM es pinta davant].
+      li.step.
+        És a dir: van "trepitjant-se" a mida que es renderitzen.
+
+
+.slide.bigfont(data-name="z-index")
+  div
+
+    h3.step.title La propietat #[i z-index]
+
+    p.step.
+      De vegades deixar que els elements es vagin pintant un sobre l'altre
+      segons l'ordre ne que vénen no és suficient.
+      
+    p.step.
+      Per quan necessitam poder definir quins elements cobriran quins, tenim la
+      propietat #[i z-index]:
+
+    div.center.medium
+      ul
+        li.step.
+          El valor per defecte de la propietat #[i z-index] és "auto", que
+          #[b significa que els elements seguiran la regla anterior].
+
+        li.step.
+          Però #[i z-index] també pot agafar un valor numèric enter.
+
+        li.step.
+          Els elements amb #[i z-index] positíu o zero es situaran #[b per sobre]
+          dels que ténen #[i z-index] #[code.code auto] i més al front com més elevat sigui
+          el seu valor.
+
+        li.step.
+          Els elements amb #[i z-index] negatiu es situaran per davall fins i tot dels
+          elements no posicionats i més avall com menor sigui el seu valor.
+
+
+.slide.bigfont(data-name="stacking_context")
+  div
+
+    h3.step.title El #[i Stacking Context]
+
+    p.step.
+      #[b Sempre que assignam un valor distint de "auto"] a la propietat
+      #[i z-index] (o el tipus de posicionament és un dels que ja hem indicat
+      que el creen sempre), #[b es crearà un nou #[i Stacking Context]] en
+      relació a l'element.
+
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Un #[i Stacking Context] definit sobre un element vol dir que
+            tot el conjunt de l'element es dibuixarà junt.
+          p.step.
+            En altres paraules: Els elements continguts a dins del
+            #[i Stacking Context] es poden intercalar entre ells.
+            Però #[b cap element exterior podrà intercalar-se entre dos d'ells].
+          p.frame.white.step.
+            ⚠ Per aquest motiu no és recomanable abusar de la propietat
+            #[i z-index].
+
+
+.slide.bigfont(data-name="box_model")
+  div
+
+    h3.step.title Model de Caixa (Box Model)
+
+    p.step.
+      Tots els elements HTML es poden considerar "caixes".
+
+    img.step.floatRight(src="/images/figures/boxmodel.gif")
+
+    p.step.
+      Cadascuna d'aquestes caixes consta (de dins cap a fora) de 4 "sub-caixes":
+      
+    ul
+      li.step El propi contingut.
+      li.step El "padding" (o farcit).
+      li.step El "border" (o vorera).
+      li.step I el "margin" (els marges).
+
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Les propietats #[i padding], #[i border] i #[i margin] ens
+            permeten controlar les dimensions d'aquests.
+
+.slide.bigfont(data-name="box_model_properties")
+  div
+
+    h3.step.title Model de Caixa - Propietats
+
+    p.step.
+      Encara que el nom de les propietats anteriors sigui en singular,
+      consideram que tenim 4 #[i paddings], 4 #[i borders] i 4 #[i margins].
+
+    p.step.
+      De fet, aquestes propietats anteriors son els #[i shorthands] de:
+
+    div.center.medium
+      ul
+        li.step
+          i padding:
+          ul
+            li.step
+              i padding-top
+            li.step
+              i padding-right
+            li.step
+              i padding-bottom
+            li.step
+              i padding-left
+        li.step
+          i margin:
+          ul
+            li.step
+              i margin-top
+            li.step
+              i margin-right
+            li.step
+              i margin-bottom
+            li.step
+              i margin-left
+        li.step
+          i ...
+
+
+.slide.bigfont(data-name="box_model_borders")
+  div
+
+    h3.step.title Model de Caixa - Voreres
+
+    p.step.
+      Per contra de les dues anteriors, la propietat #[i border], és el
+      shorthand de:
+
+    div.center.medium
+      ul
+        li.step
+          i margin:
+          ul
+            li.step.
+              #[i border-width]
+            li.step.
+              #[i border-style] (requerit, per defecte "none")
+            li.step.
+              #[i border-color]
+
+    p.step.
+      ...I només permet especificar tots els costats a l'hora
+      
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Si volem valors distints segons el costat haurem de fer servir
+            #[i border-top], #[i border-right], etcètera...
+          p.step.
+            O dirèctament #[i border-top-width], #[i border-top-style],
+            #[i border-top-color]...
+
+
+.slide.bigfont(data-name="box_model_border-style")
+  div
+
+    h3.step.title Tipus de Voreres
+
+    p.step.
+      La propietat #[i border-style] pot agafar, entre d'altres, els següents
+      valors:
+
+    ul
+      li.step.
+        #[code.code none]: No hi ha voreres (Valor per defecte).
+      li.step.
+        #[code.code solid]: #[span(style="border-style:solid") Estableix un "border" sòlid (el més comú)].
+      li.step.
+        #[code.code dotted]: #[span(style="border-style:dotted") Puntejat].
+      li.step.
+        #[code.code dashed]: #[span(style="border-style:dashed") Discontinu].
+      li.step ...
+      li.step
+        span #[code.code hidden]: Invisible (però ocupa l'espaï que li correspòn).
+        ul
+          li.step.
+            Útil per a transicions (per exemple #[i :hover]) sense que les
+            coses s'ens moguin de lloc.
+
+
+.slide.bigfont(data-name="box_model_border-radius")
+  div
+
+    h3.step.title La propietat #[i border-radius]
+
+    p.step.
+      La propietat #[i border-radius] ens permet arrodonir els cantons de la
+      caixa.
+
+    table.step
+      tr
+        td(style="border-radius:1.5em")
+          p.
+            📌 Com que "border-radius-top" seria ambigu en aquest cas,
+            #[b només tenim la propietat "border-radius" exclusivament].
+
+    p.step.
+      Així #[i border-radius] ens permet especificar tots els radis a l'hora,
+      dos a dos, etc...
+
+    table.step.medium
+      tr
+        td(style="border-radius:1.5em")
+          p.
+            📌 Per saber en quin ordre els hem d'introduïr podem continuar fent
+            servir la regla de seguir el sentit de les agulles del rellotge.
+          p.step.
+            Però en aquest cas tombam el nostre "rellotge" 45º cap a l'esquerra
+            (o "partim de les 10 i mitja en comptes de les 12).
+
+
+.slide.bigfont(data-name="box_model_box-sizing")
+  div.medium
+
+    h3.step.title La propietat #[i box-sizing]
+
+    img.step.floatRight(src="/images/figures/boxmodel.gif")
+
+    p.step.
+      #[b La propietat #[i box-sizing] estableix què mesuren les propietatss #[i height] i #[i width], respectivament]
+      com també les seves derivades (#[i min-height], #[i max-height], ...).
+
+    p.step.
+      Sense comptar #[i initial] (que en aquest cas equivaldria a
+      #[i content-box]) i #[i inherit], la propietat #[i box-sizing] pot agafar
+      dos valors: 
+
+    ul
+      li.step.
+        span.
+          #[b content-box:] Les propietatss #[i height] i #[i width] ajusten
+          les dimensions de la caixa de continguts.
+        ul
+          li.step.
+            Per això a l'hora de maquetar hem de tenir en compte el tamany dels
+            marges, les voreres i el padding.
+      li.step.  
+        span.
+          #[b border-box:] Les propietatss #[i height] i #[i width] ajusten les
+          mesures #[b exteriors] de les voreres
+          #[b (però NO INCLOËN EL PADDING)].
+        ul
+          li.step.
+            Amb #[code.code box-sizing: border-box], en canvi, només caldrà
+            tenir en compte els marges si n'hi ha.
+
+
+
+.slide.bigfont(data-name="box_model_box-sizing_globally")
+  div
+
+    h3.step.title Ajustar #[i box-sizing] globalment
+
+    p.step.
+      Si ho preferim, podem establir el #[i box-sizing] a #[i border-box] de
+      forma global.
+
+    div.center
+      pre.code.frame.step.
+        *,
+        ::before,
+        ::after {
+          box-sizing: border-box; 
+        }
+
+    table.step
+      tr
+        td
+          p.
+            💣 Fer això ens pot desbaratar regles preexistents pensades per
+            #[code.code box-sizing: content-box].
+          p.
+            El mateix en pot passar si fem servir frameworks CSS externs basats
+            en la mateixa premisa.
+          p.
+            Si be molts, com #[i Bootstrap] ja fan servir #[i border-box] i/o
+            fixen explícitament aquesta propietat per al seu css.
+
+.slide.bigfont(data-name="box_model_box-sizing_globally_refined")
+  div
+
+    h3 Ajustar #[i box-sizing] globalment
+    h4 (Versió Refinada)
+
+    p.step.
+      En qualsevol cas, el següent exemple ens mostra una forma més refinada de
+      fer-ho:
+
+    div.center
+      pre.code.frame.step.
+        :root {
+          box-sizing: border-box;
+        }
+
+        /* Permetem canviar-ho selectivament */
+        *,
+        ::before,
+        ::after {
+          box-sizing: inherit;
+        }
+
+
+
+//- vim: set ft=jade:

@@ -50,6 +50,8 @@ altres i tampoc s'ha implementat la funcionalitat de "watch".
 
 -----------------------------------------------------------------------
 PROGRAMA DE FORMACIÓ: Pla d'Entitats Locals 2018
+
 NOM DEL CURS: HTML5 I CSS
+
 CODIS: TIC0037-101
 

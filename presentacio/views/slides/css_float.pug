@@ -1,0 +1,170 @@
+
+
+.slide.bigfont(data-name="float")
+  div
+
+    h3.step.title La propietat "float"
+
+    img.step.floatRight(src="/images/figures/float.png")
+
+    p.step.
+      La propietat #[i float], ens permet fer que un element #[i suri] dins el
+      contingut que l'envolta.
+
+    p.step.
+      Pot agafar els següents valors:
+
+    div.center
+      ul
+        li.step #[code.code none] (per defecte): L'element no "sura".
+        li.step #[code.code left]: L'element "sura" a l'esquerra.
+        li.step #[code.code right]: L'element "sura" a la dreta.
+
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Els elements de bloc, cal que tinguin la seva amplada limitada
+            ja que, d'altra manera, tendeixen a ocupar tot l'ample del
+            contenidor.
+
+          p.
+            El propi element flotat, en canvi, encara que sigui un element de
+            bloc, tendirà a ocupar només l'espaï necessari per allotjar el seu
+            contingut.
+
+
+.slide.bigfont(data-name="float_behaviour")
+  div
+
+    h3 Comportament dels elements "flotats"
+
+    img.floatRight(src="/images/figures/float.png")
+
+    ul
+      li.step.
+        Els elements "flotats" (#[i float] ≠ #[code.code none])
+        #[b no computen a l'hora d'establir els límits del contenidor]
+        en la dimensió vertical.
+
+      li.step.
+        Dit d'altra manera: Si la resta del contingut no ho evita,
+        #[b poden sobresortir del seu contenidor solapant-se amb el següent]
+      li.step.
+        Quan això passi, #[b exerciran el mateix efecte] desplaçant el seu
+        contingut.
+
+
+.slide.bigfont(data-name="clear")
+  div
+
+    h3 La propietat "clear"
+
+    p.step.
+      La propietat #[i clear] ens permet prohibir els elements "flotats":
+
+    div.center
+      ul
+        li.step A l'esquerra: #[code.code clear: left]
+        li.step A la dreta: #[code.code clear: right]
+        li.step Als dos costats: #[code.code clear: both]
+
+    table.medium
+      tr.step
+        td
+          p.
+            📌 Si no volem evitar que un (o varis) objectes "flotats" penetrin
+            en determinats elements posteriors, podem impedir-ho inserint un
+            contenidor buïd amb la declaració #[code.code clear:both;]
+          pre.frame.white.
+            &lt;div style="clear: both;"&gt;&lt;/div&gt;
+      tr.step
+        td.
+          ⚠ Aquesta solució implica inserir un element únicament amb finalitats
+          estètiques, el que és una #[b mala pràctica] ja que això és
+          responsabilitat del full d'estil. 
+
+
+.slide.bigfont(data-name="clearfix")
+  div
+
+    img.step.floatRight(src="/images/figures/float/float_clearfix.png")
+
+    h3 El "ClearFix"
+
+
+    p.step.medium.
+      El #[i Clearfix] és un petit truc que ens permet fer això directament des
+      del full d'estil.
+
+    pre.frame.step(style="width:60vw").
+      .clearfix::after {
+        display: block;
+        content: " ";
+        clear: both;
+      }
+
+    table.medium
+      tr.step
+        td
+          p.
+            📌 Abans de l'aparició de la propietat #[i clear] es feia servir
+            `overflow:auto`.
+          ul
+            li.step.
+              El problema d'aquesta tècnica era que, si no controlàvem bé els
+              marges i els #[i paddings], ens podien aparèixer barres de
+              desplaçament.
+
+
+.slide.bigfont(data-name="float_layout")
+  div
+
+    h3 Maquetació amb "float"s
+
+    p.step.
+      El primer que hem de saber sobre la #[i maquetació amb floats] és que la
+      propietat #[i float] #[b no va ser pensada amb aquesta finalitat].
+
+    table.medium
+      tr
+        td.step
+          p.
+            La tècnica en essència és molt senzilla:
+          ul
+            li.step.
+              #[code.code margin: 0px].
+            li.step.
+              #[code.code box-sizing: border-box] (o establir #[i border]s i
+              #[i padding]s també a '0').
+            li.step.
+              I ajustar les mides amb percentatges per tal que tot quadri.
+
+        td.step
+          p.
+            Però aconseguir que funcioni ja no tant...
+          ul
+            li.step.
+              Hem de tenir en compte #[b com a mínim]
+              (#[code.code box-sizing: border-box;]) els marges.
+            li.step
+              span.
+                Si fem servir mesures en "%" (elasticitat) ens poden sortir
+                barres de desplaçament que ens ho desquadrin.
+              ul
+                li.step.
+                  #[code.code vw] ni #[code.code vh], etcètera... no estaran
+                  suportats en cap navegador que no suporti #[i flexbox] i
+                  #[i grid].
+
+
+.slide.bigfont(data-name="float_layout")
+  div
+
+    h3 Compensa maquetar amb "float"s?
+
+    div.center
+      img.step.big(src="/images/figures/caniuse_grid.png")
+
+
+//- vim: set ft=jade:

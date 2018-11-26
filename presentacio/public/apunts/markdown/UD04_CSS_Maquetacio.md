@@ -49,11 +49,6 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
         * [Media Queries](#media-queries)
         * [Mobile-First Approach](#mobile-first-approach)
     * [Referències:](#referències)
-* [Javascript - Programació Asíncrona](#javascript-programació-asíncrona)
-    * [Callbacks](#callbacks)
-    * [Events](#events)
-    * [Promeses](#promeses)
-    * [Async/Await](#asyncawait)
 
 <!-- vim-markdown-toc -->
 
@@ -88,8 +83,8 @@ corresponent i els elements que el succeeixen (sempre que hi càpiguen) es
 comencen a col·locar al seu costat.
 
 Pel cas dels elements *inline*, com els paràgrafs (`<p>`) i/o els `<span>`, que
-poden adaptar la seva amplada a l'espaï disponible (desbordant a la següent
-línia) normalment tot l'espaï queda ple adaptant-se a la forma de l'element flotat.
+poden adaptar la seva amplada a l'espai disponible (desbordant a la següent
+línia) normalment tot l'espai queda ple adaptant-se a la forma de l'element flotat.
 
 Els elements de bloc, en canvi, cal que tinguin la seva amplada limitada ja
 que, d'altra manera, tendeixen a ocupar tot l'ample del contenidor.
@@ -98,7 +93,7 @@ que, d'altra manera, tendeixen a ocupar tot l'ample del contenidor.
 
 >
 :pushpin: El propi element flotat, en canvi, encara que sigui un element de
-bloc, tendirà a ocupar només l'espaï necessari per allotjar el seu contingut.
+bloc, tendirà a ocupar només l'espai necessari per allotjar el seu contingut.
 >
 
 
@@ -221,8 +216,8 @@ Per mirar d'evitar això hi ha una quarta regla essencial:
   * Fixar les dimensions del `<body>` (i de qualsevol altre tag entremig que hi
     pugui haver) al 100%.
 
-...però encara així, un simple espaï o salt de línia entre dos tags ens pot
-crear contingut que ocupa espaï i que ens llenci a norris tot l'invent.
+...però encara així, un simple espai o salt de línia entre dos tags ens pot
+crear contingut que ocupa espai i que ens llenci a norris tot l'invent.
 
 >
 :pushpin: Fer servir `vw` per a l'amplada i `vh` per a l'altura podria ajudar a
@@ -264,7 +259,7 @@ declaració `display: flex`:
 
 Flexbox vé a complementar els clàssics `display: block` i `display: inline`.
 Especialment pels casos en que no podem conèixer prèviament les dimensions del
-contenidor i, en conseqüència, no podem dividir l'espaï de forma adequada fent
+contenidor i, en conseqüència, no podem dividir l'espai de forma adequada fent
 servir només mesures estàtiques.
 
 
@@ -314,7 +309,7 @@ __CLEARFIX__
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/flex-wrap.png)
 
-La propietat *flex-wrap* ens permet especificar què fer quan l'espaï demandat
+La propietat *flex-wrap* ens permet especificar què fer quan l'espai demandat
 (en la direcció del *Main-Axis*) pels *Flex-Items* supera el *main-size*
 (amplada o altura del contenidor, segons *flex-direction* sigui *row* /
 *row-reverse* o *column* / *column-reverse*, respectivament).
@@ -323,7 +318,7 @@ La propietat *flex-wrap* ens permet especificar què fer quan l'espaï demandat
 
   * `nowrap` (per defecte): Tots els elements s'ajusten per encabir-se en una
     única línia.
-  * `wrap`: Els elements agafen l'amplada que necessiten. En acabar-se l'espaï
+  * `wrap`: Els elements agafen l'amplada que necessiten. En acabar-se l'espai
     boten a una nova línia davall de l'anterior.
   * `wrap-reverse`:  Igual que `wrap`, però les línies es creen de baix cap a
     dalt. 
@@ -347,7 +342,7 @@ flex-flow: row wrap;
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/justify-content.png)
 
-Defineix l'aliniament al llarg del *Main Axis* permetent distribuïr l'espaï sobrant 
+Defineix l'aliniament al llarg del *Main Axis* permetent distribuïr l'espai sobrant 
 
 Pot agafar els següents valors:
 
@@ -355,11 +350,11 @@ Pot agafar els següents valors:
   * `flex-end`: Els elements s'acumulen al final de la línia.
   * `center`: Els elements s'acumulen al centre de la línia.
   * `space-between`: Els elements es distribueixen proporcionalment al llarg de
-    la línia deixant, si cal, espaïs d'igual tamany entre ells.
+    la línia deixant, si cal, espais d'igual tamany entre ells.
   * `space-around`: Els elements es distribueixen al llarg de la línia deixant
     *marges* iguals entre ells. Els *marges* no col·lapsen, de manera que els
-    espaïs intermigs seran dobles als dels laterals.
-  * `space-evenly`: Semblant a `space-around`, però amb tots els espaïs iguals.
+    espais intermigs seran dobles als dels laterals.
+  * `space-evenly`: Semblant a `space-around`, però amb tots els espais iguals.
 
 
 **Exemple:**
@@ -405,7 +400,7 @@ I, per defecte Flexbox només en té una (`flex-wrap: nowrap`). Però amb
 `flex-wrap: wrap` o `flex-wrap: wrap-reverse` podem tenir més d'una línia.
 
 *align-content* ens permet controlar l'aliniament entre elles al *Cross-Axis*
-de forma semblant a com *justify-content* ens permet controlar l'espaïat entre
+de forma semblant a com *justify-content* ens permet controlar l'espaiat entre
 els elements al *Main Axis*.
 
 
@@ -414,12 +409,12 @@ els elements al *Main Axis*.
   * `flex-end`: Les línies s'acumulen al final del contenidor.
   * `center`: Les línies es centren al mig del contenidor.
   * `space-between`: Les línies es distribueixen proporcionalment al llarg del
-    *Cross-Axis* deixant, si cal, espaïs d'igual tamany entre ells.
+    *Cross-Axis* deixant, si cal, espais d'igual tamany entre ells.
   * `space-around`: Les línies es distribueixen al llarg del *Cross-Axis*
     deixant *marges* iguals entre ells. Els *marges* no col·lapsen, de manera
-    que els espaïs intermigs seran dobles als dels laterals.
+    que els espais intermigs seran dobles als dels laterals.
   * `stretch` (default): Les línies s'eixamplen proporcionalment fins a ocupar
-    tot l'espaï disponible.
+    tot l'espai disponible.
 
 
 
@@ -484,7 +479,7 @@ Controla la capacitat de creixement (a costa de l'espai sobrant) dels elements.
 Accepta valors numèrics majors o iguals a '0'.
 
 Si tots els elements tenen el mateix valor de *flex-grow*, aleshores es
-repartiran l'espaï sobrant equitativament. Si un d'ells té el valor '2' mentre
+repartiran l'espai sobrant equitativament. Si un d'ells té el valor '2' mentre
 que la resta tenen '1', aleshores el primer agafarà el doble d'espai que la
 resta.
 
@@ -497,7 +492,7 @@ No accepta nombres negatius.
 Funciona igual que *flex-grow* però per al cas contrari: Quan l'espai no és
 suficient per satisfer les necessitats de tots els elements i és necessari
 restringir el seu tamany, *flex-srink* ens ajuda a determinar de quins elements
-preferim que s'ens tregui més o menys espaï.
+preferim que s'ens tregui més o menys espai.
 
 
 #### flex-basis
@@ -572,7 +567,7 @@ Implementar una barra d'encapçalament elàstica com la del següent esquema:
 
   * Els botons a la dreta.
   * El nom de l'aplicació a l'esquerra.
-  * El rellotge al centre de l'espaï entremig.
+  * El rellotge al centre de l'espai entremig.
 
 -----------------------------------------------------------------------------------------
 
@@ -583,14 +578,14 @@ Grid Layout
 
 El *Grid Layout* va aparèixer amb posterioritat a Flexbox.
 
-Podríem dir que *Flexbox* ens permet repartir l'espaï en una dimensió
+Podríem dir que *Flexbox* ens permet repartir l'espai en una dimensió
 (horitzontal o vertical) mentre que *Grid* ens permet fer-ho en dues
 dimensions a l'hora.
 
 Aixímateix **Grid no reemplaça Flexbox**, sinó que son dos sistemes
 complementaris.
 
-Per una banda *Flexbox* és més senzill a l'hora de repartir l'espaï de forma
+Per una banda *Flexbox* és més senzill a l'hora de repartir l'espai de forma
 elàstica entre múltiples elements. Encara que no en coneguem prèviament la
 quantitat.
 
@@ -639,8 +634,8 @@ controlar-lo.
     nosaltres especifiquem.
   * **grid-line:** Son les línies horitzontals i verticals, tant interiors com
     exteriors, que conformen l'estructura de la graella.
-  * **grid-track:** És l'espaï entre dues *grid-lines* adjacents.
-  * **grid-cell:** És l'espaï que conformen dues *grid-lines* horitzontals i
+  * **grid-track:** És l'espai entre dues *grid-lines* adjacents.
+  * **grid-cell:** És l'espai que conformen dues *grid-lines* horitzontals i
     dues verticals respectivament adjacents. Constitueix la unitat mínima en
     que es pot dividir el *Grid*.
   * **grid-area:** Igual que una *grid-cell* però sense la condició
@@ -691,6 +686,11 @@ elements, aquestes es crearan automàticament a mesura que siguin necessàries.
 Si be, fer servir *grid-template-rows* ens permetrà controlar la seva altura.  
 
 
+**Exemple:**
+
+Si consideram la partició de la figura, amb només el CSS següent ja tindríem un
+*Grid* completament funcional:
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-numbers.png)
 
 ```
@@ -702,12 +702,10 @@ Si be, fer servir *grid-template-rows* ens permetrà controlar la seva altura.
 }
 ```
 
-Amb això ja tindríem un *Grid* completament funcional. L'únic que hem de fer és
-emplenar-lo de *grid-items* que s'aniran distribuint automàticament d'esquerra
-a dreta i de dalt a baix per les cel·les disponibles.
+L'únic que hauriem de fer és emplenar-lo de *grid-items* que s'aniran
+distribuint automàticament d'esquerra a dreta i de dalt a baix per les cel·les
+disponibles:
 
-
-**Exemple:**
 
 ```
 <div class="grid">
@@ -870,7 +868,7 @@ __CLEARFIX__
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-column-row-gap.png)
 
-Fins ara hem vist com repartir l'espaï de la graella i assignar-lo (o deixar
+Fins ara hem vist com repartir l'espai de la graella i assignar-lo (o deixar
 que es es reparteixin ells) als distints *grid-items*.
 
 Però els elements ens queden aferrats els uns als altres sense gens d'espai
@@ -916,7 +914,7 @@ Suposem que tenim una sèrie de fotografies i volem muntar una galeria
 fotogràfica.
 
 També volem que algunes fotografies, escollides per nosaltres, surtin doble
-tamany i que no ens quedi cap espaï buid.
+tamany i que no ens quedi cap espai buid.
 
 A més, volem que les fotografies no siguin ni massa grosses ni massa petites i
 que el conjunt s'ajusti a l'amplada disponible.
@@ -1013,7 +1011,7 @@ Exercici 6
 
 3. Provau a canviar el tamany de la finestra del navegador mentre estau
    visualitzant la pàgina. Observau com les imatges canvien d'ordre si és
-   necessari per tal de no deixar espaïs en blanc.
+   necessari per tal de no deixar espais en blanc.
 
 4. Identificau entre tots quines de les propietats que aparèixen al css
    anterior encara no coneixieu.  Investigau a la xarxa quina és la seva
@@ -1048,7 +1046,7 @@ el contingut s'escala de forma gradual (i "apropiada").
 
 Aquí juguen un paper molt important les unitats relatives. Especialment les
 noves relatives a l'amplada i/o altura del *viewport*: *vw*, *vh*, *vmin* i
-*vmax* que ens permeten dividir de forma exacta l'espaï disponible amb unes
+*vmax* que ens permeten dividir de forma exacta l'espai disponible amb unes
 proporcions constants.
 
 Abans de disposar d'aquestes unitats això es feia típicament fent servir
@@ -1061,7 +1059,7 @@ impossible evitar que ens apareguessin barres de desplaçament indesitjades.
 Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció
 directa al tamany del viewport ja que per a tamanys petits pot resultar
 illegible mentre que amb pantalles molt grans podríem estar desaprofitant
-l'espaï.
+l'espai.
 
 Per això el més convenient és establir un tamany de lletra mínim amb unitats
 absolutes (px, mm, etc...) **més un increment relatiu 
@@ -1168,36 +1166,6 @@ Referències:
     - [https://css-tricks.com/snippets/css/complete-guide-grid/]()
   * Media Queries:
     - [https://developer.mozilla.org/es/docs/CSS/Media_queries]()
-
-
-Javascript - Programació Asíncrona
-==================================
-
->
-**:construction: Apartat pendent de redactar:**
->
-Disculpau les molèsties, però he preferit fer-vos arribar una versió preliminar
-per tal que la tingueu abans.
->
-Així, a més de poder-li donar un cop d'ull abans els que vulgueu. Si la portau
-a classe la sessió anterior pot ser puguem avançar una mica.
->
-Aquesta és pot ser la Unitat Didàctica més densa de totes i ens caurà en un dia
-en que disposam de mitja hora menys...
->
-
-
-Callbacks
----------
-
-Events
-------
-
-Promeses
---------
-
-Async/Await
------------
 
 
 

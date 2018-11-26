@@ -73,13 +73,6 @@
 </ul></li>
 <li><a href="#referències">Referències:</a></li>
 </ul></li>
-<li><a href="#javascript-programació-asíncrona">Javascript - Programació Asíncrona</a>
-<ul>
-<li><a href="#callbacks">Callbacks</a></li>
-<li><a href="#events">Events</a></li>
-<li><a href="#promeses">Promeses</a></li>
-<li><a href="#asyncawait">Async/Await</a></li>
-</ul></li>
 </ul>
 <!-- vim-markdown-toc -->
 <p><a href="/setslide/ud04">UD04</a></p>
@@ -98,11 +91,11 @@
 <li><em>right</em>: L'element &quot;sura&quot; a la dreta.</li>
 </ul>
 <p>Quan un element &quot;sura&quot; a dreta o esquerra, passa a col·locar-se al costat corresponent i els elements que el succeeixen (sempre que hi càpiguen) es comencen a col·locar al seu costat.</p>
-<p>Pel cas dels elements <em>inline</em>, com els paràgrafs (<code>&lt;p&gt;</code>) i/o els <code>&lt;span&gt;</code>, que poden adaptar la seva amplada a l'espaï disponible (desbordant a la següent línia) normalment tot l'espaï queda ple adaptant-se a la forma de l'element flotat.</p>
+<p>Pel cas dels elements <em>inline</em>, com els paràgrafs (<code>&lt;p&gt;</code>) i/o els <code>&lt;span&gt;</code>, que poden adaptar la seva amplada a l'espai disponible (desbordant a la següent línia) normalment tot l'espai queda ple adaptant-se a la forma de l'element flotat.</p>
 <p>Els elements de bloc, en canvi, cal que tinguin la seva amplada limitada ja que, d'altra manera, tendeixen a ocupar tot l'ample del contenidor.</p>
 <p><a href="/setslide/float_behaviour">Comportament de Float</a></p>
 <blockquote>
-<p>📌 El propi element flotat, en canvi, encara que sigui un element de bloc, tendirà a ocupar només l'espaï necessari per allotjar el seu contingut.</p>
+<p>📌 El propi element flotat, en canvi, encara que sigui un element de bloc, tendirà a ocupar només l'espai necessari per allotjar el seu contingut.</p>
 </blockquote>
 <p>Per altra banda, els elements &quot;flotats&quot; (<em>float</em> ≠ <em>none</em>), tot i desplaçar els elements del seu voltant, <strong>no computen a l'hora d'establir els límits del contenidor</strong> en la dimensió vertical.</p>
 <p>Dit d'altra manera: Si la resta del contingut no ho evita, poden sobresortir del seu contenidor solapant-se amb el següent (en el qual exerciran el mateix efecte desplaçant el seu contingut).</p>
@@ -156,7 +149,7 @@
 <ul>
 <li>Fixar les dimensions del <code>&lt;body&gt;</code> (i de qualsevol altre tag entremig que hi pugui haver) al 100%.</li>
 </ul>
-<p>...però encara així, un simple espaï o salt de línia entre dos tags ens pot crear contingut que ocupa espaï i que ens llenci a norris tot l'invent.</p>
+<p>...però encara així, un simple espai o salt de línia entre dos tags ens pot crear contingut que ocupa espai i que ens llenci a norris tot l'invent.</p>
 <blockquote>
 <p>📌 Fer servir <code>vw</code> per a l'amplada i <code>vh</code> per a l'altura podria ajudar a solucionar el problema. Però aquestes unitats son també relativament modernes i els navegadors que ens les suportaran també suporten <em>Flexbox</em> i <em>Grid</em>.</p>
 </blockquote>
@@ -170,7 +163,7 @@
 <pre><code>.contenidor {
     display: flex; /* o inline-flex */
 }</code></pre>
-<p>Flexbox vé a complementar els clàssics <code>display: block</code> i <code>display: inline</code>. Especialment pels casos en que no podem conèixer prèviament les dimensions del contenidor i, en conseqüència, no podem dividir l'espaï de forma adequada fent servir només mesures estàtiques.</p>
+<p>Flexbox vé a complementar els clàssics <code>display: block</code> i <code>display: inline</code>. Especialment pels casos en que no podem conèixer prèviament les dimensions del contenidor i, en conseqüència, no podem dividir l'espai de forma adequada fent servir només mesures estàtiques.</p>
 <div class="img right">
 <img src="../../images/figures/flex/flexbox.png" />
 </div>
@@ -208,11 +201,11 @@
 <div class="img small right">
 <img src="../../images/figures/flex/flex-wrap.png" />
 </div>
-<p>La propietat <em>flex-wrap</em> ens permet especificar què fer quan l'espaï demandat (en la direcció del <em>Main-Axis</em>) pels <em>Flex-Items</em> supera el <em>main-size</em> (amplada o altura del contenidor, segons <em>flex-direction</em> sigui <em>row</em> / <em>row-reverse</em> o <em>column</em> / <em>column-reverse</em>, respectivament).</p>
+<p>La propietat <em>flex-wrap</em> ens permet especificar què fer quan l'espai demandat (en la direcció del <em>Main-Axis</em>) pels <em>Flex-Items</em> supera el <em>main-size</em> (amplada o altura del contenidor, segons <em>flex-direction</em> sigui <em>row</em> / <em>row-reverse</em> o <em>column</em> / <em>column-reverse</em>, respectivament).</p>
 <p><strong>Valors:</strong></p>
 <ul>
 <li><code>nowrap</code> (per defecte): Tots els elements s'ajusten per encabir-se en una única línia.</li>
-<li><code>wrap</code>: Els elements agafen l'amplada que necessiten. En acabar-se l'espaï boten a una nova línia davall de l'anterior.</li>
+<li><code>wrap</code>: Els elements agafen l'amplada que necessiten. En acabar-se l'espai boten a una nova línia davall de l'anterior.</li>
 <li><code>wrap-reverse</code>: Igual que <code>wrap</code>, però les línies es creen de baix cap a dalt.</li>
 </ul>
 <h4 id="flex-flow">flex-flow</h4>
@@ -225,15 +218,15 @@
 <div class="img small right">
 <img src="../../images/figures/flex/justify-content.png" />
 </div>
-<p>Defineix l'aliniament al llarg del <em>Main Axis</em> permetent distribuïr l'espaï sobrant</p>
+<p>Defineix l'aliniament al llarg del <em>Main Axis</em> permetent distribuïr l'espai sobrant</p>
 <p>Pot agafar els següents valors:</p>
 <ul>
 <li><code>flex-start</code> (per defecte): Els elements s'acumulen al principi de la línia.</li>
 <li><code>flex-end</code>: Els elements s'acumulen al final de la línia.</li>
 <li><code>center</code>: Els elements s'acumulen al centre de la línia.</li>
-<li><code>space-between</code>: Els elements es distribueixen proporcionalment al llarg de la línia deixant, si cal, espaïs d'igual tamany entre ells.</li>
-<li><code>space-around</code>: Els elements es distribueixen al llarg de la línia deixant <em>marges</em> iguals entre ells. Els <em>marges</em> no col·lapsen, de manera que els espaïs intermigs seran dobles als dels laterals.</li>
-<li><code>space-evenly</code>: Semblant a <code>space-around</code>, però amb tots els espaïs iguals.</li>
+<li><code>space-between</code>: Els elements es distribueixen proporcionalment al llarg de la línia deixant, si cal, espais d'igual tamany entre ells.</li>
+<li><code>space-around</code>: Els elements es distribueixen al llarg de la línia deixant <em>marges</em> iguals entre ells. Els <em>marges</em> no col·lapsen, de manera que els espais intermigs seran dobles als dels laterals.</li>
+<li><code>space-evenly</code>: Semblant a <code>space-around</code>, però amb tots els espais iguals.</li>
 </ul>
 <p><strong>Exemple:</strong></p>
 <pre><code>justify-content: space-around;</code></pre>
@@ -262,14 +255,14 @@
 </div>
 <p>La propietat <code>align-items</code> ens permet controlar l'aliniament dels elements dins d'una única línia.</p>
 <p>I, per defecte Flexbox només en té una (<code>flex-wrap: nowrap</code>). Però amb <code>flex-wrap: wrap</code> o <code>flex-wrap: wrap-reverse</code> podem tenir més d'una línia.</p>
-<p><em>align-content</em> ens permet controlar l'aliniament entre elles al <em>Cross-Axis</em> de forma semblant a com <em>justify-content</em> ens permet controlar l'espaïat entre els elements al <em>Main Axis</em>.</p>
+<p><em>align-content</em> ens permet controlar l'aliniament entre elles al <em>Cross-Axis</em> de forma semblant a com <em>justify-content</em> ens permet controlar l'espaiat entre els elements al <em>Main Axis</em>.</p>
 <ul>
 <li><code>flex-start</code>: Les línies s'acumulen al principi del contenidor.</li>
 <li><code>flex-end</code>: Les línies s'acumulen al final del contenidor.</li>
 <li><code>center</code>: Les línies es centren al mig del contenidor.</li>
-<li><code>space-between</code>: Les línies es distribueixen proporcionalment al llarg del <em>Cross-Axis</em> deixant, si cal, espaïs d'igual tamany entre ells.</li>
-<li><code>space-around</code>: Les línies es distribueixen al llarg del <em>Cross-Axis</em> deixant <em>marges</em> iguals entre ells. Els <em>marges</em> no col·lapsen, de manera que els espaïs intermigs seran dobles als dels laterals.</li>
-<li><code>stretch</code> (default): Les línies s'eixamplen proporcionalment fins a ocupar tot l'espaï disponible.</li>
+<li><code>space-between</code>: Les línies es distribueixen proporcionalment al llarg del <em>Cross-Axis</em> deixant, si cal, espais d'igual tamany entre ells.</li>
+<li><code>space-around</code>: Les línies es distribueixen al llarg del <em>Cross-Axis</em> deixant <em>marges</em> iguals entre ells. Els <em>marges</em> no col·lapsen, de manera que els espais intermigs seran dobles als dels laterals.</li>
+<li><code>stretch</code> (default): Les línies s'eixamplen proporcionalment fins a ocupar tot l'espai disponible.</li>
 </ul>
 <div class="clearfix">
 
@@ -307,11 +300,11 @@
 </div>
 <p>Controla la capacitat de creixement (a costa de l'espai sobrant) dels elements.</p>
 <p>Accepta valors numèrics majors o iguals a '0'.</p>
-<p>Si tots els elements tenen el mateix valor de <em>flex-grow</em>, aleshores es repartiran l'espaï sobrant equitativament. Si un d'ells té el valor '2' mentre que la resta tenen '1', aleshores el primer agafarà el doble d'espai que la resta.</p>
+<p>Si tots els elements tenen el mateix valor de <em>flex-grow</em>, aleshores es repartiran l'espai sobrant equitativament. Si un d'ells té el valor '2' mentre que la resta tenen '1', aleshores el primer agafarà el doble d'espai que la resta.</p>
 <p>No accepta nombres negatius.</p>
 <h4 id="flex-shrink">flex-shrink</h4>
 <p><a href="/setslide/flex-shrink">flex-shrink</a></p>
-<p>Funciona igual que <em>flex-grow</em> però per al cas contrari: Quan l'espai no és suficient per satisfer les necessitats de tots els elements i és necessari restringir el seu tamany, <em>flex-srink</em> ens ajuda a determinar de quins elements preferim que s'ens tregui més o menys espaï.</p>
+<p>Funciona igual que <em>flex-grow</em> però per al cas contrari: Quan l'espai no és suficient per satisfer les necessitats de tots els elements i és necessari restringir el seu tamany, <em>flex-srink</em> ens ajuda a determinar de quins elements preferim que s'ens tregui més o menys espai.</p>
 <h4 id="flex-basis">flex-basis</h4>
 <p><a href="/setslide/flex-basis">flex-basis</a></p>
 <p>Permet definir un tamany <em>base</em> per a l'element (abans de que la resta d'espai sobrant -o mancant- sigui redistribuït aplicant <em>flex-grow</em> o <em>flex-shrink</em>, segons procedeixi).</p>
@@ -348,14 +341,14 @@
 <ul>
 <li>Els botons a la dreta.</li>
 <li>El nom de l'aplicació a l'esquerra.</li>
-<li>El rellotge al centre de l'espaï entremig.</li>
+<li>El rellotge al centre de l'espai entremig.</li>
 </ul>
 <hr />
 <h2 id="grid-layout">Grid Layout</h2>
 <p>El <em>Grid Layout</em> va aparèixer amb posterioritat a Flexbox.</p>
-<p>Podríem dir que <em>Flexbox</em> ens permet repartir l'espaï en una dimensió (horitzontal o vertical) mentre que <em>Grid</em> ens permet fer-ho en dues dimensions a l'hora.</p>
+<p>Podríem dir que <em>Flexbox</em> ens permet repartir l'espai en una dimensió (horitzontal o vertical) mentre que <em>Grid</em> ens permet fer-ho en dues dimensions a l'hora.</p>
 <p>Aixímateix <strong>Grid no reemplaça Flexbox</strong>, sinó que son dos sistemes complementaris.</p>
-<p>Per una banda <em>Flexbox</em> és més senzill a l'hora de repartir l'espaï de forma elàstica entre múltiples elements. Encara que no en coneguem prèviament la quantitat.</p>
+<p>Per una banda <em>Flexbox</em> és més senzill a l'hora de repartir l'espai de forma elàstica entre múltiples elements. Encara que no en coneguem prèviament la quantitat.</p>
 <p>Però, per altra banda, si bé és possible una maquetació en dues dimensions amb flexbox (combinant múltiples contenidors <em>Flex</em> en una dimensió continguts en un altre <em>Flexbox</em> en la dimensió perpendicular). Amb <em>Grid Layout</em> això resulta molt més senzill, ja que només necessitam un únic contenidor <em>Grid</em> dins del qual posarem tots els <em>Grid Items</em> un darrera l'altre i serà el CSS el que s'ocuparà de distribuïr-los als seus llocs corresponents.</p>
 <p>Així, el HTML de qualsevol <em>Grid</em> serà molt semblant al següent:</p>
 <pre><code>&lt;div class=&quot;grid&quot;&gt;
@@ -375,8 +368,8 @@
 <ul>
 <li><strong>grid-item:</strong> És cadascun dels elements que son fills directes del contenidor i que s'aniran col·locant a la graella segons les regles que nosaltres especifiquem.</li>
 <li><strong>grid-line:</strong> Son les línies horitzontals i verticals, tant interiors com exteriors, que conformen l'estructura de la graella.</li>
-<li><strong>grid-track:</strong> És l'espaï entre dues <em>grid-lines</em> adjacents.</li>
-<li><strong>grid-cell:</strong> És l'espaï que conformen dues <em>grid-lines</em> horitzontals i dues verticals respectivament adjacents. Constitueix la unitat mínima en que es pot dividir el <em>Grid</em>.</li>
+<li><strong>grid-track:</strong> És l'espai entre dues <em>grid-lines</em> adjacents.</li>
+<li><strong>grid-cell:</strong> És l'espai que conformen dues <em>grid-lines</em> horitzontals i dues verticals respectivament adjacents. Constitueix la unitat mínima en que es pot dividir el <em>Grid</em>.</li>
 <li><strong>grid-area:</strong> Igual que una <em>grid-cell</em> però sense la condició d'adjacència de les <em>grid-lines</em>.</li>
 </ul>
 <div class="clearfix">
@@ -394,6 +387,8 @@
 <h4 id="grid-template-columns-i-grid-template-rows">grid-template-columns i grid-template-rows</h4>
 <p>La primera propietat (després del <code>display: grid;</code>) que necessitarem establir a l'hora de muntar un <em>Grid</em> és <em>grid-template-columns</em>, ja que en cas contrari obtindríem una graella d'una sola columna.</p>
 <p><em>grid-template-rows</em>, en canvi, no és tan imprescindible ja que, encara que no estigui definida, o no hagem definit files suficients per encabir tots els elements, aquestes es crearan automàticament a mesura que siguin necessàries. Si be, fer servir <em>grid-template-rows</em> ens permetrà controlar la seva altura.</p>
+<p><strong>Exemple:</strong></p>
+<p>Si consideram la partició de la figura, amb només el CSS següent ja tindríem un <em>Grid</em> completament funcional:</p>
 <div class="img small right">
 <img src="../../images/figures/grid/grid-numbers.png" />
 </div>
@@ -403,8 +398,7 @@
     40px 50px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
 }</code></pre>
-<p>Amb això ja tindríem un <em>Grid</em> completament funcional. L'únic que hem de fer és emplenar-lo de <em>grid-items</em> que s'aniran distribuint automàticament d'esquerra a dreta i de dalt a baix per les cel·les disponibles.</p>
-<p><strong>Exemple:</strong></p>
+<p>L'únic que hauriem de fer és emplenar-lo de <em>grid-items</em> que s'aniran distribuint automàticament d'esquerra a dreta i de dalt a baix per les cel·les disponibles:</p>
 <pre><code>&lt;div class=&quot;grid&quot;&gt;
     &lt;div&gt;Item 1&lt;/div&gt;
     &lt;div&gt;Item 2&lt;/div&gt;
@@ -506,7 +500,7 @@
 <div class="img small right">
 <img src="../../images/figures/grid/grid-column-row-gap.png" />
 </div>
-<p>Fins ara hem vist com repartir l'espaï de la graella i assignar-lo (o deixar que es es reparteixin ells) als distints <em>grid-items</em>.</p>
+<p>Fins ara hem vist com repartir l'espai de la graella i assignar-lo (o deixar que es es reparteixin ells) als distints <em>grid-items</em>.</p>
 <p>Però els elements ens queden aferrats els uns als altres sense gens d'espai enmig. El que no resulta gaire estètic...</p>
 <p>Per solucionar aquest problema, tenim la propietat <em>gap</em> que ens permet especificar un marge de separació entre els elements.</p>
 <div class="clearfix">
@@ -528,7 +522,7 @@
 <img src="../../images/figures/grid/grid-elastic-sample.png" />
 </div>
 <p>Suposem que tenim una sèrie de fotografies i volem muntar una galeria fotogràfica.</p>
-<p>També volem que algunes fotografies, escollides per nosaltres, surtin doble tamany i que no ens quedi cap espaï buid.</p>
+<p>També volem que algunes fotografies, escollides per nosaltres, surtin doble tamany i que no ens quedi cap espai buid.</p>
 <p>A més, volem que les fotografies no siguin ni massa grosses ni massa petites i que el conjunt s'ajusti a l'amplada disponible.</p>
 <p>Com veurem després, podem especificar regles css que només s'apliquin segons si el tamany de la pantalla compleix o no determinades condicions (com ara estar dins un determinat rang).</p>
 <p>El problema però és que, per fer-ho així, hauríem de dissenyar una distribució distinta per a cada cas, com il·lustren els exemples de la figura que mostren múltiples configuracions segons un ample de pantalla determinat.</p>
@@ -602,7 +596,7 @@
   }
 }</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Provau a canviar el tamany de la finestra del navegador mentre estau visualitzant la pàgina. Observau com les imatges canvien d'ordre si és necessari per tal de no deixar espaïs en blanc.</p></li>
+<li><p>Provau a canviar el tamany de la finestra del navegador mentre estau visualitzant la pàgina. Observau com les imatges canvien d'ordre si és necessari per tal de no deixar espais en blanc.</p></li>
 <li><p>Identificau entre tots quines de les propietats que aparèixen al css anterior encara no coneixieu. Investigau a la xarxa quina és la seva finalitat. Podeu fer-ho en grups i repartir-vos les propietats.</p></li>
 <li><p>Experimentau que passa quan en treieu alguna d'elles.</p></li>
 </ol>
@@ -616,10 +610,10 @@
 </ul>
 <h3 id="disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</h3>
 <p>Per disseny adaptatiu entenem aquell que s'adapta al tamany del <em>viewport</em> de forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra, el contingut s'escala de forma gradual (i &quot;apropiada&quot;).</p>
-<p>Aquí juguen un paper molt important les unitats relatives. Especialment les noves relatives a l'amplada i/o altura del <em>viewport</em>: <em>vw</em>, <em>vh</em>, <em>vmin</em> i <em>vmax</em> que ens permeten dividir de forma exacta l'espaï disponible amb unes proporcions constants.</p>
+<p>Aquí juguen un paper molt important les unitats relatives. Especialment les noves relatives a l'amplada i/o altura del <em>viewport</em>: <em>vw</em>, <em>vh</em>, <em>vmin</em> i <em>vmax</em> que ens permeten dividir de forma exacta l'espai disponible amb unes proporcions constants.</p>
 <p>Abans de disposar d'aquestes unitats això es feia típicament fent servir percentatges (%) però, a no ser mitjançant Javascript, resultava pràcticament impossible evitar que ens apareguessin barres de desplaçament indesitjades.</p>
 <h4 id="tamany-de-lletra-elàstic.">Tamany de lletra elàstic.</h4>
-<p>Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció directa al tamany del viewport ja que per a tamanys petits pot resultar illegible mentre que amb pantalles molt grans podríem estar desaprofitant l'espaï.</p>
+<p>Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció directa al tamany del viewport ja que per a tamanys petits pot resultar illegible mentre que amb pantalles molt grans podríem estar desaprofitant l'espai.</p>
 <p>Per això el més convenient és establir un tamany de lletra mínim amb unitats absolutes (px, mm, etc...) <strong>més un increment relatiu l tamany de la pantalla</strong>.</p>
 <p><strong>Exemple:</strong></p>
 <pre><code>:root {
@@ -675,17 +669,6 @@
 <li><a href="">https://developer.mozilla.org/es/docs/CSS/Media_queries</a></li>
 </ul></li>
 </ul>
-<h1 id="javascript---programació-asíncrona">Javascript - Programació Asíncrona</h1>
-<blockquote>
-<p><strong>🚧 Apartat pendent de redactar:</strong></p>
-<p>Disculpau les molèsties, però he preferit fer-vos arribar una versió preliminar per tal que la tingueu abans.</p>
-<p>Així, a més de poder-li donar un cop d'ull abans els que vulgueu. Si la portau a classe la sessió anterior pot ser puguem avançar una mica.</p>
-<p>Aquesta és pot ser la Unitat Didàctica més densa de totes i ens caurà en un dia en que disposam de mitja hora menys...</p>
-</blockquote>
-<h2 id="callbacks">Callbacks</h2>
-<h2 id="events">Events</h2>
-<h2 id="promeses">Promeses</h2>
-<h2 id="asyncawait">Async/Await</h2>
 <footer>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 </footer>

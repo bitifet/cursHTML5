@@ -178,6 +178,33 @@ table {
 }
 
 
+.flexMenu {
+    display: flex;
+    border: #444444 solid 1px;
+    justify-content: space-between;
+    padding: 2px;
+    * {
+        flex-grow: 1;
+        text-align: center;
+    }
+    .left {
+        order: -1;
+        flex-grow: 0;
+        margin-right: 4px;
+    }
+    .right {
+        order: 1;
+        flex-grow: 0;
+        margin-left: 4px;
+    }
+    .button {
+        background: #cccccc;
+        padding: 2px .5em;
+    };
+}
+
+
+
 @page {
   size: A4;
   margin: 11mm 17mm 17mm 17mm;

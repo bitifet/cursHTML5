@@ -35,7 +35,7 @@
 <li><a href="#align-items">align-items</a></li>
 <li><a href="#align-content">align-content</a></li>
 </ul></li>
-<li><a href="#propietats-dels-fills">Propietats dels fills</a>
+<li><a href="#propietats-dels-items">Propietats dels Items</a>
 <ul>
 <li><a href="#order">order</a></li>
 <li><a href="#flex-grow">flex-grow</a></li>
@@ -44,8 +44,8 @@
 <li><a href="#flex">flex</a></li>
 <li><a href="#align-self">align-self</a></li>
 </ul></li>
-<li><a href="#exercici">Exercici</a></li>
 </ul></li>
+<li><a href="#exercici-5">Exercici 5</a></li>
 <li><a href="#grid-layout">Grid Layout</a>
 <ul>
 <li><a href="#conceptes-bàsics">Conceptes bàsics</a></li>
@@ -61,7 +61,7 @@
 </ul></li>
 <li><a href="#graelles-dinàmiques">Graelles Dinàmiques</a></li>
 </ul></li>
-<li><a href="#exercici-5">Exercici 5</a></li>
+<li><a href="#exercici-6">Exercici 6</a></li>
 <li><a href="#disseny-responsiu">Disseny Responsiu</a>
 <ul>
 <li><a href="#disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</a>
@@ -82,8 +82,10 @@
 </ul></li>
 </ul>
 <!-- vim-markdown-toc -->
+<p><a href="/setslide/ud04">UD04</a></p>
 <h1 id="css---maquetació">CSS - Maquetació</h1>
 <h2 id="floats"><code>Float</code>s</h2>
+<p><a href="/setslide/float">Float</a></p>
 <div class="img small right">
 <img src="../../images/figures/float/float.png" />
 </div>
@@ -98,12 +100,14 @@
 <p>Quan un element &quot;sura&quot; a dreta o esquerra, passa a col·locar-se al costat corresponent i els elements que el succeeixen (sempre que hi càpiguen) es comencen a col·locar al seu costat.</p>
 <p>Pel cas dels elements <em>inline</em>, com els paràgrafs (<code>&lt;p&gt;</code>) i/o els <code>&lt;span&gt;</code>, que poden adaptar la seva amplada a l'espaï disponible (desbordant a la següent línia) normalment tot l'espaï queda ple adaptant-se a la forma de l'element flotat.</p>
 <p>Els elements de bloc, en canvi, cal que tinguin la seva amplada limitada ja que, d'altra manera, tendeixen a ocupar tot l'ample del contenidor.</p>
+<p><a href="/setslide/float_behaviour">Comportament de Float</a></p>
 <blockquote>
 <p>📌 El propi element flotat, en canvi, encara que sigui un element de bloc, tendirà a ocupar només l'espaï necessari per allotjar el seu contingut.</p>
 </blockquote>
 <p>Per altra banda, els elements &quot;flotats&quot; (<em>float</em> ≠ <em>none</em>), tot i desplaçar els elements del seu voltant, <strong>no computen a l'hora d'establir els límits del contenidor</strong> en la dimensió vertical.</p>
 <p>Dit d'altra manera: Si la resta del contingut no ho evita, poden sobresortir del seu contenidor solapant-se amb el següent (en el qual exerciran el mateix efecte desplaçant el seu contingut).</p>
 <h4 id="la-propietat-clear">La propietat <code>clear</code></h4>
+<p><a href="/setslide/clear">Clear</a></p>
 <p>La propietat <em>clear</em> ens permet prohibir els elements flotats a un (<code>clear: left</code>), altre (<code>clear: right</code>) o ambdós (<code>clear: both</code>) d'un element de bloc.</p>
 <p>Així, si tenim un objecte flotant per il·lustrar el contingut d'un paràgraf o d'una secció i no volem que, si el text que realment està relacionat amb ell s'acaba abans, el text del següent paràgraf o secció comenci a renderitzar-se al seu costat. Podem impedir-ho inserint un element buit amb la declaració <code>clear: both;</code>:</p>
 <pre><code>&lt;div style=&quot;clear: both;&quot;&gt;&lt;/div&gt;</code></pre>
@@ -115,6 +119,7 @@
 
 </div>
 <h4 id="clearfix">Clearfix</h4>
+<p><a href="/setslide/clearfix">ClearFix</a></p>
 <div class="img small right">
 <img src="../../images/figures/float/float_clearfix.png" />
 </div>
@@ -136,6 +141,7 @@
 
 </div>
 <h3 id="maquetació-amb-floats">Maquetació amb <code>float</code>s</h3>
+<p><a href="/setslide/float_layout">FloatLayout</a></p>
 <p>El primer que hem de saber sobre la <em>maquetació amb floats</em> és que la propietat <em>float</em> no està pensada per a aquest fi.</p>
 <p>HTML va ser concebut originalment com a un format per publicar documents a la xarxa amb la <em>novedosa</em> capacitat d'hiper-enllaçar continguts entre ells. Posteriorment aparegueren els formularis i poc a poc ens anàrem adonant que &quot;allò&quot; tenia un immens potencial per a implementar complexes aplicacions en línia.</p>
 <p>...però havia estat pensat únicament per a mostrar documents de text linials en pantalles relativament petites. No hi havia mecanismes per per fer maquetacions elàstiques ni massa complexes i els <em>float</em> van resultar un <em>hack</em> idoni per a, no sense certa dificultat, construir maquetacions més elaborades.</p>
@@ -154,10 +160,12 @@
 <blockquote>
 <p>📌 Fer servir <code>vw</code> per a l'amplada i <code>vh</code> per a l'altura podria ajudar a solucionar el problema. Però aquestes unitats son també relativament modernes i els navegadors que ens les suportaran també suporten <em>Flexbox</em> i <em>Grid</em>.</p>
 </blockquote>
+<p><a href="/setslide/float_layout_worth">Conclusió</a></p>
 <p>En conclusió: avui en dia fer servir <em>floats</em> per a la maquetació només té sentit si volem suportar navegadors <em>bastant</em> antics. I així i tot cal considerar si realment ens paga la pena optar per aquesta opció en comptes d'algun altre <em>failback</em> més senzill.</p>
 <p>Per això en aquest curs no anirem més enllà de les nocions generals ja exposades i ens centrarem més en <em>Flexbox</em> i <em>Grid</em> que son els que realment ens permetran realitzar maquetacions modernes i consistents.</p>
 <p>Però per si a algú li interessa entendre millor com es poden fer maquetacions relativament complexes utilitzant <em>floats</em>, a la secció de <em>Referències</em> us deixo un enllaç a un article del portal <em>CSS Tricks</em> al respecte.</p>
 <h2 id="flexbox">Flexbox</h2>
+<p><a href="/setslide/flexbox">Flexbox</a></p>
 <p>Flexbox és un relativament nou mòdul de CSS que s'activa mitjançant la declaració <code>display: flex</code>:</p>
 <pre><code>.contenidor {
     display: flex; /* o inline-flex */
@@ -171,10 +179,12 @@
 
 </div>
 <h3 id="propietats-del-contenidor">Propietats del contenidor</h3>
+<p><a href="/setslide/container_properties">Propietats del Contenidor</a></p>
 <div class="img">
 <img src="../../images/figures/flex/01-container.png" />
 </div>
 <h4 id="flex-direction">flex-direction</h4>
+<p><a href="/setslide/flex-direction">flex-direction</a></p>
 <p>Per defecte, el <em>Main Axis</em> és l'eix horitzontal recorregut d'esquerra a dreta i el <em>Cross Axis</em> el vertical recorregut de dalt a baix. Però això es pot canviar mitjançant la propietat <em>flex-direction</em> que pot agafar les següents valors:</p>
 <div class="img small right">
 <img src="../../images/figures/flex/flex-direction.png" />
@@ -194,6 +204,7 @@
 
 </div>
 <h4 id="flex-wrap">flex-wrap</h4>
+<p><a href="/setslide/flex-wrap">flex-wrap</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/flex-wrap.png" />
 </div>
@@ -205,10 +216,12 @@
 <li><code>wrap-reverse</code>: Igual que <code>wrap</code>, però les línies es creen de baix cap a dalt.</li>
 </ul>
 <h4 id="flex-flow">flex-flow</h4>
+<p><a href="/setslide/flex-flow">flex-flow</a></p>
 <p>La propietat <em>flex-flow</em> és el <em>Shorthand</em> de <code>flex-direction</code> i <code>flex-wrap</code>.</p>
 <p><strong>Exemple:</strong></p>
 <pre><code>flex-flow: row wrap;</code></pre>
 <h4 id="justify-content">justify-content</h4>
+<p><a href="/setslide/justify-content">justify-content</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/justify-content.png" />
 </div>
@@ -225,6 +238,7 @@
 <p><strong>Exemple:</strong></p>
 <pre><code>justify-content: space-around;</code></pre>
 <h4 id="align-items">align-items</h4>
+<p><a href="/setslide/align-items">align-items</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/align-items.png" />
 </div>
@@ -242,6 +256,7 @@
 
 </div>
 <h4 id="align-content">align-content</h4>
+<p><a href="/setslide/align-content">align-content</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/align-content.png" />
 </div>
@@ -259,7 +274,8 @@
 <div class="clearfix">
 
 </div>
-<h3 id="propietats-dels-fills">Propietats dels fills</h3>
+<h3 id="propietats-dels-items">Propietats dels Items</h3>
+<p><a href="/setslide/item_properties">Propietats dels Items</a></p>
 <div class="img">
 <img src="../../images/figures/flex/02-items.png" />
 </div>
@@ -267,6 +283,7 @@
 
 </div>
 <h4 id="order">order</h4>
+<p><a href="/setslide/flex-order">order</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/order.png" />
 </div>
@@ -284,6 +301,7 @@
 
 </div>
 <h4 id="flex-grow">flex-grow</h4>
+<p><a href="/setslide/flex-grow">flex-grow</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/flex-grow.png" />
 </div>
@@ -292,8 +310,10 @@
 <p>Si tots els elements tenen el mateix valor de <em>flex-grow</em>, aleshores es repartiran l'espaï sobrant equitativament. Si un d'ells té el valor '2' mentre que la resta tenen '1', aleshores el primer agafarà el doble d'espai que la resta.</p>
 <p>No accepta nombres negatius.</p>
 <h4 id="flex-shrink">flex-shrink</h4>
+<p><a href="/setslide/flex-shrink">flex-shrink</a></p>
 <p>Funciona igual que <em>flex-grow</em> però per al cas contrari: Quan l'espai no és suficient per satisfer les necessitats de tots els elements i és necessari restringir el seu tamany, <em>flex-srink</em> ens ajuda a determinar de quins elements preferim que s'ens tregui més o menys espaï.</p>
 <h4 id="flex-basis">flex-basis</h4>
+<p><a href="/setslide/flex-basis">flex-basis</a></p>
 <p>Permet definir un tamany <em>base</em> per a l'element (abans de que la resta d'espai sobrant -o mancant- sigui redistribuït aplicant <em>flex-grow</em> o <em>flex-shrink</em>, segons procedeixi).</p>
 <p>Accepta qualsevol distància css vàlida, encara que el més típic és utilitzar percentatges, o qualsevol de les següents paraules clau:</p>
 <p>El seu valor per defecte és 'auto' que fa que s'apliquin els valors de la propietat <em>height</em> o <em>width</em>, segons correspongui.</p>
@@ -302,7 +322,8 @@
 
 </div>
 <h4 id="flex">flex</h4>
-<p>És el shorthand de les propietats <em>flex-grow</em>, <em>flex-shrink</em> i <em>flex-basis</em> combined.</p>
+<p><a href="/setslide/flex">flex</a></p>
+<p>És el shorthand de les propietats <em>flex-grow</em>, <em>flex-shrink</em> i <em>flex-basis</em>.</p>
 <ul>
 <li><p>El segon i tercer paràmetres (<em>flex-shrink</em> i <em>flex-basis</em>) son opcionals.</p></li>
 <li><p>Els valors per defecte son <code>0 1 auto</code>.</p></li>
@@ -311,33 +332,25 @@
 <p>📌 Es recomana sempre fer servir aquesta propietat en comptes de les altres individualment ja que aquesta estableix els valors omesos de forma intel·ligent.</p>
 </blockquote>
 <h4 id="align-self">align-self</h4>
+<p><a href="/setslide/align-self">align-self</a></p>
 <div class="img small right">
 <img src="../../images/figures/flex/align-self.png" />
 </div>
 <p>Té el mateix efecte que la propietat <em>align-items</em> del contenidor abans explicada amb la diferència que aquesta s'aplica als elements. Permetent així que un o més elements presentin una alineació distinta a la resta.</p>
 <p>Per defecte agafa el valor <em>auto</em> vol dir que l'element respondrà al paràmetre <em>align-items</em> del contenidor o, cas que aquest tampoc s'especifiqui, al seu comportament per defecte.</p>
-<h3 id="exercici">Exercici</h3>
+<hr />
+<h2 id="exercici-5">Exercici 5</h2>
+<p><a href="/setslide/exercici_5">Exercici 5</a></p>
 <p>Implementar una barra d'encapçalament elàstica com la del següent esquema:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">Nom aplicació</td>
-<td></td>
-<td></td>
-<td align="center">8:45pm</td>
-<td></td>
-<td></td>
-<td></td>
-<td align="right"><code>[Opcions]</code></td>
-<td align="right"><code>[Ajuda]</code></td>
-</tr>
-</tbody>
-</table>
+<div class="flexMenu step">
+<span class="left">Nom Aplicació</span><span>8:45pm</span><span class="button right">Opcions</span><span class="button right">Ajuda</span>
+</div>
 <ul>
 <li>Els botons a la dreta.</li>
 <li>El nom de l'aplicació a l'esquerra.</li>
 <li>El rellotge al centre de l'espaï entremig.</li>
 </ul>
+<hr />
 <h2 id="grid-layout">Grid Layout</h2>
 <p>El <em>Grid Layout</em> va aparèixer amb posterioritat a Flexbox.</p>
 <p>Podríem dir que <em>Flexbox</em> ens permet repartir l'espaï en una dimensió (horitzontal o vertical) mentre que <em>Grid</em> ens permet fer-ho en dues dimensions a l'hora.</p>
@@ -520,7 +533,7 @@
 <p>Com veurem després, podem especificar regles css que només s'apliquin segons si el tamany de la pantalla compleix o no determinades condicions (com ara estar dins un determinat rang).</p>
 <p>El problema però és que, per fer-ho així, hauríem de dissenyar una distribució distinta per a cada cas, com il·lustren els exemples de la figura que mostren múltiples configuracions segons un ample de pantalla determinat.</p>
 <hr />
-<h2 id="exercici-5">Exercici 5</h2>
+<h2 id="exercici-6">Exercici 6</h2>
 <ol style="list-style-type: decimal">
 <li>Obteniu una sèrie d'imatges i preparau un document html com el següent per a mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos agradi:</li>
 </ol>

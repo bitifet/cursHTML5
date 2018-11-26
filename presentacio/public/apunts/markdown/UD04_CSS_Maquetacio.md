@@ -25,14 +25,14 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [justify-content](#justify-content)
             * [align-items](#align-items)
             * [align-content](#align-content)
-        * [Propietats dels fills](#propietats-dels-fills)
+        * [Propietats dels Items](#propietats-dels-items)
             * [order](#order)
             * [flex-grow](#flex-grow)
             * [flex-shrink](#flex-shrink)
             * [flex-basis](#flex-basis)
             * [flex](#flex)
             * [align-self](#align-self)
-        * [Exercici](#exercici)
+    * [Exercici 5](#exercici-5)
     * [Grid Layout](#grid-layout)
         * [Conceptes bàsics](#conceptes-bàsics)
         * [Propietats Principals](#propietats-principals)
@@ -42,7 +42,7 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
             * [grid-template-areas](#grid-template-areas)
             * [gap / grid-gap](#gap-grid-gap)
         * [Graelles Dinàmiques](#graelles-dinàmiques)
-    * [Exercici 5](#exercici-5)
+    * [Exercici 6](#exercici-6)
     * [Disseny Responsiu](#disseny-responsiu)
         * [Disseny Adaptatiu (Elasticitat)](#disseny-adaptatiu-elasticitat)
             * [Tamany de lletra elàstic.](#tamany-de-lletra-elàstic)
@@ -58,12 +58,17 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 <!-- vim-markdown-toc -->
 
 
+[UD04](/setslide/ud04)
+
+
 CSS - Maquetació
 ================
 
 
 `Float`s
 --------
+
+[Float](/setslide/float)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/float/float.png)
 
@@ -89,6 +94,8 @@ línia) normalment tot l'espaï queda ple adaptant-se a la forma de l'element fl
 Els elements de bloc, en canvi, cal que tinguin la seva amplada limitada ja
 que, d'altra manera, tendeixen a ocupar tot l'ample del contenidor.
 
+[Comportament de Float](/setslide/float_behaviour)
+
 >
 :pushpin: El propi element flotat, en canvi, encara que sigui un element de
 bloc, tendirà a ocupar només l'espaï necessari per allotjar el seu contingut.
@@ -105,6 +112,8 @@ efecte desplaçant el seu contingut).
 
 
 #### La propietat `clear`
+
+[Clear](/setslide/clear)
 
 La propietat *clear* ens permet prohibir els elements flotats a un (`clear:
 left`), altre (`clear: right`) o ambdós (`clear: both`) d'un element de bloc.
@@ -132,6 +141,8 @@ responsabilitat del full d'estil.
 __CLEARFIX__
 
 #### Clearfix
+
+[ClearFix](/setslide/clearfix)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/float/float_clearfix.png)
 
@@ -176,6 +187,8 @@ __CLEARFIX__
 
 ### Maquetació amb `float`s
 
+[FloatLayout](/setslide/float_layout)
+
 El primer que hem de saber sobre la *maquetació amb floats* és que la propietat
 *float* no està pensada per a aquest fi.
 
@@ -217,6 +230,7 @@ solucionar el problema. Però aquestes unitats son també relativament modernes 
 els navegadors que ens les suportaran també suporten *Flexbox* i *Grid*.
 >
 
+[Conclusió](/setslide/float_layout_worth)
 
 En conclusió: avui en dia fer servir *floats* per a la maquetació només té
 sentit si volem suportar navegadors *bastant* antics. I així i tot cal
@@ -235,6 +249,8 @@ deixo un enllaç a un article del portal *CSS Tricks* al respecte.
 
 Flexbox
 -------
+
+[Flexbox](/setslide/flexbox)
 
 Flexbox és un relativament nou mòdul de CSS que s'activa mitjançant la
 declaració `display: flex`:
@@ -262,9 +278,13 @@ __CLEARFIX__
 
 ### Propietats del contenidor
 
+[Propietats del Contenidor](/setslide/container_properties)
+
 ![](__FIGURES_PATH__/flex/01-container.png)
 
 #### flex-direction
+
+[flex-direction](/setslide/flex-direction)
 
 Per defecte, el *Main Axis* és l'eix horitzontal recorregut d'esquerra a dreta
 i el *Cross Axis* el vertical recorregut de dalt a baix. Però això es pot
@@ -290,6 +310,8 @@ __CLEARFIX__
 
 #### flex-wrap
 
+[flex-wrap](/setslide/flex-wrap)
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/flex-wrap.png)
 
 La propietat *flex-wrap* ens permet especificar què fer quan l'espaï demandat
@@ -309,6 +331,8 @@ La propietat *flex-wrap* ens permet especificar què fer quan l'espaï demandat
 
 #### flex-flow
 
+[flex-flow](/setslide/flex-flow)
+
 La propietat *flex-flow* és el *Shorthand* de `flex-direction` i `flex-wrap`.
 
 **Exemple:**
@@ -318,6 +342,8 @@ flex-flow: row wrap;
 ```
 
 #### justify-content
+
+[justify-content](/setslide/justify-content)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/justify-content.png)
 
@@ -344,6 +370,8 @@ justify-content: space-around;
 
 #### align-items
 
+[align-items](/setslide/align-items)
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/align-items.png)
 
 Defineix com es distribueïxen els elements al llarg del *Cross-Axis*.
@@ -365,6 +393,8 @@ __CLEARFIX__
 
 
 #### align-content
+
+[align-content](/setslide/align-content)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/align-content.png)
 
@@ -395,7 +425,9 @@ els elements al *Main Axis*.
 
 __CLEARFIX__
 
-### Propietats dels fills
+### Propietats dels Items
+
+[Propietats dels Items](/setslide/item_properties)
 
 
 ![](__FIGURES_PATH__/flex/02-items.png)
@@ -404,6 +436,8 @@ __CLEARFIX__
 __CLEARFIX__
 
 #### order
+
+[order](/setslide/flex-order)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/order.png)
 
@@ -441,6 +475,8 @@ __CLEARFIX__
 
 #### flex-grow
 
+[flex-grow](/setslide/flex-grow)
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/flex-grow.png)
 
 Controla la capacitat de creixement (a costa de l'espai sobrant) dels elements.
@@ -456,6 +492,8 @@ No accepta nombres negatius.
 
 #### flex-shrink
 
+[flex-shrink](/setslide/flex-shrink)
+
 Funciona igual que *flex-grow* però per al cas contrari: Quan l'espai no és
 suficient per satisfer les necessitats de tots els elements i és necessari
 restringir el seu tamany, *flex-srink* ens ajuda a determinar de quins elements
@@ -463,6 +501,8 @@ preferim que s'ens tregui més o menys espaï.
 
 
 #### flex-basis
+
+[flex-basis](/setslide/flex-basis)
 
 Permet definir un tamany *base* per a l'element (abans de que la resta d'espai
 sobrant -o mancant- sigui redistribuït aplicant *flex-grow* o *flex-shrink*, segons procedeixi).
@@ -484,7 +524,9 @@ __CLEARFIX__
 
 #### flex
 
-És el shorthand de les propietats *flex-grow*, *flex-shrink* i *flex-basis* combined.
+[flex](/setslide/flex)
+
+És el shorthand de les propietats *flex-grow*, *flex-shrink* i *flex-basis*.
 
   * El segon i tercer paràmetres (*flex-shrink* i *flex-basis*) son opcionals.
 
@@ -501,6 +543,8 @@ intel·ligent.
 
 #### align-self
 
+[align-self](/setslide/align-self)
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/flex/align-self.png)
 
 Té el mateix efecte que la propietat *align-items* del contenidor abans
@@ -513,18 +557,24 @@ comportament per defecte.
 
 
 
-### Exercici
+-----------------------------------------------------------------------------------------
+
+Exercici 5
+----------
+
+[Exercici 5](/setslide/exercici_5)
 
 Implementar una barra d'encapçalament elàstica com la del següent esquema:
 
-|               |   |   |                |   |   |   |             |           |
-|:--------------|---|---|:--------------:|---|---|---|------------:|----------:|
-| Nom aplicació |   |   |       8:45pm   |   |   |   | `[Opcions]` | `[Ajuda]` |
+
+<div class="flexMenu step"><span class="left">Nom Aplicació</span><span>8:45pm</span><span class="button right">Opcions</span><span class="button right">Ajuda</span></div>
 
 
   * Els botons a la dreta.
   * El nom de l'aplicació a l'esquerra.
   * El rellotge al centre de l'espaï entremig.
+
+-----------------------------------------------------------------------------------------
 
 
 
@@ -883,7 +933,7 @@ múltiples configuracions segons un ample de pantalla determinat.
 
 -----------------------------------------------------------------------------------------
 
-Exercici 5
+Exercici 6
 ----------
 
 1. Obteniu una sèrie d'imatges i preparau un document html com el següent per a

@@ -1,0 +1,447 @@
+
+.slide(data-name="flexbox")
+  div
+
+    h2.step.title Flexbox
+
+    img.step.floatRight.small(src="/images/figures/flex/flexbox.png")
+
+    p.step.
+      Flexbox és un relativament nou mòdul de CSS que s'activa mitjançant la
+      declaració #[code.code display: flex]:
+
+    pre.code.frame.medium.step(style="width:45%;").
+      .contenidor {
+          display: flex; /* o inline-flex */
+      }
+
+    ul
+      li.step.
+        Flexbox vé a complementar els clàssics #[code.code display: block] i
+        #[code.code display: inline].
+      li.step.
+        Especialment pels casos en que no podem conèixer prèviament les
+        dimensions del contenidor.
+
+    table.step
+      tr
+        td.
+          📌 Flexbox defineix dos eixos direccionals: El #[i Main Axis] o eix
+          principal i el #[i Cross Axis], perpendicular a aquest.
+
+
+
+.slide(data-name="container_properties")
+  div
+
+    h3 Propietats del contenidor
+
+    img.step.floatRight.small(src="/images/figures/flex/01-container.png")
+
+    p.step.
+      Disposam de múltiples propietats per controlar el comportament del
+      contenidor.
+
+    table.medium
+      tr
+        td.code.step flex-direction
+        td.code.step flex-wrap
+        td.code.step flex-flow
+      tr
+        td.code.step justify-content
+        td.code.step align-items
+        td.code.step align-content
+
+
+.slide(data-name="flex-direction")
+  div.medium
+
+    h3 flex-direction
+
+
+    p.step.
+      Ens permet establir la direcció (i sentit) del #[i Main Axis] i el
+      #[i Cross Axis].
+
+    p.step.
+      Pot agafar els següents valors.
+
+    img.floatRight.small(src="/images/figures/flex/flex-direction.png")
+
+    ul
+      li.step.
+        #[code.code row] (per defecte): Horitzontal, d'esquerra a dreta.
+      li.step.
+        #[code.code row-reverse]: Horitzontal, de dreta a esquerra.
+      li.step.
+        #[code.code column]: Vertical, de dalt a baix.
+      li.step.
+        #[code.code column-reverse]: Vertical, de baix a dalt.
+
+    p.step.
+      #[b Exemple:]
+
+    pre.code.frame.step.
+      .contenidor {
+          display: flex;
+          flex-direction: column;
+      }
+
+
+
+.slide(data-name="flex-wrap")
+  div.medium
+
+    h3 flex-wrap
+
+    img.step.floatRight.small(src="/images/figures/flex/flex-wrap.png")
+
+    p.step.
+      Ens permet especificar què fer quan l'espaï demandat pels #[i Flex-Items]
+      supera el #[i main-size].
+    p.step.
+      És a dir: L'amplada (o altura, segons #[i flex-direction]) del contenidor.
+      
+    p.step.
+      Pot agafar els següents valors:
+
+    div.center
+      ul
+        li.step.
+          #[code.code nowrap] (per defecte): Tots els elements s'ajusten per
+          encabir-se en una única línia.
+        li.step.
+          #[code.code wrap]: Els elements agafen l'amplada que necessiten. En
+          acabar-se l'espaï boten a una nova línia davall de l'anterior.
+        li.step.
+          #[code.code wrap-reverse]:  Igual que #[code.code wrap], però les
+          línies es creen de baix cap a dalt. 
+
+
+.slide(data-name="flex-flow")
+  div
+
+    h3 flex-flow
+
+    p.step.
+      És el #[i Shorthand] de:
+      
+    div.center
+      ul
+        li.step #[code.code flex-direction]
+        li.step #[code.code flex-wrap]
+
+    p.step.
+      #[b Exemple:]
+
+    pre.code.frame.step.
+      flex-flow: row wrap;
+
+
+.slide(data-name="justify-content")
+  div.medium
+
+    h3 justify-content
+
+    img.step.floatRight.small(src="/images/figures/flex/justify-content.png")
+
+    p.step.
+      Defineix l'aliniament al llarg del #[i Main Axis] permetent distribuïr
+      l'espaï sobrant 
+
+    p.step.
+      Pot agafar els següents valors:
+
+    ul
+      li.step.
+        #[code.code flex-start] (per defecte): Els elements s'acumulen al
+        principi de la línia.
+      li.step.
+        #[code.code flex-end]: Els elements s'acumulen al final de la línia.
+      li.step.
+        #[code.code center]: Els elements s'acumulen al centre de la línia.
+      li.step.
+        #[code.code space-between]: Els elements es distribueixen
+        proporcionalment al llarg de la línia deixant, si cal, espaïs d'igual
+        tamany entre ells.
+      li.step.
+        #[code.code space-around]: Els elements es distribueixen al llarg de
+        la línia deixant
+      li.step.
+        #[i marges] iguals entre ells. Els #[i marges] no col·lapsen, de
+        manera que els espaïs intermigs seran dobles als dels laterals.
+      li.step.
+        #[code.code space-evenly]: Semblant a #[code.code space-around], però
+        amb tots els espaïs iguals.
+
+
+.slide(data-name="align-items")
+  div.medium
+
+    h3 align-items
+
+    img.step.floatRight.small(src="/images/figures/flex/align-items.png")
+
+    p.step.
+      Defineix com es distribueïxen els elements al llarg del #[i Cross-Axis].
+
+    p.step.
+      Pot agafar els següents valors:
+
+    ul
+      li.step.
+        #[code.code flex-start]: Els elements s'alinien al principi del
+        #[i Cross-Axis].
+      li.step.
+        #[code.code flex-end]: Els elements s'alinien al final del
+        #[i Cross-Axis].
+      li.step.
+        #[code.code center]: Els elements es centren respecte del
+        #[i Cros-Axis].
+      li.step.
+        #[code.code baseline]: Els elements s'alinien respecte del seu
+        #[i baseline].
+      li.step.
+        #[code.code stretch] (per defecte): Els elements s'estiren fins a
+        ocupar tot el #[i Cross-Axis].
+
+
+
+.slide(data-name="align-content")
+  div.medium
+
+    h3 align-content
+
+    img.step.floatRight.medium(src="/images/figures/flex/align-content.png")
+
+    p.step.
+      Ens permet controlar l'aliniament dels elements dins d'una única línia.
+
+    p.step.
+      Pot agafar els següents valors:
+
+    ul
+      li.step.
+        #[code.code flex-start]: Les línies s'acumulen al principi del
+        contenidor.
+      li.step.
+        #[code.code flex-end]: Les línies s'acumulen al final del contenidor.
+      li.step.
+        #[code.code center]: Les línies es centren al mig del contenidor.
+      li.step.
+        #[code.code space-between]: Les línies es distribueixen
+        proporcionalment al llarg del #[i Cross-Axis] deixant, si cal, espaïs
+        d'igual tamany entre ells.
+      li.step.
+        #[code.code space-around]: Les línies es distribueixen al llarg del
+        #[i Cross-Axis] deixant #[i marges] iguals entre ells. Els
+        #[i marges] no col·lapsen, de manera que els espaïs intermigs seran
+        dobles als dels laterals.
+      li.step.
+        #[code.code stretch] (default): Les línies s'eixamplen
+        proporcionalment fins a ocupar tot l'espaï disponible.
+
+    table.medium.step
+      tr
+        td
+          p.
+            📌 Per defecte (#[code.code flex-wrap: nowrap]) Flexbox només té
+            una línia.
+          p.
+            Però amb #[code.code flex-wrap: wrap] o
+            #[code.code flex-wrap: wrap-reverse] podem tenir més d'una línia.
+
+
+.slide(data-name="item_properties")
+  div
+
+    h3 Propietats dels items
+
+    img.step.floatRight.small(src="/images/figures/flex/02-items.png")
+
+    p.step.
+      Per controlar el comportament dels fills disposam de les següents
+      propietats:
+
+    table.medium
+      tr
+        td.code.step order
+        td.code.step flex-grow
+        td.code.step flex-shrink
+      tr
+        td.code.step flex-basis
+        td.code.step flex
+        td.code.step align-self
+
+
+
+.slide(data-name="flex-order")
+  div
+
+    h3 order
+
+    img.step.floatRight.small(src="/images/figures/flex/order.png")
+
+    ul
+      li.step.
+        Amb #[i Flexbox] per defecte els elements es renderitzen segons
+        l'ordre en que aparèixen al codi font.
+      li.step.
+        La propietat #[i order] ens permet alterar aquest comportament.
+      li.step.
+        Els elements amb un #[i order] menor apareixeran primer i
+      li.step.
+        En cas d'empat, continuarà prevalent l'ordre d'aparició.
+      li.step.
+        El valor per defecte d'aquesta propietat és '0'.
+
+    table.step
+      tr
+        td
+          p.
+            ⚠ La propietat #[i order] no altera l'ordre de canvi de focus via
+            teclat ni l'ordre d'aparició dels elements en lectors braille.
+
+.slide(data-name="flex-grow")
+  div
+
+    h3 flex-grow
+
+    img.step.floatRight.small(src="/images/figures/flex/flex-grow.png")
+
+    ul
+      li.step.
+        Controla la capacitat de creixement dels elements.
+      li.step.
+        Accepta valors numèrics majors o iguals a '0'
+        (No accepta nombres negatius).
+      li.step.
+        Si tots els elements tenen el mateix valor de #[i flex-grow] es
+        repartiran l'espaï equitativament.
+      li.step.
+        Si a un d'ells li assignam el valor '2' agafarà el doble d'espai que la
+        resta.
+
+.slide(data-name="flex-shrink")
+  div
+
+    h3 flex-shrink
+
+    img.step.floatRight.small(src="/images/figures/flex/flex-grow.png")
+
+    p.step.
+      Funciona igual que #[i flex-grow] però per al cas contrari:
+      
+    p.step.
+      Quan l'espai no és suficient i és necessari restringir el seu tamany, ens
+      ajuda a determinar de quins elements preferim que s'ens tregui més o
+      menys espaï.
+
+
+.slide(data-name="flex-basis")
+  div
+
+    h3 flex-basis
+
+    p.step.
+      Permet definir un tamany #[i base] per a l'element (abans de que la resta
+      d'espai sobrant -o mancant- sigui redistribuït aplicant #[i flex-grow] o
+      #[i flex-shrink]).
+
+    p.step.
+      Accepta qualsevol distància css vàlida, encara que el més típic és
+      utilitzar percentatges, o qualsevol de les següents paraules clau:
+
+    div.center
+      ul
+        li.step.
+          #[code.code auto] (valor per defecte) que fa que s'apliquin els
+          valors de la propietat #[i height] o #[i width], segons correspongui. 
+        li.step
+          span.
+            #[code.code content], que equivaldria a #[i auto] quan #[i width]
+            (o #[i height]) també és #[i auto].
+          ul
+            li.step.
+              ⚠  #[i content] va ser introduït amb posterioritat, pel que és
+              més recomanable fer servir la tècnica del "doble 'auto'" per
+              evitar problemes amb els més antics.
+
+
+.slide(data-name="flex")
+  div
+
+    h3 flex
+
+    div.center
+      div
+        p.step.
+          És el shorthand de les propietats:
+      
+        ul
+          li.step #[i flex-grow]
+          li.step #[i flex-shrink] 
+          li.step #[i flex-basis]
+
+        p.step.
+          El segon i tercer paràmetres (#[i flex-shrink] i #[i flex-basis]) son opcionals.
+
+        p.step.
+          Els valors per defecte son #[code.code 0 1 auto].
+
+
+    table.step
+      tr
+        td
+          p.
+            📌 Es recomana fer servir sempre aquesta propietat en comptes de
+            les altres individualment ja que aquesta estableix els valors
+            omesos de forma intel·ligent.
+
+
+.slide(data-name="align-self")
+  div
+
+    h3 align-self
+
+    img.step.floatRight.small(src="/images/figures/flex/align-self.png")
+
+    ul
+      li.step.
+        Té el mateix efecte que la propietat #[i align-items] del contenidor.
+      li.step.
+        Però s'aplica dirèctament a cada element.
+      li.step.
+        Permetent així que un o més elements presentin una alineació distinta a
+        la resta.
+      li.step.
+        Per defecte agafa el valor #[i auto] que vol dir que l'element
+        respondrà al paràmetre #[i align-items] del contenidor.
+
+
+
+.slide(data-name="exercici_5")
+  div
+
+    h3 Exercici 5
+
+    p.step.
+      Implementar una barra d'encapçalament elàstica com la de la figura:
+
+
+    div.flexMenu.step
+      span.left Nom Aplicació
+      span 8:45pm
+      span.button.right Opcions
+      span.button.right Ajuda
+
+    div.center
+      ul
+        li.step Els botons a la dreta.
+        li.step El nom de l'aplicació a l'esquerra.
+        li.step El rellotge al centre de l'espaï entremig.
+
+
+
+
+//- vim: set ft=jade:

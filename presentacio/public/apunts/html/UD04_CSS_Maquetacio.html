@@ -345,11 +345,13 @@
 </ul>
 <hr />
 <h2 id="grid-layout">Grid Layout</h2>
+<p><a href="/setslide/grid">Grid</a></p>
 <p>El <em>Grid Layout</em> va aparèixer amb posterioritat a Flexbox.</p>
 <p>Podríem dir que <em>Flexbox</em> ens permet repartir l'espai en una dimensió (horitzontal o vertical) mentre que <em>Grid</em> ens permet fer-ho en dues dimensions a l'hora.</p>
 <p>Aixímateix <strong>Grid no reemplaça Flexbox</strong>, sinó que son dos sistemes complementaris.</p>
 <p>Per una banda <em>Flexbox</em> és més senzill a l'hora de repartir l'espai de forma elàstica entre múltiples elements. Encara que no en coneguem prèviament la quantitat.</p>
 <p>Però, per altra banda, si bé és possible una maquetació en dues dimensions amb flexbox (combinant múltiples contenidors <em>Flex</em> en una dimensió continguts en un altre <em>Flexbox</em> en la dimensió perpendicular). Amb <em>Grid Layout</em> això resulta molt més senzill, ja que només necessitam un únic contenidor <em>Grid</em> dins del qual posarem tots els <em>Grid Items</em> un darrera l'altre i serà el CSS el que s'ocuparà de distribuïr-los als seus llocs corresponents.</p>
+<p><a href="/setslide/grid_layout">Grid Layout</a></p>
 <p>Així, el HTML de qualsevol <em>Grid</em> serà molt semblant al següent:</p>
 <pre><code>&lt;div class=&quot;grid&quot;&gt;
   &lt;div&gt;...&lt;/div&gt;
@@ -358,6 +360,7 @@
   ...
 &lt;/div&gt;</code></pre>
 <h3 id="conceptes-bàsics">Conceptes bàsics</h3>
+<p><a href="/setslide/grid_concepts">Conceptes Bàsics Grid</a></p>
 <p><em>Grid</em> és, si cab, conceptualment més senzill que <em>Flexbox</em>. Però a l'hora té moltíssimes més propietats que, per una banda ens permeten controlar gairebé fins al més mínim detall i, per l'altra, utilitzar distintes tècniques per aconseguir els mateixos resultats.</p>
 <p>Això darrer pot resultar avantatjós a l'hora d'abordar dissenys complexos ja que en uns casos ens podrà convenir una estratègia o altra segons les seves característiques.</p>
 <p>...però per altra banda al principi ens pot embullar si no sabem per on començar.</p>
@@ -376,6 +379,7 @@
 
 </div>
 <h3 id="propietats-principals">Propietats Principals</h3>
+<p><a href="/setslide/grid_properties">Propietats Grid</a></p>
 <p>Seguidament s'expliquen algunes de les propietats més importants que podem fer servir en un <strong>CSS-Grid</strong>.</p>
 <p>Com hem dit l'especificació és molt àmplia i moltes vegades els mateixos resultats es poden assolir de diverses formes (i mitjançant múltiples propietats) distintes.</p>
 <p>Per aquest motiu aquí ens limitarem a intentar donar una visió global de les tècniques i propietats més comunes de manera que ens permetin resoldre la majoria de situacions que s'ens puguin presentar.</p>
@@ -385,8 +389,10 @@
 <p>En canvi en aquest apartat, per tal de posar-les més en context, el que farem és marcar els apartats amb el text &quot;(grid-items)&quot; quan es tracti de propietats dels <em>items</em>.</p>
 </blockquote>
 <h4 id="grid-template-columns-i-grid-template-rows">grid-template-columns i grid-template-rows</h4>
+<p><a href="/setslide/grid_tplcolumns_tplrows">grid-template-columns/-rows</a></p>
 <p>La primera propietat (després del <code>display: grid;</code>) que necessitarem establir a l'hora de muntar un <em>Grid</em> és <em>grid-template-columns</em>, ja que en cas contrari obtindríem una graella d'una sola columna.</p>
 <p><em>grid-template-rows</em>, en canvi, no és tan imprescindible ja que, encara que no estigui definida, o no hagem definit files suficients per encabir tots els elements, aquestes es crearan automàticament a mesura que siguin necessàries. Si be, fer servir <em>grid-template-rows</em> ens permetrà controlar la seva altura.</p>
+<p><a href="/setslide/grid_simple_example">Exemple senzill Grid</a></p>
 <p><strong>Exemple:</strong></p>
 <p>Si consideram la partició de la figura, amb només el CSS següent ja tindríem un <em>Grid</em> completament funcional:</p>
 <div class="img small right">
@@ -411,6 +417,7 @@
 
 </div>
 <h4 id="grid-column-i-grid-row-grid-items">grid-column i grid-row (grid-items)</h4>
+<p><a href="/setslide/grid_columns_rows">grid-columns i grid-rows</a></p>
 <p>Si, per altra banda, desitjam especificar la fila i columna a la que ha d'anar ubicat un element, podem fer servir les propietats <em>grid-column</em> i <em>grid-row</em> per especificar <strong>després de quin <em>grid-line</em> volem que s'ubiqui</strong></p>
 <p><strong>Exemple:</strong></p>
 <pre><code>.very-first-item {
@@ -449,6 +456,7 @@
 
 </div>
 <h5 id="etiquetes">Etiquetes</h5>
+<p><a href="/setslide/grid_labels">Etiquetes</a></p>
 <p>Una característica interessant de <em>grid-template-columns</em> i <em>grid-template-rows</em> és que ens permeten inserir etiquetes entre cadascun dels <em>grid-track</em> (columnes o files) que estem definint.</p>
 <p>Les etiquetes es defineixen entre claudàtors (<code>[]</code>). A més, en podem definir més d'una a cada emplaçament. Per exemple per delimitar el final d'una secció i el principi d'una altra. Així, si algun dia volguéssim canviar-les de lloc o inserir una altra secció enmig, només caldria moure les etiquetes pertinents sense necessitat de redefinir-les.</p>
 <div class="img small right">
@@ -468,6 +476,7 @@
 
 </div>
 <h4 id="grid-template-areas">grid-template-areas</h4>
+<p><a href="/setslide/grid-template-areas">grid-template-areas</a></p>
 <div class="img small right">
 <img src="../../images/figures/grid/grid-template-areas.png" />
 </div>
@@ -497,6 +506,7 @@
 
 </div>
 <h4 id="gap-grid-gap">gap / grid-gap</h4>
+<p><a href="/setslide/grid-gap">Grid Gap</a></p>
 <div class="img small right">
 <img src="../../images/figures/grid/grid-column-row-gap.png" />
 </div>
@@ -518,6 +528,7 @@
 
 </div>
 <h3 id="graelles-dinàmiques">Graelles Dinàmiques</h3>
+<p><a href="/setslide/grid-dynamic">Graelles Dinàmiques</a></p>
 <div class="img right">
 <img src="../../images/figures/grid/grid-elastic-sample.png" />
 </div>
@@ -528,6 +539,7 @@
 <p>El problema però és que, per fer-ho així, hauríem de dissenyar una distribució distinta per a cada cas, com il·lustren els exemples de la figura que mostren múltiples configuracions segons un ample de pantalla determinat.</p>
 <hr />
 <h2 id="exercici-6">Exercici 6</h2>
+<p><a href="/setslide/exercici_6">Exercici 6</a></p>
 <ol style="list-style-type: decimal">
 <li>Obteniu una sèrie d'imatges i preparau un document html com el següent per a mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos agradi:</li>
 </ol>

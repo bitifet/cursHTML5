@@ -576,6 +576,8 @@ Implementar una barra d'encapçalament elàstica com la del següent esquema:
 Grid Layout
 -----------
 
+[Grid](/setslide/grid)
+
 El *Grid Layout* va aparèixer amb posterioritat a Flexbox.
 
 Podríem dir que *Flexbox* ens permet repartir l'espai en una dimensió
@@ -596,6 +598,8 @@ resulta molt més senzill, ja que només necessitam un únic contenidor *Grid*
 dins del qual posarem tots els *Grid Items* un darrera l'altre i serà el CSS el
 que s'ocuparà de distribuïr-los als seus llocs corresponents.
 
+[Grid Layout](/setslide/grid_layout)
+
 Així, el HTML de qualsevol *Grid* serà molt semblant al següent:
 
 ```
@@ -609,6 +613,8 @@ Així, el HTML de qualsevol *Grid* serà molt semblant al següent:
 
 
 ### Conceptes bàsics
+
+[Conceptes Bàsics Grid](/setslide/grid_concepts)
 
 *Grid* és, si cab, conceptualment més senzill que *Flexbox*. Però a l'hora té
 moltíssimes més propietats que, per una banda ens permeten controlar gairebé
@@ -649,6 +655,8 @@ __CLEARFIX__
 
 ### Propietats Principals
 
+[Propietats Grid](/setslide/grid_properties)
+
 Seguidament s'expliquen algunes de les propietats més importants que podem fer
 servir en un **CSS-Grid**.
 
@@ -675,6 +683,7 @@ dels *items*.
 
 #### grid-template-columns i grid-template-rows
 
+[grid-template-columns/-rows](/setslide/grid_tplcolumns_tplrows)
 
 La primera propietat (després del `display: grid;`) que necessitarem establir a
 l'hora de muntar un *Grid* és *grid-template-columns*, ja que en cas contrari
@@ -685,6 +694,7 @@ estigui definida, o no hagem definit files suficients per encabir tots els
 elements, aquestes es crearan automàticament a mesura que siguin necessàries.
 Si be, fer servir *grid-template-rows* ens permetrà controlar la seva altura.  
 
+[Exemple senzill Grid](/setslide/grid_simple_example)
 
 **Exemple:**
 
@@ -724,6 +734,8 @@ __CLEARFIX__
 
 
 #### grid-column i grid-row (grid-items)
+
+[grid-columns i grid-rows](/setslide/grid_columns_rows)
 
 Si, per altra banda, desitjam especificar la fila i columna a la que ha d'anar
 ubicat un element, podem fer servir les propietats *grid-column* i *grid-row*
@@ -774,13 +786,12 @@ El CSS seria el següent:
 }
 ```
 
-
 __CLEARFIX__
-
 
 
 ##### Etiquetes
 
+[Etiquetes](/setslide/grid_labels)
 
 Una característica interessant de *grid-template-columns* i
 *grid-template-rows* és que ens permeten inserir etiquetes entre cadascun dels
@@ -814,6 +825,8 @@ __CLEARFIX__
 
 
 #### grid-template-areas
+
+[grid-template-areas](/setslide/grid-template-areas)
 
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-template-areas.png)
 
@@ -866,6 +879,8 @@ __CLEARFIX__
 
 #### gap / grid-gap
 
+[Grid Gap](/setslide/grid-gap)
+
 ![](__FIGURES_PATH_SMALL_RIGHT__/grid/grid-column-row-gap.png)
 
 Fins ara hem vist com repartir l'espai de la graella i assignar-lo (o deixar
@@ -906,7 +921,7 @@ __CLEARFIX__
 
 ### Graelles Dinàmiques
 
-
+[Graelles Dinàmiques](/setslide/grid-dynamic)
 
 ![](__FIGURES_PATH_RIGHT__/grid/grid-elastic-sample.png)
 
@@ -934,10 +949,11 @@ múltiples configuracions segons un ample de pantalla determinat.
 Exercici 6
 ----------
 
+[Exercici 6](/setslide/exercici_6)
+
 1. Obteniu una sèrie d'imatges i preparau un document html com el següent per a
    mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos
    agradi:
-
 
 ```
 <div class="album">
@@ -1020,8 +1036,6 @@ Exercici 6
 5. Experimentau que passa quan en treieu alguna d'elles.
 
 -----------------------------------------------------------------------------------------
-
-
 
 
 Disseny Responsiu

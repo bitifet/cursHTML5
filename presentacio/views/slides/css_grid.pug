@@ -1,32 +1,21 @@
-
-
-
-
 .slide(data-name="grid")
   div.medium
-
-    h2.step.title CSS Grid
-
+    h3.step.title CSS Grid
     p.step.
       El #[i Grid Layout] va aparèixer amb posterioritat a Flexbox.
-
     p.step.
       Per activar-lo fem servir:
-
     pre.code.frame.medium.step.
       .contenidor {
           display: grid; /* o inline-grid */
       }
-
     p.step.
       Podríem dir que #[i Flexbox] ens permet repartir l'espai en una dimensió
       (horitzontal o vertical) mentre que #[i Grid] ens permet fer-ho en dues
       dimensions a l'hora.
-
     p.step.
       Aixímateix #[b Grid no reemplaça Flexbox], sinó que son dos sistemes
       complementaris.
-
     ul
       li.step.
         #[i Flexbox] és més senzill a l'hora de repartir l'espai de forma
@@ -34,16 +23,12 @@
       li.step.
         Però per treballar en dues dimensions necessitam anidar múltiples
         contenidors #[i Flex] un a dins l'altre.
-        
 
 .slide(data-name="grid_layout")
   div.bigfont
-
-    h2 Maquetació amb Grid
-
+    h3 Maquetació amb Grid
     p.step.
       Així, l'HTML de qualsevol #[i Grid] serà molt semblant al següent:
-
     pre.code.frame.step.
       &lt;div class="grid"&gt;
         &lt;div&gt;...&lt;/div&gt;
@@ -52,19 +37,13 @@
         ...
       &lt;/div&gt;
 
-
 .slide(data-name="grid_concepts")
   div
-
-    h2.step.title Conceptes bàsics
-
+    h3.step.title Conceptes bàsics
     img.step.floatRight.medium(src="/images/figures/grid/grid-concepts.png")
-
     p.step.
       Per entendre Grid, necessitam assimilar uns pocs conceptes bàsics:
-
     ul.medium
-
       li.step.
         #[b grid-item:] És cadascun dels elements que son fills directes del
         contenidor.
@@ -80,39 +59,29 @@
         #[b grid-area:] Igual que una #[i grid-cell] però sense la condició
         d'adjacència de les #[i grid-lines].
 
-
 .slide(data-name="grid_properties")
-  div
-
-    h2 Propietats Principals
-
+  div.bigfont
+    h3 Propietats Principals
     p.step.
       Podriem dir que, conceptualment, el #[i CSS-Grid] és més senzill que el
       #[i Flexbox].
-
     p.step.
       Però per altra banda és molt potent i versàtil, en el sentit de que ens
       permet obtenir resultats molt diversos i, cadascun d'ells de diverses
       formes (i mitjançant propietats) diferents. 
-
     p.step.
       Seguidament intentarem explicar un extracte de les tècniques i propietats
       més usuals.
-
     p.step.
       Per a més informació, a l'apartat de referències dels apunts teniu un
       article molt complet del portal web #[i CSS Tricks] al respecte.
-
     p.step.moreinfo https://css-tricks.com/snippets/css/complete-guide-grid
-
-
 
 .slide(data-name="grid_tplcolumns_tplrows")
   div
-
-    h2 grid-template-columns i grid-template-rows (Contenidor)
-
-    ul
+    h3 grid-template-columns i grid-template-rows
+    h4 (Contenidor)
+    ul.bigfont
       li.step
         span.
           #[b grid-template-columns:]
@@ -121,9 +90,7 @@
             Declara les columnes en les que els #[i items] s'aniran
             organitzant.
           li.step.
-            Després del #[code.code display: grid;], és la primera propietat
-            que necessitarem establir ja que
-            #[b en cas contrari obtindríem una graella d'una sola columna].
+            Si no l'establim obtindríem una graella d'una sola columna.
       li.step
         span.
           #[b grid-template-rows:]
@@ -132,23 +99,19 @@
             Declara les files en les que els #[i items] s'aniran
             organitzant.
           li.step.
-            No és tan imprescindible ja que aquestes es crearan automàticament
-            a mesura que siguin necessàries.
+            Si no l'especificam es crearan automàticament a mesura que siguin
+            necessàries.
           li.step.
             Si be, fer servir #[i grid-template-rows] ens permetrà controlar la
             seva altura.  
 
-
 .slide(data-name="grid_simple_example")
   div
-
     h3 CSS Grid - Exemple
-
     table
       tr
         td.step
           img.medium(src="/images/figures/grid/grid-numbers.png")
-
           pre.code.frame.white.step.medium.
             .container {
               display: grid;
@@ -156,7 +119,6 @@
                 40px 50px auto 50px 40px;
               grid-template-rows: 25% 100px auto;
             }
-
         td.step
           h4 Markup:
           pre.code.frame.white.
@@ -176,12 +138,9 @@
                 &lt;div&gt;...&lt;/div&gt;
             &lt;/div&gt;
 
-
 .slide(data-name="grid_columns_rows")
   div
-
-    h2 grid-column i grid-row (items)
-
+    h3 grid-column i grid-row (Items)
     table
       tr
         td.step(rowspan=2)
@@ -198,12 +157,10 @@
           p.step.
             En realitat, el que especificam és
             #[b després de quin #[i grid-line] volem que s'ubiqui].
-
         td.step(colspan=2)
           p.
             De fet en realitat accepten 2 nombres de #[i grid-line], separats
             per una barra inclinada (/): #[b El d'inici i el de fi].
-
       tr
         td.step
           span.
@@ -229,389 +186,198 @@
               grid-column: 1 / 5;
               grid-row: 3 / 4;
             }
-
         td.step
           p.small El que ens donaria el següent resultat:
           img.medium(src="/images/figures/grid/grid-template-areas.png")
 
-
-
-
-
-##### Etiquetes
-
-
-Una característica interessant de #[i grid-template-columns] i
-#[i grid-template-rows] és que ens permeten inserir etiquetes entre cadascun dels
-#[i grid-track] (columnes o files) que estem definint.
-
-Les etiquetes es defineixen entre claudàtors (`[]`). A més, en podem definir
-més d'una a cada emplaçament. Per exemple per delimitar el final d'una secció i
-el principi d'una altra. Així, si algun dia volguéssim canviar-les de lloc o
-inserir una altra secció enmig, només caldria moure les etiquetes pertinents
-sense necessitat de redefinir-les.
-
-
-img.step.floatRight.small(src="/images/figures/grid/grid-names.png")
-
-```
-.container {
-  display: grid;
-  grid-template-columns:
-    40px 50px auto 50px 40px;
-  grid-template-rows:
-    [row1-start] 25%
-    [row1-end row2-start] 25%
-    [row2-end]
-  ;
-}
-```
-
-
-__CLEARFIX__
-
-
-
-#### grid-template-areas
-
-img.step.floatRight.small(src="/images/figures/grid/grid-template-areas.png")
-
-Les etiquetes ens simplifiquen enormement la feina de crear (i sobretot
-mantenir) #[i layouts] complexes. Especialment quan no coneixem prèviament el
-nombre d'elements (#[i grid-items]) que contindrà la nostra graella o, sobretot,
-si aquest pot variar.
-
-Però #[b quan es tracta d'un #[i layout] estàtic, la propietat #[i grid-template-areas] ens ofereix una forma molt millor]...
-
-Per exemple, per implementar el mateix #[i layout] d'abans amb
-#[i grid-template-areas], el CSS seria el següent:
-
-
-```
-.container {
-  grid-template-columns: repeat(4, 50px);
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "header header header header"
-    "main main . sidebar"
-    "footer footer footer footer";
-}
-.header { grid-area: header; }
-.main { grid-area: main; }
-.sidebar { grid-area: sidebar; }
-.footer { grid-area: footer; }
-[...]
-```
-
-
->
-📌 #[b La funció #[i repeat()]:] Si ens hi fixam, al llistat anterior hem
-canviat la declaració `grid-template-columns: 50px 50px 50px 50px;` per
-`grid-template-columns: repeat(4, 50px);`.
->
-Aquesta funció ens permet abreviar a l'hora d'especificar patrons repetitius de
-files o columnes.
->
-En aquest cas hem repetit 4 vegades '50px'. Però podem repetir patrons molt més
-complexos. Exemple:
->
-`grid-template-columns: repeat(6, 10px 20em 2fr 1fr);`
->
-
-
-__CLEARFIX__
-
-
-#### gap / grid-gap
-
-img.step.floatRight.small(src="/images/figures/grid/grid-column-row-gap.png")
-
-Fins ara hem vist com repartir l'espai de la graella i assignar-lo (o deixar
-que es es reparteixin ells) als distints #[i grid-items].
-
-Però els elements ens queden aferrats els uns als altres sense gens d'espai
-enmig. El que no resulta gaire estètic...
-
-Per solucionar aquest problema, tenim la propietat #[i gap] que ens permet
-especificar un marge de separació entre els elements.
-
-__CLEARFIX__
-
->
-📌 Originalment la propietat #[i gap] s'anomenava #[i grid-gap], pel que les
-versions menys recents d'alguns navegadors només suporten aquesta darrera. Per
-aquest motiu és recomanable fer servir #[i grid-gap] en comptes de #[i gap] o, en tot
-cas les dues:
->
-`gap: .5em;`
->
-`grid-gap: var(gap);`
->
-
-En realitat la propietat #[i gap] és el #[i shorthand] de les propietats #[i row-gap] i
-#[i column-gap] que ens permeten especificar el "gap" entre files i entre
-columnes, respectivament.
-
-La propietat #[i gap] (o #[i grid-gap]) però, ens permet a més, especificar un únic
-"gap" per files i columnes.
-
-Dit d'altra manera, les delcaracions `grid-gap 3px;` i `grid-gap 3px 3px;` son
-equivalents.
-
-
-__CLEARFIX__
-
-
-### Graelles Dinàmiques
-
-
-
-img.step.floatRight.small(src="/images/figures/grid/grid-elastic-sample.png")
-
-Suposem que tenim una sèrie de fotografies i volem muntar una galeria
-fotogràfica.
-
-També volem que algunes fotografies, escollides per nosaltres, surtin doble
-tamany i que no ens quedi cap espai buid.
-
-A més, volem que les fotografies no siguin ni massa grosses ni massa petites i
-que el conjunt s'ajusti a l'amplada disponible.
-
-
-Com veurem després, podem especificar regles css que només s'apliquin segons si
-el tamany de la pantalla compleix o no determinades condicions (com ara estar
-dins un determinat rang).
-
-El problema però és que, per fer-ho així, hauríem de dissenyar una distribució
-distinta per a cada cas, com il·lustren els exemples de la figura que mostren
-múltiples configuracions segons un ample de pantalla determinat.
-
-
------------------------------------------------------------------------------------------
-
-Exercici 6
-----------
-
-1. Obteniu una sèrie d'imatges i preparau un document html com el següent per a
-   mostrar-les totes. Podeu anomenar els fitxers i els peus de foto com més vos
-   agradi:
-
-
-```
-<div class="album">
-  <figure class="big">
-    <img src="./view_01.jpeg" alt="Vista 1" />
-    <figcaption>Vista 1</figcaption>
-  </figure>
-  <figure>
-    <img src="./view_02.jpeg" alt="Vista 2" />
-    <figcaption>Vista 2</figcaption>
-  </figure>
-  <figure class="big">
-    <img src="./view_03.jpeg" alt="Vista 3" />
-    <figcaption>Vista 3</figcaption>
-  </figure>
-
-  <figure> ... </figure>
-  ...
-</div>
-```
-
-2. Aplicau-li el següent full d'estil i observau que passa:
-
-```
-
-.album > figure {
-  display: inline-block;
-  max-width: 300px;
-  margin: 0;
-}
-
-.album img {
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.album figcaption {
-  padding: 0.3em 0.8em;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: right;
-}
-
-@supports (display: grid) {
-  .album {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fill, minmax(100px, 1fr));
-    grid-auto-rows: 1fr;
-    grid-gap: 1em;
-    grid-auto-flow: dense;
-  }
-
-  .album > figure {
-    display: flex;
-    flex-direction: column;
-    max-width: initial;
-  }
-
-  .album img {
-    flex: 1;
-  }
-
-  .album .big {
-    grid-row: span 2;
-    grid-column: span 2;
-  }
-}
-```
-
-
-3. Provau a canviar el tamany de la finestra del navegador mentre estau
-   visualitzant la pàgina. Observau com les imatges canvien d'ordre si és
-   necessari per tal de no deixar espais en blanc.
-
-4. Identificau entre tots quines de les propietats que aparèixen al css
-   anterior encara no coneixieu.  Investigau a la xarxa quina és la seva
-   finalitat. Podeu fer-ho en grups i repartir-vos les propietats.
-
-5. Experimentau que passa quan en treieu alguna d'elles.
-
------------------------------------------------------------------------------------------
-
-
-
-
-Disseny Responsiu
------------------
-
-Entenem per "dissenys responsius" (#[i Responsive Designs]) aquells que d'alguna
-manera s'adapten a les característiques del dispositiu on son visualitzats
-sense perdre gens o gairebé gens de funcionalitat.
-
-Per a aconseguir això podem fer servir dues estratègies:
-
-  * El #[i disseny adaptatiu].
-
-  * Els #[i Media Queries].
-
-
-### Disseny Adaptatiu (Elasticitat)
-
-Per disseny adaptatiu entenem aquell que s'adapta al tamany del #[i viewport] de
-forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra,
-el contingut s'escala de forma gradual (i "apropiada").
-
-Aquí juguen un paper molt important les unitats relatives. Especialment les
-noves relatives a l'amplada i/o altura del #[i viewport]: #[code.code vw], #[code.code vh], #[code.code vmin] i
-#[code.code vmax] que ens permeten dividir de forma exacta l'espai disponible amb unes
-proporcions constants.
-
-Abans de disposar d'aquestes unitats això es feia típicament fent servir
-percentatges (%) però, a no ser mitjançant Javascript, resultava pràcticament
-impossible evitar que ens apareguessin barres de desplaçament indesitjades.
-
-
-#### Tamany de lletra elàstic.
-
-Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció
-directa al tamany del viewport ja que per a tamanys petits pot resultar
-illegible mentre que amb pantalles molt grans podríem estar desaprofitant
-l'espai.
-
-Per això el més convenient és establir un tamany de lletra mínim amb unitats
-absolutes (px, mm, etc...) #[b més un increment relatiu l tamany de la pantalla].
-
-#[b Exemple:]
-
-```
-:root {
-  font-size: 14px;
-  font-size: calc(2px + 2vw);
-  font-size: calc(2px + 2vmin);
-}
-```
-
-Aquí fem el següent:
-
-  * Definim un tamany de lletra base de 14px per a aquells navegadors que no
-    suportin unitats relatives al #[i viewport] (i pot ser tampoc la funció calc()).
-
-  * Per a aquells navegadors que ho suportin, establim un tamany de lletra
-    proporcional a l'amplada #[i viewport] al que afegim un #[i offset] de 2px.
-
-  * Per a aquells navegadors que ho suportin (#[code.code vmin] i #[code.code vmax] estan
-    lleugerament menys suportats que #[code.code vw] i #[code.code vh]), establim un tamany de lletra
-    proporcional a la menor de les dimensions del #[i viewport] i li afegim el
-    mateix #[i offset].
-
-Com que hem aquest tamany de lletra a l'element arrel (:root), ja no ens caldrà
-més repetir aquests càlculs donat que sempre que vulguem establir un tamany de
-lletra diferent, ho podrem fer relatiu a aquest (*rem*) o al que estigués
-prèviament establert per herència (*em*).
-
-
->
-📌 El fragment de CSS anterior, tret de la primera declaració
-(`font-size: 14px;`) que no la vaig considerar necessària és el tamany de
-lletra base de les diapositives que heu estat veient tot el curs.
->
-Per aquest motiu l'#[i offset] és tan petit: Ens interessava que la informació que
-es mostràs en pantalla fos sempre la mateixa #[b independentment de la resolució d'aquesta].
->
-Pel cas d'una pàgina o aplicació web normal, normalment faríem servir un
-#[i offset] major i un increment més moderat.
->
-
-
-
-### Media Queries
-
-Quan l'elasticitat no és suficient, els #[i media queries] ens permeten establir
-regles CSS espacífiques per als casos en que la pantalla és molt gran o molt
-petita.
-
-L'avantatge d'aquest procediment és que podem realitzar qualsevol canvi que
-considerem oportú al CSS. Fins i tot reestructurar completament el layout.
-
->
-📌 Un exemple típic és convertir una barra de navegació lateral en el
-típic menú "burguer" (☰) que habitualment veiem a les aplicacions mòbils.
->
-
-L'inconvenient però és que els canvis no son progressius, sinó que el canvi es
-produeix de forma abrupta quan les dimensions del viewport comencen a o deixen
-de complir una determinada condició.
-
-
-#[b Exemple de #[i Media Query]:]
-
-```
-@media (max-width: 600px) and (orientation: portrait) {
-  .facet_sidebar {
-    display: none;
-  }
-}
-```
-
-A les referències teniu un enllaç a la documentació de la MDN sobre #[i Media Queries] on trobareu ben detallades totes les condicions que podeu fer servir.
-
-
-### Mobile-First Approach
-
-Es coneix com a #[i Mobile-First Approach] a una #[b molt recomanable] forma
-d'abordar els dissenys consistents en, tal com el seu nom indica, dissenyar
-#[b primer] per al mòbil.
-
-La idea bàsica és que si fem un disseny que funcioni bé a un dispositiu mòbil
-(petit, sense ratolí...) ens serà molt més senzill adaptar aquest a dispositius
-més grans (les adaptacions seran normalment per a aprofitar millor el
-dispositiu: no perquè perquè res no hi funcioni), que no a l'inrevés.
-
-
-
-
-
+.slide(data-name="grid_labels")
+  div
+    h3 Etiquetes
+    p.step.
+      #[i grid-template-columns] i #[i grid-template-rows] ens permeten inserir
+      etiquetes entre cadascun dels #[i grid-track]s que estem definint.
+    img.step.floatRight.medium(src="/images/figures/grid/grid-names.png")
+    p.step.
+      #[b Exemple:]
+    pre.code.frame.step(style="width: 55%").
+      .container {
+        display: grid;
+        grid-template-columns:
+          [first] 40px 50px auto 50px 40px [end];
+        grid-template-rows:
+          [row1-start] 25%
+          [row1-end row2-start] 25%
+          [row2-end]
+        ;
+      }
+      .header {
+        grid-column: first / end;
+        grid-row: row1;
+      }
+
+.slide(data-name="grid-template-areas")
+  div.medium
+    h2 grid-template-areas (Contenidor)
+    p.step.
+      Les etiquetes ens simplifiquen enormement la feina.
+    p.step.
+      Però, amb #[i layouts] estàtics, la propietat #[i grid-template-areas]
+      ens la simplifica encara més...
+    img.step.floatRight.medium(src="/images/figures/grid/grid-template-areas.png")
+    div.medium(style="width: 55%;")
+      pre.code.step.frame.
+        .container {
+          grid-template-columns: repeat(4, 50px);
+          grid-template-rows: auto;
+          grid-template-areas: 
+            "header header header header"
+            "main   main   .      sidebar"
+            "footer footer footer footer";
+        }
+        .header { grid-area: header; }
+        .main { grid-area: main; }
+        .sidebar { grid-area: sidebar; }
+        .footer { grid-area: footer; }
+    table.step.small
+      tr
+        td
+          p.
+            📌 La funció #[i repeat()] ens permet abreviar a l'hora
+            d'especificar patrons repetitius de files o columnes.
+          p.step.
+            Podem repetir patrons molt més complexos. Exemple:
+          pre.code.frame.white.step.
+            grid-template-columns: repeat(6, 10px 20em 2fr 1fr);
+      p
+
+.slide(data-name="grid-gap")
+  div
+    h2 gap / grid-gap (Contenidor)
+    img.step.floatRight.small(src="/images/figures/grid/grid-column-row-gap.png")
+    ul
+      li.step.
+        Fins ara hem vist com repartir l'espai de la graella.
+      li.step.
+        Però els elements ens queden #[i aferrats] els uns als altres sense
+        gens d'espai enmig.
+      li.step.
+        Per solucionar aquest problema, tenim la propietat #[i gap] que ens
+        permet especificar un marge de separació entre els elements.
+      li.step.
+        La propietat #[i gap] és el #[i shorthand] de les propietats
+        #[i row-gap] i #[i column-gap], respectivament.
+    table.step
+      tr
+        td
+          p.
+            📌 Originalment la propietat #[i gap] s'anomenava #[i grid-gap],
+            pel que alguns navegadors només suporten aquesta.
+          p.step.
+            Per això millor especificar les dues:
+          pre.code.frame.white.step.
+            gap: .5em;
+            grid-gap: var(gap);
+          p
+
+.slide(data-name="grid-dynamic")
+  div
+    h2 Graelles Dinàmiques
+    p.step.
+      Suposem que tenim una sèrie de fotografies i volem muntar una galeria
+      fotogràfica.
+    p.step.
+      També volem que algunes fotografies, escollides per nosaltres, surtin doble
+      tamany i que no ens quedi cap espai buid.
+    p.step.
+      A més, volem que les fotografies no siguin ni massa grosses ni massa petites i
+      que el conjunt s'ajusti a l'amplada disponible.
+    div.center
+      img.step.medium(src="/images/figures/grid/grid-elastic-sample.png")
+
+.slide(data-name="exercici_6")
+  div
+    h2 Exercici 6
+    table
+      tr
+        td.step
+          p.
+            #[b 1.] Obteniu una sèrie d'imatges i preparau un document html com
+            el següent per a mostrar-les totes. Podeu anomenar els fitxers i
+            els peus de foto com més vos agradi:
+          pre.code.small.
+            &lt;div class="album"&gt;
+              &lt;figure class="big"&gt;
+                &lt;img src="./view_01.jpeg" alt="Vista 1" /&gt;
+                &lt;figcaption&gt;Vista 1&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure&gt;
+                &lt;img src="./view_02.jpeg" alt="Vista 2" /&gt;
+                &lt;figcaption&gt;Vista 2&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure class="big"&gt;
+                &lt;img src="./view_03.jpeg" alt="Vista 3" /&gt;
+                &lt;figcaption&gt;Vista 3&lt;/figcaption&gt;
+              &lt;/figure&gt;
+              &lt;figure&gt; ... &lt;/figure&gt;
+              ...
+            &lt;/div&gt;
+          p.step.
+            #[b 2.] Aplicau-li el següent full d'estil i observau que passa:
+          pre.code.small.step.
+            .album &gt; figure {
+              display: inline-block;
+              max-width: 300px;
+              margin: 0;
+            }
+
+        td.step
+          pre.code.small.
+            .album img {
+              max-width: 100%;
+              object-fit: cover;
+            }
+            .album figcaption {
+              padding: 0.3em 0.8em;
+              background-color: rgba(0, 0, 0, 0.5);
+              color: #fff;
+              text-align: right;
+            }
+            @supports (display: grid) {
+              .album {
+                display: grid;
+                grid-template-columns:
+                    repeat(auto-fill, minmax(100px, 1fr));
+                grid-auto-rows: 1fr;
+                grid-gap: 1em;
+                grid-auto-flow: dense;
+              }
+              .album &gt; figure {
+                display: flex;
+                flex-direction: column;
+                max-width: initial;
+              }
+              .album img {
+                flex: 1;
+              }
+              .album .big {
+                grid-row: span 2;
+                grid-column: span 2;
+              }
+            }
+
+        td.step
+          p.step.
+            #[b 3.] Provau a canviar el tamany de la finestra del navegador
+            mentre estau visualitzant la pàgina. Observau com les imatges
+            canvien d'ordre si és necessari per tal de no deixar espais en
+            blanc.
+          p.step.
+            #[b 4.] Identificau entre tots quines de les propietats que
+            aparèixen al css anterior encara no coneixieu.  Investigau a la
+            xarxa quina és la seva finalitat. Podeu fer-ho en grups i
+            repartir-vos les propietats.
+          p.step.
+            #[b 5.] Experimentau que passa quan en treieu alguna d'elles.
 
 
 //- vim: set ft=jade:

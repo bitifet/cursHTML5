@@ -1,0 +1,135 @@
+.slide(data-name="css_responsive")
+  div
+    h3.step.title Disseny Responsiu
+
+    p.step.
+      Entenem per "dissenys responsius" (#[i Responsive Designs]) aquells que
+      d'alguna manera s'adapten a les característiques del dispositiu on son
+      visualitzats sense perdre gens o gairebé gens de funcionalitat.
+
+    p.step.
+      Per a aconseguir això podem fer servir dues estratègies:
+
+    div.center.bigfont
+      ul
+        li.step El #[i disseny adaptatiu].
+        li.step Els #[i Media Queries].
+
+
+.slide(data-name="css_adaptative")
+  div.medium
+    h3 Disseny Adaptatiu (elasticitat)
+
+    ul
+      li.step.
+        S'adapta al tamany del #[i viewport] de forma progressiva.
+      li.step.
+        És a dir: el contingut s'escala de forma gradual (i "apropiada").
+      li.step.
+        Per a aconseguir-ho, fem servir unitats relatives.
+      li.step
+        span.
+          Especialment les noves relatives a l'amplada i/o altura del #[i viewport]:
+        ul
+          li.step.
+            #[code.code vw] i #[code.code vh]
+          li.step.
+            #[code.code vmin] i #[code.code vmax]
+
+
+.slide(data-name="css_font_size")
+  div.medium
+    h3 Tamany de lletra elàstic.
+
+    p.step.
+      Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en
+      proporció directa al tamany del viewport.
+
+    p.step.
+      Per això el més convenient és establir un tamany de lletra mínim amb
+      unitats absolutes (px, mm, etc...)
+      #[b més un increment relatiu l tamany de la pantalla].
+
+    div.center
+      div
+        p.step.
+          #[b Exemple:]
+
+        pre.step.code.frame.
+          :root {
+            font-size: 14px;
+            font-size: calc(2px + 2vw);
+            font-size: calc(2px + 2vmin);
+          }
+
+    table.step
+      tr
+        td
+          p.
+            📌 El fragment de CSS anterior és el tamany de lletra base de
+            d'diapositives. Per aquest motiu l'#[i offset] és tan petit.
+          p.
+            Normalment faríem servir un #[i offset] major i un increment més
+            moderat.
+
+
+.slide(data-name="css_media_queries")
+  div
+    h3 Media Queries
+
+    ul.bigfont
+      li.step.
+        Ens permeten establir regles css específiques per als casos en que la
+        pantalla és molt gran o molt petita.
+      li.step
+        span.
+          L'avantatge és que podem realitzar qualsevol canvi que considerem oportú al CSS.
+        ul
+          li.step.
+            Fins i tot reestructurar per complet el layout.
+      li.step.
+        L'inconvenient és que els canvis no son progressius, sinó que es
+        produeixen de forma abrupta.
+        
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Un exemple típic és convertir una barra de navegació lateral en
+            el típic menú "burguer" (☰) que habitualment veiem a les
+            aplicacions mòbils.
+
+
+.slide(data-name="css_media_query_example")
+  div
+    h3 Media Queries - Exemple
+
+    pre.code.frame.step.
+      @media (max-width: 600px) and (orientation: portrait) {
+        .my_sidebar {
+          display: none;
+        }
+        .contents {
+          width: 100vw;
+        }
+      }
+
+
+.slide(data-name="css_mobile_first")
+  div
+    h3 Mobile-First Approach
+
+    p.step.
+      Es coneix com a #[i Mobile-First Approach] a una #[b molt recomanable]
+      forma d'abordar els dissenys consistents en, tal com el seu nom indica,
+      dissenyar #[b primer] per al mòbil.
+
+    p.step.
+      La idea bàsica és que si fem un disseny que funcioni bé a un dispositiu
+      mòbil (petit, sense ratolí...) ens serà molt més senzill adaptar aquest a
+      dispositius més grans (les adaptacions seran normalment per a aprofitar
+      millor el dispositiu: no perquè perquè res no hi funcioni), que no a
+      l'inrevés.
+
+
+//- vim: set ft=jade:

@@ -1041,6 +1041,8 @@ Exercici 6
 Disseny Responsiu
 -----------------
 
+[Disseny Responsiu](/setslide/css_responsive)
+
 Entenem per "dissenys responsius" (*Responsive Designs*) aquells que d'alguna
 manera s'adapten a les característiques del dispositiu on son visualitzats
 sense perdre gens o gairebé gens de funcionalitat.
@@ -1053,6 +1055,8 @@ Per a aconseguir això podem fer servir dues estratègies:
 
 
 ### Disseny Adaptatiu (Elasticitat)
+
+[Elasticitat](/setslide/css_adaptative)
 
 Per disseny adaptatiu entenem aquell que s'adapta al tamany del *viewport* de
 forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra,
@@ -1069,6 +1073,8 @@ impossible evitar que ens apareguessin barres de desplaçament indesitjades.
 
 
 #### Tamany de lletra elàstic.
+
+[Elasticitat Text](/setslide/css_font_size)
 
 Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció
 directa al tamany del viewport ja que per a tamanys petits pot resultar
@@ -1125,6 +1131,8 @@ Pel cas d'una pàgina o aplicació web normal, normalment faríem servir un
 
 ### Media Queries
 
+[Media Queries](/setslide/css_media_queries)
+
 Quan l'elasticitat no és suficient, els *media queries* ens permeten establir
 regles CSS espacífiques per als casos en que la pantalla és molt gran o molt
 petita.
@@ -1141,6 +1149,7 @@ L'inconvenient però és que els canvis no son progressius, sinó que el canvi e
 produeix de forma abrupta quan les dimensions del viewport comencen a o deixen
 de complir una determinada condició.
 
+[Exemple M.Query](/setslide/css_media_query_example)
 
 **Exemple de *Media Query*:**
 
@@ -1157,6 +1166,8 @@ Queries* on trobareu ben detallades totes les condicions que podeu fer servir.
 
 
 ### Mobile-First Approach
+
+[Mobile-First](/setslide/css_mobile_first)
 
 Es coneix com a *Mobile-First Approach* a una **molt recomanable** forma
 d'abordar els dissenys consistents en, tal com el seu nom indica, dissenyar

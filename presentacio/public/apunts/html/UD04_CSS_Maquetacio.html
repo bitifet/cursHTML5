@@ -614,6 +614,7 @@
 </ol>
 <hr />
 <h2 id="disseny-responsiu">Disseny Responsiu</h2>
+<p><a href="/setslide/css_responsive">Disseny Responsiu</a></p>
 <p>Entenem per &quot;dissenys responsius&quot; (<em>Responsive Designs</em>) aquells que d'alguna manera s'adapten a les característiques del dispositiu on son visualitzats sense perdre gens o gairebé gens de funcionalitat.</p>
 <p>Per a aconseguir això podem fer servir dues estratègies:</p>
 <ul>
@@ -621,10 +622,12 @@
 <li><p>Els <em>Media Queries</em>.</p></li>
 </ul>
 <h3 id="disseny-adaptatiu-elasticitat">Disseny Adaptatiu (Elasticitat)</h3>
+<p><a href="/setslide/css_adaptative">Elasticitat</a></p>
 <p>Per disseny adaptatiu entenem aquell que s'adapta al tamany del <em>viewport</em> de forma progressiva. És a dir: si engrandim o escurçam el tamany de la finestra, el contingut s'escala de forma gradual (i &quot;apropiada&quot;).</p>
 <p>Aquí juguen un paper molt important les unitats relatives. Especialment les noves relatives a l'amplada i/o altura del <em>viewport</em>: <em>vw</em>, <em>vh</em>, <em>vmin</em> i <em>vmax</em> que ens permeten dividir de forma exacta l'espai disponible amb unes proporcions constants.</p>
 <p>Abans de disposar d'aquestes unitats això es feia típicament fent servir percentatges (%) però, a no ser mitjançant Javascript, resultava pràcticament impossible evitar que ens apareguessin barres de desplaçament indesitjades.</p>
 <h4 id="tamany-de-lletra-elàstic.">Tamany de lletra elàstic.</h4>
+<p><a href="/setslide/css_font_size">Elasticitat Text</a></p>
 <p>Pel que fa al tamany de lletra, resulta poc pràctic definir-lo en proporció directa al tamany del viewport ja que per a tamanys petits pot resultar illegible mentre que amb pantalles molt grans podríem estar desaprofitant l'espai.</p>
 <p>Per això el més convenient és establir un tamany de lletra mínim amb unitats absolutes (px, mm, etc...) <strong>més un increment relatiu l tamany de la pantalla</strong>.</p>
 <p><strong>Exemple:</strong></p>
@@ -646,12 +649,14 @@
 <p>Pel cas d'una pàgina o aplicació web normal, normalment faríem servir un <em>offset</em> major i un increment més moderat.</p>
 </blockquote>
 <h3 id="media-queries">Media Queries</h3>
+<p><a href="/setslide/css_media_queries">Media Queries</a></p>
 <p>Quan l'elasticitat no és suficient, els <em>media queries</em> ens permeten establir regles CSS espacífiques per als casos en que la pantalla és molt gran o molt petita.</p>
 <p>L'avantatge d'aquest procediment és que podem realitzar qualsevol canvi que considerem oportú al CSS. Fins i tot reestructurar completament el layout.</p>
 <blockquote>
 <p>📌 Un exemple típic és convertir una barra de navegació lateral en el típic menú &quot;burguer&quot; (☰) que habitualment veiem a les aplicacions mòbils.</p>
 </blockquote>
 <p>L'inconvenient però és que els canvis no son progressius, sinó que el canvi es produeix de forma abrupta quan les dimensions del viewport comencen a o deixen de complir una determinada condició.</p>
+<p><a href="/setslide/css_media_query_example">Exemple M.Query</a></p>
 <p><strong>Exemple de <em>Media Query</em>:</strong></p>
 <pre><code>@media (max-width: 600px) and (orientation: portrait) {
   .facet_sidebar {
@@ -660,6 +665,7 @@
 }</code></pre>
 <p>A les referències teniu un enllaç a la documentació de la MDN sobre <em>Media Queries</em> on trobareu ben detallades totes les condicions que podeu fer servir.</p>
 <h3 id="mobile-first-approach">Mobile-First Approach</h3>
+<p><a href="/setslide/css_mobile_first">Mobile-First</a></p>
 <p>Es coneix com a <em>Mobile-First Approach</em> a una <strong>molt recomanable</strong> forma d'abordar els dissenys consistents en, tal com el seu nom indica, dissenyar <strong>primer</strong> per al mòbil.</p>
 <p>La idea bàsica és que si fem un disseny que funcioni bé a un dispositiu mòbil (petit, sense ratolí...) ens serà molt més senzill adaptar aquest a dispositius més grans (les adaptacions seran normalment per a aprofitar millor el dispositiu: no perquè perquè res no hi funcioni), que no a l'inrevés.</p>
 <h2 id="referències">Referències:</h2>

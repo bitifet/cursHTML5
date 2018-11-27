@@ -1,11 +1,11 @@
 
 
-.slide.bigfont(data-name="float")
+.slide(data-name="float")
   div
 
     h3.step.title La propietat "float"
 
-    img.step.floatRight(src="/images/figures/float/float.png")
+    img.step.floatRight.medium(src="/images/figures/float/float.png")
 
     p.step.
       La propietat #[i float], ens permet fer que un element #[i suri] dins el
@@ -14,11 +14,10 @@
     p.step.
       Pot agafar els següents valors:
 
-    div.center
-      ul
-        li.step #[code.code none] (per defecte): L'element no "sura".
-        li.step #[code.code left]: L'element "sura" a l'esquerra.
-        li.step #[code.code right]: L'element "sura" a la dreta.
+    ul
+      li.step #[code.code none] (per defecte): L'element no "sura".
+      li.step #[code.code left]: L'element "sura" a l'esquerra.
+      li.step #[code.code right]: L'element "sura" a la dreta.
 
     table.step.medium
       tr
@@ -34,12 +33,12 @@
             contingut.
 
 
-.slide.bigfont(data-name="float_behaviour")
+.slide(data-name="float_behaviour")
   div
 
     h3 Comportament dels elements "flotats"
 
-    img.floatRight(src="/images/figures/float/float.png")
+    img.floatRight.small(src="/images/figures/float/float.png")
 
     ul
       li.step.
@@ -97,7 +96,7 @@
       El #[i Clearfix] és un petit truc que ens permet fer això directament des
       del full d'estil.
 
-    pre.frame.step(style="width:60vw").
+    pre.frame.step(style="width:45vw").
       .clearfix::after {
         display: block;
         content: " ";

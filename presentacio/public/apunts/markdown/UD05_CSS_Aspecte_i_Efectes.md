@@ -40,18 +40,23 @@ __NAV_LINK__[(⇧ Planificacio)](./Planificacio.html)
 CSS - Estètica i animació
 =========================
 
+[UD05](/setslide/ud05)
+
 Color, Contrast i espaiat
 -------------------------
 
+[Estètica](/setslide/estetica)
+
 Com hem vist, tenim diverses propietats per ajustar els colors dels elements.
 Principalment:
-
 
   * *color:* Per al color del text.
   * *background-color:* Per al color del fons.
   * *border-color:* Per al color del fons.
 
 ...I alguns shorthands com *background* i *border*.
+
+[Color i contrast](/setslide/color_i_contrast)
 
 Per especificar-los podem fer servir:
 
@@ -65,8 +70,11 @@ Per especificar-los podem fer servir:
   * Noms de color predefinits (*red*, *green*, *blue*,...).
     - Podeu trobar la llista completa a les *referències*.
 
+[Espaiat](/setslide/espaiat)
 
 ### HSL vs RGB
+
+[HSL vs RGB](/setslide/hslVSrgb)
 
 ![](__FIGURES_PATH_RIGHT__/hsl.jpg)
 
@@ -79,6 +87,8 @@ després ajustar independentment el contrast (saturació) i la lluminositat.
 D'entrada aquest mètode ens pot semblar menys intuitiu, però si fem servir una
 *roda de color* com la de la figura següent, resulta molt fàcil escollor la
 tonalitat desitjada:
+
+[HSL-Wheel](/setslide/hsl_wheel)
 
 ![](__FIGURES_PATH__/hsl-color-wheel.png)
 
@@ -94,8 +104,9 @@ D'aquesta manera podem crear paletes de colors més consistents i amb una
 aparença més professional.
 
 
-
 ### Transparència
+
+[Transparència](/setslide/transparency)
 
 Un altre efecte que ens pot ajudar molt a millorar l'aspecte del nostre disseny
 (sempre i quan no n'abusem) son les transparències.
@@ -111,6 +122,8 @@ Per crear l'efecte de transparència podem fer servir dues tècniques:
 Fons
 ----
 
+[Fons](/setslide/background_tunning)
+
 El fons d'un element comprèn, com a màxim (veure propietat *background-clip*)
 tot l'espai que ocupa aquest (inclosos els paddings i les voreres), **però no
 els marges**.
@@ -121,10 +134,14 @@ els marges**.
 
 #### background-color
 
+[background-color](/setslide/background-color)
+
 Especifica un color de fons sòlid que es mostrarà **sempre per davall** de
 qualsevol imatge de fons.
 
 #### background-image
+
+[background-image](/setslide/background-image)
 
 Especifica una imatge de fons a partir d'un fitxer o un gradient generat:
 
@@ -157,6 +174,8 @@ servir els *blending modes* que veurem seguidament) i/o gradients.
 
 #### background-position
 
+[background-position](/setslide/background-position)
+
 Estableix la posició inicial de la imatge (o gradient) de fons.
 
 Accepta dos paràmetres: la posició horitzontal (x) i la vertical (y), sempre
@@ -182,6 +201,8 @@ ordre).
 
 #### background-size
 
+[background-size](/setslide/background-size)
+
 Especifica el tamany de la imatge o gradient de fons.
 
 Accepta dos valors:
@@ -206,6 +227,8 @@ Addicionalment, i a més de `initial` i `inherit` podem especificar els següent
 
 #### background-repeat
 
+[background-repeat](/setslide/background-repeat)
+
 Determina si la imatge o gradient de fons s'ha de repetir o no.
 
 Accepta els valors:
@@ -223,6 +246,8 @@ Accepta els valors:
 
 #### background-origin
 
+[background-origin](/setslide/background-origin)
+
 Determina a què es relatiu el posicionament del fons:
 
   * border-box
@@ -232,7 +257,9 @@ Determina a què es relatiu el posicionament del fons:
 
 #### background-clip
 
-Especifica els límits de l'àrea de fons que s'emplena, puguent agafar els
+[background-clip](/setslide/background-clip)
+
+Especifica els límits de l'àrea de fons que s'emplena, podent agafar els
 mateixos valors que *background-origin*:
 
   * border-box
@@ -241,6 +268,8 @@ mateixos valors que *background-origin*:
 
 
 #### background-attachment
+
+[background-attachment](/setslide/background-attachment)
 
 Especifica si el fons ha de romandre fix o s'ha de desplaçar junt amb el contingut.
 
@@ -256,6 +285,8 @@ Pot agafar, a més de `initial` i `inherit`, els següents valors:
 
 ### Combinació (Blending Modes)
 
+[Blending modes](/setslide/blending_modes)
+
 ![](__FIGURES_PATH_RIGHT__/blending_examples/blending_text_pattern.jpeg)
 
 Com hem vist anteriorment, podem tenir múltiples imatges (o gradients) de fons
@@ -269,6 +300,8 @@ A la resta de superficie queden ocultes per la imatge que es pinta al seu damunt
 
 Però això només és el comportament per defecte (`background-blending-mode:
 normal`).
+
+[Demostració Blending modes](/setslide/blending_modes_demo)
 
 La propietat *background-blending-mode* atorga, a aquelles imatges de fons per
 les que s'especifiqui un valor distint de `normal`, la capacitat de
@@ -292,6 +325,8 @@ que pot ser qualsevol dels següents:
   * color
   * luminosity
 
+[Exemples Blending modes](/setslide/blending_modes_examples)
+
 ![](__FIGURES_PATH_RIGHT__/blending_examples/mountains.jpeg)
 
 Explicar la lògica de les operacions matemàtiques darrera de cadascun d'aquests
@@ -307,6 +342,8 @@ de la web *CSS-Tricks* on es mostren alguns d'ells.
 
 Ombres
 ------
+
+[Ombres](/setslide/shadows)
 
 Per crear efectes d'ombra disposam de dues propietats:
 
@@ -333,6 +370,8 @@ Cas contrari hem de proveïr els següents valors:
 
 Tipografia (Web-Fonts)
 ----------------------
+
+[Web Fonts](/setslide/web_fonts)
 
 Un altre aspecte que pot marcar la diferència en l'aspecte de la nostra web és
 la tipografia.
@@ -368,6 +407,8 @@ CSS) que haurem d'incorporar al nostre projecte.
 Transicions
 -----------
 
+[Transicions](/setslide/transitions)
+
 Les transicions ens permeten fer que, cada cop que una propietat determinada
 canvii (per exemple perquè s'ha afegit o llevat una classe d'un element, el
 ratolí a entrat o sortit de damunt ell, etc...) el canvi es faci de forma
@@ -379,6 +420,8 @@ possibles.
 
 En canvi, la propietat *opacity* sí que pot variar gradualment de 0 a 1,
 viceversa o entre qualsevol dels seus possibles valors.
+
+[Propietats de Transicions](/setslide/transition_properties)
 
 Per controlar les transaccions tenim les següents propietats:
 
@@ -405,6 +448,8 @@ amb les imatges de fons.
 Transformacions
 ---------------
 
+[Transformacions](/setslide/transformations)
+
 La propietat `transform`, com el seu nom indica, ens permet definir
 *transformacions* sobre l'aspecte de l'element en que s'apliquen.
 
@@ -417,6 +462,8 @@ passant per rotar-lo (en 2 i 3 dimensions), escalar-lo, etc...
 
 A les referències teniu l'enllaç a la documentació amb la llista completa de
 les funcions disponibles.
+
+[Transició de Transformacions](/setslide/transformations_transition)
 
 >
 :pushpin: La propietat *transform* accepta *transicions*. De manera que,
@@ -439,6 +486,8 @@ sinó que, a més, ho fan a un cost gairebé imperceptible.
 
 Animacions
 ----------
+
+[Animacions](/setslide/animations)
 
 Finalment, les animacions, de manera semblant a les transicions, ens permeten
 fer que algunes propietats (transformacions incloses) variin de forma

@@ -1,0 +1,614 @@
+
+
+.slide(data-name="estetica")
+  div
+
+    h3.step.title CSS - Estètica i Animació
+
+    p.step.
+      Fins ara hem après des de com funciona el CSS (anatomia de les regles, la
+      Cascada, Herència...) fins a com posicionar elements i realitzar
+      complexes maquetacions que s'adaptin al tamany (i al tipus) de
+      dispositiu, passant per tècniques avançades com l'ús de variables i
+      realitzar càlculs amb les distintes unitats de mesura disponibles.
+
+    p.step.
+      Ens queda només la part més divertida: Donar-li color i dinamisme.
+
+
+
+.slide(data-name="color_i_contrast")
+  div
+
+    h3 Color i Contrast
+    
+    p.step.
+      Com hem vist, tenim diverses propietats per ajustar els colors: #[i color],
+      #[i background-color], #[i border-color], i alguns shorthands com #[i background]
+      i #[i border].
+
+
+    p.step.
+      Per al valor d'aquestes propietats podem fer servir:
+
+    div.center
+      ul
+        li.step.
+          Codi de color RGB hexadecimal: #[code.code ##[span.red rr]#[span.green gg]#[span.blue bb]]
+        li.step
+          span.
+            Color RGB amb la funció #[code.code rgb(#[span.red r], #[span.green g], #[span.blue b])]
+          ul
+            li.step.
+              On #[i #[span.red r], #[span.green g] i #[span.blue b]] son nombres entre 0 i 255 indicant la proporció de
+              vermell (#[span.red red]), verd (#[span.green green]) i blau
+              (#[span.blue blue]), respectivament. 
+        li.step.
+          Color RGBA (RGB + Alpha channel -transparència-) amb la funció #[code.code rgba(#[span.red r], #[span.green g], #[span.blue b], a)].
+        li.step.
+          Color HSL (Hue Saturation Lightness) amb la funció #[code.code hsl(h, s, l)].
+        li.step.
+          Color HSLA (HSL + Alpha channel) amb la funció #[code.code hsla(h, s, l, a)].
+        li.step
+          span.
+            Noms de color predefinits (#[i.red red], #[i.green green], #[i.blue blue, #[i.cyan cyan]], #[i.magenta magenta],...).
+          ul
+            li.step.
+              Podeu trobar la llista completa a les #[i referències].
+
+
+.slide(data-name="espaiat")
+  div
+
+    h3 Espaiat
+
+    p.step.
+      Tot i que ja teniu totes les eines per controlar-lo (#[i margin],
+      #[i padding], etc...), no deixa de ser digne de menció a n'aquest apartat
+      del curs.
+
+    p.step.
+      Posar els elements massa "apilotats" pot no només perjudicar la lectura,
+      sino també perjudicar l'estètica.
+
+    p.step.
+      Un excés d'espaï també pot donar la sensació de que no tenim continguts a
+      mostrar o simplement evitar que continguts importants quedin ocults en
+      carregar la pàgina perquè s'ha de fer #[i scroll] per arribar a ells.
+
+    table.step
+      tr
+        td.
+          📌 Per altra banda, deixar espaï al voltant d'un element (per exemple
+          un botó o de #[Sign In], un missatge d'advertència...), pot
+          contribuïr a captar subtilment l'atenció de l'usuari sobre aquell
+          element.
+
+
+.slide(data-name="hslVSrgb")
+  div
+
+    h3 HSL vs RGB
+
+    img.step.floatRight(src="/images/figures/hsl.jpg")
+
+    ul.bigfont
+      li.step.
+        La forma més "tradicional" de composar els colors és mitjançant la
+        sintaxi #[code.code ##[span.red rr]#[span.green gg]#[span.blue bb]].
+      li.step.
+        HSL ens permet assignar un nombre a cada tonalitat de color.
+      li.step.
+        Així podem ajustar independentment el contrast (saturació) i la
+        lluminositat.
+
+
+.slide(data-name="hsl_wheel")
+  div
+
+    h2 HSL
+
+    img.step.medium.floatRight(src="/images/figures/hsl-color-wheel.png")
+
+    ul.bigfont
+      li.step.
+        D'entrada aquest mètode ens pot semblar menys intuitiu.
+      li.step.
+        Però si fem servir una #[i roda de color] com la de la figura, resulta
+        molt senzill escollor la tonalitat desitjada.
+
+      li.step.
+        Un cop hem triat un color, podem ajustar el contrast i la lluminositat
+        del mateix #[b sense alterar el tò] (el color en si).
+
+      li.step.
+        Això ens permet crear tantes variants com vulguem del mateix color
+        només ajustant els valors de saturació i lluminositat.
+      
+      li.step.
+        ...O si volem un de molt semblant alterant només lleugerament el to.
+        
+    table.step
+      tr
+        td.bigfont.
+          📌 D'aquesta manera podem crear paletes de colors més consistents i
+          amb una aparença més professional.
+
+
+.slide(data-name="transparency")
+  div.bigfont
+    h3 Transparència
+    p.step.
+      Un altre efecte que ens pot ajudar molt a millorar l'aspecte del nostre
+      disseny (sempre i quan no n'abusem) son les transparències.
+    p.step.
+      Per crear l'efecte de transparència podem fer servir dues tècniques:
+    ul
+      li.step.
+        Fer servir colors amb #[i canal alpha], mitjançant les funcions
+        #[code.code rgba()] o #[code.code hsla()].
+      li.step.
+        Ajustar la propietat #[i opacity] (entre 0 i 1) dels elements.
+
+
+
+.slide(data-name="background_tunning")
+  div.bigfont
+    h3 Fons
+    p.step.
+      El fons d'un element comprèn tot l'espai que ocupa aquest (inclosos els
+      paddings i les voreres), #[b però no els marges].
+    p.step.
+      Per emplenar el fons podem fer servir:
+    div.center
+      ul
+        li.step.
+          Un color sòlid.
+        li.step.
+          Una imatge.
+        li.step.
+          Un gradient de colors.
+        li.step.
+          Una combinació d'un #[b o varis] de cadascun d'ells.
+    table.step
+      tr
+        td.
+          📌 En realitat els gradients els especificam també amb la propietat
+          #[i background-image] perquè, en realitat son imatges que cream
+          mitjançant una funció especial.
+
+
+.slide(data-name="background-color")
+  div.bigfont
+    h3 background-color
+
+    p.step.
+      La propietat #[i background-color] especifica un color de fons sòlid.
+      
+    p.step.
+      Aquest color es mostrarà #[b sempre per davall] de qualsevol imatge o
+      gradient de fons que especifiquem addicionalment.
+
+
+.slide(data-name="background-image")
+  div.bigfont
+    h3 background-image
+
+    p.step.
+      Especifica una imatge de fons a partir d'un fitxer (o un gradient
+      generat):
+
+    ul
+      li.step
+        span.
+          Si és un fitxer, farem servir la funció #[i url()].
+        ul
+          li.step.
+            #[b Exemple:] #[code.code url("/images/photo.jpg")].
+      li.step
+        span.
+          Per a generar un gradient, disposam de les següents funcions:
+        ul
+          li.step #[i linear-gradient()]
+          li.step #[i radial-gradient()]
+          li.step #[i repeating-linear-gradient()]
+          li.step #[i repeating-radial-gradient()]
+
+    p.moreinfo.step https://www.w3schools.com/cssref/pr_background-image.asp
+
+
+.slide(data-name="background-position")
+  div.bigfont
+    h3 background-position
+
+    ul
+      li.step.
+        Estableix la posició inicial de la imatge (o gradient) de fons.
+      li.step
+        span.
+          Accepta dos paràmetres: la posició horitzontal (x) i la vertical (y).  
+        ul
+          li.step.
+            ...que podem repetir (separats per comes) per a cada imatge o
+            gradient que tinguem.
+      li.step.
+        El seu valor per defecte (#[i initial]) és #[code.code 0% 0%].
+      li.step.
+        Si només s'especifica un valor, l'altre s'estableix automàticament a
+        #[code.code 50%].
+      li.step.
+        Podem fer servir tipus d'unitats distintes per a la coordenada
+        horitzontal i la vertical.
+      li.step
+        span.  
+          També accepta els següents keywords:
+      ul
+        li.step.
+          #[code.code left], #[code.code center] i #[code.code right] per a la coordenada horitzontal.
+        li.step.
+          #[code.code top], #[code.code center] i #[code.code bottom] per a la vertical.
+
+
+.slide(data-name="background-size")
+  div.bigfont
+    h3 background-size
+
+    p.step.
+      Especifica el tamany de la imatge o gradient de fons.
+
+    ul
+      li.step.
+        Accepta dos valors (#[i width] i #[i height]).
+
+      li.step.
+        El valor per defecte de totes dues és #[code.code auto] (respectar les
+        dimensions originals).
+
+      li.step.
+        Si només se n'especifica una, l'altra s'ajustarà d'acord a les
+        proporcions originals de la imatge.
+
+    table.step.medium
+      tr
+        td
+          p.
+            📌 Addicionalment, podem especificar els següents #[i keywords]
+            especials:
+          ul
+            li.step.
+              #[code.code cover]: La imatge s'escalarà, mantenint la proporció,
+              al tamany mínim que permeti cobrir tota l'àrea del contenidor.
+            li.step.
+              #[code.code contain]: La imatge s'escalarà, mantenint la
+              proporció, al tamany màxim possible de manera que càpiga dins el
+              contenidor.
+
+.slide(data-name="background-repeat")
+  div.bigfont
+    h3 background-repeat
+
+    p.step.
+      Determina si la imatge o gradient de fons s'ha de repetir o no.  
+    p.step.
+      Accepta els valors:
+
+    ul
+      li.step.
+        #[code.code repeat]: Es repeteix indefinidament en les dues dimensions
+        (és el valor per defecte).
+      li.step.
+        #[code.code repeat-x]: Es repeteix indefinidament en la dimensió
+        horitzontal.
+      li.step.
+        #[code.code repeat-y]: Es repeteix indefinidament en la dimensió
+        vertical.
+      li.step.
+        #[code.code no-repeat]: No es repeteix.
+      li.step.
+        #[code.code space]: Es repeteix tantes vegades com sigui possible sense
+        tallar i l'espai sobrant es reparteix equitativament entre elles.
+      li.step.
+        #[code.code round]: Es repeteix tantes vegades sigui possible sense
+        tallar i s'escalen segons calgui per ocupar tot l'espai.
+
+
+.slide(data-name="background-origin")
+  div.bigfont
+    h3 background-origin
+    p.step.
+      Determina a què es relatiu el posicionament del fons.
+    p.step.
+      Pot agafar els següents valors:
+    ul
+      li.step #[code.code border-box]
+      li.step #[code.code padding-box] (valor inicial)
+      li.step #[code.code content-box]
+
+
+.slide(data-name="background-clip")
+  div.bigfont
+    h3 background-clip
+    p.step.
+      Especifica els límits de l'àrea de fons que s'emplena.
+    p.step.
+      Pot agafar els mateixos valors que #[i background-origin]:
+    ul
+      li.step #[code.code border-box]
+      li.step #[code.code padding-box] (valor inicial)
+      li.step #[code.code content-box]
+
+
+.slide(data-name="background-attachment")
+  div.bigfont
+    h3 background-attachment
+    p.step.
+      Especifica si el fons ha de romandre fix o s'ha de desplaçar junt amb el
+      contingut.
+    p.step.
+      Pot agafar, a més de #[code.code initial] i #[code.code inherit], els
+      següents valors:
+    ul
+      li.step.
+        #[code.code scroll]: (Valor per defecte) El fons es desplaça en relació
+        al desplaçament de la pàgina.
+      li.step.
+        #[code.code fixed]: El fons queda estàtic independentment del
+        desplaçament de la pàgina.
+      li.step.
+        #[code.code local]: El fons es desplaça junt amb el contingut de
+        l'element.
+
+
+.slide(data-name="blending_modes")
+  div
+    header.title.step
+      h1 Combinació (Blending Modes)
+
+    div.bigfont
+      p.step.
+        Com hem vist anteriorment, podem tenir múltiples imatges (o gradients) de
+        fons que es van col·locant un darrera de l'altre.
+
+      p.step.
+        Per defecte, les que estan davall d'una altra, només es veuran a través
+        de les que les cobreixen a les zones en que aquestes presentin algún grau
+        de transparència (#[i canal alpha]).
+
+      p.step.
+        A la resta de superficie queden ocultes per la imatge que es pinta al seu
+        damunt.
+
+      p.step.
+        Però això només és el comportament per defecte
+        (#[code.code background-blending-mode: normal])...
+
+
+.slide(data-name="blending_modes_demo")
+  div
+    header.blend.step
+      h1 Combinació (Blending Modes)
+    div
+      p.step.
+        La propietat #[i background-blending-mode] atorga, a aquelles imatges de
+        fons per les que s'especifiqui un valor distint de #[code.code normal],
+        la capacitat de #[i mesclar-se] amb les capes inferiors.
+      p.step.
+        La propietat #[i mix-blending-mode] ens permet fer el mateix amb el
+        contingut..
+      p.step.
+        És a dir: per a cada punt de la imatge, en comptes de veure el color de
+        la imatge superior, veurem el color resultant de combinar el valor
+        d'aquest amb el que té al davall aplicant una determinada fórmula
+        matemàtica.
+      p.step.
+        La forma en que es mesclen depèn del valor especificat a n'aquesta
+        propietat, que pot ser qualsevol dels següents:
+      table
+        tr
+          td.code.step normal
+          td.code.step multiply
+          td.code.step screen
+          td.code.step overlay
+          td.code.step darken
+        tr
+          td.code.step lighten
+          td.code.step color-dodge
+          td.code.step saturation
+          td.code.step color
+          td.code.step luminosity
+
+
+.slide(data-name="blending_modes_examples")
+  div
+    h3 Blending Modes - Exemples
+
+    img.step.big.floatLeft(src="/images/figures/blending_examples/blending_text_pattern.jpeg")
+    img.step.big.floatLeft(src="/images/figures/blending_examples/mountains.jpeg")
+    img.step.big.floatLeft(src="/images/figures/blending_examples/blendmodes-css.jpg")
+
+
+.slide(data-name="shadows")
+  div
+    h3 Ombres
+    p.step.
+      Per crear efectes d'ombra disposam de dues propietats:
+    ul
+      li.step.
+        #[i box-shadow:] Que crea una ombra al voltant del contenidor (caixa)
+        de l'element.
+      li.step.
+        #[i text-shadow:] Crea una ombre del text contingut per l'element
+        (resseguint la forma d'aquest).
+    p.step.
+      Ambdues propietats accepten (a soles) els keywords #[code.code none],
+      #[code.code initial] i #[i inherit] que ja coneixem.
+    p.step.
+      Cas contrari hem de proveïr els següents valors:
+    ul
+      li.step Offset horitzontal.
+      li.step Offset vertical.
+    p.step.
+      ...i, opcionalment també:
+    ul
+      li.step.
+        "blur radius" o radi de borrositat.
+      li.step.
+        "spread radius" (només #[i box-shadow]) o radi de difussió.
+      li.step.
+        Color (segons l'especificació per defecte s'agafa el color del text,
+        però alguns navegadors no mostren l'ombra si no s'especifica).
+
+
+.slide(data-name="web_fonts")
+  div.bigfont
+    h3.step.title Tipografia (Web-Fonts)
+    p.step.
+      Un altre aspecte que pot marcar la diferència en l'aspecte de la nostra
+      web és la tipografia.
+
+    p.step.
+      Les #[i Web-Fonts] ens ofereixen la possibilitat de que el navegador es
+      pugui descarregar les fonts que nosaltres escollim dirèctament de la
+      xarxa.
+
+    p.step.
+      Alguns dels proveïdors més comus de #[i Web-Fonts] son:
+
+    ul
+      li.step.
+        Google Fonts: #[a(href="#") https://fonts.google.com]
+      li.step.
+        Typekit: #[a(href="#") https://www.typekit.com]
+      li.step.
+        Webtype: #[a(href="#") https://www.webtype.com]
+
+    p.step.
+      Per fer-les servir només hem d'accedir als seus portals web, triar les que més
+      ens agradin i seguir les instruccions que s'ens donen.
+
+
+.slide(data-name="transitions")
+  div.bigfont
+    h3.step.title Transicions
+
+    p.step.
+      Les transicions ens permeten fer que, cada cop que una propietat
+      determinada canvii el canvi es faci de forma progressiva.
+
+    p.step.
+      No totes les propietats admeten transició.
+
+    ul
+      li.step.
+        Per exemple, la propietat #[i display] pot valer #[code.code block] o
+        #[code.code none], entre d'altres, però no hi ha valors #[i intermigs]
+        possibles.
+      li.step.
+        En canvi, la propietat #[i opacity] sí que pot variar gradualment de 0
+        a 1, viceversa o entre qualsevol dels seus possibles valors.
+
+.slide(data-name="transition_properties")
+  div.bigfont
+    h3 Transicions - Propietats
+    p.step.
+      Per controlar les transaccions tenim les següents propietats:
+    ul
+      li.step.
+        #[i transition-duration]: Especifica el nombre de milisegons que
+        tardarà la transacció en completar-se.
+      li.step.
+        #[i transition-property]: Especifica la propietat sobre la que volem
+        aplicar la transacció.
+      li.step.
+        #[i transition-timing-function]: Especifica a funció que defineix els
+        canvis de velocitat en el temps (#[code.code linear],
+        #[code.code ease-in], #[code.code ease-out], etc...).
+      li.step.
+        #[i transition-delay]: Especifica un temps d'espera abans d'iniciar la
+        transacció (útil per a encadenament de múltiples transaccions).
+      li.step.
+        #[i transition]: Shorhand de les anteriors.
+
+    table.step.medium
+      tr
+        td.
+          📌 Igual com amb les propietats de les imatges de fons, les
+          propietats per controlar les transaccions, permeten especificar
+          múltiples transaccions.
+
+    p.moreinfo.step https://www.w3schools.com/css/css3_transitions.asp
+
+
+.slide(data-name="transformations")
+  div.bigfont
+    h3 Transformacions
+
+    p.step.
+      La propietat #[code.code transform], com el seu nom indica, ens permet
+      definir #[i transformacions] sobre l'aspecte de l'element en que
+      s'apliquen.
+
+    p.step.
+      Per fer-ho disposam d'una #[b llarga llista de funcions] que, de nou
+      separades per comes, podem especificar a la propietat #[i transform].
+
+    p.step.
+      Aquestes funcions ens permeten des de moure l'element de la seva ubicació
+      original fins a complexes operacions en 3D com modificar la perspectiva,
+      passant per rotar-lo (en 2 i 3 dimensions), escalar-lo, etc...
+
+    table.step
+      tr
+        td.
+          📌 Quan aplicam qualsevol transformació sobre un element, aquest
+          conserva l'espaï que tenia originalment reservat per a ell al flux
+          del document. És a dir: no afecta sobre als altres elements.  
+
+    p.moreinfo.step https://www.w3schools.com/cssref/css3_pr_transform.asp
+
+
+.slide(data-name="transformations_transition")
+  div.bigfont
+    h3 Transició de Transformacions
+
+    p.step.
+      La propietat #[i transform] accepta #[i transicions].
+    p.step.
+      D'aquesta manera, combinant ambdues funcionalitats, podem obtenir
+      vistoses transicions com les que heu estat veient a n'aquestes
+      diapositives.
+
+    table.step
+      tr
+        td
+          p.
+            📌 Tots els motors de CSS fan servir el maquinari d'acceleració
+            gràfica per a implementar les transformacions i transicions.
+          p.step.
+            Per aquest motiu, no només aporten un elevat dinamisme als nostres
+            dissenys sinó que, a més, ho fan a un cost gairebé imperceptible.
+
+.slide(data-name="animations")
+  div.bigfont
+    h3 Animacions
+
+    p.step.
+      Ja per acabar, les animacions, de manera semblant a les transicions, ens
+      permeten fer que algunes propietats (transformacions incloses) variin de
+      forma progressiva.
+
+    p.step.
+      Simplement les #[i animacions] ens permeten especificar processos més
+      llargs, amb múltiples passos intermitjos i, opcionalment, fer que es
+      repeteixin en el temps si ho desitjam.
+
+    p.step.
+      Per a més informació, a les referències teniu l'enllaç a la documentació
+      del #[i w3Schools].
+
+    p.moreinfo.step https://www.w3schools.com/css/css3_animations.asp
+
+
+
+
+//- vim: set ft=jade:

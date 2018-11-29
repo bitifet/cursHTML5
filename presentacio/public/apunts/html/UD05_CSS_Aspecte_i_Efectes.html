@@ -49,7 +49,9 @@
 </ul>
 <!-- vim-markdown-toc -->
 <h1 id="css---estètica-i-animació">CSS - Estètica i animació</h1>
+<p><a href="/setslide/ud05">UD05</a></p>
 <h2 id="color-contrast-i-espaiat">Color, Contrast i espaiat</h2>
+<p><a href="/setslide/estetica">Estètica</a></p>
 <p>Com hem vist, tenim diverses propietats per ajustar els colors dels elements. Principalment:</p>
 <ul>
 <li><em>color:</em> Per al color del text.</li>
@@ -57,6 +59,7 @@
 <li><em>border-color:</em> Per al color del fons.</li>
 </ul>
 <p>...I alguns shorthands com <em>background</em> i <em>border</em>.</p>
+<p><a href="/setslide/color_i_contrast">Color i contrast</a></p>
 <p>Per especificar-los podem fer servir:</p>
 <ul>
 <li>Codi de color RGB hexadecimal: #rrggbb</li>
@@ -72,13 +75,16 @@
 <li>Podeu trobar la llista completa a les <em>referències</em>.</li>
 </ul></li>
 </ul>
+<p><a href="/setslide/espaiat">Espaiat</a></p>
 <h3 id="hsl-vs-rgb">HSL vs RGB</h3>
+<p><a href="/setslide/hslVSrgb">HSL vs RGB</a></p>
 <div class="img right">
 <img src="../../images/figures/hsl.jpg" />
 </div>
 <p>La forma més &quot;tradicional&quot; de composar els colors és mitjançant la sintaxi <code>#rrggbb</code> ajustant la proporció de cada component de color.</p>
 <p>HSL en canvi ens permet assignar un nombre a cada tonalitat de color per a després ajustar independentment el contrast (saturació) i la lluminositat.</p>
 <p>D'entrada aquest mètode ens pot semblar menys intuitiu, però si fem servir una <em>roda de color</em> com la de la figura següent, resulta molt fàcil escollor la tonalitat desitjada:</p>
+<p><a href="/setslide/hsl_wheel">HSL-Wheel</a></p>
 <div class="img">
 <img src="../../images/figures/hsl-color-wheel.png" />
 </div>
@@ -86,6 +92,7 @@
 <p>Això ens permet crear tantes variants com vulguem del mateix color (o si volem un de molt semblant alterant només lleugerament el to) només ajustant els valors.</p>
 <p>D'aquesta manera podem crear paletes de colors més consistents i amb una aparença més professional.</p>
 <h3 id="transparència">Transparència</h3>
+<p><a href="/setslide/transparency">Transparència</a></p>
 <p>Un altre efecte que ens pot ajudar molt a millorar l'aspecte del nostre disseny (sempre i quan no n'abusem) son les transparències.</p>
 <p>Per crear l'efecte de transparència podem fer servir dues tècniques:</p>
 <ul>
@@ -93,11 +100,14 @@
 <li><p>Ajustar la propietat <em>opacity</em> (entre 0 i 1) dels elements.</p></li>
 </ul>
 <h2 id="fons">Fons</h2>
+<p><a href="/setslide/background_tunning">Fons</a></p>
 <p>El fons d'un element comprèn, com a màxim (veure propietat <em>background-clip</em>) tot l'espai que ocupa aquest (inclosos els paddings i les voreres), <strong>però no els marges</strong>.</p>
 <h3 id="sòlids-gradients-i-imatges">Sòlids, Gradients i Imatges</h3>
 <h4 id="background-color">background-color</h4>
+<p><a href="/setslide/background-color">background-color</a></p>
 <p>Especifica un color de fons sòlid que es mostrarà <strong>sempre per davall</strong> de qualsevol imatge de fons.</p>
 <h4 id="background-image">background-image</h4>
+<p><a href="/setslide/background-image">background-image</a></p>
 <p>Especifica una imatge de fons a partir d'un fitxer o un gradient generat:</p>
 <ul>
 <li>Si és un fitxer, farem servir la funció <em>url()</em>.
@@ -119,6 +129,7 @@
 <p>D'aquesta manera, podem combinar múltiples imatges amb transparència (o fent servir els <em>blending modes</em> que veurem seguidament) i/o gradients.</p>
 </blockquote>
 <h4 id="background-position">background-position</h4>
+<p><a href="/setslide/background-position">background-position</a></p>
 <p>Estableix la posició inicial de la imatge (o gradient) de fons.</p>
 <p>Accepta dos paràmetres: la posició horitzontal (x) i la vertical (y), sempre respecte del cantó superior esquerra, en qualsevol unitat de distància vàlida.</p>
 <ul>
@@ -135,6 +146,7 @@
 <p>📌 De la mateixa manera que amb <em>background-image</em> podem especificar múltiples imatges i/o gradients, tant amb <em>background-position</em> com amb la resta de propietats que veurem seguidament, podem especificar múltiples valors i aquests s'aplicaran a la imatge que els correspongui (seguint el mateix ordre).</p>
 </blockquote>
 <h4 id="background-size">background-size</h4>
+<p><a href="/setslide/background-size">background-size</a></p>
 <p>Especifica el tamany de la imatge o gradient de fons.</p>
 <p>Accepta dos valors:</p>
 <ul>
@@ -149,6 +161,7 @@
 <li><code>contain</code>: La imatge s'escalarà, mantenint la proporció, al tamany màxim possible de manera que càpiga dins el contenidor.</li>
 </ul>
 <h4 id="background-repeat">background-repeat</h4>
+<p><a href="/setslide/background-repeat">background-repeat</a></p>
 <p>Determina si la imatge o gradient de fons s'ha de repetir o no.</p>
 <p>Accepta els valors:</p>
 <ul>
@@ -160,6 +173,7 @@
 <li><code>round</code>: Es repeteix tantes vegades sigui possible sense tallar i s'escalen segons calgui per ocupar tot l'espai.</li>
 </ul>
 <h4 id="background-origin">background-origin</h4>
+<p><a href="/setslide/background-origin">background-origin</a></p>
 <p>Determina a què es relatiu el posicionament del fons:</p>
 <ul>
 <li>border-box</li>
@@ -167,13 +181,15 @@
 <li>content-box</li>
 </ul>
 <h4 id="background-clip">background-clip</h4>
-<p>Especifica els límits de l'àrea de fons que s'emplena, puguent agafar els mateixos valors que <em>background-origin</em>:</p>
+<p><a href="/setslide/background-clip">background-clip</a></p>
+<p>Especifica els límits de l'àrea de fons que s'emplena, podent agafar els mateixos valors que <em>background-origin</em>:</p>
 <ul>
 <li>border-box</li>
 <li>padding-box (valor inicial)</li>
 <li>content-box</li>
 </ul>
 <h4 id="background-attachment">background-attachment</h4>
+<p><a href="/setslide/background-attachment">background-attachment</a></p>
 <p>Especifica si el fons ha de romandre fix o s'ha de desplaçar junt amb el contingut.</p>
 <p>Pot agafar, a més de <code>initial</code> i <code>inherit</code>, els següents valors:</p>
 <ul>
@@ -182,6 +198,7 @@
 <li><code>local</code>: El fons es desplaça junt amb el contingut de l'element.</li>
 </ul>
 <h3 id="combinació-blending-modes">Combinació (Blending Modes)</h3>
+<p><a href="/setslide/blending_modes">Blending modes</a></p>
 <div class="img right">
 <img src="../../images/figures/blending_examples/blending_text_pattern.jpeg" />
 </div>
@@ -189,6 +206,7 @@
 <p>Per defecte, les que estan davall d'una altra, només es veuran a través de les que les cobreixen a les zones en que aquestes presentin algún grau de transparència (<em>canal alpha</em>).</p>
 <p>A la resta de superficie queden ocultes per la imatge que es pinta al seu damunt.</p>
 <p>Però això només és el comportament per defecte (<code>background-blending-mode: normal</code>).</p>
+<p><a href="/setslide/blending_modes_demo">Demostració Blending modes</a></p>
 <p>La propietat <em>background-blending-mode</em> atorga, a aquelles imatges de fons per les que s'especifiqui un valor distint de <code>normal</code>, la capacitat de <em>mesclar-se</em> amb les capes inferiors.</p>
 <p>És a dir: per a cada punt de la imatge, en comptes de veure el color de la imatge superior, veurem el color resultant de combinar el valor d'aquest amb el que té al davall aplicant una determinada fórmula matemàtica.</p>
 <p>Aquesta fórmula matemàtica depèn del valor especificat a n'aquesta propietat, que pot ser qualsevol dels següents:</p>
@@ -204,6 +222,7 @@
 <li>color</li>
 <li>luminosity</li>
 </ul>
+<p><a href="/setslide/blending_modes_examples">Exemples Blending modes</a></p>
 <div class="img right">
 <img src="../../images/figures/blending_examples/mountains.jpeg" />
 </div>
@@ -211,6 +230,7 @@
 <p>Però saber que existeixen i experimentar un poc amb ells, ens pot ajudar a aconseguir, amb molt poc esforç, efectes visuals molt vistosos que donaran un toc de distinció als nostres dissenys.</p>
 <p>A les referències teniu l'enllaç a un interessant i molt ben il·lustrat article de la web <em>CSS-Tricks</em> on es mostren alguns d'ells.</p>
 <h2 id="ombres">Ombres</h2>
+<p><a href="/setslide/shadows">Ombres</a></p>
 <p>Per crear efectes d'ombra disposam de dues propietats:</p>
 <ul>
 <li><em>box-shadow:</em> Que crea una ombra al voltant del contenidor (caixa) de l'element.</li>
@@ -229,6 +249,7 @@
 <li>Color (segons l'especificació per defecte s'agafa el color del text, però alguns navegadors no mostren l'ombra si no s'especifica).</li>
 </ul>
 <h2 id="tipografia-web-fonts">Tipografia (Web-Fonts)</h2>
+<p><a href="/setslide/web_fonts">Web Fonts</a></p>
 <p>Un altre aspecte que pot marcar la diferència en l'aspecte de la nostra web és la tipografia.</p>
 <p>Com sabeu, la propietat <em>font</em> ens permet especificar el tipus de lletra d'un element (i els seus descendents, ja que és una propietat que s'hereta).</p>
 <p>Aquesta propietat, a més, permet especificar varies fonts alternatives ja que depenem (depeníem) de que l'ordinador de l'usuari disposi d'elles instal·lades.</p>
@@ -240,9 +261,11 @@
 <p>Per fer-les servir només hem d'accedir als seus portals web, triar les que més ens agradin i seguir les instruccions que s'ens donen.</p>
 <p>Finalment ens donaran un fragment de codi (podem triar si html (&lt;link&gt;) o CSS) que haurem d'incorporar al nostre projecte.</p>
 <h2 id="transicions">Transicions</h2>
+<p><a href="/setslide/transitions">Transicions</a></p>
 <p>Les transicions ens permeten fer que, cada cop que una propietat determinada canvii (per exemple perquè s'ha afegit o llevat una classe d'un element, el ratolí a entrat o sortit de damunt ell, etc...) el canvi es faci de forma progressiva.</p>
 <p>No totes les propietats admeten transició. Per exemple, la propietat <em>display</em> pot valer <code>block</code> o <code>none</code>, entre d'altres, però no hi ha valors <em>intermigs</em> possibles.</p>
 <p>En canvi, la propietat <em>opacity</em> sí que pot variar gradualment de 0 a 1, viceversa o entre qualsevol dels seus possibles valors.</p>
+<p><a href="/setslide/transition_properties">Propietats de Transicions</a></p>
 <p>Per controlar les transaccions tenim les següents propietats:</p>
 <ul>
 <li><em>transition-duration</em>: Especifica el nombre de milisegons que tardarà la transacció en completar-se.</li>
@@ -256,16 +279,19 @@
 <p>Només cal especificar-les una rera l'altra separades per comes igual com feiem amb les imatges de fons.</p>
 </blockquote>
 <h2 id="transformacions">Transformacions</h2>
+<p><a href="/setslide/transformations">Transformacions</a></p>
 <p>La propietat <code>transform</code>, com el seu nom indica, ens permet definir <em>transformacions</em> sobre l'aspecte de l'element en que s'apliquen.</p>
 <p>Per fer-ho disposam d'una llarga llista de funcions que, de nou separades per comes, podem especificar a la propietat <em>transform</em>.</p>
 <p>Aquestes funcions ens permeten des de moure l'element de la seva ubicació original fins a complexes operacions en 3D com modificar la perspectiva, passant per rotar-lo (en 2 i 3 dimensions), escalar-lo, etc...</p>
 <p>A les referències teniu l'enllaç a la documentació amb la llista completa de les funcions disponibles.</p>
+<p><a href="/setslide/transformations_transition">Transició de Transformacions</a></p>
 <blockquote>
 <p>📌 La propietat <em>transform</em> accepta <em>transicions</em>. De manera que, combinant ambdues funcionalitats, podem obtenir vistoses transicions com les, de fet molt senzilles d'implementar, que heu estat veient a les diapositives d'aquest curs.</p>
 </blockquote>
 <p>D'igual manera a quan movem (<em>top</em>, <em>right</em>, <em>bottom</em> i/o <em>left</em>) un element amb <code>position: relative</code>, quan aplicam qualsevol transformació sobre l'element, si aquest tenia reservat un espaï al flux del document, (<em>position</em> <code>static</code> o <code>relative</code>), el conserva de manera que <strong>la transformació no té efecte sobre els altres elements</strong>.</p>
 <p>Cab ressaltar també, que tots els motors de CSS fan servir el hardware d'acceleració gràfica per a implementar les transformacions i transicions. De manera que aquestes no només aporten un elevat dinamisme als nostres dissenys sinó que, a més, ho fan a un cost gairebé imperceptible.</p>
 <h2 id="animacions">Animacions</h2>
+<p><a href="/setslide/animations">Animacions</a></p>
 <p>Finalment, les animacions, de manera semblant a les transicions, ens permeten fer que algunes propietats (transformacions incloses) variin de forma progressiva.</p>
 <p>Simplement les <em>animacions</em> ens permeten especificar processos més llargs, amb múltiples passos intermitjos i, opcionalment, fer que es repeteixin en el temps si ho desitjam.</p>
 <p>Per a més informació, a les referències teniu l'enllaç a la documentació del <em>w3Schools</em>.</p>

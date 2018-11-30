@@ -799,19 +799,34 @@
 <p><a href="/setslide/jquery_example">Exemple jQuery</a></p>
 <p>Un exemple d'ús senzill podria ser el següent:</p>
 <pre><code>$(&quot;.menu&quot;).on(&quot;click&quot;, function(ev){
-  $(ev.target).toggleClass(&quot;open&quot;);
+    // console.log(ev); // (Descomentar per inspeccionar l&#39;event)
+    $(ev.target)
+        .closest(&quot;.menu&quot;)
+        .toggleClass(&quot;open&quot;)
+    ;
 });</code></pre>
 <p>...on fem el següent:</p>
 <ul>
 <li><p>Capturam tots els elements amb la classe &quot;menu&quot;.</p></li>
 <li><p>Els assignam un manejador (callback) per a l'event de click.</p></li>
-<li><p>Quan l'event ocorre (fem click sobre un menú), obtenim l'element sobre el que ha ocorregut (ev.target) i el convertim en una instància de jquery (<code>$(...)</code>).</p></li>
-<li><p>Sobre aquesta instància invocam el mètode <code>toggleClass()</code> que ens afegirà la classe &quot;open&quot; en el cas de que no la tingui ja o l'eliminarà en cas contrari.</p></li>
+<li><p>Quan l'event ocorre, obtenim l'element sobre el que ha passat (ev.target)</p></li>
+<li><p>...l'embolicam amb <code>$(...)</code> per convertir-lo en un objecte jQuery.</p></li>
+<li><p>Després, amb el mètode <code>closest()</code> obtenim l'ancestre més pròxim amb la classe &quot;menu&quot; (ja que el click l'haurem fet sobre l'etiqueta o, si estava obert, sobre alguna de les opcions).</p></li>
+<li><p>Utilitzam el mètode <code>toggleClass()</code> per afegir o treure (alternativament) la classe &quot;open&quot; al contenidor del menú.</p></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><p>Capturant l'event sobre el menú sencer en comtes de només sobre l'etiqueta aconseguim que, en fer click sobre qualsevol de les opcions, el menú es tanqui (que és el comportament que normalment s'espera en un menú &quot;pop-up&quot;).</p></li>
+<li>Alternativament podriem haver desat la captura del menú en una variable (<code>var $menu = $(&quot;.menu&quot;)</code>) i posteriorment applicar el mètode <code>toggleClass()</code> sobre aquesta variable.
+<ul>
+<li>Però d'aquesta manera només podriem tenir un únic menú ja que, en cas de tenir-ne més, en clicar sobre qualsevol d'ells s'activarien tots.</li>
+</ul></li>
 </ul>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
 <p><a href="/setslide/exercici_3">Exercici_3</a></p>
 <p>Implementau un menú &quot;popup&quot; com el de l'exercici anterior. Però que en aquest cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.</p>
+<p>Per aconseguir-ho podeu fer servir el fragment en jQuery de l'exemple anterior que commuta la classe &quot;open&quot;.</p>
 <h3 id="opcionalment">Opcionalment:</h3>
 <p>Ajustau els colors de la pàgina i el menú fent servir variables css.</p>
 <ul>

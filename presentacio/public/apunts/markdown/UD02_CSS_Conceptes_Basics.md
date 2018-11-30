@@ -1090,7 +1090,11 @@ Un exemple d'ús senzill podria ser el següent:
 
 ```
 $(".menu").on("click", function(ev){
-  $(ev.target).toggleClass("open");
+    // console.log(ev); // (Descomentar per inspeccionar l'event)
+    $(ev.target)
+        .closest(".menu")
+        .toggleClass("open")
+    ;
 });
 ```
 
@@ -1100,14 +1104,30 @@ $(".menu").on("click", function(ev){
 
   * Els assignam un manejador (callback) per a l'event de click.
 
-  * Quan l'event ocorre (fem click sobre un menú), obtenim l'element sobre el
-    que ha ocorregut (ev.target) i el convertim en una instància de jquery
-    (`$(...)`).
+  * Quan l'event ocorre, obtenim l'element sobre el que ha passat (ev.target)
 
-  * Sobre aquesta instància invocam el mètode `toggleClass()` que ens afegirà
-    la classe "open" en el cas de que no la tingui ja o l'eliminarà en cas
-    contrari.
+  * ...l'embolicam amb `$(...)` per convertir-lo en un objecte jQuery.
 
+  * Després, amb el mètode `closest()` obtenim l'ancestre més pròxim amb la
+    classe "menu" (ja que el click l'haurem fet sobre l'etiqueta o, si estava
+    obert, sobre alguna de les opcions).
+
+  * Utilitzam el mètode `toggleClass()` per afegir o treure (alternativament)
+    la classe "open" al contenidor del menú.
+
+
+**Notes:**
+
+  * Capturant l'event sobre el menú sencer en comtes de només sobre l'etiqueta
+    aconseguim que, en fer click sobre qualsevol de les opcions, el menú es
+    tanqui (que és el comportament que normalment s'espera en un menú
+    "pop-up").
+
+  * Alternativament podriem haver desat la captura del menú en una variable
+    (`var $menu = $(".menu")`) i posteriorment applicar el mètode
+    `toggleClass()` sobre aquesta variable.
+    - Però d'aquesta manera només podriem tenir un únic menú ja que, en cas de
+      tenir-ne més, en clicar sobre qualsevol d'ells s'activarien tots.
 
 -----------------------------------------------------------------------------------------
 
@@ -1118,6 +1138,9 @@ Exercici 3
 
 Implementau un menú "popup" com el de l'exercici anterior. Però que en aquest
 cas calgui fer click sobre l'etiqueta per obrir-lo o tancar-lo.
+
+Per aconseguir-ho podeu fer servir el fragment en jQuery de l'exemple anterior
+que commuta la classe "open".
 
 
 ### Opcionalment:

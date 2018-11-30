@@ -436,7 +436,7 @@ Però no en tots els casos els marges col·lapsen...
 Recursos
 --------
 
-  * Model de Caixa: [https://www.w3schools.com/css/css_boxmodel.asp]()
+  * Model de Caixa: [https://www.w3schools.com/css/css_boxmodel.asp](https://www.w3schools.com/css/css_boxmodel.asp)
 
 
 

@@ -504,16 +504,16 @@ Per a més informació, a les referències teniu l'enllaç a la documentació de
 Referències
 -----------
 
-  * Noms de Colors: [https://www.w3schools.com/colors/colors_names.asp]()
-  * Propietat *background-image*: [https://www.w3schools.com/cssref/pr_background-image.asp]()
-  * Blending Modes: [https://css-tricks.com/basics-css-blend-modes/]()
+  * Noms de Colors: [https://www.w3schools.com/colors/colors_names.asp](https://www.w3schools.com/colors/colors_names.asp)
+  * Propietat *background-image*: [https://www.w3schools.com/cssref/pr_background-image.asp](https://www.w3schools.com/cssref/pr_background-image.asp)
+  * Blending Modes: [https://css-tricks.com/basics-css-blend-modes/](https://css-tricks.com/basics-css-blend-modes/)
   * Web Fonts:
-    - Google Fonts [https://fonts.google.com/]()
-    - Typekit [https://www.typekit.com/]()
-    - Webtype [https://www.webtype.com]()
-  * Transicions: [https://www.w3schools.com/css/css3_transitions.asp]()
-  * Transformacions: [https://www.w3schools.com/cssref/css3_pr_transform.asp]()
-  * Animacions: [https://www.w3schools.com/css/css3_animations.asp]()
+    - Google Fonts [https://fonts.google.com/](https://fonts.google.com/)
+    - Typekit [https://www.typekit.com/](https://www.typekit.com/)
+    - Webtype [https://www.webtype.com](https://www.webtype.com)
+  * Transicions: [https://www.w3schools.com/css/css3_transitions.asp](https://www.w3schools.com/css/css3_transitions.asp)
+  * Transformacions: [https://www.w3schools.com/cssref/css3_pr_transform.asp](https://www.w3schools.com/cssref/css3_pr_transform.asp)
+  * Animacions: [https://www.w3schools.com/css/css3_animations.asp](https://www.w3schools.com/css/css3_animations.asp)
 
 
 
@@ -561,6 +561,6 @@ A les referències teniu l'enllaç a la llista completa de les APIs HTML5 existe
 Referències
 -----------
 
-  * HTML5 APIs Index: [http://html5index.org/]()
+  * HTML5 APIs Index: [http://html5index.org/](http://html5index.org/)
 
 

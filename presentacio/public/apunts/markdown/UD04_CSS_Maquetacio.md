@@ -1184,13 +1184,13 @@ Referències:
 ------------
 
   * Maquetació amb Floats:
-    - [https://css-tricks.com/almanac/properties/f/float/#article-header-id-3]()
+    - [https://css-tricks.com/almanac/properties/f/float/#article-header-id-3](https://css-tricks.com/almanac/properties/f/float/#article-header-id-3)
   * Flexbox:
-    - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/]()
+    - [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
   * Grid:
-    - [https://css-tricks.com/snippets/css/complete-guide-grid/]()
+    - [https://css-tricks.com/snippets/css/complete-guide-grid/](https://css-tricks.com/snippets/css/complete-guide-grid/)
   * Media Queries:
-    - [https://developer.mozilla.org/es/docs/CSS/Media_queries]()
+    - [https://developer.mozilla.org/es/docs/CSS/Media_queries](https://developer.mozilla.org/es/docs/CSS/Media_queries)
 
 
 

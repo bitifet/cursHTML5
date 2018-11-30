@@ -68,7 +68,7 @@ CSS - Conceptes Bàsics
   5. Transition – Proposed Recommendations (PR)
   6. Recommendation (REC)
 >
-**Font:** [https://css-tricks.com/css-standards-process/]()
+**Font:** [https://css-tricks.com/css-standards-process/](https://css-tricks.com/css-standards-process/)
 >
 
 [Nomenclatura CSS](/setslide/nomenclatura_css)
@@ -147,7 +147,7 @@ o si el cursor del ratolí es troba a sobre d'ells.
 
 La llista completa de selectors de pseudo-classe es pot trobar al MDN sota:
 
-  * [https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes]().
+  * [https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes).
 
 
 
@@ -206,7 +206,7 @@ característiques de camps de formularis (tags `<input>`, `<textarea>`,
 **:warning:  Avís:** Alguns d'ells han estat introduïts o redefinits recentment pel que no
 funcionaran com s'espera en alguns navegadors.
 >
-Haurem de consultar cadascun a [http://caniuse.com]() per a saber exactament
+Haurem de consultar cadascun a [http://caniuse.com](http://caniuse.com) per a saber exactament
 com estan de suportats als distints navegadors.
 >
 
@@ -960,31 +960,31 @@ Referències
 -----------
 
   * Documentació HTML i CSS:
-    - W3C: [https://www.w3schools.com]()
-    - Mozilla Documentation Project: [https://developer.mozilla.org]()
+    - W3C: [https://www.w3schools.com](https://www.w3schools.com)
+    - Mozilla Documentation Project: [https://developer.mozilla.org](https://developer.mozilla.org)
 
-  * Autoprefixer: [https://github.com/postcss/autoprefixer]()
-    - (En realitat és un mòdul del preprocessador modular PostCSS: [https://postcss.org/]())
+  * Autoprefixer: [https://github.com/postcss/autoprefixer](https://github.com/postcss/autoprefixer)
+    - (En realitat és un mòdul del preprocessador modular PostCSS: [https://postcss.org/](https://postcss.org/))
 
-  * Especificitat: [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity]()
+  * Especificitat: [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 
   * Frameworks CSS:
-    - SASS: [https://sass-lang.com/]()
+    - SASS: [https://sass-lang.com/](https://sass-lang.com/)
 
-  * Unitats CSS: [https://www.w3schools.com/cssref/css_units.asp]()
+  * Unitats CSS: [https://www.w3schools.com/cssref/css_units.asp](https://www.w3schools.com/cssref/css_units.asp)
 
-  * CanIUse: [https://caniuse.com]().
+  * CanIUse: [https://caniuse.com](https://caniuse.com).
     - Ens permet saber com de suportada està una funcionalitat als múltiples
       navegadors que hi ha al mercat.
     - A més, de vegades també ens suggereix *fallbacks* per casos específics.
 
-  * Regles "AT": [https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule]()
+  * Regles "AT": [https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule)
 
 
 ### Altres (Curiositats)
 
   * Media print:
-    - Designing For Print With CSS: [https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/]()
+    - Designing For Print With CSS: [https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/](https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/)
       + Maquetació avançada d'impressió
       + (Desgraciadament cap navegador suporta massa més que establir els marges).
       + Però si algun dia volem escriure un llibre o generar documents impresos
@@ -1139,10 +1139,10 @@ Ajustau els colors de la pàgina i el menú fent servir variables css.
 Referències
 -----------
 
-  * jQuery: [https://jquery.com/]()
-    - Documentació [https://api.jquery.com]()
-    - Tutorial: [https://www.w3schools.com/jquery/]()
+  * jQuery: [https://jquery.com/](https://jquery.com/)
+    - Documentació [https://api.jquery.com](https://api.jquery.com)
+    - Tutorial: [https://www.w3schools.com/jquery/](https://www.w3schools.com/jquery/)
 
-  * You might not need jQuery: [http://youmightnotneedjquery.com/]()
+  * You might not need jQuery: [http://youmightnotneedjquery.com/](http://youmightnotneedjquery.com/)
 
 

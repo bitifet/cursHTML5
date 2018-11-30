@@ -346,16 +346,16 @@ Nous a HTML5
 #### Referències
 
   * **Elements HTML5:**
-    - Nous elements HTML5: [https://www.w3schools.com/html/html5_new_elements.asp]().
-    - Referència completa: [https://www.tutorialspoint.com/html5/html5_tags.htm]().
+    - Nous elements HTML5: [https://www.w3schools.com/html/html5_new_elements.asp](https://www.w3schools.com/html/html5_new_elements.asp).
+    - Referència completa: [https://www.tutorialspoint.com/html5/html5_tags.htm](https://www.tutorialspoint.com/html5/html5_tags.htm).
   * **Atributs HTML5:**
-    - Referència competa d'atributs: [https://www.w3schools.com/tags/ref_attributes.asp]().
+    - Referència competa d'atributs: [https://www.w3schools.com/tags/ref_attributes.asp](https://www.w3schools.com/tags/ref_attributes.asp).
   * **Altres:**
-    - Viewport: [https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag]().
+    - Viewport: [https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
   * **Frameworks:**
-    - React: [https://reactjs.org/]().
-    - Polymer: [https://www.polymer-project.org/]().
-    - Angular: [https://angular.io/]().
+    - React: [https://reactjs.org/](https://reactjs.org/).
+    - Polymer: [https://www.polymer-project.org/](https://www.polymer-project.org/).
+    - Angular: [https://angular.io/](https://angular.io/).
 
 
 ### Formularis
@@ -624,15 +624,15 @@ En camps de text ens permeten establir una longitud mínima i màxima.
 #### Referències
 
   * Tipus de camps en HTML5:
-    [https://www.w3schools.com/html/html_form_input_types.asp]()
+    [https://www.w3schools.com/html/html_form_input_types.asp](https://www.w3schools.com/html/html_form_input_types.asp)
 
   * Repositori d'expressions regulars comunes per HTML4:
-    [http://html5pattern.com/Miscs]()
+    [http://html5pattern.com/Miscs](http://html5pattern.com/Miscs)
 
-  * Tot sobre expressions regulars: [https://www.regular-expressions.info/]().
+  * Tot sobre expressions regulars: [https://www.regular-expressions.info/](https://www.regular-expressions.info/).
 
   * Més sobre validació de formularis:
-    [https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation]().
+    [https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation).
 
 
 
@@ -1119,18 +1119,18 @@ El més conegut és el *Babel*, que teniu també enllaçat a les referències.
 
 
   * Understanding Javascript OOP:
-    [https://robotlolita.me/2011/10/09/understanding-javascript-oop.html]().
+    [https://robotlolita.me/2011/10/09/understanding-javascript-oop.html](https://robotlolita.me/2011/10/09/understanding-javascript-oop.html).
 
   * Top 10 ES6 Features Every Busy JavaScript Developer Must Know:
-    [https://webapplog.com/es6/]().
+    [https://webapplog.com/es6/](https://webapplog.com/es6/).
 
-  * Modernizr: [https://modernizr.com/]().
+  * Modernizr: [https://modernizr.com/](https://modernizr.com/).
 
-  * Babel: [https://babeljs.io/]().
+  * Babel: [https://babeljs.io/](https://babeljs.io/).
 
   * Altres:
     - Motor de JavaScript V8 de Google:
-      [https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)]().
+      [https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)](https://ca.wikipedia.org/wiki/V8_(int%C3%A8rpret_JavaScript)).
 
 
 -----------------------------------------------------------------------------------------
@@ -1348,7 +1348,7 @@ u@m:~/exercicis/cursHTML5$ npm start
 [Express Welcome](/setslide/entorn_express_welcome)
 
 Ara hauríem de poder accedir al nostre servidor web a través del port 3000 del
-nostre PC. És a dir: a la url [http://localhost:3000]().
+nostre PC. És a dir: a la url [http://localhost:3000](http://localhost:3000).
 
   * També, si tenim el nostre mòbil connectat a la xarxa inalàmbrica i coneixem
     l'adreça IP del nostre ordinador (que podem obtenir amb les comandes
@@ -1359,7 +1359,7 @@ nostre PC. És a dir: a la url [http://localhost:3000]().
 >
 :pushpin: Si ara desam el fitxer que hem creat a l'exercici anterior sota el
 directori "public" i amb el nom "curriculum.html", veurem que podem accedir a
-ell sota al url [http://localhost:3000/curriculum.html]() (o amb la IP
+ell sota al url [http://localhost:3000/curriculum.html](http://localhost:3000/curriculum.html) (o amb la IP
 corresponent si volem poder accedir-hi també des del nostre smartphone).
 >
 
@@ -1501,17 +1501,17 @@ mesclar aquesta amb les dades a mostrar:
 Referències
 -----------
 
-  * *Sublime Text*: [https://www.sublimetext.com/]().
+  * *Sublime Text*: [https://www.sublimetext.com/](https://www.sublimetext.com/).
     - Instruccions Ubuntu:
-      [http://tipsonubuntu.com/2017/05/30/install-sublime-text-3-ubuntu-16-04-official-way/]().
+      [http://tipsonubuntu.com/2017/05/30/install-sublime-text-3-ubuntu-16-04-official-way/](http://tipsonubuntu.com/2017/05/30/install-sublime-text-3-ubuntu-16-04-official-way/).
 
   * Instal·lació Node.JS i NPM:
     - Via *NVM* (recomanat):
-      [https://github.com/creationix/nvm/blob/master/README.md#install-script]().
+      [https://github.com/creationix/nvm/blob/master/README.md#install-script](https://github.com/creationix/nvm/blob/master/README.md#install-script).
     - Amb el gestor de paquets del Sistema Operatiu:
-      [https://nodejs.org/es/download/package-manager/]().
-    - Instal·lació manual: [https://nodejs.org/en/download/]().
+      [https://nodejs.org/es/download/package-manager/](https://nodejs.org/es/download/package-manager/).
+    - Instal·lació manual: [https://nodejs.org/en/download/](https://nodejs.org/en/download/).
 
-  * Motor de plantilles Pug: [https://pugjs.org]().
+  * Motor de plantilles Pug: [https://pugjs.org](https://pugjs.org).
 
 

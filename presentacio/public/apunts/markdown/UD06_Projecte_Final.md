@@ -157,10 +157,10 @@ que, com sabeu, a les màquines virtuals no el podrem tornar a generar).
 Referències
 -----------
 
-  * Lorem Ipsum: [https://loremipsum.io]()
+  * Lorem Ipsum: [https://loremipsum.io](https://loremipsum.io)
   * Utilitats per generar gradients:
-    - [https://goo.gl/zx5TW5]()
-    - [https://uigradients.com]()
-  * Icones CSS: [https://cssicon.space]()
+    - [https://goo.gl/zx5TW5](https://goo.gl/zx5TW5)
+    - [https://uigradients.com](https://uigradients.com)
+  * Icones CSS: [https://cssicon.space](https://cssicon.space)
 
 
